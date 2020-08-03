@@ -40,10 +40,10 @@ export default () => {
           </Sticky>
           <BannerSection />
           <ServiceSection />
-          <UpdateScreen />
+          {/* <UpdateScreen /> */}
           <FeatureSection />
           <PartnerSection />
-          <PricingSection />
+          {/* <PricingSection /> */}
           <TestimonialSection />
           <TrialSection />
           <Newsletter />

@@ -95,16 +95,16 @@ const BannerSection = ({
             />
             <Box {...buttonWrapper}>
               <a href="#1">
-                <Button {...fillButton} title="FREE TRIAL 2" />
+                <Button {...fillButton} title="FREE TRIAL" />
               </a>
-              <a href="#1">
+              {/* <a href="#1">
                 <Button
                   {...button}
                   title="WATCH VIDEO"
                   icon={<Icon icon={ic_play_circle_filled} size={30} />}
                   iconPosition="left"
                 />
-              </a>
+              </a> */}
             </Box>
           </Box>
           <Box {...imageWrapper}>

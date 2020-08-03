@@ -8,7 +8,7 @@ import Image from '../../../../../common/src/components/Image';
 import Container from '../../../../../common/src/components/UI/Container';
 
 import PartnerSectionWrapper from './partner.style';
-import Partner from '../../../../../common/src/assets/image/saasClassic/partner.png';
+import Partner from '../../../../../common/src/assets/image/saasClassic/contactmajor_homepage_logos_medias.png';
 
 const PartnerSection = ({
   row,

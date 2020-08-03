@@ -1,13 +1,7 @@
 {
-  "MENU_ITEMS": [
-    {
+  "MENU_ITEMS": [{
       "label": "Home",
       "path": "#banner_section",
-      "offset": "0"
-    },
-    {
-      "label": "Screenshot",
-      "path": "#screenshot_section",
       "offset": "0"
     },
     {
@@ -16,18 +10,12 @@
       "offset": "0"
     },
     {
-      "label": "Pricing",
-      "path": "#pricing_section",
-      "offset": "0"
-    },
-    {
       "label": "Testimonial",
       "path": "#testimonial_section",
       "offset": "0"
     }
   ],
-  "SERVICE_ITEMS": [
-    {
+  "SERVICE_ITEMS": [{
       "icon": "flaticon-stopwatch-1",
       "title": "Fast Performance"
     },
@@ -48,16 +36,14 @@
       "title": "Export Presets"
     }
   ],
-  "MONTHLY_PRICING_TABLE": [
-    {
+  "MONTHLY_PRICING_TABLE": [{
       "name": "Basic Account",
       "description": "For Small teams or group who need to build website ",
       "price": "$0",
       "priceLabel": "Only for first month",
       "buttonLabel": "Start for free",
       "url": "#",
-      "listItems": [
-        {
+      "listItems": [{
           "content": "Drag & Drop Builder"
         },
         {
@@ -83,8 +69,7 @@
       "url": "#",
       "trialButtonLabel": "Or Start 14 Days trail",
       "trialURL": "#",
-      "listItems": [
-        {
+      "listItems": [{
           "content": "Drag & Drop Builder"
         },
         {
@@ -110,8 +95,7 @@
       "url": "#",
       "trialButtonLabel": "Or Start 14 Days trail",
       "trialURL": "#",
-      "listItems": [
-        {
+      "listItems": [{
           "content": "Drag & Drop Builder"
         },
         {
@@ -129,16 +113,14 @@
       ]
     }
   ],
-  "YEARLY_PRICING_TABLE": [
-    {
+  "YEARLY_PRICING_TABLE": [{
       "name": "Basic Account",
       "description": "For a single client or team who need to build website ",
       "price": "$0",
       "priceLabel": "Only for first month",
       "buttonLabel": "Start for free",
       "url": "#",
-      "listItems": [
-        {
+      "listItems": [{
           "content": "Drag & Drop Builder"
         },
         {
@@ -164,8 +146,7 @@
       "url": "#",
       "trialButtonLabel": "Or Start 14 Days trail",
       "trialURL": "#",
-      "listItems": [
-        {
+      "listItems": [{
           "content": "Unlimited secure storage"
         },
         {
@@ -191,8 +172,7 @@
       "url": "#",
       "trialButtonLabel": "Or Start 14 Days trail",
       "trialURL": "#",
-      "listItems": [
-        {
+      "listItems": [{
           "content": "Drag & Drop Builder"
         },
         {
@@ -210,8 +190,7 @@
       ]
     }
   ],
-  "FAQ_DATA": [
-    {
+  "FAQ_DATA": [{
       "expend": true,
       "title": "How to contact with Customer Service?",
       "description": "Our Customer Experience Team is available 7 days a week and we offer 2 ways to get in contact.Email and Chat . We try to reply quickly, so you need not to wait too long for a response!. "
@@ -229,11 +208,9 @@
       "description": "We are giving the update of this theme continuously . You will receive an email Notification when we push an update. Always try to be updated with us ."
     }
   ],
-  "FOOTER_WIDGET": [
-    {
+  "FOOTER_WIDGET": [{
       "title": "About Us",
-      "menuItems": [
-        {
+      "menuItems": [{
           "url": "#",
           "text": "Support Center"
         },
@@ -257,8 +234,7 @@
     },
     {
       "title": "Our Information",
-      "menuItems": [
-        {
+      "menuItems": [{
           "url": "#",
           "text": "Return Policy"
         },
@@ -282,8 +258,7 @@
     },
     {
       "title": "My Account",
-      "menuItems": [
-        {
+      "menuItems": [{
           "url": "#",
           "text": "Press inquiries"
         },
@@ -307,8 +282,7 @@
     },
     {
       "title": "Policy",
-      "menuItems": [
-        {
+      "menuItems": [{
           "url": "#",
           "text": "Application security"
         },
@@ -327,8 +301,7 @@
       ]
     }
   ],
-  "FEATURES": [
-    {
+  "FEATURES": [{
       "icon": "flaticon-hourglass",
       "title": "App Development",
       "description": "Get your proof tests delivered home collect a sample from the news get design."
@@ -359,8 +332,7 @@
       "description": "Get your proof tests delivered home collect a sample from the news get design."
     }
   ],
-  "TESTIMONIALS": [
-    {
+  "TESTIMONIALS": [{
       "title": "Modern look & trending design",
       "review": "Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.",
       "name": "Jon Doe",
