@@ -6,6 +6,7 @@ import Text from '../../../../../common/src/components/Text';
 import Heading from '../../../../../common/src/components/Heading';
 import Container from '../../../../../common/src/components/UI/Container';
 import SectionWrapper from './service.style';
+import FeatureBlock from '../../../../../common/src/components/FeatureBlock';
 
 const ServiceSection = ({
   secTitleWrapper,
@@ -13,14 +14,26 @@ const ServiceSection = ({
   secHeading,
   Row,
   Col,
+  row,
+  col,
   serviceTitleStyle,
-  secDes
+  secDes,
+  FeatureItemStyle,
+  iconStyle,
+  contentStyle,
+  featureTitle,
+  featureDescription
 }) => {
   const Data = useStaticQuery(graphql`
     query {
       saasClassicJson {
         SERVICE_ITEMS {
           title
+          icon
+        }
+        FEATURES {
+          title
+          description
           icon
         }
       }
@@ -40,6 +53,24 @@ const ServiceSection = ({
             {...secDes}
             content="The rise of mobile devices transforms the way we consume information entirely and the world's most relevant channels such as Facebook and Instagram are almost exclusively used on mobile that is why we developed mobile."
           />
+        </Box>
+
+        <Box {...row}>
+          {Data.saasClassicJson.FEATURES.map((item, index) => (
+            <Box {...col} key={`feature-item-${index}`} className="feature_col">
+              <FeatureBlock
+                icon={<i className={item.icon} />}
+                wrapperStyle={FeatureItemStyle}
+                iconStyle={iconStyle}
+                contentStyle={contentStyle}
+                iconPosition="left"
+                title={<Heading content={item.title} {...featureTitle} />}
+                description={
+                  <Text content={item.description} {...featureDescription} />
+                }
+              />
+            </Box>
+          ))}
         </Box>
 
         {/* <Box {...Row}>
@@ -68,12 +99,57 @@ ServiceSection.propTypes = {
   secText: PropTypes.object,
   secHeading: PropTypes.object,
   Row: PropTypes.object,
+  row: PropTypes.object,
+  col: PropTypes.object,
+  contentStyle: PropTypes.object,
   Col: PropTypes.object,
   serviceTitleStyle: PropTypes.object,
   secDes: PropTypes.object
 };
 
 ServiceSection.defaultProps = {
+  row: {
+    flexBox: true,
+    flexWrap: 'wrap',
+    ml: ['-30px', '-30px', '-30px', '-25px', '-30px'],
+    mr: ['-30px', '-30px', '-30px', '-25px', '-45px']
+  },
+  col: {
+    width: [1, 1 / 2, 1 / 2, 1 / 3],
+    pl: ['30px', '30px', '30px', '25px', '45px'],
+    pr: ['30px', '30px', '30px', '25px', '45px'],
+    mb: ['50px', '70px']
+  },
+  FeatureItemStyle: {},
+  iconStyle: {
+    width: ['72px', '72px', '72px', '72px', '82px'],
+    height: ['72px', '72px', '72px', '72px', '82px'],
+    mr: '20px',
+    borderRadius: ['20px', '20px', '20px', '20px', '28px'],
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    bg: '#ffecef',
+    color: '#ff4361',
+    fontSize: ['26px', '26px', '26px', '26px', '30px']
+  },
+  featureTitle: {
+    fontSize: ['17px', '19px'],
+    fontWeight: '500',
+    color: '#fff',
+    // color: '#0f2137',
+    letterSpacing: '-0.020em',
+    lineHeight: '1.5',
+    mb: ['10px', '13px']
+  },
+  featureDescription: {
+    fontSize: '15px',
+    fontWeight: '400',
+    color: '#5d646d',
+    letterSpacing: '-0.025em',
+    lineHeight: '1.88',
+    mb: 0
+  },
   secTitleWrapper: {
     mb: ['60px', '80px']
   },

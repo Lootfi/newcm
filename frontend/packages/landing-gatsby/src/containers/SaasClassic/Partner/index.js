@@ -20,30 +20,28 @@ const PartnerSection = ({
   imageArea
 }) => {
   return (
-    <PartnerSectionWrapper>
-      <Container>
-        <Box {...row}>
-          <Box {...col} {...imageArea}>
-            <Image src={Partner} alt="Domain Image" />
-          </Box>
-          <Box {...col} {...textArea}>
-            <Heading
-              {...title}
-              content="Meet our business partner who work behind the scene"
-            />
-            <Text
-              {...description}
-              content="You can trust us for any kind of services and some of the world class companies have also trusted us.So have faith and keep in touch with us ."
-            />
-            <Box>
-              <a href="#1">
-                <Button {...button} title="LEARN MORE" />
-              </a>
-            </Box>
+    <Container>
+      <Box {...row}>
+        <Box {...col} {...imageArea}>
+          <Image src={Partner} alt="Domain Image" />
+        </Box>
+        <Box {...col} {...textArea}>
+          <Heading
+            {...title}
+            content="Meet our business partner who work behind the scene"
+          />
+          <Text
+            {...description}
+            content="You can trust us for any kind of services and some of the world class companies have also trusted us.So have faith and keep in touch with us ."
+          />
+          <Box>
+            <a href="#1">
+              <Button {...button} title="LEARN MORE" />
+            </a>
           </Box>
         </Box>
-      </Container>
-    </PartnerSectionWrapper>
+      </Box>
+    </Container>
   );
 };
 

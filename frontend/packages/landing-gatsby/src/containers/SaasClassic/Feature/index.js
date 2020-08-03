@@ -1,58 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useStaticQuery, graphql } from 'gatsby';
 import Box from '../../../../../common/src/components/Box';
 import Text from '../../../../../common/src/components/Text';
 import Heading from '../../../../../common/src/components/Heading';
-import FeatureBlock from '../../../../../common/src/components/FeatureBlock';
 import Container from '../../../../../common/src/components/UI/Container';
 
 import SectionWrapper from './feature.style';
 
-const FeatureSection = ({
-  secTitleWrapper,
-  secText,
-  secHeading,
-  row,
-  col,
-  FeatureItemStyle,
-  iconStyle,
-  contentStyle,
-  featureTitle,
-  featureDescription
-}) => {
-  const Data = useStaticQuery(graphql`
-    query {
-      saasClassicJson {
-        FEATURES {
-          title
-          description
-          icon
-        }
-      }
-    }
-  `);
-
+const FeatureSection = ({ secTitleWrapper, secText, secHeading }) => {
   return (
     <SectionWrapper id="feature_section">
       <Container>
-        <Box {...row}>
-          {Data.saasClassicJson.FEATURES.map((item, index) => (
-            <Box {...col} key={`feature-item-${index}`} className="feature_col">
-              <FeatureBlock
-                icon={<i className={item.icon} />}
-                wrapperStyle={FeatureItemStyle}
-                iconStyle={iconStyle}
-                contentStyle={contentStyle}
-                iconPosition="left"
-                title={<Heading content={item.title} {...featureTitle} />}
-                description={
-                  <Text content={item.description} {...featureDescription} />
-                }
-              />
-            </Box>
-          ))}
-        </Box>
         <Box {...secTitleWrapper}>
           <Text {...secText} content="PRODUCT COMPARISON" />
           <Heading
