@@ -49,7 +49,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
           />
           <Logo
             href="/"
-            logoSrc={LogoImageAlt}
+            logoSrc={LogoImage}
             title="Portfolio"
             logoStyle={logoStyle}
             className="logo-alt"

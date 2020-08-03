@@ -128,7 +128,7 @@ export const ContentWrapper = styled.div`
   overflow: hidden;
   .sticky-nav-active {
     .saas_navbar {
-      background: #fff;
+      background: #000;
       box-shadow: 0px 3px 8px 0px rgba(43, 83, 135, 0.08);
       padding: 15px 0;
       .main-logo {

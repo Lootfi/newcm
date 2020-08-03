@@ -8,14 +8,10 @@ const FooterWrapper = styled.footer`
   padding: 15px 0 40px 0;
 
   .footer_container {
-    background-repeat: no-repeat;
-    background-position: center 50px;
+    background-color: rgb(255, 255, 255);
     padding-top: 80px;
     padding-bottom: 80px;
     position: relative;
-    @media (min-width: 576px) {
-      background-image: url(${FooterImage});
-    }
     @media (max-width: 990px) {
       padding-bottom: 40px;
     }
