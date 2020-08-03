@@ -36,14 +36,6 @@ const FeatureSection = ({
   return (
     <SectionWrapper id="feature_section">
       <Container>
-        <Box {...secTitleWrapper}>
-          <Text {...secText} content="PRODUCT COMPARISON" />
-          <Heading
-            {...secHeading}
-            content="Whats different from other dashboards"
-          />
-        </Box>
-
         <Box {...row}>
           {Data.saasClassicJson.FEATURES.map((item, index) => (
             <Box {...col} key={`feature-item-${index}`} className="feature_col">
@@ -60,6 +52,13 @@ const FeatureSection = ({
               />
             </Box>
           ))}
+        </Box>
+        <Box {...secTitleWrapper}>
+          <Text {...secText} content="PRODUCT COMPARISON" />
+          <Heading
+            {...secHeading}
+            content="Whats different from other dashboards"
+          />
         </Box>
       </Container>
     </SectionWrapper>
@@ -137,7 +136,8 @@ FeatureSection.defaultProps = {
   featureTitle: {
     fontSize: ['17px', '19px'],
     fontWeight: '500',
-    color: '#0f2137',
+    color: '#fff',
+    // color: '#0f2137',
     letterSpacing: '-0.020em',
     lineHeight: '1.5',
     mb: ['10px', '13px']

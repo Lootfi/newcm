@@ -140,7 +140,7 @@ export const ContentWrapper = styled.div`
       .main_menu {
         li {
           a {
-            color: #000;
+            color: #fff;
             &:hover {
               color: #ff4361;
             }

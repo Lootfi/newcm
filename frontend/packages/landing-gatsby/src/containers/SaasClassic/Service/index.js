@@ -42,7 +42,7 @@ const ServiceSection = ({
           />
         </Box>
 
-        <Box {...Row}>
+        {/* <Box {...Row}>
           {Data.saasClassicJson.SERVICE_ITEMS.map((item, index) => (
             <Box
               {...Col}
@@ -57,7 +57,7 @@ const ServiceSection = ({
               </Box>
             </Box>
           ))}
-        </Box>
+        </Box> */}
       </Container>
     </SectionWrapper>
   );
