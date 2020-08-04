@@ -1,15 +1,16 @@
 {
   "name": "contactmajor",
+  "private": true,
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "workspaces": [
     "frontend/packages/common",
-    "frontend/packages/landing",
     "frontend/packages/landing-gatsby"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "gatsby-dev": "yarn workspace gatsby-landing run dev",
     "gatsby-build": "yarn workspace gatsby-landing run build"
   },
   "repository": {

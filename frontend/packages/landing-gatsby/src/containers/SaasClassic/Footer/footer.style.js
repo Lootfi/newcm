@@ -3,12 +3,13 @@ import FooterImage from '../../../../../common/src/assets/image/saasClassic/bann
 
 const FooterWrapper = styled.footer`
   position: relative;
-  background: #fff;
+  background: #000;
   overflow: hidden;
   padding: 15px 0 40px 0;
+  color: #fff;
 
   .footer_container {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
     padding-top: 80px;
     padding-bottom: 80px;
     position: relative;
@@ -25,7 +26,7 @@ const List = styled.ul``;
 
 const ListItem = styled.li`
   a {
-    color: rgba(52, 61, 72, 0.8);
+    color: rgba(200, 200, 200, 0.8);
     font-size: 14px;
     line-height: 36px;
     transition: all 0.2s ease;

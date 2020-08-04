@@ -14,7 +14,14 @@ import ScrollSpyMenu from '../../../../../common/src/components/ScrollSpyMenu';
 import LogoImage from '../../../../../common/src/assets/image/saasClassic/logo-white.png';
 import LogoImageAlt from '../../../../../common/src/assets/image/saasClassic/logo.png';
 
-const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
+const Navbar = ({
+  navbarStyle,
+  logoStyle,
+  button,
+  row,
+  menuWrapper,
+  handleLighbox
+}) => {
   const Data = useStaticQuery(graphql`
     query {
       saasClassicJson {
@@ -61,7 +68,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
               offset={-70}
             />
             <a href="#1" className="navbar_button">
-              <Button {...button} title="GET STARTED" />
+              <Button {...button} title="GET STARTED" onClick={handleLighbox} />
             </a>
             <Drawer
               width="420px"
@@ -77,7 +84,11 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
                 offset={-100}
               />
               <a href="#1" className="navbar_drawer_button">
-                <Button {...button} title="GET STARTED" />
+                <Button
+                  {...button}
+                  title="GET STARTED"
+                  onClick={handleLighbox}
+                />
               </a>
             </Drawer>
           </Box>

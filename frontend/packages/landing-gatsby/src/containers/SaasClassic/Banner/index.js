@@ -52,7 +52,8 @@ const BannerSection = ({
   imageWrapper,
   buttonWrapper,
   button,
-  fillButton
+  fillButton,
+  handleLighbox
 }) => {
   // modal handler
   const handleVideoModal = () => {
@@ -87,15 +88,19 @@ const BannerSection = ({
             </DiscountWrapper>
             <Heading
               {...title}
-              content="Ultimate Platform to monitor your best workflow."
+              content="Accés Illimité aux contacts de l'industrie musicale"
             />
             <Text
               {...description}
-              content="For Enhanced performance we use LiteSpeed Web Server, HTTP/2, PHP7. We make your website faster, which will help you to increase search ranking!"
+              content="Accés aux contacts de l'industrie musicale et les médias musique pour avoir les bonnes connexions pour booster votre carriére."
             />
             <Box {...buttonWrapper}>
               <a href="#1">
-                <Button {...fillButton} title="FREE TRIAL" />
+                <Button
+                  {...fillButton}
+                  title="FAIRE AVANCER VOTRE CARRIERS"
+                  onClick={handleLighbox}
+                />
               </a>
               {/* <a href="#1">
                 <Button

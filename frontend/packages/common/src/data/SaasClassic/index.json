@@ -303,32 +303,32 @@
   ],
   "FEATURES": [{
       "icon": "flaticon-hourglass",
-      "title": "App Development",
-      "description": "Get your proof tests delivered home collect a sample from the news get design."
+      "title": "Maisons de Disques / Labels",
+      "description": "Trouvez et soumettez votre musique aux principaux labels et maisons de disques."
     },
     {
       "icon": "flaticon-trophy-1",
-      "title": "10 Times Award",
+      "title": "Médias / Radios",
       "description": "Get your proof tests delivered home collect a sample from the news get design."
     },
     {
       "icon": "flaticon-upload",
-      "title": "Cloud Storage",
-      "description": "Get your proof tests delivered home collect a sample from the news get design."
+      "title": "Manager / Directeur artistique",
+      "description": "Trouvez l'agent qui aidera votre .."
     },
     {
       "icon": "flaticon-settings",
-      "title": "Customization",
+      "title": "Tourneurs",
       "description": "Get your proof tests delivered home collect a sample from the news get design."
     },
     {
       "icon": "flaticon-strategy",
-      "title": "UX Planning",
-      "description": "Get your proof tests delivered home collect a sample from the news get design."
+      "title": "Studios / Clipeurs",
+      "description": "Tous les contacts et Infos utiles sur les studios d'enregistrement et clipeurs de votre région."
     },
     {
       "icon": "flaticon-conversation",
-      "title": "Customer Support",
+      "title": "Dénicheurs de talents",
       "description": "Get your proof tests delivered home collect a sample from the news get design."
     }
   ],

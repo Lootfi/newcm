@@ -85,6 +85,9 @@ Footer.propTypes = {
 // Footer default style
 Footer.defaultProps = {
   // Footer row default style
+  ListItem: {
+    color: 'red'
+  },
   row: {
     flexBox: true,
     flexWrap: 'wrap',
@@ -114,7 +117,7 @@ Footer.defaultProps = {
   },
   // widget title default style
   titleStyle: {
-    color: '#343d48',
+    color: '#fff',
     fontSize: '16px',
     fontWeight: '700',
     mb: '30px'
@@ -126,7 +129,7 @@ Footer.defaultProps = {
   },
   // widget text default style
   textStyle: {
-    color: '#0f2137',
+    color: '#eee',
     fontSize: '16px',
     mb: '10px'
   }

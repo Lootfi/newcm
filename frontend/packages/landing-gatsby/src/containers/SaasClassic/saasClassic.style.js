@@ -108,6 +108,16 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 
+  .lightbox {
+    background: transparent !important;
+    border: 0!important;
+    .innerRndComponent{
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+  }
+
   .video-modal{
     background: transparent !important;
     border: 0!important;

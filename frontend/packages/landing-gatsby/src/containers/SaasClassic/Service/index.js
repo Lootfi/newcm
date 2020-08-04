@@ -44,14 +44,14 @@ const ServiceSection = ({
     <SectionWrapper>
       <Container>
         <Box {...secTitleWrapper}>
-          <Text {...secText} content="CUSTOMER SERVICE" />
+          <Text {...secText} content="LA BASE DE CONTACTS MUSIQUE ULTIME" />
           <Heading
             {...secHeading}
-            content="Choose dashboard for every stage of your customer journey"
+            content="+ 3.200 contacts dont vous avez besoin pour booster votre carriére"
           />
           <Text
             {...secDes}
-            content="The rise of mobile devices transforms the way we consume information entirely and the world's most relevant channels such as Facebook and Instagram are almost exclusively used on mobile that is why we developed mobile."
+            content="Contact direct avec les professionnels qui peuvent faire une différence dans votre carrière gràce à notre base de contacts compléte et à jour."
           />
         </Box>
 

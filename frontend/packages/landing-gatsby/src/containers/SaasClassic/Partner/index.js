@@ -28,15 +28,15 @@ const PartnerSection = ({
         <Box {...col} {...textArea}>
           <Heading
             {...title}
-            content="Meet our business partner who work behind the scene"
+            content="Contacter les médias premium pour mettre en avant votre musique"
           />
           <Text
             {...description}
-            content="You can trust us for any kind of services and some of the world class companies have also trusted us.So have faith and keep in touch with us ."
+            content="Entrez en contact avec les rédacteurs en chef, journalistes, personnes les plus influentes en France pour donner une nouvelle dimension à votre musique."
           />
           <Box>
             <a href="#1">
-              <Button {...button} title="LEARN MORE" />
+              <Button {...button} title="FAIRE AVANCER VOTRE CARRIERS" />
             </a>
           </Box>
         </Box>

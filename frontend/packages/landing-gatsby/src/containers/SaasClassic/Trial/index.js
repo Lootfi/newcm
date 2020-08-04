@@ -31,19 +31,19 @@ const TrialSection = ({
           <Box {...textArea}>
             <Heading
               {...title}
-              content="Start your 30 days free trials today!"
+              content="Commencer votre essai de 24h gratuit aujourd'hui! "
             />
             <Text
               {...description}
               content="Lorem ipsum dolor sit amet consectetur adipisicing elit sed eiusmod tempor incididunt labore dolore."
             />
             <Box {...buttonWrapper}>
-              <Button title="JOIN WITH SLACK" {...btnStyle} />
-              <Button
+              <Button title="GET STARTED" {...btnStyle} />
+              {/* <Button
                 title="Login with Email"
                 variant="textButton"
                 {...outlineBtnStyle}
-              />
+              /> */}
             </Box>
           </Box>
         </Box>
@@ -78,7 +78,8 @@ TrialSection.defaultProps = {
     justifyContent: 'center'
   },
   title: {
-    fontSize: ['28px', '32px', '36px', '42px', '48px'],
+    // fontSize: ['28px', '32px', '36px', '42px', '48px'],
+    fontSize: ['20px', '24px', '36px', '36px'],
     fontWeight: '500',
     color: 'headingColor',
     letterSpacing: '-0.025em',
