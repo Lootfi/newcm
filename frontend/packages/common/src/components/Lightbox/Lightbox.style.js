@@ -302,8 +302,8 @@ const LightboxWrapper = styled.div`
 .securty-1 {
   font-weight: 600;
   float: left;
-  position: absolute;
-  bottom: 0px;
+  // position: absolute;
+  // bottom: 0px;
 }
 
 .securty-1 .gua {
@@ -319,9 +319,17 @@ const LightboxWrapper = styled.div`
     background-color: #31333b;
     color: #ffffff;
   }
+  
+  
 
   .payment .field {
-    padding: 0px;
+    padding: 0px
+  }
+  @media (max-width: 400px){
+    .payment .field {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
   }
 
   .payment .payment-heading {
@@ -342,7 +350,7 @@ const LightboxWrapper = styled.div`
   }
 
   .padding-payment {
-    padding: 20px;
+    padding: 20px 20px 0px 20px;
   }
 
   .payment .form-container {
@@ -386,7 +394,7 @@ const LightboxWrapper = styled.div`
 
   .tablinks {
     padding: 10px;
-    width: 170px;
+    width: 160px;
     font-family: 'Poppins', sans-serif;
     background-color: transparent;
     font-size: 15px;
@@ -455,6 +463,7 @@ const LightboxWrapper = styled.div`
 
   .help-number p {
     font-size: 12px;
+    margin: 0 !important;
   }
 
   .ssl {
@@ -462,7 +471,7 @@ const LightboxWrapper = styled.div`
     border: 1px solid #818078;
     border-radius: 5px;
     font-size: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
   }
 
   .ssl img {
@@ -474,6 +483,11 @@ const LightboxWrapper = styled.div`
   }
 
   @media (max-width: 400px) {
+    .field p {
+      position: relative;
+      margin: 10px 0 10px auto;
+      transform: translate(-20%);
+    }
     form .btn,
     form .btn-red {
       width: 60%;

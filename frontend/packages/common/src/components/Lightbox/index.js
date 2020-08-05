@@ -76,7 +76,7 @@ const Lightbox = () => {
         spanEmail.className = 'error-message';
         document.querySelector('.slide').style.marginLeft = '-42.84%';
       }
-      openPayment(null, 'payment-cc');
+      document.getElementById('defaultOpen').click();
     }
 
     if (pageNum === 3) {
@@ -133,7 +133,7 @@ const Lightbox = () => {
             {/* INTRO SLIDE */}
             {/*  */}
 
-            <div className={classNames('page', 'slide')}>
+            {/* <div className={classNames('page', 'slide')}>
               <div className="header-form"></div>
 
               <div className="field">
@@ -157,13 +157,13 @@ const Lightbox = () => {
                   Suivant
                 </button>
               </div>
-            </div>
+            </div> */}
 
             {/*  */}
             {/* INTRO SLIDE 2 */}
             {/*  */}
 
-            <div className="page">
+            {/* <div className="page">
               <div className="header-form"></div>
 
               <div className="field">
@@ -187,13 +187,13 @@ const Lightbox = () => {
                   Suivant 2
                 </button>
               </div>
-            </div>
+            </div> */}
 
             {/*  */}
             {/* SIGNUP SLIDE */}
             {/*  */}
 
-            <div className="page">
+            {/* <div className="page">
               <div className="field">
                 <h2>Sign up now!</h2>
                 <p>Create an account to get started</p>
@@ -242,7 +242,7 @@ const Lightbox = () => {
                   Continue with email
                 </button>
               </div>
-            </div>
+            </div> */}
 
             {/*  */}
             {/* PAYMENT SLIDE */}
