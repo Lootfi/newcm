@@ -483,6 +483,14 @@ const LightboxWrapper = styled.div`
   }
 
   @media (max-width: 400px) {
+
+    .security-cc {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      bottom: 6px;
+    }
+
     .field p {
       position: relative;
       margin: 10px 0 10px auto;
