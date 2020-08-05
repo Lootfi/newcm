@@ -1,12 +1,17 @@
 import styled from 'styled-components';
 
 const LightboxWrapper = styled.div`
-  background: transparent;
-  padding: 15px 0 40px 0;
-  color: #000;
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
+  // background: transparent;
+  // padding: 15px 0 40px 0;
+  // color: #000;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  .container * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
 
   .lightbox_container {
     background-color: rgb(255, 255, 255);
@@ -47,7 +52,7 @@ const LightboxWrapper = styled.div`
 
   .payment-info h5 {
     color: #32a852;
-    font-weight: 600;
+    font-weight: 100;
   }
 
   p {
@@ -281,33 +286,34 @@ const LightboxWrapper = styled.div`
     width: 60px;
   }
 
-  .security-cc {
-    position: absolute;
-    bottom: 8px;
-    width: 320px;
-    left: 50%;
-    transform: translate(-50%);
-  }
+  
+.security-cc {
+  position: absolute;
+  // bottom: 8px;
+  width: 320px;
+  left: 50%;
+  transform: translate(-50%);
+}
 
-  .security-cc p {
-    width: 100%;
-  }
+.security-cc p {
+  width: 100%;
+}
 
-  .securty-1 {
-    font-weight: 600;
-    float: left;
-    position: absolute;
-    bottom: 0px;
-  }
+.securty-1 {
+  font-weight: 600;
+  float: left;
+  position: absolute;
+  bottom: 0px;
+}
 
-  .securty-1 .gua {
-    font-size: 30px;
-    line-height: 0px;
-  }
+.securty-1 .gua {
+  font-size: 30px;
+  // line-height: 0px;
+}
 
-  .securty-2 {
-    float: right;
-  }
+.securty-2 {
+  float: right;
+}
 
   .container .payment {
     background-color: #31333b;
@@ -465,6 +471,21 @@ const LightboxWrapper = styled.div`
     margin-right: 5px;
     padding-right: 5px;
     border-right: 1px solid #818078;
+  }
+
+  @media (max-width: 400px) {
+    form .btn,
+    form .btn-red {
+      width: 60%;
+    }
+
+    form p {
+      width 75%;
+    }
+    form .google,
+    form .facebook {
+      width: 75%;
+    }
   }
 `;
 

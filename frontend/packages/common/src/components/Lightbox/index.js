@@ -2,10 +2,10 @@ import React from 'react';
 import LightboxWrapper from './Lightbox.style';
 // import Image from 'gatsby-image';
 // import PropTypes from 'prop-types';
-// import Box from '../Box';
+import Box from '../Box';
 // import Text from '../Text';
 // import Heading from '../Heading';
-// import Container from '../UI/Container';
+import Container from '../UI/Container';
 import classNames from 'classnames';
 
 import GLogo from '../../assets/image/g-logo.png';
@@ -13,6 +13,8 @@ import FLogo from '../../assets/image/f-logo.png';
 import CCLogos from '../../assets/image/cc-logos.png';
 import PLogo from '../../assets/image/p-logo.png';
 import Lock from '../../assets/image/lock.png';
+import FirstImage from '../../assets/image/first-page.jpg';
+
 const Lightbox = () => {
   let [pageNum, setPageNum] = React.useState(0);
 
@@ -121,352 +123,345 @@ const Lightbox = () => {
 
   return (
     <LightboxWrapper>
-      <div className="lightbox_container">
-        <div className="container" id="container">
-          <div className="form-outer">
-            <form action="">
-              {/*  */}
-              {/* SLIDES BEGIN */}
-              {/*  */}
+      <div className="container" id="container">
+        <div className="form-outer">
+          <form action="">
+            {/* SLIDES BEGIN */}
+            {/*  */}
 
-              {/*  */}
-              {/* INTRO SLIDE */}
-              {/*  */}
+            {/*  */}
+            {/* INTRO SLIDE */}
+            {/*  */}
 
-              <div className={classNames('page', 'slide')}>
-                <div className="header-form"></div>
+            <div className={classNames('page', 'slide')}>
+              <div className="header-form"></div>
 
-                <div className="field">
-                  <h2>Try YourName for free</h2>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Vivamus et eros ligula. Phasellus varius, risus ut sagittis
-                    auctor, quam ante ultrices arcu, in venenatis dui odio vitae
-                    sem.
-                  </p>
-                  <div className="slider-dots">
-                    <div className={classNames('slider', 'open')}></div>
-                    <div className="slider"></div>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={nextPage}
-                    className="btn"
-                    id="firstNext"
-                  >
-                    Suivant
-                  </button>
+              <div className="field">
+                <h2>Try YourName for free</h2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Vivamus et eros ligula. Phasellus varius, risus ut sagittis
+                  auctor, quam ante ultrices arcu, in venenatis dui odio vitae
+                  sem.
+                </p>
+                <div className="slider-dots">
+                  <div className={classNames('slider', 'open')}></div>
+                  <div className="slider"></div>
                 </div>
+                <button
+                  type="button"
+                  onClick={nextPage}
+                  className="btn"
+                  id="firstNext"
+                >
+                  Suivant
+                </button>
               </div>
+            </div>
 
-              {/*  */}
-              {/* INTRO SLIDE 2 */}
-              {/*  */}
+            {/*  */}
+            {/* INTRO SLIDE 2 */}
+            {/*  */}
 
-              <div className="page">
-                <div className="header-form"></div>
+            <div className="page">
+              <div className="header-form"></div>
 
-                <div className="field">
-                  <h2>Try YourName for pay</h2>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Vivamus et eros ligula. Phasellus varius, risus ut sagittis
-                    auctor, quam ante ultrices arcu, in venenatis dui odio vitae
-                    sem.
-                  </p>
-                  <div className="slider-dots">
-                    <div className="slider"></div>
-                    <div className={classNames('slider', 'open')}></div>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={nextPage}
-                    className="btn"
-                    id="secondNext"
-                  >
-                    Suivant 2
-                  </button>
+              <div className="field">
+                <h2>Try YourName for pay</h2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Vivamus et eros ligula. Phasellus varius, risus ut sagittis
+                  auctor, quam ante ultrices arcu, in venenatis dui odio vitae
+                  sem.
+                </p>
+                <div className="slider-dots">
+                  <div className="slider"></div>
+                  <div className={classNames('slider', 'open')}></div>
                 </div>
+                <button
+                  type="button"
+                  onClick={nextPage}
+                  className="btn"
+                  id="secondNext"
+                >
+                  Suivant 2
+                </button>
               </div>
+            </div>
 
-              {/*  */}
-              {/* SIGNUP SLIDE */}
-              {/*  */}
+            {/*  */}
+            {/* SIGNUP SLIDE */}
+            {/*  */}
 
-              <div className="page">
-                <div className="field">
-                  <h2>Sign up now!</h2>
-                  <p>Create an account to get started</p>
-                  <div className="sign-up-social">
-                    <div className="google">
-                      <img src={GLogo} alt="Google G" />
-                      SIGN UP WITH GOOGLE
-                    </div>
-                    <div className="facebook">
-                      <img src={FLogo} alt="Facebook F" />
-                      SIGN UP WITH FACEBOOK
-                    </div>
+            <div className="page">
+              <div className="field">
+                <h2>Sign up now!</h2>
+                <p>Create an account to get started</p>
+                <div className="sign-up-social">
+                  <div className="google">
+                    <img src={GLogo} alt="Google G" />
+                    SIGN UP WITH GOOGLE
                   </div>
-                  <hr className="hr-text" data-content="OR" />
-                  <div className="form-container">
-                    <label htmlFor="email">Your email address:</label>
+                  <div className="facebook">
+                    <img src={FLogo} alt="Facebook F" />
+                    SIGN UP WITH FACEBOOK
+                  </div>
+                </div>
+                <hr className="hr-text" data-content="OR" />
+                <div className="form-container">
+                  <label htmlFor="email">Your email address:</label>
+                  <input
+                    id="email"
+                    type="text"
+                    name="email"
+                    placeholder="Your email address"
+                    autoComplete="off"
+                    value={inputs.email}
+                    onChange={changeValue}
+                  />
+                  <span className="error-message" id="email-span">
+                    Error message
+                  </span>
+                  <div className="check-container">
                     <input
-                      id="email"
-                      type="text"
-                      name="email"
-                      placeholder="Your email address"
-                      autoComplete="off"
-                      value={inputs.email}
-                      onChange={changeValue}
+                      type="checkbox"
+                      className="checkbox"
+                      name="newsletter"
+                      value="checked"
                     />
-                    <span className="error-message" id="email-span">
-                      Error message
-                    </span>
-                    <div className="check-container">
-                      <input
-                        type="checkbox"
-                        className="checkbox"
-                        name="newsletter"
-                        value="checked"
-                      />
-                      <label htmlFor="newsletter">Keep me updated</label>
-                    </div>
-                  </div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
-                  <button
-                    type="button"
-                    onClick={nextPage}
-                    className="btn-red"
-                    id="thirdNext"
-                  >
-                    Continue with email
-                  </button>
-                </div>
-              </div>
-
-              {/*  */}
-              {/* PAYMENT SLIDE */}
-              {/*  */}
-
-              <div className={classNames('page', 'payment')}>
-                <div className="field">
-                  <div className="padding-payment">
-                    <div className="payment-heading">
-                      <h3>Pay 0$ now.</h3>
-                      <h3>Set up payment for later.</h3>
-                      <hr />
-                    </div>
-                    <div className="payment-info">
-                      <table
-                        style={{
-                          width: '300px',
-                          fontSize: '13px',
-                          margin: '0px auto'
-                        }}
-                      >
-                        <tbody>
-                          <tr>
-                            <td style={{ textAlign: 'left' }}>
-                              Annual Subscription (due Jul 30)
-                            </td>
-                            <td style={{ textAlign: 'right' }}>$180</td>
-                          </tr>
-                          <tr>
-                            <td style={{ textAlign: 'left', color: '#3BB54A' }}>
-                              24-hour Free Trail
-                            </td>
-                            <td
-                              style={{ textAlign: 'right', color: '#3BB54A' }}
-                            >
-                              -$180
-                            </td>
-                          </tr>
-                          <tr>
-                            <td style={{ textAlign: 'left' }}>Due Now</td>
-                            <td style={{ textAlign: 'right' }}>$0</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                  <div className="form-container">
-                    <div className="tabs-payment">
-                      <ul>
-                        <li
-                          className="tablinks"
-                          id="defaultOpen"
-                          onClick={(event) => openPayment(event, 'payment-cc')}
-                        >
-                          <img src={CCLogos} alt="CC logos" />
-                        </li>
-                        <li
-                          className="tablinks"
-                          onClick={(event) => openPayment(event, 'payment-pp')}
-                        >
-                          <img src={PLogo} alt="PayPal logo" />
-                        </li>
-                      </ul>
-                    </div>
-                    <div id="payment-cc" className="tabcontent">
-                      <label htmlFor="cc-number">Your card number:</label>
-                      <input
-                        id="cc-number"
-                        className="input-cc"
-                        type="tel"
-                        name="ccNumber"
-                        inputMode="numeric"
-                        maxLength="19"
-                        value={inputs.ccNumber}
-                        onChange={changeValue}
-                      />
-                      <span className="error-message" id="cc-number-span">
-                        Error message
-                      </span>
-                    </div>
-                    <div id="payment-pp" className="tabcontent">
-                      <div>
-                        <img src={PLogo} alt="PayPal logo" />
-                      </div>
-                    </div>
-                    <p style={{ fontSize: '12px', marginTop: '10px' }}>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Vivamus et eros ligula. Lorem ipsum dolor sit amet,
-                      consectetur adipiscing elit. Vivamus et eros ligula.
-                    </p>
-                    <div onClick={nextPage} className="btn-red" id="fourthNext">
-                      Start free trail
-                    </div>
-                  </div>
-                  <div className="security-cc">
-                    <div className="securty-1">
-                      <p className="gua">100%</p>
-                      <p>GUARANTEED</p>
-                    </div>
-                    <div className="securty-2">
-                      <div className="ssl">
-                        <img src={Lock} alt="Lock" />
-                        Secured with SSL
-                      </div>
-                      <div className="help-number">
-                        <p style={{ lineHeight: '0px' }}>Have a question?</p>
-                        <p style={{ lineHeight: '5px' }}>763-343-1581</p>
-                      </div>
-                    </div>
+                    <label htmlFor="newsletter">Keep me updated</label>
                   </div>
                 </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <button
+                  type="button"
+                  onClick={nextPage}
+                  className="btn-red"
+                  id="thirdNext"
+                >
+                  Continue with email
+                </button>
               </div>
+            </div>
 
-              {/*  */}
-              {/* PAYMENT DONE SLIDE */}
-              {/*  */}
+            {/*  */}
+            {/* PAYMENT SLIDE */}
+            {/*  */}
 
-              <div className="page">
-                <div className="field">
+            <div className={classNames('page', 'payment')}>
+              <div className="field">
+                <div className="padding-payment">
                   <div className="payment-heading">
-                    <svg
-                      version="1.1"
-                      id="Capa_1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      xmlnsXlink="http://www.w3.org/1999/xlink"
-                      x="0px"
-                      y="0px"
-                      viewBox="0 0 367.805 367.805"
-                      // style="enable-background:new 0 0 367.805 367.805;"
-                      xmlSpace="preserve"
+                    <h3>Pay 0$ now.</h3>
+                    <h3>Set up payment for later.</h3>
+                    <hr />
+                  </div>
+                  <div className="payment-info">
+                    <table
+                      style={{
+                        width: '300px',
+                        fontSize: '13px',
+                        margin: '0px auto'
+                      }}
                     >
-                      <g>
-                        <path
-                          style={{ fill: '#3BB54A' }}
-                          d="M183.903,0.001c101.566,0,183.902,82.336,183.902,183.902s-82.336,183.902-183.902,183.902S0.001,285.469,0.001,183.903l0,0C-0.288,82.625,81.579,0.29,182.856,0.001C183.205,0,183.554,0,183.903,0.001z"
-                        />
-                        <polygon
-                          style={{ fill: '#D4E1F4' }}
-                          points="285.78,133.225 155.168,263.837 82.025,191.217 111.805,161.96 155.168,204.801 256.001,103.968 "
-                        />
-                      </g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                    </svg>
-                    <h3>Your free trial has started</h3>
-                    <h4>
-                      <strong>Total billed today: $0</strong>
-                    </h4>
-                    <h4>Billed on Jun 30: $0</h4>
-                    <hr className="hr-text" />
+                      <tbody>
+                        <tr>
+                          <td style={{ textAlign: 'left' }}>
+                            Annual Subscription (due Jul 30)
+                          </td>
+                          <td style={{ textAlign: 'right' }}>$180</td>
+                        </tr>
+                        <tr>
+                          <td style={{ textAlign: 'left', color: '#3BB54A' }}>
+                            24-hour Free Trail
+                          </td>
+                          <td style={{ textAlign: 'right', color: '#3BB54A' }}>
+                            -$180
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style={{ textAlign: 'left' }}>Due Now</td>
+                          <td style={{ textAlign: 'right' }}>$0</td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
-                  <p>
+                </div>
+                <div className="form-container">
+                  <div className="tabs-payment">
+                    <ul>
+                      <li
+                        className="tablinks"
+                        id="defaultOpen"
+                        onClick={(event) => openPayment(event, 'payment-cc')}
+                      >
+                        <img src={CCLogos} alt="CC logos" />
+                      </li>
+                      <li
+                        className="tablinks"
+                        onClick={(event) => openPayment(event, 'payment-pp')}
+                      >
+                        <img src={PLogo} alt="PayPal logo" />
+                      </li>
+                    </ul>
+                  </div>
+                  <div id="payment-cc" className="tabcontent">
+                    <label htmlFor="cc-number">Your card number:</label>
+                    <input
+                      id="cc-number"
+                      className="input-cc"
+                      type="tel"
+                      name="ccNumber"
+                      inputMode="numeric"
+                      maxLength="19"
+                      value={inputs.ccNumber}
+                      onChange={changeValue}
+                    />
+                    <span className="error-message" id="cc-number-span">
+                      Error message
+                    </span>
+                  </div>
+                  <div id="payment-pp" className="tabcontent">
+                    <div>
+                      <img src={PLogo} alt="PayPal logo" />
+                    </div>
+                  </div>
+                  <p style={{ fontSize: '12px', marginTop: '10px' }}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Vivamus et eros ligula.
+                    Vivamus et eros ligula. Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit. Vivamus et eros ligula.
                   </p>
-                  <div className="form-container">
-                    <label htmlFor="name">Your name:</label>
-                    <input
-                      id="name"
-                      type="text"
-                      name="name"
-                      placeholder="Your name"
-                      autoComplete="off"
-                      value={inputs.name}
-                      onChange={changeValue}
-                    />
-                    <span className="error-message" id="name-span">
-                      Error message
-                    </span>
-                    <label htmlFor="password">Your password:</label>
-                    <input
-                      id="password"
-                      type="password"
-                      name="password"
-                      placeholder="Your password"
-                      autoComplete="off"
-                      value={inputs.password}
-                      onChange={changeValue}
-                    />
-                    <span className="error-message" id="password-span">
-                      Error message
-                    </span>
+                  <div onClick={nextPage} className="btn-red" id="fourthNext">
+                    Start free trail
                   </div>
-                  <div onClick={nextPage} className="btn-red" id="fifthNext">
-                    Continue
+                </div>
+                <div className="security-cc">
+                  <div className="securty-1">
+                    <p className="gua">100%</p>
+                    <p>GUARANTEED</p>
+                  </div>
+                  <div className="securty-2">
+                    <div className="ssl">
+                      <img src={Lock} alt="Lock" />
+                      Secured with SSL
+                    </div>
+                    <div className="help-number">
+                      <p>Have a question?</p>
+                      <p>763-343-1581</p>
+                    </div>
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/*  */}
-              {/* SLIDES END */}
-              {/*  */}
-            </form>
-          </div>
+            {/*  */}
+            {/* PAYMENT DONE SLIDE */}
+            {/*  */}
+
+            <div className="page">
+              <div className="field">
+                <div className="payment-heading">
+                  <svg
+                    version="1.1"
+                    id="Capa_1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlnsXlink="http://www.w3.org/1999/xlink"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 367.805 367.805"
+                    // style="enable-background:new 0 0 367.805 367.805;"
+                    xmlSpace="preserve"
+                  >
+                    <g>
+                      <path
+                        style={{ fill: '#3BB54A' }}
+                        d="M183.903,0.001c101.566,0,183.902,82.336,183.902,183.902s-82.336,183.902-183.902,183.902S0.001,285.469,0.001,183.903l0,0C-0.288,82.625,81.579,0.29,182.856,0.001C183.205,0,183.554,0,183.903,0.001z"
+                      />
+                      <polygon
+                        style={{ fill: '#D4E1F4' }}
+                        points="285.78,133.225 155.168,263.837 82.025,191.217 111.805,161.96 155.168,204.801 256.001,103.968 "
+                      />
+                    </g>
+                    <g></g>
+                    <g></g>
+                    <g></g>
+                    <g></g>
+                    <g></g>
+                    <g></g>
+                    <g></g>
+                    <g></g>
+                    <g></g>
+                    <g></g>
+                    <g></g>
+                    <g></g>
+                    <g></g>
+                    <g></g>
+                    <g></g>
+                  </svg>
+                  <h3>Your free trial has started</h3>
+                  <h4>
+                    <strong>Total billed today: $0</strong>
+                  </h4>
+                  <h4>Billed on Jun 30: $0</h4>
+                  <hr className="hr-text" />
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Vivamus et eros ligula.
+                </p>
+                <div className="form-container">
+                  <label htmlFor="name">Your name:</label>
+                  <input
+                    id="name"
+                    type="text"
+                    name="name"
+                    placeholder="Your name"
+                    autoComplete="off"
+                    value={inputs.name}
+                    onChange={changeValue}
+                  />
+                  <span className="error-message" id="name-span">
+                    Error message
+                  </span>
+                  <label htmlFor="password">Your password:</label>
+                  <input
+                    id="password"
+                    type="password"
+                    name="password"
+                    placeholder="Your password"
+                    autoComplete="off"
+                    value={inputs.password}
+                    onChange={changeValue}
+                  />
+                  <span className="error-message" id="password-span">
+                    Error message
+                  </span>
+                </div>
+                <div onClick={nextPage} className="btn-red" id="fifthNext">
+                  Continue
+                </div>
+              </div>
+            </div>
+
+            {/*  */}
+            {/* SLIDES END */}
+            {/*  */}
+          </form>
         </div>
+      </div>
 
-        <div className="existing" id="existing">
-          <div className="field">
-            <h2>Welcome back</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <div className="sign-up-social">
-              <div className="google">
-                <img src={GLogo} alt="Google G" />
-                LOG IN WITH GOOGLE
-              </div>
-              <div className="facebook">
-                <img src={FLogo} alt="Facebook F" />
-                LOG IN WITH FACEBOOK
-              </div>
+      <div className="existing" id="existing">
+        <div className="field">
+          <h2>Welcome back</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <div className="sign-up-social">
+            <div className="google">
+              <img src={GLogo} alt="Google G" />
+              LOG IN WITH GOOGLE
+            </div>
+            <div className="facebook">
+              <img src={FLogo} alt="Facebook F" />
+              LOG IN WITH FACEBOOK
             </div>
           </div>
         </div>
