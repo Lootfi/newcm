@@ -5,8 +5,8 @@
       "offset": "0"
     },
     {
-      "label": "Feature",
-      "path": "#feature_section",
+      "label": "Service",
+      "path": "#service_section",
       "offset": "0"
     },
     {
@@ -314,7 +314,7 @@
     {
       "icon": "flaticon-upload",
       "title": "Manager / Directeur artistique",
-      "description": "Trouvez l'agent qui aidera votre .."
+      "description": "Trouvez l'agent qui aidera votre carrière à décoller tout en vérifiant ses références."
     },
     {
       "icon": "flaticon-settings",

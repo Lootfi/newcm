@@ -41,7 +41,7 @@ const ServiceSection = ({
   `);
 
   return (
-    <SectionWrapper>
+    <SectionWrapper id="service_section">
       <Container>
         <Box {...secTitleWrapper}>
           <Text {...secText} content="LA BASE DE CONTACTS MUSIQUE ULTIME" />

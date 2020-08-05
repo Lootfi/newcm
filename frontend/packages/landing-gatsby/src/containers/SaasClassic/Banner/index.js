@@ -35,10 +35,10 @@ const CloseModalButton = () => (
 const ModalContent = () => (
   <VideoWrapper>
     <iframe
+      src="https://www.youtube.com/embed/Y1nyjot_-lo"
+      frameborder="0"
       title="Video"
-      src="https://www.youtube.com/embed/8ME-QAlW6Ww"
-      frameBorder="0"
-    />
+    ></iframe>
   </VideoWrapper>
 );
 
@@ -98,7 +98,7 @@ const BannerSection = ({
               <a href="#1">
                 <Button
                   {...fillButton}
-                  title="FAIRE AVANCER VOTRE CARRIERS"
+                  title="ACCEDEZ MAINTENANT"
                   onClick={handleLighbox}
                 />
               </a>

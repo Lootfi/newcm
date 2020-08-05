@@ -64,7 +64,7 @@ export default () => {
           </Sticky>
           <BannerSection handleLighbox={handleLighbox} />
           <ServiceSection />
-          <FeatureSection />
+          {/* <FeatureSection /> */}
           <PartnerSection />
           <TestimonialSection />
           <TrialSection />

@@ -68,7 +68,7 @@ const Navbar = ({
               offset={-70}
             />
             <a href="#1" className="navbar_button">
-              <Button {...button} title="GET STARTED" onClick={handleLighbox} />
+              <Button {...button} title="LOGIN" onClick={handleLighbox} />
             </a>
             <Drawer
               width="420px"
@@ -84,11 +84,7 @@ const Navbar = ({
                 offset={-100}
               />
               <a href="#1" className="navbar_drawer_button">
-                <Button
-                  {...button}
-                  title="GET STARTED"
-                  onClick={handleLighbox}
-                />
+                <Button {...button} title="LOGIN" onClick={handleLighbox} />
               </a>
             </Drawer>
           </Box>
