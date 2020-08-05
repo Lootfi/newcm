@@ -1,118 +1,478 @@
 import React from 'react';
-import LightboxWrapper, { LightboxlSlideWrapper } from './Lightbox.style';
-import GlideCarousel from '../GlideCarousel';
-import GlideSlide from '../GlideCarousel/glideSlide';
-import { useStaticQuery, graphql } from 'gatsby';
-import Image from 'gatsby-image';
-import PropTypes from 'prop-types';
-import Box from '../Box';
-import Text from '../Text';
-import Heading from '../Heading';
-import Container from '../UI/Container';
+import LightboxWrapper from './Lightbox.style';
+// import Image from 'gatsby-image';
+// import PropTypes from 'prop-types';
+// import Box from '../Box';
+// import Text from '../Text';
+// import Heading from '../Heading';
+// import Container from '../UI/Container';
+import classNames from 'classnames';
 
-import {
-  TestimonialSlideWrapper,
-  TestimonialItem,
-  TestimonialMeta,
-  AuthorInfo,
-  AuthorImage
-} from '../../../../landing-gatsby/src/containers/SaasClassic/Testimonial/testimonial.style';
+import GLogo from '../../assets/image/g-logo.png';
+import FLogo from '../../assets/image/f-logo.png';
+import CCLogos from '../../assets/image/cc-logos.png';
+import PLogo from '../../assets/image/p-logo.png';
+import Lock from '../../assets/image/lock.png';
+const Lightbox = () => {
+  let [pageNum, setPageNum] = React.useState(0);
 
-const Lightbox = ({ reviewTitle, review, name, designation }) => {
-  const Data = useStaticQuery(graphql`
-    query {
-      saasClassicJson {
-        TESTIMONIALS {
-          name
-          designation
-          review
-          title
-          avatar {
-            childImageSharp {
-              fluid(quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
+  const [inputs, setInputValue] = React.useState({
+    email: '',
+    ccNumber: '',
+    name: '',
+    password: ''
+  });
+  const spanEmail = document.getElementById('email-span');
+  const spanCc = document.getElementById('cc-number-span');
+  const spanName = document.getElementById('name-span');
+  const spanPassword = document.getElementById('password-span');
+  const container = document.getElementById('container');
+  const existing = document.getElementById('existing');
+
+  let changeValue = (e) => {
+    setInputValue({ ...inputs, [e.target.name]: e.target.value.trim() });
+  };
+
+  function checkEmail(email) {
+    return /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email);
+  }
+
+  function openPayment(evt = null, payment = 'payment-pp') {
+    var i, tabcontent, tablinks;
+
+    tabcontent = document.getElementsByClassName('tabcontent');
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = 'none';
+    }
+
+    tablinks = document.getElementsByClassName('tablinks');
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(' active', '');
+    }
+
+    document.getElementById(payment).style.display = 'block';
+    if (evt) evt.currentTarget.className += ' active';
+  }
+
+  let nextPage = (e) => {
+    e.preventDefault();
+    if (pageNum === 0) {
+      document.querySelector('.slide').style.marginLeft = '-14.28%';
+    }
+    if (pageNum === 1) {
+      document.querySelector('.slide').style.marginLeft = '-28.56%';
+    }
+    if (pageNum === 2) {
+      if (!checkEmail(inputs.email)) {
+        console.log('error');
+        spanEmail.className = 'error-message show';
+        spanEmail.innerText = 'Please, enter a valid email address';
+      } else if (inputs.email === 'test@test.com') {
+        existing.className = 'existing true';
+        container.className = 'false';
+      } else {
+        spanEmail.className = 'error-message';
+        document.querySelector('.slide').style.marginLeft = '-42.84%';
+      }
+      openPayment(null, 'payment-cc');
+    }
+
+    if (pageNum === 3) {
+      if (inputs.ccNumber === '') {
+        spanCc.className = 'error-message show';
+        spanCc.innerText = 'Please, enter a valid credit card number';
+      } else if (inputs.ccNumber.length < 11) {
+        spanCc.className = 'error-message show';
+        spanCc.innerText = 'Please, enter a valid credit card number';
+      } else if ('') {
+      } else {
+        spanCc.className = 'error-message';
+        document.querySelector('.slide').style.marginLeft = '-57.15%';
       }
     }
-  `);
+
+    if (pageNum === 4) {
+      if (inputs.name === '') {
+        spanName.className = 'error-message show';
+        spanName.innerText = 'Please, enter a valid name';
+      } else {
+        spanName.className = 'error-message';
+      }
+
+      if (inputs.password === '') {
+        spanPassword.className = 'error-message show';
+        spanPassword.innerText = 'Please, enter a valid password';
+      } else if (inputs.password.length < 6) {
+        spanPassword.className = 'error-message show';
+        spanPassword.innerText =
+          'Please, enter a valid password (at least six characters)';
+      } else {
+        spanPassword.className = 'error-message';
+        document.querySelector('.slide').style.marginLeft = '-71.43%';
+      }
+    }
+
+    if (pageNum === 5) {
+      document.querySelector('.slide').style.marginLeft = '-85.70%';
+    }
+
+    setPageNum(pageNum++);
+  };
+
   return (
     <LightboxWrapper>
       <div className="lightbox_container">
-        <LightboxlSlideWrapper>
-          <GlideCarousel
-            options={{
-              type: 'carousel',
-              autoplay: 1000,
-              perView: 2,
-              gap: 30,
-              animationDuration: 800
-            }}
-            carouselSelector="lighbox__slider"
-            controls={true}
-            bullets={true}
-            numberOfBullets={Data.saasClassicJson.TESTIMONIALS.length}
-          >
-            <React.Fragment>
-              {Data.saasClassicJson.TESTIMONIALS.map((item, index) => (
-                <GlideSlide key={`testimonial-slide-${index}`}>
-                  <TestimonialItem>
-                    <Heading as="h3" content={item.title} {...reviewTitle} />
-                    <Text content={item.review} {...review} />
-                    <TestimonialMeta>
-                      <AuthorInfo>
-                        <AuthorImage>
-                          <Image
-                            fluid={item.avatar.childImageSharp.fluid}
-                            alt={`reviewer-image-${index}`}
-                          />
-                        </AuthorImage>
-                        <Box>
-                          <Heading as="h3" content={item.name} {...name} />
-                          <Text content={item.designation} {...designation} />
-                        </Box>
-                      </AuthorInfo>
-                    </TestimonialMeta>
-                  </TestimonialItem>
-                </GlideSlide>
-              ))}
-            </React.Fragment>
-          </GlideCarousel>
-        </LightboxlSlideWrapper>
+        <div className="container" id="container">
+          <div className="form-outer">
+            <form action="">
+              {/*  */}
+              {/* SLIDES BEGIN */}
+              {/*  */}
+
+              {/*  */}
+              {/* INTRO SLIDE */}
+              {/*  */}
+
+              <div className={classNames('page', 'slide')}>
+                <div className="header-form"></div>
+
+                <div className="field">
+                  <h2>Try YourName for free</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Vivamus et eros ligula. Phasellus varius, risus ut sagittis
+                    auctor, quam ante ultrices arcu, in venenatis dui odio vitae
+                    sem.
+                  </p>
+                  <div className="slider-dots">
+                    <div className={classNames('slider', 'open')}></div>
+                    <div className="slider"></div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={nextPage}
+                    className="btn"
+                    id="firstNext"
+                  >
+                    Suivant
+                  </button>
+                </div>
+              </div>
+
+              {/*  */}
+              {/* INTRO SLIDE 2 */}
+              {/*  */}
+
+              <div className="page">
+                <div className="header-form"></div>
+
+                <div className="field">
+                  <h2>Try YourName for pay</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Vivamus et eros ligula. Phasellus varius, risus ut sagittis
+                    auctor, quam ante ultrices arcu, in venenatis dui odio vitae
+                    sem.
+                  </p>
+                  <div className="slider-dots">
+                    <div className="slider"></div>
+                    <div className={classNames('slider', 'open')}></div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={nextPage}
+                    className="btn"
+                    id="secondNext"
+                  >
+                    Suivant 2
+                  </button>
+                </div>
+              </div>
+
+              {/*  */}
+              {/* SIGNUP SLIDE */}
+              {/*  */}
+
+              <div className="page">
+                <div className="field">
+                  <h2>Sign up now!</h2>
+                  <p>Create an account to get started</p>
+                  <div className="sign-up-social">
+                    <div className="google">
+                      <img src={GLogo} alt="Google G" />
+                      SIGN UP WITH GOOGLE
+                    </div>
+                    <div className="facebook">
+                      <img src={FLogo} alt="Facebook F" />
+                      SIGN UP WITH FACEBOOK
+                    </div>
+                  </div>
+                  <hr className="hr-text" data-content="OR" />
+                  <div className="form-container">
+                    <label htmlFor="email">Your email address:</label>
+                    <input
+                      id="email"
+                      type="text"
+                      name="email"
+                      placeholder="Your email address"
+                      autoComplete="off"
+                      value={inputs.email}
+                      onChange={changeValue}
+                    />
+                    <span className="error-message" id="email-span">
+                      Error message
+                    </span>
+                    <div className="check-container">
+                      <input
+                        type="checkbox"
+                        className="checkbox"
+                        name="newsletter"
+                        value="checked"
+                      />
+                      <label htmlFor="newsletter">Keep me updated</label>
+                    </div>
+                  </div>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={nextPage}
+                    className="btn-red"
+                    id="thirdNext"
+                  >
+                    Continue with email
+                  </button>
+                </div>
+              </div>
+
+              {/*  */}
+              {/* PAYMENT SLIDE */}
+              {/*  */}
+
+              <div className={classNames('page', 'payment')}>
+                <div className="field">
+                  <div className="padding-payment">
+                    <div className="payment-heading">
+                      <h3>Pay 0$ now.</h3>
+                      <h3>Set up payment for later.</h3>
+                      <hr />
+                    </div>
+                    <div className="payment-info">
+                      <table
+                        style={{
+                          width: '300px',
+                          fontSize: '13px',
+                          margin: '0px auto'
+                        }}
+                      >
+                        <tbody>
+                          <tr>
+                            <td style={{ textAlign: 'left' }}>
+                              Annual Subscription (due Jul 30)
+                            </td>
+                            <td style={{ textAlign: 'right' }}>$180</td>
+                          </tr>
+                          <tr>
+                            <td style={{ textAlign: 'left', color: '#3BB54A' }}>
+                              24-hour Free Trail
+                            </td>
+                            <td
+                              style={{ textAlign: 'right', color: '#3BB54A' }}
+                            >
+                              -$180
+                            </td>
+                          </tr>
+                          <tr>
+                            <td style={{ textAlign: 'left' }}>Due Now</td>
+                            <td style={{ textAlign: 'right' }}>$0</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div className="form-container">
+                    <div className="tabs-payment">
+                      <ul>
+                        <li
+                          className="tablinks"
+                          id="defaultOpen"
+                          onClick={(event) => openPayment(event, 'payment-cc')}
+                        >
+                          <img src={CCLogos} alt="CC logos" />
+                        </li>
+                        <li
+                          className="tablinks"
+                          onClick={(event) => openPayment(event, 'payment-pp')}
+                        >
+                          <img src={PLogo} alt="PayPal logo" />
+                        </li>
+                      </ul>
+                    </div>
+                    <div id="payment-cc" className="tabcontent">
+                      <label htmlFor="cc-number">Your card number:</label>
+                      <input
+                        id="cc-number"
+                        className="input-cc"
+                        type="tel"
+                        name="ccNumber"
+                        inputMode="numeric"
+                        maxLength="19"
+                        value={inputs.ccNumber}
+                        onChange={changeValue}
+                      />
+                      <span className="error-message" id="cc-number-span">
+                        Error message
+                      </span>
+                    </div>
+                    <div id="payment-pp" className="tabcontent">
+                      <div>
+                        <img src={PLogo} alt="PayPal logo" />
+                      </div>
+                    </div>
+                    <p style={{ fontSize: '12px', marginTop: '10px' }}>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Vivamus et eros ligula. Lorem ipsum dolor sit amet,
+                      consectetur adipiscing elit. Vivamus et eros ligula.
+                    </p>
+                    <div onClick={nextPage} className="btn-red" id="fourthNext">
+                      Start free trail
+                    </div>
+                  </div>
+                  <div className="security-cc">
+                    <div className="securty-1">
+                      <p className="gua">100%</p>
+                      <p>GUARANTEED</p>
+                    </div>
+                    <div className="securty-2">
+                      <div className="ssl">
+                        <img src={Lock} alt="Lock" />
+                        Secured with SSL
+                      </div>
+                      <div className="help-number">
+                        <p style={{ lineHeight: '0px' }}>Have a question?</p>
+                        <p style={{ lineHeight: '5px' }}>763-343-1581</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/*  */}
+              {/* PAYMENT DONE SLIDE */}
+              {/*  */}
+
+              <div className="page">
+                <div className="field">
+                  <div className="payment-heading">
+                    <svg
+                      version="1.1"
+                      id="Capa_1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlnsXlink="http://www.w3.org/1999/xlink"
+                      x="0px"
+                      y="0px"
+                      viewBox="0 0 367.805 367.805"
+                      // style="enable-background:new 0 0 367.805 367.805;"
+                      xmlSpace="preserve"
+                    >
+                      <g>
+                        <path
+                          style={{ fill: '#3BB54A' }}
+                          d="M183.903,0.001c101.566,0,183.902,82.336,183.902,183.902s-82.336,183.902-183.902,183.902S0.001,285.469,0.001,183.903l0,0C-0.288,82.625,81.579,0.29,182.856,0.001C183.205,0,183.554,0,183.903,0.001z"
+                        />
+                        <polygon
+                          style={{ fill: '#D4E1F4' }}
+                          points="285.78,133.225 155.168,263.837 82.025,191.217 111.805,161.96 155.168,204.801 256.001,103.968 "
+                        />
+                      </g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                    </svg>
+                    <h3>Your free trial has started</h3>
+                    <h4>
+                      <strong>Total billed today: $0</strong>
+                    </h4>
+                    <h4>Billed on Jun 30: $0</h4>
+                    <hr className="hr-text" />
+                  </div>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Vivamus et eros ligula.
+                  </p>
+                  <div className="form-container">
+                    <label htmlFor="name">Your name:</label>
+                    <input
+                      id="name"
+                      type="text"
+                      name="name"
+                      placeholder="Your name"
+                      autoComplete="off"
+                      value={inputs.name}
+                      onChange={changeValue}
+                    />
+                    <span className="error-message" id="name-span">
+                      Error message
+                    </span>
+                    <label htmlFor="password">Your password:</label>
+                    <input
+                      id="password"
+                      type="password"
+                      name="password"
+                      placeholder="Your password"
+                      autoComplete="off"
+                      value={inputs.password}
+                      onChange={changeValue}
+                    />
+                    <span className="error-message" id="password-span">
+                      Error message
+                    </span>
+                  </div>
+                  <div onClick={nextPage} className="btn-red" id="fifthNext">
+                    Continue
+                  </div>
+                </div>
+              </div>
+
+              {/*  */}
+              {/* SLIDES END */}
+              {/*  */}
+            </form>
+          </div>
+        </div>
+
+        <div className="existing" id="existing">
+          <div className="field">
+            <h2>Welcome back</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div className="sign-up-social">
+              <div className="google">
+                <img src={GLogo} alt="Google G" />
+                LOG IN WITH GOOGLE
+              </div>
+              <div className="facebook">
+                <img src={FLogo} alt="Facebook F" />
+                LOG IN WITH FACEBOOK
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </LightboxWrapper>
   );
-};
-
-Lightbox.defaultProps = {
-  reviewTitle: {
-    fontSize: ['15px', '16px'],
-    fontWeight: '500',
-    color: '#343d48',
-    lineHeight: '1.5',
-    mb: '13px'
-  },
-  review: {
-    fontSize: ['16px', '19px'],
-    fontWeight: '300',
-    color: '#343d48',
-    lineHeight: '1.7',
-    mb: 0
-  },
-  name: {
-    fontSize: ['14px', '16px'],
-    fontWeight: '500',
-    color: '#0f2137',
-    letterSpacing: '-0.025em',
-    mb: '8px'
-  },
-  designation: {
-    fontSize: ['12px', '14px'],
-    color: '#6f7a87',
-    mb: 0
-  }
 };
 
 export default Lightbox;
