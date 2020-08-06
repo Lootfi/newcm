@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import FirstImage from '../../assets/image/first-page.jpg';
 
 const LightboxWrapper = styled.div`
   // background: transparent;
@@ -183,7 +184,7 @@ const LightboxWrapper = styled.div`
   .header-form {
     width: 100%;
     height: 200px;
-    background: url('images/first-page.jpg') center no-repeat;
+    background: url(${FirstImage}) center no-repeat;
     background-size: cover;
   }
 

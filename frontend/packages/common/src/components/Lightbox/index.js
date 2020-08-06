@@ -2,10 +2,8 @@ import React from 'react';
 import LightboxWrapper from './Lightbox.style';
 // import Image from 'gatsby-image';
 // import PropTypes from 'prop-types';
-import Box from '../Box';
 // import Text from '../Text';
 // import Heading from '../Heading';
-import Container from '../UI/Container';
 import classNames from 'classnames';
 
 import GLogo from '../../assets/image/g-logo.png';
@@ -13,17 +11,15 @@ import FLogo from '../../assets/image/f-logo.png';
 import CCLogos from '../../assets/image/cc-logos.png';
 import PLogo from '../../assets/image/p-logo.png';
 import Lock from '../../assets/image/lock.png';
-import FirstImage from '../../assets/image/first-page.jpg';
+
+import Cleave from 'cleave.js/react';
+
+import { LightboxContext } from '../../contexts/LightboxContext';
 
 const Lightbox = () => {
   let [pageNum, setPageNum] = React.useState(0);
 
-  const [inputs, setInputValue] = React.useState({
-    email: '',
-    ccNumber: '',
-    name: '',
-    password: ''
-  });
+  const { state, dispatch } = React.useContext(LightboxContext);
   const spanEmail = document.getElementById('email-span');
   const spanCc = document.getElementById('cc-number-span');
   const spanName = document.getElementById('name-span');
@@ -32,11 +28,11 @@ const Lightbox = () => {
   const existing = document.getElementById('existing');
 
   let changeValue = (e) => {
-    setInputValue({ ...inputs, [e.target.name]: e.target.value.trim() });
+    dispatch({ type: 'CHANGE_VALUE', payload: e.target });
   };
 
   function checkEmail(email) {
-    return /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email);
+    dispatch({ type: 'VALIDATE_EMAIL', payload: email });
   }
 
   function openPayment(evt = null, payment = 'payment-pp') {
@@ -56,7 +52,7 @@ const Lightbox = () => {
     if (evt) evt.currentTarget.className += ' active';
   }
 
-  let nextPage = (e) => {
+  async function nextPage(e) {
     e.preventDefault();
     if (pageNum === 0) {
       document.querySelector('.slide').style.marginLeft = '-14.28%';
@@ -65,28 +61,31 @@ const Lightbox = () => {
       document.querySelector('.slide').style.marginLeft = '-28.56%';
     }
     if (pageNum === 2) {
-      if (!checkEmail(inputs.email)) {
-        console.log('error');
-        spanEmail.className = 'error-message show';
-        spanEmail.innerText = 'Please, enter a valid email address';
-      } else if (inputs.email === 'test@test.com') {
-        existing.className = 'existing true';
-        container.className = 'false';
-      } else {
-        spanEmail.className = 'error-message';
-        document.querySelector('.slide').style.marginLeft = '-42.84%';
-      }
-      document.getElementById('defaultOpen').click();
+      new Promise((resolve, reject) => {
+        checkEmail(state.email);
+        resolve();
+      }).then(() => {
+        console.log(state);
+        if (state.emailValid === false) {
+          console.log('error');
+          spanEmail.className = 'error-message show';
+          spanEmail.innerText = 'Please, enter a valid email address';
+        } else if (state.emailValid === true) {
+          document.querySelector('.slide').style.marginLeft = '-42.84%';
+          document.getElementById('defaultOpen').click();
+        }
+      });
     }
 
     if (pageNum === 3) {
-      if (inputs.ccNumber === '') {
+      if (state.ccNumber === '') {
         spanCc.className = 'error-message show';
         spanCc.innerText = 'Please, enter a valid credit card number';
-      } else if (inputs.ccNumber.length < 11) {
+        return;
+      } else if (state.ccNumber.length < 11) {
         spanCc.className = 'error-message show';
         spanCc.innerText = 'Please, enter a valid credit card number';
-      } else if ('') {
+        return;
       } else {
         spanCc.className = 'error-message';
         document.querySelector('.slide').style.marginLeft = '-57.15%';
@@ -94,17 +93,17 @@ const Lightbox = () => {
     }
 
     if (pageNum === 4) {
-      if (inputs.name === '') {
+      if (state.name === '') {
         spanName.className = 'error-message show';
         spanName.innerText = 'Please, enter a valid name';
       } else {
         spanName.className = 'error-message';
       }
 
-      if (inputs.password === '') {
+      if (state.password === '') {
         spanPassword.className = 'error-message show';
         spanPassword.innerText = 'Please, enter a valid password';
-      } else if (inputs.password.length < 6) {
+      } else if (state.password.length < 6) {
         spanPassword.className = 'error-message show';
         spanPassword.innerText =
           'Please, enter a valid password (at least six characters)';
@@ -119,7 +118,7 @@ const Lightbox = () => {
     }
 
     setPageNum(pageNum++);
-  };
+  }
 
   return (
     <LightboxWrapper>
@@ -133,7 +132,7 @@ const Lightbox = () => {
             {/* INTRO SLIDE */}
             {/*  */}
 
-            {/* <div className={classNames('page', 'slide')}>
+            <div className={classNames('page', 'slide')}>
               <div className="header-form"></div>
 
               <div className="field">
@@ -157,13 +156,13 @@ const Lightbox = () => {
                   Suivant
                 </button>
               </div>
-            </div> */}
+            </div>
 
             {/*  */}
             {/* INTRO SLIDE 2 */}
             {/*  */}
 
-            {/* <div className="page">
+            <div className="page">
               <div className="header-form"></div>
 
               <div className="field">
@@ -187,13 +186,13 @@ const Lightbox = () => {
                   Suivant 2
                 </button>
               </div>
-            </div> */}
+            </div>
 
             {/*  */}
             {/* SIGNUP SLIDE */}
             {/*  */}
 
-            {/* <div className="page">
+            <div className="page">
               <div className="field">
                 <h2>Sign up now!</h2>
                 <p>Create an account to get started</p>
@@ -216,7 +215,7 @@ const Lightbox = () => {
                     name="email"
                     placeholder="Your email address"
                     autoComplete="off"
-                    value={inputs.email}
+                    value={state.email}
                     onChange={changeValue}
                   />
                   <span className="error-message" id="email-span">
@@ -242,7 +241,7 @@ const Lightbox = () => {
                   Continue with email
                 </button>
               </div>
-            </div> */}
+            </div>
 
             {/*  */}
             {/* PAYMENT SLIDE */}
@@ -307,14 +306,22 @@ const Lightbox = () => {
                   </div>
                   <div id="payment-cc" className="tabcontent">
                     <label htmlFor="cc-number">Your card number:</label>
-                    <input
+                    {/* <input
+                        id="cc-number"
+                        className="input-cc"
+                        type="tel"
+                        name="ccNumber"
+                        inputMode="numeric"
+                        maxLength="19"
+                        value={state.ccNumber}
+                        onChange={changeValue}
+                      /> */}
+                    <Cleave
+                      value={state.ccNumber}
                       id="cc-number"
-                      className="input-cc"
-                      type="tel"
                       name="ccNumber"
-                      inputMode="numeric"
-                      maxLength="19"
-                      value={inputs.ccNumber}
+                      placeholder="Enter your credit card number"
+                      options={{ creditCard: true }}
                       onChange={changeValue}
                     />
                     <span className="error-message" id="cc-number-span">
@@ -417,7 +424,7 @@ const Lightbox = () => {
                     name="name"
                     placeholder="Your name"
                     autoComplete="off"
-                    value={inputs.name}
+                    value={state.name}
                     onChange={changeValue}
                   />
                   <span className="error-message" id="name-span">
@@ -430,7 +437,7 @@ const Lightbox = () => {
                     name="password"
                     placeholder="Your password"
                     autoComplete="off"
-                    value={inputs.password}
+                    value={state.password}
                     onChange={changeValue}
                   />
                   <span className="error-message" id="password-span">
