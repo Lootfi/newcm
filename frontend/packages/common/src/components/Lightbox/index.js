@@ -8,32 +8,58 @@ import classNames from 'classnames';
 
 import GLogo from '../../assets/image/g-logo.png';
 import FLogo from '../../assets/image/f-logo.png';
-import CCLogos from '../../assets/image/cc-logos.png';
-import PLogo from '../../assets/image/p-logo.png';
-import Lock from '../../assets/image/lock.png';
 
 import Cleave from 'cleave.js/react';
 
-import { LightboxContext } from '../../contexts/LightboxContext';
+import axios from '../../axios';
+import Payment from './Payment';
 
 const Lightbox = () => {
-  let [pageNum, setPageNum] = React.useState(0);
+  const [pageNum, setPageNum] = React.useState(0);
+  const [state, setState] = React.useState({
+    email: '',
+    name: '',
+    ccNumber: '',
+    password: '',
+    emailValid: null
+  });
 
-  const { state, dispatch } = React.useContext(LightboxContext);
   const spanEmail = document.getElementById('email-span');
   const spanCc = document.getElementById('cc-number-span');
   const spanName = document.getElementById('name-span');
   const spanPassword = document.getElementById('password-span');
-  const container = document.getElementById('container');
-  const existing = document.getElementById('existing');
+
+  React.useEffect(() => {
+    let pages = document.getElementsByClassName('page');
+    for (let page of pages) {
+      page.style.display = 'none';
+    }
+    pages[pageNum].style.display = 'block';
+  }, [pageNum]);
+
+  React.useEffect(() => {
+    if (state.email === '' && state.emailValid === false) {
+      if (spanEmail) {
+        spanEmail.className = 'error-message show';
+        spanEmail.innerText = 'Enter a valid email address';
+      }
+    } else if (state.emailValid === false) {
+      console.log('error');
+      spanEmail.className = 'error-message show';
+      spanEmail.innerText = 'Please, enter a valid email address';
+    } else if (state.emailValid === true) {
+      document.querySelector('.slide').style.marginLeft = '-42.84%';
+      document.getElementById('defaultOpen').click();
+    }
+  }, [state.emailValid]);
 
   let changeValue = (e) => {
-    dispatch({ type: 'CHANGE_VALUE', payload: e.target });
+    setState({ ...state, [e.target.name]: e.target.value });
   };
 
-  function checkEmail(email) {
-    dispatch({ type: 'VALIDATE_EMAIL', payload: email });
-  }
+  // function checkEmail(email) {
+  //    dispatch({ type: 'VALIDATE_EMAIL', payload: email });
+  // }
 
   function openPayment(evt = null, payment = 'payment-pp') {
     var i, tabcontent, tablinks;
@@ -52,32 +78,41 @@ const Lightbox = () => {
     if (evt) evt.currentTarget.className += ' active';
   }
 
-  async function nextPage(e) {
+  function validateEmail(e) {
+    let page = pageNum;
     e.preventDefault();
-    if (pageNum === 0) {
-      document.querySelector('.slide').style.marginLeft = '-14.28%';
-    }
-    if (pageNum === 1) {
-      document.querySelector('.slide').style.marginLeft = '-28.56%';
-    }
-    if (pageNum === 2) {
-      new Promise((resolve, reject) => {
-        checkEmail(state.email);
-        resolve();
-      }).then(() => {
-        console.log(state);
-        if (state.emailValid === false) {
-          console.log('error');
-          spanEmail.className = 'error-message show';
-          spanEmail.innerText = 'Please, enter a valid email address';
-        } else if (state.emailValid === true) {
+    axios
+      .post('validate-email', {
+        email: state.email
+      })
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.status === 'valid') {
+          setState({ ...state, emailValid: true });
+          setPageNum(3);
           document.querySelector('.slide').style.marginLeft = '-42.84%';
-          document.getElementById('defaultOpen').click();
-        }
+        } else setState({ ...state, emailValid: false });
+      })
+      .catch((err) => {
+        console.log('ERROR', err);
+
+        setState({ ...state, emailValid: false });
       });
+  }
+
+  function nextPage(e) {
+    let page = pageNum;
+    e.preventDefault();
+    if (page === 0) {
+      // document.querySelector('.slide').style.marginLeft = '-14.28%';
+      setPageNum(1);
+    }
+    if (page === 1) {
+      // document.querySelector('.slide').style.marginLeft = '-28.56%';
+      setPageNum(2);
     }
 
-    if (pageNum === 3) {
+    if (page === 3) {
       if (state.ccNumber === '') {
         spanCc.className = 'error-message show';
         spanCc.innerText = 'Please, enter a valid credit card number';
@@ -89,10 +124,11 @@ const Lightbox = () => {
       } else {
         spanCc.className = 'error-message';
         document.querySelector('.slide').style.marginLeft = '-57.15%';
+        setPageNum(4);
       }
     }
 
-    if (pageNum === 4) {
+    if (page === 4) {
       if (state.name === '') {
         spanName.className = 'error-message show';
         spanName.innerText = 'Please, enter a valid name';
@@ -110,14 +146,14 @@ const Lightbox = () => {
       } else {
         spanPassword.className = 'error-message';
         document.querySelector('.slide').style.marginLeft = '-71.43%';
+        setPageNum(5);
       }
     }
 
-    if (pageNum === 5) {
+    if (page === 5) {
       document.querySelector('.slide').style.marginLeft = '-85.70%';
+      setPageNum(6);
     }
-
-    setPageNum(pageNum++);
   }
 
   return (
@@ -232,14 +268,13 @@ const Lightbox = () => {
                   </div>
                 </div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <button
-                  type="button"
-                  onClick={nextPage}
+                <div
+                  onClick={(e) => validateEmail(e)}
                   className="btn-red"
                   id="thirdNext"
                 >
                   Continue with email
-                </button>
+                </div>
               </div>
             </div>
 
@@ -247,7 +282,9 @@ const Lightbox = () => {
             {/* PAYMENT SLIDE */}
             {/*  */}
 
-            <div className={classNames('page', 'payment')}>
+            <Payment ccNumber={state.ccNumber} openPayment={openPayment} />
+
+            {/* <div className={classNames('page', 'payment')}>
               <div className="field">
                 <div className="padding-payment">
                   <div className="payment-heading">
@@ -316,15 +353,16 @@ const Lightbox = () => {
                         value={state.ccNumber}
                         onChange={changeValue}
                       /> */}
-                    <Cleave
+            {/* <Cleave
                       value={state.ccNumber}
                       id="cc-number"
                       name="ccNumber"
                       placeholder="Enter your credit card number"
                       options={{ creditCard: true }}
                       onChange={changeValue}
-                    />
-                    <span className="error-message" id="cc-number-span">
+                    /> */}
+            {/* <Payment /> */}
+            {/*  <span className="error-message" id="cc-number-span">
                       Error message
                     </span>
                   </div>
@@ -359,7 +397,7 @@ const Lightbox = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/*  */}
             {/* PAYMENT DONE SLIDE */}

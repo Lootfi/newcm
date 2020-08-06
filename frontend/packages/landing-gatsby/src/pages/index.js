@@ -22,7 +22,7 @@ import '@redq/reuse-modal/es/index.css';
 import SEO from '../components/seo';
 import Button from '../../../common/src/components/Button';
 import Lightbox from '../../../common/src/components/Lightbox';
-import { LightboxProvider } from '../../../common/src/contexts/LightboxContext';
+// import { LightboxProvider } from '../../../common/src/contexts/LightboxContext';
 
 const CloseModalButton = () => (
   <Button
@@ -51,30 +51,28 @@ export default () => {
 
   return (
     <ThemeProvider theme={saasClassicTheme}>
-      <LightboxProvider>
-        <Fragment>
-          <SEO title="ContactMajor" />
-          <Modal />
-          <ResetCSS />
-          <GlobalStyle />
+      <Fragment>
+        <SEO title="ContactMajor" />
+        <Modal />
+        <ResetCSS />
+        <GlobalStyle />
 
-          <ContentWrapper>
-            <Sticky top={0} innerZ={9999} activeClass="sticky-nav-active">
-              <DrawerProvider>
-                <Navbar handleLighbox={handleLighbox} />
-              </DrawerProvider>
-            </Sticky>
-            <BannerSection handleLighbox={handleLighbox} />
-            <ServiceSection />
-            {/* <FeatureSection /> */}
-            <PartnerSection />
-            <TestimonialSection />
-            <TrialSection />
-            <Newsletter />
-            <Footer />
-          </ContentWrapper>
-        </Fragment>
-      </LightboxProvider>
+        <ContentWrapper>
+          <Sticky top={0} innerZ={9999} activeClass="sticky-nav-active">
+            <DrawerProvider>
+              <Navbar handleLighbox={handleLighbox} />
+            </DrawerProvider>
+          </Sticky>
+          <BannerSection handleLighbox={handleLighbox} />
+          <ServiceSection />
+          {/* <FeatureSection /> */}
+          <PartnerSection />
+          <TestimonialSection />
+          <TrialSection />
+          <Newsletter />
+          <Footer />
+        </ContentWrapper>
+      </Fragment>
     </ThemeProvider>
   );
 };

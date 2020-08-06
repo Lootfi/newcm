@@ -61,11 +61,11 @@ export const VideoModal = styled.div`
     width: 100%;
     height: 100%;
     display: block;
-    background: linear-gradient(
-      -139deg,
-      rgb(255, 65, 108) 0%,
-      rgb(255, 75, 43) 100%
-    );
+    // background: linear-gradient(
+    //   -139deg,
+    //   rgb(255, 65, 108) 0%,
+    //   rgb(255, 75, 43) 100%
+    // );
     opacity: 0.2;
     pointer-events: none;
   }

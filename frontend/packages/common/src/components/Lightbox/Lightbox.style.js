@@ -2,6 +2,96 @@ import styled from 'styled-components';
 import FirstImage from '../../assets/image/first-page.jpg';
 
 const LightboxWrapper = styled.div`
+
+
+
+
+
+.container .payment2 {
+  background-color: #31333b;
+  color: #ffffff;
+}
+
+
+
+.payment2 .field {
+  padding: 0px
+}
+@media (max-width: 400px){
+  .payment2 .field {
+      padding: 20px;
+      margin-bottom: 20px;
+  }
+}
+
+.payment2 .payment-heading {
+  text-align: left;
+  line-height: 22px;
+  width: 300px;
+}
+
+.payment2 .payment-info {
+  width: 300px;
+}
+
+.payment2 hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #818078;
+  opacity: 0.3;
+}
+
+.padding-payment {
+  padding: 20px 20px 0px 20px;
+}
+
+.payment2 .form-container {
+  background-color: #ffffff;
+  color: #000000;
+  width: 100%;
+  height: 290px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+@media (max-width: 400px){
+  .payment2 .form-container {
+    height: 250px;
+  }
+}
+
+.payment2 .form-container .btn-red {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   // background: transparent;
   // padding: 15px 0 40px 0;
   // color: #000;
@@ -175,6 +265,7 @@ const LightboxWrapper = styled.div`
   }
 
   .form-outer form .page {
+    display: none;
     height: 570px;
     width: 400px;
     transition: 0.3s;
@@ -488,7 +579,7 @@ const LightboxWrapper = styled.div`
     .security-cc {
       position: relative;
       display: flex;
-      justify-content: center;
+      justify-content: space-around;
       bottom: 6px;
     }
 

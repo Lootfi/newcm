@@ -1,9 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: `http://${document.location.hostname}${
-    document.location.port && ':8001'
-  }/api/`
+  baseURL: `http://www.contactmajor.com/api/`
 });
 
 export default instance;
