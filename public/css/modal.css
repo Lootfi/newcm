@@ -1,0 +1,24 @@
+.modal {
+    color: black;
+}
+
+/* Style the form */
+#regForm {
+    background-color: #ffffff;
+    color: black;
+}
+
+#stripe input {
+    margin: 20px 0;
+    /* border: 0; */
+}
+
+.modal-content {
+    width: auto;
+}
+
+@media (max-width: 450px) {
+    .modal-content {
+        width: 100%;
+    }
+}
