@@ -1,18 +1,12 @@
 import React from 'react';
 import LightboxWrapper from './Lightbox.style';
-// import Image from 'gatsby-image';
-// import PropTypes from 'prop-types';
-// import Text from '../Text';
-// import Heading from '../Heading';
 import classNames from 'classnames';
+import axios from '../../axios';
 
 import GLogo from '../../assets/image/g-logo.png';
 import FLogo from '../../assets/image/f-logo.png';
-
-import Cleave from 'cleave.js/react';
-
-import axios from '../../axios';
 import Payment from './Payment';
+import SocialButtons from './SocialButtons';
 
 const Lightbox = () => {
   const [pageNum, setPageNum] = React.useState(0);
@@ -29,14 +23,9 @@ const Lightbox = () => {
   const spanName = document.getElementById('name-span');
   const spanPassword = document.getElementById('password-span');
 
-  // React.useEffect(() => {
-  //   let pages = document.getElementsByClassName('page');
-  //   for (let page of pages) {
-  //     page.style.display = 'none';
-  //   }
-  //   pages[pageNum].style.display = 'block';
-
-  // }, [pageNum]);
+  React.useEffect(() => {
+    if (localStorage.getItem('email')) setPageNum(3);
+  }, []);
 
   React.useEffect(() => {
     if (state.email === '' && state.emailValid === false) {
@@ -72,6 +61,7 @@ const Lightbox = () => {
         console.log(res.data);
         if (res.data.status === 'valid') {
           setState({ ...state, emailValid: true });
+          localStorage.setItem('email', res.data.email);
           setPageNum(3);
           // document.querySelector('.slide').style.marginLeft = '-42.84%';
         } else setState({ ...state, emailValid: false });
@@ -80,6 +70,23 @@ const Lightbox = () => {
         console.log('ERROR', err);
 
         setState({ ...state, emailValid: false });
+      });
+  }
+
+  function setUpProfile() {
+    axios
+      .post('setup-profile', {
+        name: state.name,
+        password: state.password,
+        email: localStorage.getItem('email')
+      })
+      .then((res) => {
+        console.log(res.data);
+        localStorage.removeItem('email');
+      })
+      .catch((err) => {
+        console.log(err);
+        localStorage.removeItem('email');
       });
   }
 
@@ -221,14 +228,15 @@ const Lightbox = () => {
                   <h2>Sign up now!</h2>
                   <p>Create an account to get started</p>
                   <div className="sign-up-social">
-                    <div className="google">
+                    <SocialButtons />
+                    {/* <div className="google">
                       <img src={GLogo} alt="Google G" />
                       SIGN UP WITH GOOGLE
                     </div>
                     <div className="facebook">
                       <img src={FLogo} alt="Facebook F" />
                       SIGN UP WITH FACEBOOK
-                    </div>
+                    </div> */}
                   </div>
                   <hr className="hr-text" data-content="OR" />
                   <div className="form-container">
@@ -361,7 +369,11 @@ const Lightbox = () => {
                       Error message
                     </span>
                   </div>
-                  <div onClick={nextPage} className="btn-red" id="fifthNext">
+                  <div
+                    onClick={setUpProfile}
+                    className="btn-red"
+                    id="fifthNext"
+                  >
                     Continue
                   </div>
                 </div>

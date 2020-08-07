@@ -5,20 +5,16 @@ import CCLogos from '../../assets/image/cc-logos.png';
 import PLogo from '../../assets/image/p-logo.png';
 import classNames from 'classnames';
 import Lock from '../../assets/image/lock.png';
-
+import axios from '../../axios';
 const stripePromise = loadStripe(
   'pk_test_51H3r6tGvxHsd96JzVpg8XK1ITL6WSuFdhTWt6PxcF7ekw9LR9Zidq2IVSbkE3ZwcO8zgk4w9wjFDXZpc7tvi0mOs00uCCEXVpL'
 );
 
-let paypalClientId =
-  'ARcAz0PD1c9Ztc-UbWhj_ya4E3Sc5gZolv-p-I32vprJO1e_8RxLU9jLF9NPgdlxeUmjx-U2lWUc0tLo';
-
 export default function Payment({ ccNumber, setPageNum }) {
   const [nameFromCard, setNameFromCard] = React.useState('');
   const [openTab, setOpenTab] = React.useState(0);
-  function pay(e) {
-    e.preventDefault();
-    // document.querySelector('.slide').style.marginLeft = '-57.15%';
+
+  function pay() {
     setPageNum(4);
   }
 
@@ -31,21 +27,39 @@ export default function Payment({ ccNumber, setPageNum }) {
               purchase_units: [
                 {
                   amount: {
-                    value: '100'
+                    value: '180',
+                    currency_code: 'EUR'
                   }
                 }
               ]
             });
           },
           onApprove: function (data, actions) {
-            console.log('DATA', data);
-            return actions.order.capture().then(function (details) {
-              alert(
-                'Transaction completed by ' +
-                  details.payer.name.given_name +
-                  '!'
-              );
-            });
+            return actions.order
+              .capture()
+              .then(function (details) {
+                axios
+                  .post('paypal-payment-complete', {
+                    name:
+                      details.payer.name.given_name +
+                      ' ' +
+                      details.payer.name.surname,
+                    order_id: data.orderID,
+                    email: localStorage.getItem('email')
+                  })
+                  .then((res) => {
+                    setPageNum(4);
+                  })
+                  .catch((err) => {
+                    console.log(
+                      'PAYPAL PAYMENT COMPLETE ERROR',
+                      err.response.data
+                    );
+                  });
+              })
+              .catch((err) => {
+                console.log(err);
+              });
           },
           style: {
             color: 'blue'

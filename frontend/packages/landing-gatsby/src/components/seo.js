@@ -146,7 +146,7 @@ function SEO({ description, lang, meta, keywords, title }) {
               content="/ms-icon-144x144.png"
             />
             <meta name="theme-color" content="#ffffff"></meta>
-            <script src="https://www.paypal.com/sdk/js?client-id=ARcAz0PD1c9Ztc-UbWhj_ya4E3Sc5gZolv-p-I32vprJO1e_8RxLU9jLF9NPgdlxeUmjx-U2lWUc0tLo&currency=EUR"></script>
+            <script src="https://www.paypal.com/sdk/js?client-id=AW7puiqSy4C6HSH6_PXmNLgjSLEY8YmHOKKqSXFduSkQ4b9MpRxLuh86duBi185BVEICAdE56v-jcRc_&currency=EUR"></script>
           </Helmet>
         );
       }}
