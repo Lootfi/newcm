@@ -265,7 +265,7 @@ const LightboxWrapper = styled.div`
   }
 
   .form-outer form .page {
-    display: none;
+    // display: none;
     height: 570px;
     width: 400px;
     transition: 0.3s;

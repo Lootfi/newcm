@@ -6,17 +6,90 @@ import PLogo from '../../assets/image/p-logo.png';
 import classNames from 'classnames';
 import Lock from '../../assets/image/lock.png';
 
-// Make sure to call `loadStripe` outside of a component’s render to avoid
-// recreating the `Stripe` object on every render.
 const stripePromise = loadStripe(
   'pk_test_51H3r6tGvxHsd96JzVpg8XK1ITL6WSuFdhTWt6PxcF7ekw9LR9Zidq2IVSbkE3ZwcO8zgk4w9wjFDXZpc7tvi0mOs00uCCEXVpL'
 );
 
-export default function Payment({ ccNumber, openPayment }) {
+let paypalClientId =
+  'ARcAz0PD1c9Ztc-UbWhj_ya4E3Sc5gZolv-p-I32vprJO1e_8RxLU9jLF9NPgdlxeUmjx-U2lWUc0tLo';
+
+export default function Payment({ ccNumber, setPageNum }) {
+  const [nameFromCard, setNameFromCard] = React.useState('');
+  const [openTab, setOpenTab] = React.useState(0);
   function pay(e) {
     e.preventDefault();
-    document.querySelector('.slide').style.marginLeft = '-57.15%';
+    // document.querySelector('.slide').style.marginLeft = '-57.15%';
+    setPageNum(4);
   }
+
+  React.useEffect(() => {
+    if (openTab === 1) {
+      window.paypal
+        .Buttons({
+          createOrder: function (data, actions) {
+            return actions.order.create({
+              purchase_units: [
+                {
+                  amount: {
+                    value: '10.00'
+                  }
+                }
+              ]
+            });
+          },
+          onApprove: function (data, actions) {
+            console.log('DATA', data);
+            return actions.order.capture().then(function (details) {
+              alert(
+                'Transaction completed by ' +
+                  details.payer.name.given_name +
+                  '!'
+              );
+            });
+          },
+          style: {
+            color: 'blue'
+          }
+        })
+        .render('#paypal-button');
+    }
+  }, [openTab]);
+
+  function paymentSuccess(details, data) {
+    {
+      alert('Transaction completed by ' + details.payer.name.given_name);
+      setNameFromCard(details);
+      // OPTIONAL: Call your server to save the transaction
+      // return fetch('/paypal-transaction-complete', {
+      //   method: 'post',
+      //   body: JSON.stringify({
+      //     orderID: data.orderID
+      //   })
+      // });
+    }
+  }
+
+  function openPayment(evt = null, payment = 'payment-pp') {
+    var i, tabcontent, tablinks;
+
+    tabcontent = document.getElementsByClassName('tabcontent');
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = 'none';
+    }
+
+    tablinks = document.getElementsByClassName('tablinks');
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(' active', '');
+    }
+
+    document.getElementById(payment).style.display = 'block';
+    if (evt) evt.currentTarget.className += ' active';
+  }
+
+  function openPaymentTab(tab) {
+    setOpenTab(tab);
+  }
+
   return (
     <div className={classNames('page', 'payment2')}>
       <div className="field">
@@ -63,55 +136,50 @@ export default function Payment({ ccNumber, openPayment }) {
               <li
                 className="tablinks"
                 id="defaultOpen"
-                onClick={(event) => openPayment(event, 'payment-cc')}
+                onClick={() => openPaymentTab(0)}
               >
                 <img src={CCLogos} alt="CC logos" />
               </li>
-              <li
-                className="tablinks"
-                onClick={(event) => openPayment(event, 'payment-pp')}
-              >
+              <li className="tablinks" onClick={() => openPaymentTab(1)}>
                 <img src={PLogo} alt="PayPal logo" />
               </li>
             </ul>
           </div>
-          <div
-            id="payment-cc"
-            className="tabcontent"
-            style={{
-              width: '80%',
-              display: 'block',
-              justifyContent: 'center',
-              alignItems: 'center',
-              textAlign: 'center',
-              position: 'relative',
-              left: '20px'
-            }}
-          >
-            <Elements stripe={stripePromise}>
-              <CardElement
-                options={{
-                  style: {
-                    base: {
-                      fontSize: '16px',
-                      color: '#424770',
-                      '::placeholder': {
-                        color: '#aab7c4'
+          {openTab == 0 && (
+            <div
+              id="payment-cc"
+              className="tabcontent"
+              style={{
+                width: '80%',
+                display: 'block',
+                justifyContent: 'center',
+                alignItems: 'center',
+                textAlign: 'center',
+                position: 'relative',
+                left: '20px'
+              }}
+            >
+              <Elements stripe={stripePromise}>
+                <CardElement
+                  options={{
+                    style: {
+                      base: {
+                        fontSize: '16px',
+                        color: '#424770',
+                        '::placeholder': {
+                          color: '#aab7c4'
+                        }
+                      },
+                      invalid: {
+                        color: '#9e2146'
                       }
-                    },
-                    invalid: {
-                      color: '#9e2146'
                     }
-                  }
-                }}
-              />
-            </Elements>
-          </div>
-          <div id="payment-pp" className="tabcontent">
-            <div>
-              <img src={PLogo} alt="PayPal logo" />
+                  }}
+                />
+              </Elements>
             </div>
-          </div>
+          )}
+          {openTab == 1 && <div id="paypal-button"></div>}
           <p style={{ fontSize: '12px', marginTop: '10px' }}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et
             eros ligula. Lorem ipsum dolor sit amet, consectetur adipiscing
