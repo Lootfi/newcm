@@ -35,7 +35,7 @@ const ErrorSec = ({ imageWrapper, title, text, reloadButton, homeButton }) => {
             className="domain_search_button"
             onClick={pageReload}
           />
-          <Link href="/">
+          <Link to="/">
             <Button
               {...homeButton}
               title="Go Home"

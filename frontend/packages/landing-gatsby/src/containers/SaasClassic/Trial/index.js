@@ -9,6 +9,7 @@ import Container from '../../../../../common/src/components/UI/Container';
 
 import SectionWrapper from './trial.style';
 import VendorLogos from '../../../../../common/src/assets/image/saasClassic/vendor-logos.png';
+import { LightboxContext } from '../../../../../common/src/contexts/LightboxContext';
 
 const TrialSection = ({
   row,
@@ -21,6 +22,8 @@ const TrialSection = ({
   outlineBtnStyle,
   buttonWrapper
 }) => {
+  const { handleLightbox } = React.useContext(LightboxContext);
+
   return (
     <SectionWrapper className="trial-section">
       <Container>
@@ -38,12 +41,12 @@ const TrialSection = ({
               content="Lorem ipsum dolor sit amet consectetur adipisicing elit sed eiusmod tempor incididunt labore dolore."
             />
             <Box {...buttonWrapper}>
-              <Button title="GET STARTED" {...btnStyle} />
-              {/* <Button
-                title="Login with Email"
+              <Button
+                title="ACCEDEZ MAINTENANT"
                 variant="textButton"
-                {...outlineBtnStyle}
-              /> */}
+                onClick={handleLightbox}
+                {...btnStyle}
+              />
             </Box>
           </Box>
         </Box>

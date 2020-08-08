@@ -1,10 +1,21 @@
 module.exports = {
   siteMetadata: {
-    title: '',
-    description: '',
+    title: 'La Base de Contact Musique Ultime 🚀',
+    description:
+      'Trouvez les contacts des maisons de disques, labels, médias, radios, managers, directeurs artistiques, tourneurs, studios, clipeurs, dénicheurs de talents..',
     author: `contactmajor`
   },
   plugins: [
+    // {
+    //   resolve: `gatsby-plugin-create-client-paths`,
+    //   options: { prefixes: [`*`] }
+    // },
+    // {
+    //   resolve: `gatsby-plugin-page-creator`,
+    //   options: {
+    //     path: `${__dirname}/src/pages`,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {

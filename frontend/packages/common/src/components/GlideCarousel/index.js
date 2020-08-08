@@ -7,7 +7,7 @@ import GlideWrapper, {
   ButtonWrapper,
   BulletControlWrapper,
   BulletButton,
-  DefaultBtn,
+  DefaultBtn
 } from './glide.style';
 
 const GlideCarousel = ({
@@ -24,7 +24,7 @@ const GlideCarousel = ({
   buttonWrapperStyle,
   bulletWrapperStyle,
   bulletButtonStyle,
-  carouselSelector,
+  carouselSelector
 }) => {
   // Add all classs to an array
   const addAllClasses = ['glide'];
@@ -45,7 +45,7 @@ const GlideCarousel = ({
     const glide = new Glide(
       carouselSelector ? `#${carouselSelector}` : '#glide',
       {
-        ...options,
+        ...options
       }
     );
     glide.mount();
@@ -57,7 +57,12 @@ const GlideCarousel = ({
       id={carouselSelector || 'glide'}
     >
       <div className="glide__track" data-glide-el="track">
-        <ul className="glide__slides">{children}</ul>
+        <ul
+          className="glide__slides"
+          style={{ display: 'flex', alignItems: 'center' }}
+        >
+          {children}
+        </ul>
       </div>
 
       {/** if controls prop true then show glide controls nav */}
@@ -73,7 +78,11 @@ const GlideCarousel = ({
             data-glide-dir="<"
             aria-label="prev"
           >
-            {prevButton ? prevButton : <DefaultBtn>Prev</DefaultBtn>}
+            {prevButton ? (
+              <h3 style={{ cursor: 'pointer' }}>{prevButton}</h3>
+            ) : (
+              <DefaultBtn>Prev</DefaultBtn>
+            )}
           </ButtonWrapper>
           <ButtonWrapper
             {...nextWrapper}
@@ -81,7 +90,11 @@ const GlideCarousel = ({
             data-glide-dir=">"
             aria-label="next"
           >
-            {nextButton ? nextButton : <DefaultBtn>Next</DefaultBtn>}
+            {nextButton ? (
+              <h3 style={{ cursor: 'pointer' }}>{nextButton}</h3>
+            ) : (
+              <DefaultBtn>Next</DefaultBtn>
+            )}
           </ButtonWrapper>
         </ButtonControlWrapper>
       )}
@@ -94,7 +107,7 @@ const GlideCarousel = ({
           {...bulletWrapperStyle}
         >
           <Fragment>
-            {totalBullets.map(index => (
+            {totalBullets.map((index) => (
               <BulletButton
                 key={index}
                 className="glide__bullet"
@@ -162,13 +175,13 @@ GlideCarousel.propTypes = {
    * It's contain  display, width, height, space,
    * bg, borders, boxShadow and borderRadius style-system prop.
    */
-  bulletButtonStyle: PropTypes.object,
+  bulletButtonStyle: PropTypes.object
 };
 
 // GlideCarousel default props
 GlideCarousel.defaultProps = {
   controls: true,
-  bullets: false,
+  bullets: false
 };
 
 export default GlideCarousel;

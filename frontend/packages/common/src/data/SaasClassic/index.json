@@ -209,125 +209,97 @@
     }
   ],
   "FOOTER_WIDGET": [{
-      "title": "About Us",
+      "title": "A propos de nous",
       "menuItems": [{
-          "url": "#",
-          "text": "Support Center"
+          "url": "/comment",
+          "text": "Comment ça marche ?"
         },
         {
-          "url": "#",
-          "text": "Customer Support"
+          "url": "/prix",
+          "text": "Prix"
         },
         {
-          "url": "#",
-          "text": "About Us"
-        },
-        {
-          "url": "#",
-          "text": "Copyright"
-        },
-        {
-          "url": "#",
-          "text": "Popular Campaign"
+          "url": "/contactus",
+          "text": "Nous Contacter"
         }
       ]
     },
     {
-      "title": "Our Information",
+      "title": "Mon compte",
       "menuItems": [{
           "url": "#",
-          "text": "Return Policy"
+          "text": "Inscription"
         },
         {
           "url": "#",
-          "text": "Privacy Policy"
+          "text": "Connexion"
         },
         {
-          "url": "#",
-          "text": "Terms & Conditions"
-        },
-        {
-          "url": "#",
-          "text": "Site Map"
-        },
-        {
-          "url": "#",
-          "text": "Store Hours"
+          "url": "/faq",
+          "text": "FAQ"
         }
       ]
     },
     {
-      "title": "My Account",
+      "title": "Base de contacts",
       "menuItems": [{
           "url": "#",
-          "text": "Press inquiries"
+          "text": "Accéder à la base"
         },
         {
-          "url": "#",
-          "text": "Social media directories"
+          "url": "/",
+          "text": "Suggérer un contact"
         },
         {
-          "url": "#",
-          "text": "Images & B-roll"
-        },
-        {
-          "url": "#",
-          "text": "Permissions"
-        },
-        {
-          "url": "#",
-          "text": "Speaker requests"
+          "url": "/",
+          "text": "Supprimer un contact"
         }
       ]
     },
     {
-      "title": "Policy",
+      "title": "Règles d'utilisation",
       "menuItems": [{
-          "url": "#",
-          "text": "Application security"
+          "url": "/conditions",
+          "text": "Termes et Conditions"
         },
         {
-          "url": "#",
-          "text": "Software principles"
+          "url": "/confidentiality",
+          "text": "Politique de Confidentialité"
         },
         {
-          "url": "#",
-          "text": "Unwanted software policy"
-        },
-        {
-          "url": "#",
-          "text": "Responsible supply chain"
+          "url": "/essai",
+          "text": "Politique d'essai"
         }
       ]
     }
   ],
   "FEATURES": [{
-      "icon": "flaticon-hourglass",
+      "icon": "../../../../../common/src/assets/image/1.png",
       "title": "Maisons de Disques / Labels",
       "description": "Trouvez et soumettez votre musique aux principaux labels et maisons de disques."
     },
     {
-      "icon": "flaticon-trophy-1",
+      "icon": "../../../../../common/src/assets/image/2.png",
       "title": "Médias / Radios",
       "description": "Get your proof tests delivered home collect a sample from the news get design."
     },
     {
-      "icon": "flaticon-upload",
+      "icon": "../../../../../common/src/assets/image/3.png",
       "title": "Manager / Directeur artistique",
       "description": "Trouvez l'agent qui aidera votre carrière à décoller tout en vérifiant ses références."
     },
     {
-      "icon": "flaticon-settings",
+      "icon": "../../../../../common/src/assets/image/4.png",
       "title": "Tourneurs",
       "description": "Get your proof tests delivered home collect a sample from the news get design."
     },
     {
-      "icon": "flaticon-strategy",
+      "icon": "../../../../../common/src/assets/image/5.png",
       "title": "Studios / Clipeurs",
       "description": "Tous les contacts et Infos utiles sur les studios d'enregistrement et clipeurs de votre région."
     },
     {
-      "icon": "flaticon-conversation",
+      "icon": "../../../../../common/src/assets/image/6.png",
       "title": "Dénicheurs de talents",
       "description": "Get your proof tests delivered home collect a sample from the news get design."
     }
@@ -353,5 +325,56 @@
       "designation": "Manager of Hp co.",
       "avatar": "../../assets/image/saasClassic/author-3.jpg"
     }
-  ]
+  ],
+  "MAISONS": [{
+    "picture": "../../assets/image/maisons/1-universal.png"
+  }, {
+    "picture": "../../assets/image/maisons/2-warner.png"
+  }, {
+    "picture": "../../assets/image/maisons/3-defjam.png"
+  }, {
+    "picture": "../../assets/image/maisons/4-sony.png"
+  }, {
+    "picture": "../../assets/image/maisons/5-because.png"
+  }, {
+    "picture": "../../assets/image/maisons/6-believe.png"
+  }, {
+    "picture": "../../assets/image/maisons/7-wagram.png"
+  }, {
+    "picture": "../../assets/image/maisons/8-capitol.png"
+  }, {
+    "picture": "../../assets/image/maisons/9-columbia.png"
+  }, {
+    "picture": "../../assets/image/maisons/10-musicast.png"
+  }, {
+    "picture": "../../assets/image/maisons/11-playtwo.png"
+  }, {
+    "picture": "../../assets/image/maisons/12-tallac.png"
+  }, {
+    "picture": "../../assets/image/maisons/13-boumaye.png"
+  }, {
+    "picture": "../../assets/image/maisons/14-dinrecords.png"
+  }, {
+    "picture": "../../assets/image/maisons/15-affranchis.png"
+  }, {
+    "picture": "../../assets/image/maisons/16-watib.png"
+  }, {
+    "picture": "../../assets/image/maisons/17-qlf.png"
+  }, {
+    "picture": "../../assets/image/maisons/18-pias.png"
+  }, {
+    "picture": "../../assets/image/maisons/19-elektra.png"
+  }, {
+    "picture": "../../assets/image/maisons/20-initial.png"
+  }, {
+    "picture": "../../assets/image/maisons/21-infine.png"
+  }, {
+    "picture": "../../assets/image/maisons/22-donda-records.png"
+  }, {
+    "picture": "../../assets/image/maisons/23-animal63.png"
+  }, {
+    "picture": "../../assets/image/maisons/24-cracki.png"
+  }, {
+    "picture": "../../assets/image/maisons/25-roc.png"
+  }]
 }

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import NavbarWrapper from '../../../../../common/src/components/Navbar';
 import Drawer from '../../../../../common/src/components/Drawer';
@@ -13,15 +13,10 @@ import ScrollSpyMenu from '../../../../../common/src/components/ScrollSpyMenu';
 
 import LogoImage from '../../../../../common/src/assets/image/saasClassic/logo-white.png';
 import LogoImageAlt from '../../../../../common/src/assets/image/saasClassic/logo.png';
+import { LightboxContext } from '../../../../../common/src/contexts/LightboxContext';
 
-const Navbar = ({
-  navbarStyle,
-  logoStyle,
-  button,
-  row,
-  menuWrapper,
-  handleLighbox
-}) => {
+const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
+  const url = typeof window !== 'undefined' ? window.location.pathname : '';
   const Data = useStaticQuery(graphql`
     query {
       saasClassicJson {
@@ -35,6 +30,7 @@ const Navbar = ({
   `);
 
   const { state, dispatch } = useContext(DrawerContext);
+  const { handleLightbox } = React.useContext(LightboxContext);
 
   // Toggle drawer
   const toggleHandler = () => {
@@ -62,13 +58,16 @@ const Navbar = ({
             className="logo-alt"
           />
           <Box {...menuWrapper}>
-            <ScrollSpyMenu
-              className="main_menu"
-              menuItems={Data.saasClassicJson.MENU_ITEMS}
-              offset={-70}
-            />
+            {url === '/' && (
+              <ScrollSpyMenu
+                className="main_menu"
+                menuItems={Data.saasClassicJson.MENU_ITEMS}
+                offset={-70}
+              />
+            )}
+
             <a href="#1" className="navbar_button">
-              <Button {...button} title="LOGIN" onClick={handleLighbox} />
+              <Button {...button} title="LOGIN" onClick={handleLightbox} />
             </a>
             <Drawer
               width="420px"
@@ -77,14 +76,16 @@ const Navbar = ({
               open={state.isOpen}
               toggleHandler={toggleHandler}
             >
-              <ScrollSpyMenu
-                className="mobile_menu"
-                menuItems={Data.saasClassicJson.MENU_ITEMS}
-                drawerClose={true}
-                offset={-100}
-              />
+              {url === '/' && (
+                <ScrollSpyMenu
+                  className="mobile_menu"
+                  menuItems={Data.saasClassicJson.MENU_ITEMS}
+                  drawerClose={true}
+                  offset={-100}
+                />
+              )}
               <a href="#1" className="navbar_drawer_button">
-                <Button {...button} title="LOGIN" onClick={handleLighbox} />
+                <Button {...button} title="LOGIN" onClick={handleLightbox} />
               </a>
             </Drawer>
           </Box>

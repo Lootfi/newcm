@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import NavbarStyle from './navbar.style';
-import axios from 'axios';
 
 const Navbar = ({ className, children, navbarStyle, ...props }) => {
   // Add all classs to an array

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import Box from '../../../../../common/src/components/Box';
 import Text from '../../../../../common/src/components/Text';
@@ -7,7 +7,6 @@ import Heading from '../../../../../common/src/components/Heading';
 import Logo from '../../../../../common/src/components/UIElements/Logo';
 import Container from '../../../../../common/src/components/UI/Container';
 import FooterWrapper, { List, ListItem } from './footer.style';
-
 import LogoImage from '../../../../../common/src/assets/image/saasClassic/logo.png';
 
 const Footer = ({
@@ -44,8 +43,7 @@ const Footer = ({
               title="Hosting"
               logoStyle={logoStyle}
             />
-            <Text content="hello@redq.io" {...textStyle} />
-            <Text content="+479-443-9334" {...textStyle} />
+            <Text content="support@contactmajor.com" {...textStyle} />
           </Box>
           {/* End of footer logo column */}
           <Box {...colTwo}>
@@ -55,9 +53,9 @@ const Footer = ({
                 <List>
                   {widget.menuItems.map((item, index) => (
                     <ListItem key={`footer-list-item-${index}`}>
-                      <a href={item.url} className="ListItem">
+                      <Link to={item.url} className="ListItem">
                         {item.text}
-                      </a>
+                      </Link>
                     </ListItem>
                   ))}
                 </List>

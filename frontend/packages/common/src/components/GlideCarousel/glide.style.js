@@ -15,7 +15,7 @@ import {
   bottom,
   alignItems,
   justifyContent,
-  flexWrap,
+  flexWrap
 } from 'styled-system';
 
 // Glide wrapper style
@@ -111,6 +111,6 @@ export {
   ButtonWrapper,
   BulletControlWrapper,
   BulletButton,
-  DefaultBtn,
+  DefaultBtn
 };
 export default GlideWrapper;

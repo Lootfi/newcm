@@ -7,6 +7,16 @@ import Heading from '../../../../../common/src/components/Heading';
 import Container from '../../../../../common/src/components/UI/Container';
 import SectionWrapper from './service.style';
 import FeatureBlock from '../../../../../common/src/components/FeatureBlock';
+import i1 from '../../../../../common/src/assets/image/1.png';
+import i2 from '../../../../../common/src/assets/image/2.png';
+import i3 from '../../../../../common/src/assets/image/3.png';
+import i4 from '../../../../../common/src/assets/image/4.png';
+import i5 from '../../../../../common/src/assets/image/5.png';
+import i6 from '../../../../../common/src/assets/image/6.png';
+
+import Image from 'gatsby-image';
+import GlideCarousel from '../../../../../common/src/components/GlideCarousel';
+import GlideSlide from '../../../../../common/src/components/GlideCarousel/glideSlide';
 
 const ServiceSection = ({
   secTitleWrapper,
@@ -24,6 +34,46 @@ const ServiceSection = ({
   featureTitle,
   featureDescription
 }) => {
+  const images = [i1, i2, i3, i4, i5, i6];
+
+  const maisonsCarouselOptions = {
+    type: 'slider',
+    perView: 6,
+    gap: 30,
+    bound: true,
+    breakpoints: {
+      1199: {
+        perView: 6,
+        peek: {
+          before: 100,
+          after: 100
+        }
+      },
+      990: {
+        perView: 5,
+        peek: {
+          before: 160,
+          after: 160
+        }
+      },
+      767: {
+        perView: 5,
+        peek: {
+          before: 80,
+          after: 80
+        }
+      },
+      575: {
+        perView: 4,
+        gap: 15,
+        peek: {
+          before: 20,
+          after: 20
+        }
+      }
+    }
+  };
+
   const Data = useStaticQuery(graphql`
     query {
       saasClassicJson {
@@ -35,6 +85,15 @@ const ServiceSection = ({
           title
           description
           icon
+        }
+        MAISONS {
+          picture {
+            childImageSharp {
+              fluid(quality: 100) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
       }
     }
@@ -54,12 +113,40 @@ const ServiceSection = ({
             content="Contact direct avec les professionnels qui peuvent faire une différence dans votre carrière gràce à notre base de contacts compléte et à jour."
           />
         </Box>
+        <div style={{ padding: '30px 0', backgroundColor: 'black' }}>
+          <GlideCarousel
+            carouselSelector="maisons-carousel"
+            options={maisonsCarouselOptions}
+            controls={true}
+            bullets={true}
+            prevButton={'<'}
+            nextButton={'>'}
+            nextWrapper={{
+              color: 'white',
+              padding: '10px'
+            }}
+            prevWrapper={{ color: 'white', padding: '10px' }}
+            buttonWrapperStyle={{ display: 'flex', justifyContent: 'center' }}
+          >
+            <>
+              {Data.saasClassicJson.MAISONS.map((item, index) => (
+                <GlideSlide key={`maison-${index}`}>
+                  <Image
+                    key={index}
+                    fluid={item.picture.childImageSharp.fluid}
+                    alt={`reviewer-image-${index}`}
+                  />
+                </GlideSlide>
+              ))}
+            </>
+          </GlideCarousel>
+        </div>
 
         <Box {...row}>
           {Data.saasClassicJson.FEATURES.map((item, index) => (
             <Box {...col} key={`feature-item-${index}`} className="feature_col">
               <FeatureBlock
-                icon={<i className={item.icon} />}
+                icon={<img src={images[index]} alt={`feature-item-${index}`} />}
                 wrapperStyle={FeatureItemStyle}
                 iconStyle={iconStyle}
                 contentStyle={contentStyle}

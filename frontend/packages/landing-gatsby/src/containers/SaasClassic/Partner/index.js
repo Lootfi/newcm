@@ -9,6 +9,7 @@ import Container from '../../../../../common/src/components/UI/Container';
 
 import PartnerSectionWrapper from './partner.style';
 import Partner from '../../../../../common/src/assets/image/saasClassic/contactmajor_homepage_logos_medias.png';
+import { LightboxContext } from '../../../../../common/src/contexts/LightboxContext';
 
 const PartnerSection = ({
   row,
@@ -19,6 +20,7 @@ const PartnerSection = ({
   textArea,
   imageArea
 }) => {
+  const { handleLightbox } = React.useContext(LightboxContext);
   return (
     <Container>
       <Box {...row}>
@@ -36,7 +38,11 @@ const PartnerSection = ({
           />
           <Box>
             <a href="#1">
-              <Button {...button} title="FAIRE AVANCER VOTRE CARRIERS" />
+              <Button
+                {...button}
+                title="FAIRE AVANCER VOTRE CARRIERS"
+                onClick={handleLightbox}
+              />
             </a>
           </Box>
         </Box>

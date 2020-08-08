@@ -21,6 +21,7 @@ import {
 import BannerImage from '../../../../../common/src/assets/image/saasClassic/banner-image.jpg';
 import { ic_play_circle_filled } from 'react-icons-kit/md/ic_play_circle_filled';
 import { play } from 'react-icons-kit/entypo/play';
+import { LightboxContext } from '../../../../../common/src/contexts/LightboxContext';
 
 // close button for modal
 const CloseModalButton = () => (
@@ -35,9 +36,11 @@ const CloseModalButton = () => (
 const ModalContent = () => (
   <VideoWrapper>
     <iframe
-      src="https://www.youtube.com/embed/Y1nyjot_-lo"
-      frameborder="0"
-      title="Video"
+      allow="fullscreen; picture-in-picture"
+      allowfullscreen
+      src={
+        'https://alugha.com/embed/web-player?color=%23fe4553&alugha=0&v=6d15e5be-d8c8-11ea-9674-5fa2dfdf0c4e'
+      }
     ></iframe>
   </VideoWrapper>
 );
@@ -52,8 +55,7 @@ const BannerSection = ({
   imageWrapper,
   buttonWrapper,
   button,
-  fillButton,
-  handleLighbox
+  fillButton
 }) => {
   // modal handler
   const handleVideoModal = () => {
@@ -70,6 +72,8 @@ const BannerSection = ({
       closeOnClickOutside: true
     });
   };
+
+  const { handleLightbox } = React.useContext(LightboxContext);
 
   return (
     <BannerWrapper id="banner_section">
@@ -99,7 +103,7 @@ const BannerSection = ({
                 <Button
                   {...fillButton}
                   title="ACCEDEZ MAINTENANT"
-                  onClick={handleLighbox}
+                  onClick={handleLightbox}
                 />
               </a>
               {/* <a href="#1">

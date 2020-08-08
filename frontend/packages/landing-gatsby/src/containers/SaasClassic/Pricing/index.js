@@ -146,7 +146,7 @@ const PricingSection = ({
           <GlideCarousel
             carouselSelector="pricing-carousel"
             options={pricingCarouselOptions}
-            controls={false}
+            controls={true}
           >
             <>
               {data.map((pricingTable, index) => (

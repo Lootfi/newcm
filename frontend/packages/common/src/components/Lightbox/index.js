@@ -163,12 +163,11 @@ const Lightbox = () => {
                 <div className="header-form"></div>
 
                 <div className="field">
-                  <h2>Try YourName for free</h2>
+                  <h3>Prêt pour avoir les bons contacts ?</h3>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Vivamus et eros ligula. Phasellus varius, risus ut sagittis
-                    auctor, quam ante ultrices arcu, in venenatis dui odio vitae
-                    sem.
+                    Accès à vie pour l'ensemble de la base de ContactMajor de
+                    plus de 3.200 contacts influents dans la musique. Aucune
+                    limite, aucune contrainte.
                   </p>
                   <div className="slider-dots">
                     <div className={classNames('slider', 'open')}></div>
@@ -195,12 +194,12 @@ const Lightbox = () => {
                 <div className="header-form"></div>
 
                 <div className="field">
-                  <h2>Try YourName for pay</h2>
+                  <h3>Amener votre carrière à un autre niveau ?</h3>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Vivamus et eros ligula. Phasellus varius, risus ut sagittis
-                    auctor, quam ante ultrices arcu, in venenatis dui odio vitae
-                    sem.
+                    Parce que votre carrière dure dans le temps, votre accès
+                    durera à vie. Vous aurez toujours accès a tous les contacts
+                    musicaux et contacts médias sans aucune limite dans le
+                    temps.
                   </p>
                   <div className="slider-dots">
                     <div className="slider"></div>
@@ -212,7 +211,7 @@ const Lightbox = () => {
                     className="btn"
                     id="secondNext"
                   >
-                    Suivant 2
+                    Suivant
                   </button>
                 </div>
               </div>
@@ -225,27 +224,20 @@ const Lightbox = () => {
             {pageNum == 2 && (
               <div className="page">
                 <div className="field">
-                  <h2>Sign up now!</h2>
-                  <p>Create an account to get started</p>
-                  <div className="sign-up-social">
+                  <h3>Votre accès vous attend !</h3>
+                  <p>Créez un compte pour commencer. </p>
+                  <p>Vous n'êtes qu'à une étape d'avoir accès.</p>
+                  {/* <div className="sign-up-social">
                     <SocialButtons />
-                    {/* <div className="google">
-                      <img src={GLogo} alt="Google G" />
-                      SIGN UP WITH GOOGLE
-                    </div>
-                    <div className="facebook">
-                      <img src={FLogo} alt="Facebook F" />
-                      SIGN UP WITH FACEBOOK
-                    </div> */}
                   </div>
-                  <hr className="hr-text" data-content="OR" />
+                  <hr className="hr-text" data-content="OR" /> */}
                   <div className="form-container">
-                    <label htmlFor="email">Your email address:</label>
+                    <label htmlFor="email">Votre adresse e-mail :</label>
                     <input
                       id="email"
                       type="text"
                       name="email"
-                      placeholder="Your email address"
+                      placeholder="Votre adresse e-mail"
                       autoComplete="off"
                       value={state.email}
                       onChange={changeValue}
@@ -253,25 +245,14 @@ const Lightbox = () => {
                     <span className="error-message" id="email-span">
                       Error message
                     </span>
-                    <div className="check-container">
-                      <input
-                        type="checkbox"
-                        className="checkbox"
-                        name="newsletter"
-                        value="checked"
-                      />
-                      <label htmlFor="newsletter">Keep me updated</label>
-                    </div>
                   </div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
+
                   <div
                     onClick={(e) => validateEmail(e)}
                     className="btn-red"
                     id="thirdNext"
                   >
-                    Continue with email
+                    Continuer
                   </div>
                 </div>
               </div>

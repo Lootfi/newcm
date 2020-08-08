@@ -1,61 +1,40 @@
-import React, { useReducer } from 'react';
-import axios from '../axios';
-import { useReducerAsync } from 'use-reducer-async';
-const initialState = {
-  email: '',
-  name: '',
-  ccNumber: '',
-  password: '',
-  emailValid: null
-};
+import React from 'react';
+import Button from '../../../common/src/components/Button';
+import '@redq/reuse-modal/es/index.css';
+import { openModal, closeModal } from '@redq/reuse-modal';
+import Lightbox from '../../../common/src/components/Lightbox';
 
-function reducer(state, action) {
-  switch (action.type) {
-    case 'SET_VALID_STATE': {
-      return { ...state, emailValid: action.payload };
-    }
-    case 'CHANGE_VALUE': {
-      return { ...state, [action.payload.name]: action.payload.value.trim() };
-    }
-    default:
-      return state;
-  }
-}
+export const LightboxContext = React.createContext({});
 
-export const LightboxContext = React.createContext(initialState);
-
-const asyncActionHandlers = {
-  VALIDATE_EMAIL: ({ dispatch }) => async (action) => {
-    let valid = null;
-    await axios
-      .post('validate-email', {
-        email: action.payload
-      })
-      .then((res) => {
-        console.log(res.data);
-        if (res.data.status == 'valid') valid = true;
-        else valid = false;
-      })
-      .catch((err) => {
-        console.log('ERROR', err);
-
-        valid = false;
-      })
-      .then(() => {
-        dispatch({ type: 'SET_VALID_STATE', payload: valid });
-      });
-    //return { ...state, emailValid: valid };
-  }
-};
+const CloseModalButton = () => (
+  <Button
+    className="modalCloseBtn"
+    variant="fab"
+    onClick={() => closeModal()}
+    icon={<i className="flaticon-plus-symbol" />}
+  />
+);
 
 export const LightboxProvider = ({ children }) => {
-  const [state, dispatch] = useReducerAsync(
-    reducer,
-    initialState,
-    asyncActionHandlers
-  );
   return (
-    <LightboxContext.Provider value={{ state, dispatch }}>
+    <LightboxContext.Provider
+      value={{
+        handleLightbox: () => {
+          openModal({
+            config: {
+              className: 'lightbox',
+              disableDragging: true,
+              width: '100%',
+              height: '100%'
+            },
+            component: Lightbox,
+            componentProps: {},
+            closeComponent: CloseModalButton,
+            closeOnClickOutside: true
+          });
+        }
+      }}
+    >
       {children}
     </LightboxContext.Provider>
   );

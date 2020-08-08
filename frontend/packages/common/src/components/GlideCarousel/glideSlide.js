@@ -11,7 +11,7 @@ const GlideSlide = ({ children }) => {
 
 GlideSlide.propTypes = {
   /** Children. */
-  children: PropTypes.element,
+  children: PropTypes.element
 };
 
 export default GlideSlide;
