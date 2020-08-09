@@ -10,7 +10,8 @@ import {
   ContentWrapper
 } from '../containers/SaasClassic/saasClassic.style';
 import Navbar from '../containers/SaasClassic/Navbar';
-import '@redq/reuse-modal/es/index.css';
+// import '@redq/reuse-modal/es/index.css';
+import '@redq/reuse-modal/lib/index.css';
 
 import { LightboxProvider } from '../../../common/src/contexts/LightboxContext';
 

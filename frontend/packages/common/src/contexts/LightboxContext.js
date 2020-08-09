@@ -23,14 +23,21 @@ export const LightboxProvider = ({ children }) => {
           openModal({
             config: {
               className: 'lightbox',
-              disableDragging: true,
+              disableDragging: false,
               width: '100%',
-              height: '100%'
+              height: '100%',
+              animationFrom: { transform: 'translateY(100px)' },
+              animationTo: { transform: 'translateY(0)' }, //
+              transition: {
+                mass: 1,
+                tension: 180,
+                friction: 26
+              }
             },
             component: Lightbox,
             componentProps: {},
             closeComponent: CloseModalButton,
-            closeOnClickOutside: true
+            closeOnClickOutside: false
           });
         }
       }}

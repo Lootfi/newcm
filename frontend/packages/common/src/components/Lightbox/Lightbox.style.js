@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 import FirstImage from '../../assets/image/first-page.jpg';
 
+import { themeGet } from '@styled-system/theme-get';
+
 const LightboxWrapper = styled.div`
-
-
-
-
 
 .container .payment2 {
   background-color: #31333b;
@@ -232,9 +230,9 @@ const LightboxWrapper = styled.div`
 
   .container {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    //top: 50%;
+    //left: 50%;
+    //transform: translate(-50%, -50%);
     background-color: #ffffff;
     width: 400px;
     height: 570px;
@@ -245,9 +243,9 @@ const LightboxWrapper = styled.div`
   .existing {
     display: none;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    //top: 50%;
+    //left: 50%;
+    //transform: translate(-50%, -50%);
     background-color: #ffffff;
     width: 400px;
     height: 287px;

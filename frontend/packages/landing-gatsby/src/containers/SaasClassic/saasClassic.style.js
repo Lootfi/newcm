@@ -1,6 +1,13 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
+
+.reuseModalHolder .innerRndComponent{
+  padding-right: 30px !important;
+  margin-right: -30px;
+  overflow: hidden auto;
+}
+
   body{
     font-family: 'Roboto', sans-serif;
   }
@@ -135,7 +142,6 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const ContentWrapper = styled.div`
-  overflow: hidden;
   .sticky-nav-active {
     .saas_navbar {
       background: #000;
