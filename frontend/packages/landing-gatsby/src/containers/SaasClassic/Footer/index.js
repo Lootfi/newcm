@@ -8,6 +8,7 @@ import Logo from '../../../../../common/src/components/UIElements/Logo';
 import Container from '../../../../../common/src/components/UI/Container';
 import FooterWrapper, { List, ListItem } from './footer.style';
 import LogoImage from '../../../../../common/src/assets/image/saasClassic/logo.png';
+import { LightboxContext } from '../../../../../common/src/contexts/LightboxContext';
 
 const Footer = ({
   row,
@@ -18,6 +19,7 @@ const Footer = ({
   logoStyle,
   textStyle
 }) => {
+  const { handleLightbox } = React.useContext(LightboxContext);
   const Data = useStaticQuery(graphql`
     query {
       saasClassicJson {
@@ -53,9 +55,19 @@ const Footer = ({
                 <List>
                   {widget.menuItems.map((item, index) => (
                     <ListItem key={`footer-list-item-${index}`}>
-                      <Link to={item.url} className="ListItem">
-                        {item.text}
-                      </Link>
+                      {item.url === '#' ? (
+                        <a
+                          href="#"
+                          onClick={handleLightbox}
+                          className="ListItem"
+                        >
+                          {item.text}
+                        </a>
+                      ) : (
+                        <a href={item.url} className="ListItem">
+                          {item.text}
+                        </a>
+                      )}
                     </ListItem>
                   ))}
                 </List>

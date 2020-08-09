@@ -70,6 +70,8 @@ const TestimonialSection = ({
             content="Meet Client Satisfaction by using product"
           />
         </Box>
+        <div id="ndrsl-5f21d83c3c39c210ca8b9281" className="ndrsl-widget"></div>
+
         <TestimonialSlideWrapper>
           <GlideCarousel
             options={carouselOptions}

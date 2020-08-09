@@ -10,7 +10,7 @@ import Template from './template-app';
 export default function Confidentiality() {
   return (
     <Template>
-      <SEO title="ContactMajor - POLITIQUE DE CONFIDENTIALIT&Eacute;" />
+      <SEO title="POLITIQUE DE CONFIDENTIALIT&Eacute; - ContactMajor" />
       <ConfidWrapper>
         <Container>
           <h1>POLITIQUE DE CONFIDENTIALIT&Eacute;</h1>

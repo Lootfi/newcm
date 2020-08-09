@@ -247,11 +247,11 @@
           "text": "Accéder à la base"
         },
         {
-          "url": "/",
+          "url": "/suggest",
           "text": "Suggérer un contact"
         },
         {
-          "url": "/",
+          "url": "/supprimer",
           "text": "Supprimer un contact"
         }
       ]
@@ -268,7 +268,7 @@
         },
         {
           "url": "/essai",
-          "text": "Politique d'essai"
+          "text": "CGU Offre essai 24h"
         }
       ]
     }

@@ -9,7 +9,7 @@ import Template from './template-app';
 export default function Conditions() {
   return (
     <Template>
-      <SEO title="Confidentiality Agreement" />
+      <SEO title="CONDITIONS D'UTILISATION - ContactMajor" />
 
       <ConfidWrapper>
         <Container>

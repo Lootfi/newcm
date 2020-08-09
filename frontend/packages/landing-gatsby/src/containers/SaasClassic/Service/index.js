@@ -5,7 +5,7 @@ import Box from '../../../../../common/src/components/Box';
 import Text from '../../../../../common/src/components/Text';
 import Heading from '../../../../../common/src/components/Heading';
 import Container from '../../../../../common/src/components/UI/Container';
-import SectionWrapper from './service.style';
+import SectionWrapper, { ImageSlider, ImageSlide } from './service.style';
 import FeatureBlock from '../../../../../common/src/components/FeatureBlock';
 import i1 from '../../../../../common/src/assets/image/1.png';
 import i2 from '../../../../../common/src/assets/image/2.png';
@@ -17,6 +17,7 @@ import i6 from '../../../../../common/src/assets/image/6.png';
 import Image from 'gatsby-image';
 import GlideCarousel from '../../../../../common/src/components/GlideCarousel';
 import GlideSlide from '../../../../../common/src/components/GlideCarousel/glideSlide';
+import Logo from '../../../../../common/src/components/UIElements/Logo';
 
 const ServiceSection = ({
   secTitleWrapper,
@@ -88,11 +89,7 @@ const ServiceSection = ({
         }
         MAISONS {
           picture {
-            childImageSharp {
-              fluid(quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
+            publicURL
           }
         }
       }
@@ -113,7 +110,43 @@ const ServiceSection = ({
             content="Contact direct avec les professionnels qui peuvent faire une différence dans votre carrière gràce à notre base de contacts compléte et à jour."
           />
         </Box>
-        <div style={{ padding: '30px 0', backgroundColor: 'black' }}>
+
+        <div
+          style={{
+            padding: '30px 0',
+            backgroundColor: 'black',
+            display: 'flex',
+            justifyContent: 'center'
+          }}
+        >
+          <ImageSlider>
+            <ImageSlide>
+              {Data.saasClassicJson.MAISONS.map((item, index) => (
+                <Logo
+                  logoStyle={{ height: '26px' }}
+                  href="#"
+                  key={index}
+                  logoSrc={item.picture.publicURL}
+                  title={`maisons-image-${index}`}
+                  alt={`maisons-image-${index}`}
+                />
+              ))}
+            </ImageSlide>
+            <ImageSlide>
+              {Data.saasClassicJson.MAISONS.map((item, index) => (
+                <Logo
+                  logoStyle={{ height: '26px' }}
+                  href="#"
+                  key={index}
+                  logoSrc={item.picture.publicURL}
+                  alt={`maisons-image2-${index}`}
+                  title={`maisons-image-${index}`}
+                />
+              ))}
+            </ImageSlide>
+          </ImageSlider>
+        </div>
+        {/* <div style={{ padding: '30px 0', backgroundColor: 'black' }}>
           <GlideCarousel
             carouselSelector="maisons-carousel"
             options={maisonsCarouselOptions}
@@ -140,7 +173,7 @@ const ServiceSection = ({
               ))}
             </>
           </GlideCarousel>
-        </div>
+        </div> */}
 
         <Box {...row}>
           {Data.saasClassicJson.FEATURES.map((item, index) => (

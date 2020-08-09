@@ -39,6 +39,31 @@ exports.createPages = async ({ actions: { createPage } }) => {
     path: `/conditions`,
     component: require.resolve('./src/pages/conditions.js')
   });
+  createPage({
+    path: `/essai`,
+    component: require.resolve('./src/pages/essai.js')
+  });
+  // createPage({
+  //   path: `/comment`,
+  //   component: require.resolve('./src/pages/CommentCaMarche.js')
+  // });
+  createPage({
+    path: `/contactus`,
+    component: require.resolve('./src/pages/contactus.js')
+  });
+
+  // createPage({
+  //   path: `/faq`,
+  //   component: require.resolve('./src/pages/FAQ.js')
+  // });
+  createPage({
+    path: `/suggest`,
+    component: require.resolve('./src/pages/suggest.js')
+  });
+  createPage({
+    path: `/supprimer`,
+    component: require.resolve('./src/pages/Supprimer.js')
+  });
 
   // Create a page for each Pokémon.
   //   allPokemon.forEach((pokemon) => {

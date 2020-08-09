@@ -147,6 +147,54 @@ function SEO({ description, lang, meta, keywords, title }) {
             />
             <meta name="theme-color" content="#ffffff"></meta>
             <script src="https://www.paypal.com/sdk/js?client-id=AW7puiqSy4C6HSH6_PXmNLgjSLEY8YmHOKKqSXFduSkQ4b9MpRxLuh86duBi185BVEICAdE56v-jcRc_&currency=EUR"></script>
+            <script defer>
+              {`!(function () {
+                  var e,
+                    t = document;
+                  e = function () {
+                    var e = t.createElement('script');
+                    e.defer = !0;
+                    e.src = 'https://cdn.endorsal.io/widgets/widget.min.js';
+                    var n = t.getElementsByTagName('script')[0];
+                    n.parentNode.insertBefore(e, n);
+                    e.onload = function () {
+                      window.NDRSL.init('5f21d7803c39c210ca8b927f');
+                    };
+                  };
+                  'interactive' === t.readyState || 'complete' === t.readyState
+                    ? e()
+                    : t.addEventListener('DOMContentLoaded', e());
+                })();`}
+            </script>
+            <script
+              async
+              defer
+              src="https://www.googletagmanager.com/gtag/js?id=UA-244272-46"
+            ></script>
+            <script defer>
+              {`window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-244272-46');`}
+            </script>
+            <script defer>
+              {`(function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:1937318,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`}
+            </script>
+            <script defer type="text/javascript">
+              {`window.smartlook||(function(d) {
+    var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
+    var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
+    c.charset='utf-8';c.src='https://rec.smartlook.com/recorder.js';h.appendChild(c);
+    })(document);
+    smartlook('init', '4e8e333376f7f8776fe8775f41679927c1a4327a');`}
+            </script>
           </Helmet>
         );
       }}
