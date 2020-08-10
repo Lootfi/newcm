@@ -44,7 +44,7 @@ const TrialSection = ({
               <Button
                 title="ACCEDEZ MAINTENANT"
                 variant="textButton"
-                onClick={handleLightbox}
+                onClick={() => handleLightbox('signup')}
                 {...btnStyle}
               />
             </Box>

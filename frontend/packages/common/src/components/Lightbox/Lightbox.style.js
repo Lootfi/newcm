@@ -5,30 +5,101 @@ import { themeGet } from '@styled-system/theme-get';
 
 const LightboxWrapper = styled.div`
 
-
-.field {
+.existing .page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  // padding: 20px;
+  justify-content: space-around;
+
+  .inputs {
+    width: 100%;
+  }
+}
+
+@media (max-width: 450px) {
+  .existing .page {
+  width: 90vw !important;
+  height: 90vh !important;
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+  }
+}
+}
+
+.intro .field {
+  text-align: center;
   display:flex;
   flex-direction: column;
   align-items: center;
   height: calc(100% - 250px);
+    width: 100%;
   justify-content: space-around;
 }
 
-.field h3 {
-  flex: 1;
-  display: grid;
-  align-content: center;
-  overflow-wrap: break-word;
+.end .field {
+  height: 100%;
+}
 
+@media (max-width: 400px){
+  .intro .field {
+    height: calc(100% - 300px);
+    width: calc(100vw - 40px)
+  }
+  .end .field {
+    height: calc(100% - 70px);
+  }
 }
-.field p {
-  flex: 2;
+
+.emailEntry .field {
+  text-align: center;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  height: calc(100% - 260px);
+  width: 100%;
+  justify-content: space-around;
 }
-.field .slider-dots {
-  flex: 1;
+
+@media (max-width: 400px){
+  .emailEntry .field {
+    height: calc(100% - 300px);
+    width: calc(100vw - 40px)
+  }
+  .emailEntry .field .emailPs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
+
+// .field {
+//   text-align: center;
+//   // padding: 20px;
+//   display:flex;
+//   flex-direction: column;
+//   align-items: center;
+//   height: calc(100% - 250px);
+//   justify-content: space-around;
+// }
+
+
+
+// .field h3 {
+//   flex: 1;
+//   display: grid;
+//   align-content: center;
+//   overflow-wrap: break-word;
+
+// }
+// .field p {
+//   flex: 2;
+// }
+// .field .slider-dots {
+//   flex: 1;
+// }
 
 form .btn {
   border: 1px solid #b0b0b0;
@@ -89,7 +160,8 @@ form .btn {
 
 @media (max-width: 400px){
   .payment3 .tabs-payment ul {
-    justify-content: flex-start;
+    //justify-content: flex-start;
+
   }
 }
 
@@ -120,7 +192,7 @@ form .btn {
 .btn-red3 {
   border: 1px solid #c83233;
   padding: 10px;
-  width: 320px;
+  width: 70%;
   font-family: 'Poppins', sans-serif;
   border-radius: 3px;
   transition: 0.3s;
@@ -148,23 +220,25 @@ form .btn {
   text-align: center;
 }
 
+@media (max-width:450px) {
+  .payment3 .security-cc {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+
 @media (max-width:400px){
-.payment3 .security-cc {
-  flex-direction: column;
-}
+    .payment3 .form-container{
+      // align-items: flex-start;
+      width: 90vw;
+    }
 
-.payment3 .form-container{
-  align-items: flex-start;
-width: 82%;
+    .payment3 .security-cc {
+      width: calc(100% - 50px);
+      flex-direction: column;
+    }
 }
-.field {
-  width: 90vw;
-  // align-items: center;
-  // text-align: initial;
-}
-
-}
-
 
 
 
@@ -365,18 +439,18 @@ width: 82%;
     overflow: hidden;
   }
 
-  .existing {
-    display: none;
-    position: absolute;
-    //top: 50%;
-    //left: 50%;
-    //transform: translate(-50%, -50%);
-    background-color: #ffffff;
-    width: 400px;
-    height: 287px;
-    border-radius: 5px;
-    overflow: hidden;
-  }
+  // .existing {
+  //   display: none;
+  //   position: absolute;
+  //   //top: 50%;
+  //   //left: 50%;
+  //   //transform: translate(-50%, -50%);
+  //   background-color: #ffffff;
+  //   width: 400px;
+  //   height: 287px;
+  //   border-radius: 5px;
+  //   overflow: hidden;
+  // }
 
   .container .form-outer {
     width: 100%;
@@ -405,8 +479,9 @@ width: 82%;
  
 
   .form-container {
-    position: relative;
-    margin-bottom: 10px;
+    // position: relative;
+    // margin-bottom: 10px;
+    width: 100%;
   }
 
   .form-container .btn-red {
@@ -416,7 +491,7 @@ width: 82%;
   .form-container input {
     border: 1px solid #b0b0b0;
     padding: 10px;
-    width: 320px;
+    width: 77%;
     height: 45px;
     border-radius: 5px;
   }
@@ -439,9 +514,6 @@ width: 82%;
     display: inline-block !important;
   }
 
-  .existing {
-    display: none;
-  }
 
   .true {
     display: block !important;
@@ -721,6 +793,7 @@ width: 82%;
       width: 75%;
     }
   }
+
 `;
 
 export default LightboxWrapper;

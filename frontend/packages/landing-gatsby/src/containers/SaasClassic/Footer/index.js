@@ -58,7 +58,11 @@ const Footer = ({
                       {item.url === '#' ? (
                         <a
                           href="#"
-                          onClick={handleLightbox}
+                          onClick={() =>
+                            handleLightbox(
+                              item.text === 'Connexion' ? 'connexion' : 'signup'
+                            )
+                          }
                           className="ListItem"
                         >
                           {item.text}

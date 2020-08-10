@@ -16,10 +16,19 @@ const CloseModalButton = () => (
 );
 
 export const LightboxProvider = ({ children }) => {
+  const [login, setLogin] = React.useState('connexion');
   return (
     <LightboxContext.Provider
       value={{
-        handleLightbox: () => {
+        login,
+        handleLightbox: (existantArg = 'signup') => {
+          setLogin(existantArg);
+          window.ga('send', {
+            hitType: 'event',
+            eventCategory: 'funnel',
+            eventAction: 'step1_message1',
+            eventLabel: 'Funnel - Etape 1 - Message'
+          });
           openModal({
             config: {
               className: 'lightbox',

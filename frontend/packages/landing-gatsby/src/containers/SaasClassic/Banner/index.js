@@ -103,7 +103,7 @@ const BannerSection = ({
                 <Button
                   {...fillButton}
                   title="ACCEDEZ MAINTENANT"
-                  onClick={handleLightbox}
+                  onClick={() => handleLightbox('signup')}
                 />
               </a>
               {/* <a href="#1">

@@ -4,14 +4,16 @@ import Scrollspy from 'react-scrollspy';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 import { DrawerContext } from '../../contexts/DrawerContext';
+import { LightboxContext } from '../../contexts/LightboxContext';
 
 const ScrollSpyMenu = ({ className, menuItems, drawerClose, ...props }) => {
   const { dispatch } = useContext(DrawerContext);
+  const { handleLightbox } = useContext(LightboxContext);
   // empty array for scrollspy items
   const scrollItems = [];
 
   // convert menu path to scrollspy items
-  menuItems.forEach(item => {
+  menuItems.forEach((item) => {
     scrollItems.push(item.path.slice(1));
   });
 
@@ -26,7 +28,7 @@ const ScrollSpyMenu = ({ className, menuItems, drawerClose, ...props }) => {
   // Close drawer when click on menu item
   const toggleDrawer = () => {
     dispatch({
-      type: 'TOGGLE',
+      type: 'TOGGLE'
     });
   };
 
@@ -60,6 +62,17 @@ const ScrollSpyMenu = ({ className, menuItems, drawerClose, ...props }) => {
           )}
         </li>
       ))}
+      <li>
+        <a
+          href="#"
+          onClick={() => {
+            handleLightbox('connexion');
+            drawerClose && toggleDrawer();
+          }}
+        >
+          Connexion
+        </a>
+      </li>
     </Scrollspy>
   );
 };
@@ -94,12 +107,12 @@ ScrollSpyMenu.propTypes = {
   /**
    * Function to be executed when the active item has been updated [optional].
    */
-  onUpdate: PropTypes.func,
+  onUpdate: PropTypes.func
 };
 
 ScrollSpyMenu.defaultProps = {
   componentTag: 'ul',
-  currentClassName: 'is-current',
+  currentClassName: 'is-current'
 };
 
 export default ScrollSpyMenu;

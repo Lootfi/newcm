@@ -10,12 +10,14 @@ import PLogo from '../../assets/image/p-logo.png';
 import classNames from 'classnames';
 import Lock from '../../assets/image/lock.png';
 import axios from '../../axios';
+import Loader from '../Loader';
 const stripePromise = loadStripe(
   'pk_test_51H3r6tGvxHsd96JzVpg8XK1ITL6WSuFdhTWt6PxcF7ekw9LR9Zidq2IVSbkE3ZwcO8zgk4w9wjFDXZpc7tvi0mOs00uCCEXVpL'
 );
 
 export default function Payment({ ccNumber, setPageNum }) {
-  const [openTab, setOpenTab] = React.useState(0);
+  const [openTab, setOpenTab] = React.useState(1);
+  const [loading, setLoading] = React.useState(true);
 
   function pay() {
     setPageNum(4);
@@ -53,6 +55,13 @@ export default function Payment({ ccNumber, setPageNum }) {
                     email: localStorage.getItem('email')
                   })
                   .then((res) => {
+                    window.ga('send', {
+                      hitType: 'event',
+                      eventCategory: 'funnel',
+                      eventAction: 'step5_thankyou',
+                      eventLabel: 'Funnel - Etape 5 - Thank you',
+                      eventValue: '180'
+                    });
                     setPageNum(4);
                   })
                   .catch((err) => {
@@ -68,10 +77,12 @@ export default function Payment({ ccNumber, setPageNum }) {
           },
           style: {
             color: 'blue',
-            layout: 'horizontal'
+            layout: 'horizontal',
+            size: 'large'
           }
         })
         .render('#paypal-button');
+      setLoading(false);
     }
   }, [openTab]);
 
@@ -88,23 +99,19 @@ export default function Payment({ ccNumber, setPageNum }) {
           <hr />
         </div>
         <div className="payment-info">
-          <table>
+          <table style={{ width: 'calc(100% - 50px)' }}>
             <tbody>
               <tr>
-                <td style={{ textAlign: 'left' }}>
-                  Annual Subscription (due Jul 30)
-                </td>
-                <td style={{ textAlign: 'right' }}>$180</td>
+                <td>Annual Subscription (due Jul 30)</td>
+                <td>$180</td>
               </tr>
               <tr>
-                <td style={{ textAlign: 'left', color: '#3BB54A' }}>
-                  24-hour Free Trail
-                </td>
-                <td style={{ textAlign: 'right', color: '#3BB54A' }}>-$180</td>
+                <td style={{ color: '#3BB54A' }}>24-hour Free Trail</td>
+                <td style={{ color: '#3BB54A' }}>-$180</td>
               </tr>
               <tr>
-                <td style={{ textAlign: 'left' }}>Due Now</td>
-                <td style={{ textAlign: 'right' }}>$0</td>
+                <td>Due Now</td>
+                <td>$0</td>
               </tr>
             </tbody>
           </table>
@@ -116,21 +123,21 @@ export default function Payment({ ccNumber, setPageNum }) {
         <div className="tabs-payment">
           <ul>
             <li
-              className={classNames('tablinks', openTab == 0 && 'active')}
-              id="defaultOpen"
-              onClick={() => openPaymentTab(0)}
-            >
-              <img src={CCLogos} alt="CC logos" />
-            </li>
-            <li
               className={classNames('tablinks', openTab == 1 && 'active')}
               onClick={() => openPaymentTab(1)}
             >
               <img src={PLogo} alt="PayPal logo" />
             </li>
+            {/* <li
+              className={classNames('tablinks', openTab == 0 && 'active')}
+              id="defaultOpen"
+              onClick={() => openPaymentTab(0)}
+            >
+              <img src={CCLogos} alt="CC logos" />
+            </li> */}
           </ul>
         </div>
-        {openTab == 0 && (
+        {/* {openTab == 0 && (
           <Fragment>
             <div
               id="payment-cc"
@@ -168,7 +175,7 @@ export default function Payment({ ccNumber, setPageNum }) {
               Start free trail
             </div>
           </Fragment>
-        )}
+        )} */}
         {openTab == 1 && (
           <div
             style={{
@@ -178,6 +185,9 @@ export default function Payment({ ccNumber, setPageNum }) {
               paddingTop: '10px'
             }}
           >
+            {loading && (
+              <Loader width="100px" height="100px" loaderColor="blue" />
+            )}
             <div style={{ width: '70%' }} id="paypal-button"></div>
           </div>
         )}

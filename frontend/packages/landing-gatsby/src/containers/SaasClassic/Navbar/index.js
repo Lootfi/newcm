@@ -67,7 +67,11 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
             )}
 
             <a href="#1" className="navbar_button">
-              <Button {...button} title="LOGIN" onClick={handleLightbox} />
+              <Button
+                {...button}
+                title="ACCEDEZ MAINTENANT"
+                onClick={() => handleLightbox('signup')}
+              />
             </a>
             <Drawer
               width="420px"
@@ -85,7 +89,14 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
                 />
               )}
               <a href="#1" className="navbar_drawer_button">
-                <Button {...button} title="LOGIN" onClick={handleLightbox} />
+                <Button
+                  {...button}
+                  title="ACCEDEZ MAINTENANT"
+                  onClick={() => {
+                    handleLightbox('signup');
+                    toggleHandler();
+                  }}
+                />
               </a>
             </Drawer>
           </Box>
