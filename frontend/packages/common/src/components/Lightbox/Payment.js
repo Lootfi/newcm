@@ -1,5 +1,9 @@
-import React from 'react';
-import { Elements, CardElement } from '@stripe/react-stripe-js';
+import React, { Fragment } from 'react';
+import {
+  Elements,
+  CardElement,
+  CardNumberElement
+} from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import CCLogos from '../../assets/image/cc-logos.png';
 import PLogo from '../../assets/image/p-logo.png';
@@ -21,6 +25,8 @@ export default function Payment({ ccNumber, setPageNum }) {
     if (openTab === 1) {
       window.paypal
         .Buttons({
+          env: 'sandbox',
+          commit: true,
           createOrder: function (data, actions) {
             return actions.order.create({
               purchase_units: [
@@ -61,7 +67,8 @@ export default function Payment({ ccNumber, setPageNum }) {
               });
           },
           style: {
-            color: 'blue'
+            color: 'blue',
+            layout: 'horizontal'
           }
         })
         .render('#paypal-button');
@@ -73,8 +80,131 @@ export default function Payment({ ccNumber, setPageNum }) {
   }
 
   return (
-    <div className={classNames('page', 'payment2')}>
-      <div className="field">
+    <div className={classNames('page', 'payment3')}>
+      <div className="payment-top">
+        <div className="payment-heading">
+          <h3>Pay 0$ now.</h3>
+          <h3>Set up payment for later.</h3>
+          <hr />
+        </div>
+        <div className="payment-info">
+          <table>
+            <tbody>
+              <tr>
+                <td style={{ textAlign: 'left' }}>
+                  Annual Subscription (due Jul 30)
+                </td>
+                <td style={{ textAlign: 'right' }}>$180</td>
+              </tr>
+              <tr>
+                <td style={{ textAlign: 'left', color: '#3BB54A' }}>
+                  24-hour Free Trail
+                </td>
+                <td style={{ textAlign: 'right', color: '#3BB54A' }}>-$180</td>
+              </tr>
+              <tr>
+                <td style={{ textAlign: 'left' }}>Due Now</td>
+                <td style={{ textAlign: 'right' }}>$0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* FORM START */}
+      <div className="form-container">
+        <div className="tabs-payment">
+          <ul>
+            <li
+              className={classNames('tablinks', openTab == 0 && 'active')}
+              id="defaultOpen"
+              onClick={() => openPaymentTab(0)}
+            >
+              <img src={CCLogos} alt="CC logos" />
+            </li>
+            <li
+              className={classNames('tablinks', openTab == 1 && 'active')}
+              onClick={() => openPaymentTab(1)}
+            >
+              <img src={PLogo} alt="PayPal logo" />
+            </li>
+          </ul>
+        </div>
+        {openTab == 0 && (
+          <Fragment>
+            <div
+              id="payment-cc"
+              className="tabcontent"
+              style={{
+                width: '80%',
+                display: 'block',
+                justifyContent: 'center',
+                alignItems: 'center',
+                textAlign: 'center',
+                position: 'relative',
+                left: '20px'
+              }}
+            >
+              <Elements stripe={stripePromise}>
+                <CardElement
+                  options={{
+                    style: {
+                      base: {
+                        fontSize: '16px',
+                        color: '#424770',
+                        '::placeholder': {
+                          color: '#aab7c4'
+                        }
+                      },
+                      invalid: {
+                        color: '#9e2146'
+                      }
+                    }
+                  }}
+                />
+              </Elements>
+            </div>
+            <div onClick={pay} className="btn-red3" id="fourthNext">
+              Start free trail
+            </div>
+          </Fragment>
+        )}
+        {openTab == 1 && (
+          <div
+            style={{
+              width: '85%',
+              display: 'flex',
+              justifyContent: 'center',
+              paddingTop: '10px'
+            }}
+          >
+            <div style={{ width: '70%' }} id="paypal-button"></div>
+          </div>
+        )}
+      </div>
+      {/* FORM END */}
+      <div className="security-cc">
+        <div className="securty-1">
+          <h2 className="gua">100%</h2>
+          <h2>GUARANTEED</h2>
+        </div>
+        <div className="securty-2">
+          <div className="ssl">
+            <img src={Lock} alt="Lock" />
+            Secured with SSL
+          </div>
+          <div className="help-number">
+            <p>Have a question?</p>
+            <p>763-343-1581</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+{
+  /* <div className="field">
         <div className="padding-payment">
           <div className="payment-heading">
             <h3>Pay 0$ now.</h3>
@@ -161,12 +291,18 @@ export default function Payment({ ccNumber, setPageNum }) {
               </Elements>
             </div>
           )}
-          {openTab == 1 && <div id="paypal-button"></div>}
-          <p style={{ fontSize: '12px', marginTop: '10px' }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et
-            eros ligula. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Vivamus et eros ligula.
-          </p>
+          {openTab == 1 && (
+            <div
+              style={{
+                width: '85%',
+                display: 'flex',
+                justifyContent: 'center',
+                paddingTop: '10px'
+              }}
+            >
+              <div style={{ width: '70%' }} id="paypal-button"></div>
+            </div>
+          )}
           <div onClick={pay} className="btn-red" id="fourthNext">
             Start free trail
           </div>
@@ -187,7 +323,5 @@ export default function Payment({ ccNumber, setPageNum }) {
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  );
+      </div> */
 }

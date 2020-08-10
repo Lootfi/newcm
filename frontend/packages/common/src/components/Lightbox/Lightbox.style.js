@@ -5,21 +5,181 @@ import { themeGet } from '@styled-system/theme-get';
 
 const LightboxWrapper = styled.div`
 
+
+.field {
+  text-align: center;
+  // padding: 20px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  height: calc(100% - 250px);
+  justify-content: space-around;
+}
+
+.field h3 {
+  flex: 1;
+  display: grid;
+  align-content: center;
+  overflow-wrap: break-word;
+
+}
+.field p {
+  flex: 2;
+}
+.field .slider-dots {
+  flex: 1;
+}
+
+form .btn {
+  border: 1px solid #b0b0b0;
+  padding: 10px;
+  width: 320px;
+  // position: absolute;
+  bottom: 40px;
+  // left: 50%;
+  // transform: translate(-50%);
+  font-family: 'Poppins', sans-serif;
+  border-radius: 3px;
+  background-color: transparent;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+
+
+
+.container .payment3 {
+  background-color: #fff;
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.payment3 .tablinks img {
+  width: 120px;
+  padding: 10px 15px;
+
+}
+
+.payment3 h3 {
+  padding-left: 15px;
+  padding-top: 5px;
+}
+
+.payment3 .form-container {
+  display:flex;
+  flex-direction: column;
+  height: 200px;
+  justify-content: space-around;
+  align-items: center;
+
+  flex: 2;
+}
+
+.payment3 .tabs-payment {
+  border-bottom: 1px solid gray;
+  width: 100%;
+}
+
+.payment3 .tabs-payment ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+@media (max-width: 400px){
+  .payment3 .tabs-payment ul {
+    justify-content: flex-start;
+  }
+}
+
+.payment3 .tabs-payment ul li {
+  border: 1px solid gray;
+  border-bottom: none;
+}
+
+
+.payment3 .tablinks.active {
+  border-top: 3px solid #c83233;
+  background-color: #ffffff;
+  border-bottom: 2px solid white;
+  position: relative;
+  bottom: -1px;
+}
+
+
+.payment3 .payment-top {
+  background-color: #31333b;
+  color: white;
+
+  flex: 1;
+}
+
+
+
+.btn-red3 {
+  border: 1px solid #c83233;
+  padding: 10px;
+  width: 320px;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 3px;
+  transition: 0.3s;
+  font-size: 15px;
+  background-color: #c83233;
+  text-transform: uppercase;
+  color: #ffffff;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-red3:hover {
+  background-color: #e63e3f;
+}
+
+.payment3 .security-cc {
+  background-color: #31333b;
+  color: white;
+
+  flex: 2;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+@media (max-width:400px){
+.payment3 .security-cc {
+  flex-direction: column;
+}
+
+.payment3 .form-container{
+  align-items: flex-start;
+width: 82%;
+}
+.field {
+  width: 90vw;
+  // align-items: center;
+  // text-align: initial;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 .container .payment2 {
   background-color: #31333b;
   color: #ffffff;
-}
-
-
-
-.payment2 .field {
-  padding: 0px
-}
-@media (max-width: 400px){
-  .payment2 .field {
-      padding: 20px;
-      margin-bottom: 20px;
-  }
 }
 
 .payment2 .payment-heading {
@@ -68,28 +228,6 @@ const LightboxWrapper = styled.div`
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   // background: transparent;
   // padding: 15px 0 40px 0;
   // color: #000;
@@ -98,7 +236,7 @@ const LightboxWrapper = styled.div`
     box-sizing: border-box;
   .container * {
     margin: 0px;
-    padding: 0px;
+    // padding: 0px;
     box-sizing: border-box;
   }
 
@@ -185,20 +323,7 @@ const LightboxWrapper = styled.div`
     background-color: #fcfcfa;
   }
 
-  form .btn {
-    border: 1px solid #b0b0b0;
-    padding: 10px;
-    width: 320px;
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translate(-50%);
-    font-family: 'Poppins', sans-serif;
-    border-radius: 3px;
-    background-color: transparent;
-    transition: 0.3s;
-    font-size: 15px;
-  }
+
 
   form .btn:hover {
     background-color: #191c21;
@@ -277,10 +402,7 @@ const LightboxWrapper = styled.div`
     background-size: cover;
   }
 
-  .field {
-    text-align: center;
-    padding: 20px;
-  }
+ 
 
   .form-container {
     position: relative;
@@ -377,7 +499,7 @@ const LightboxWrapper = styled.div`
   }
 
   
-.security-cc {
+.payment2 .security-cc {
   position: absolute;
   // bottom: 8px;
   width: 320px;
@@ -389,23 +511,23 @@ const LightboxWrapper = styled.div`
   width: 100%;
 }
 
-.securty-1 {
+.payment2 .securty-1 {
   font-weight: 600;
   float: left;
   // position: absolute;
   // bottom: 0px;
 }
 
-.securty-1 .gua {
+.payment2 .securty-1 .gua {
   font-size: 30px;
   // line-height: 0px;
 }
 
-.securty-2 {
+.payment2 .securty-2 {
   float: right;
 }
 
-  .container .payment {
+.container .payment {
     background-color: #31333b;
     color: #ffffff;
   }
@@ -439,7 +561,7 @@ const LightboxWrapper = styled.div`
     opacity: 0.3;
   }
 
-  .padding-payment {
+  .payment2 .padding-payment {
     padding: 20px 20px 0px 20px;
   }
 
@@ -460,29 +582,29 @@ const LightboxWrapper = styled.div`
     transform: translate(-50%);
   }
 
-  .tabs-payment {
+  .payment2 .tabs-payment {
     width: 400px;
     overflow: hidden;
     margin: 0px auto;
   }
 
-  .tabs-payment ul {
+  .payment2 .tabs-payment ul {
     height: 57px;
     list-style: none;
     border-bottom: 1px solid #abaaa1;
   }
 
-  .tabs-payment img {
+  .payment2 .tabs-payment img {
     width: 100px;
     height: 28px;
   }
 
-  #defaultOpen img {
+  .payment2 #defaultOpen img {
     width: 120px;
     height: 28px;
   }
 
-  .tablinks {
+  .payment2 .tablinks {
     padding: 10px;
     width: 160px;
     font-family: 'Poppins', sans-serif;
@@ -496,22 +618,22 @@ const LightboxWrapper = styled.div`
     border-bottom: none;
   }
 
-  .tablinks:hover {
+  .payment2 .tablinks:hover {
     border-top: 3px solid #c83233;
     cursor: pointer;
   }
 
-  .tablinks.active {
+  .payment2 .tablinks.active {
     border-top: 3px solid #c83233;
     background-color: #ffffff;
   }
 
-  .tabcontent {
+  .payment2 .tabcontent {
     margin-top: 10px;
     display: none;
   }
 
-  #payment-pp div {
+  .payment2 #payment-pp div {
     background-color: #ffc439;
     padding: 10px;
     width: 320px;
@@ -520,11 +642,11 @@ const LightboxWrapper = styled.div`
     margin: 0px auto;
   }
 
-  #payment-pp div:hover {
+  .payment2 #payment-pp div:hover {
     cursor: pointer;
   }
 
-  #payment-pp img {
+  .payment2 #payment-pp img {
     width: 90px;
   }
 
@@ -574,14 +696,14 @@ const LightboxWrapper = styled.div`
 
   @media (max-width: 400px) {
 
-    .security-cc {
+    .payment2 .security-cc {
       position: relative;
       display: flex;
       justify-content: space-around;
       bottom: 6px;
     }
 
-    .field p {
+    .payment2 .field p {
       position: relative;
       margin: 10px 0 10px auto;
       transform: translate(-20%);

@@ -16,11 +16,11 @@ import 'rc-tabs/assets/index.css';
 import LogoImage from '../../../../common/src/assets/image/1.png';
 import LoginImage from '../../../../common/src/assets/image/1.png';
 import GoogleLogo from '../../../../common/src/assets/image/1.png';
-
 /*
  * MY IMPORTS
  */
 
+import Loader from '../Loader';
 import classNames from 'classnames';
 import axios from '../../axios';
 
@@ -55,6 +55,7 @@ const Lightbox = ({
     password: '',
     emailValid: null
   });
+  const [loading, setLoading] = React.useState(false);
 
   const spanEmail = document.getElementById('email-span');
   const spanCc = document.getElementById('cc-number-span');
@@ -65,20 +66,20 @@ const Lightbox = ({
     if (localStorage.getItem('email')) setPageNum(3);
   }, []);
 
-  React.useEffect(() => {
-    if (state.email === '' && state.emailValid === false) {
-      if (spanEmail) {
-        spanEmail.className = 'error-message show';
-        spanEmail.innerText = 'Enter a valid email address';
-      }
-    } else if (state.emailValid === false) {
-      console.log('error');
-      spanEmail.className = 'error-message show';
-      spanEmail.innerText = 'Please, enter a valid email address';
-    } else if (state.emailValid === true) {
-      // document.querySelector('.slide').style.marginLeft = '-42.84%';
-    }
-  }, [state.emailValid]);
+  // React.useEffect(() => {
+  //   if (state.email === '' && state.emailValid === false) {
+  //     if (spanEmail) {
+  //       spanEmail.className = 'error-message show';
+  //       spanEmail.innerText = 'Enter a valid email address';
+  //     }
+  //   } else if (state.emailValid === false) {
+  //     console.log('error');
+  //     spanEmail.className = 'error-message show';
+  //     spanEmail.innerText = 'Please, enter a valid email address';
+  //   } else if (state.emailValid === true) {
+  //     // document.querySelector('.slide').style.marginLeft = '-42.84%';
+  //   }
+  // }, [state.emailValid]);
 
   let changeValue = (e) => {
     setState({ ...state, [e.target.name]: e.target.value });
@@ -91,6 +92,7 @@ const Lightbox = ({
   function validateEmail(e) {
     let page = pageNum;
     e.preventDefault();
+    setLoading(true);
     axios
       .post('validate-email', {
         email: state.email
@@ -102,10 +104,21 @@ const Lightbox = ({
           localStorage.setItem('email', res.data.email);
           setPageNum(3);
           // document.querySelector('.slide').style.marginLeft = '-42.84%';
-        } else setState({ ...state, emailValid: false });
+        } else {
+          setState({ ...state, emailValid: false });
+          if (res.data.errors) {
+            document.getElementById('email-span').style.display = 'block';
+            document.getElementById('email-span').className =
+              'error-message show';
+            document.getElementById('email-span').innerText =
+              res.data.errors.email[0];
+          }
+        }
+        setLoading(false);
       })
       .catch((err) => {
         console.log('ERROR', err);
+        setLoading(false);
 
         setState({ ...state, emailValid: false });
       });
@@ -236,11 +249,7 @@ const Lightbox = ({
                             as="h3"
                             content="Prêt pour avoir les bons contacts ?"
                           />
-                          <p>
-                            Accès à vie pour l'ensemble de la base de
-                            ContactMajor de plus de 3.200 contacts influents
-                            dans la musique. Aucune limite, aucune contrainte.
-                          </p>
+                          <Text content="Accès à vie pour l'ensemble de la base de ContactMajor de plus de 3.200 contacts influents dans la musique. Aucune limite, aucune contrainte." />
                           <div className="slider-dots">
                             <div className={classNames('slider', 'open')}></div>
                             <div className="slider"></div>
@@ -295,10 +304,14 @@ const Lightbox = ({
 
                     {pageNum == 2 && (
                       <div className="page">
+                        <div className="header-form"></div>
+
                         <div className="field">
                           <h3>Votre accès vous attend !</h3>
-                          <p>Créez un compte pour commencer. </p>
-                          <p>Vous n'êtes qu'à une étape d'avoir accès.</p>
+                          <div style={{ flex: '1' }}>
+                            <p>Créez un compte pour commencer. </p>
+                            <p>Vous n'êtes qu'à une étape d'avoir accès.</p>
+                          </div>
                           {/* <div className="sign-up-social">
                     <SocialButtons />
                   </div>
@@ -321,13 +334,15 @@ const Lightbox = ({
                             </span>
                           </div>
 
-                          <div
+                          <button
+                            type="button"
+                            disabled={loading}
                             onClick={(e) => validateEmail(e)}
-                            className="btn-red"
+                            className="btn-red3"
                             id="thirdNext"
                           >
-                            Continuer
-                          </div>
+                            {loading ? <Loader /> : 'Continuer'}
+                          </button>
                         </div>
                       </div>
                     )}

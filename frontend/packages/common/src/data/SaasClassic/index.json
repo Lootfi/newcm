@@ -1,18 +1,18 @@
 {
   "MENU_ITEMS": [{
-      "label": "Home",
+      "label": "Accueil",
       "path": "#banner_section",
       "offset": "0"
     },
     {
-      "label": "Service",
+      "label": "Fonctionnement",
       "path": "#service_section",
       "offset": "0"
     },
     {
-      "label": "Testimonial",
-      "path": "#testimonial_section",
-      "offset": "0"
+      "label": "Prix",
+      "path": "#trial_section",
+      "offset": "75px"
     }
   ],
   "SERVICE_ITEMS": [{
@@ -376,5 +376,82 @@
     "picture": "../../assets/image/maisons/24-cracki.png"
   }, {
     "picture": "../../assets/image/maisons/25-roc.png"
-  }]
+  }],
+  "METAS": [{
+      "rel": "icon",
+      "sizes": "",
+      "href": "../../../common/src/assets/image/favicon.ico"
+    },
+    {
+      "rel": "apple-touch-icon",
+      "type": "",
+      "sizes": "57x57",
+      "href": "../../../common/src/assets/image/apple-icon-57x57.png"
+    }, {
+      "rel": "apple-touch-icon",
+      "type": "",
+      "sizes": "60x60",
+      "href": "../../../common/src/assets/image/apple-icon-60x60.png"
+    }, {
+      "rel": "apple-touch-icon",
+      "type": "",
+      "sizes": "72x72",
+      "href": "../../../common/src/assets/image/apple-icon-72x72.png"
+    }, {
+      "rel": "apple-touch-icon",
+      "type": "",
+      "sizes": "76x76",
+      "href": "../../../common/src/assets/image/apple-icon-76x76.png"
+    }, {
+      "rel": "apple-touch-icon",
+      "type": "",
+      "sizes": "114x114",
+      "href": "../../../common/src/assets/image/apple-icon-114x114.png"
+    }, {
+      "rel": "apple-touch-icon",
+      "type": "",
+      "sizes": "120x120",
+      "href": "../../../common/src/assets/image/apple-icon-120x120.png"
+    }, {
+      "rel": "apple-touch-icon",
+      "type": "",
+      "sizes": "144x144",
+      "href": "../../../common/src/assets/image/apple-icon-144x144.png"
+    }, {
+      "rel": "apple-touch-icon",
+      "type": "",
+      "sizes": "152x152",
+      "href": "../../../common/src/assets/image/apple-icon-152x152.png"
+    }, {
+      "rel": "apple-touch-icon",
+      "type": "",
+      "sizes": "180x180",
+      "href": "../../../common/src/assets/image/apple-icon-180x180.png"
+    }, {
+      "rel": "icon",
+      "type": "image/png",
+      "sizes": "192x192",
+      "href": "../../../common/src/assets/image/android-icon-192x192.png"
+    }, {
+      "rel": "icon",
+      "type": "image/png",
+      "sizes": "32x32",
+      "href": "../../../common/src/assets/image/favicon-32x32.png"
+    }, {
+      "rel": "icon",
+      "type": "image/png",
+      "sizes": "96x96",
+      "href": "../../../common/src/assets/image/favicon-96x96.png"
+    }, {
+      "rel": "icon",
+      "type": "image/png",
+      "sizes": "16x16",
+      "href": "../../../common/src/assets/image/favicon-16x16.png"
+    }, {
+      "rel": "manifest",
+      "type": "",
+      "sizes": "",
+      "href": "../../../common/src/assets/image/manifest.json"
+    }
+  ]
 }

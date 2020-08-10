@@ -1,1 +1,1 @@
-{"data":{"saasClassicJson":{"MENU_ITEMS":[{"label":"Home","path":"#banner_section","offset":"0"},{"label":"Service","path":"#service_section","offset":"0"},{"label":"Testimonial","path":"#testimonial_section","offset":"0"}]}}}
+{"data":{"saasClassicJson":{"MENU_ITEMS":[{"label":"Accueil","path":"#banner_section","offset":"0"},{"label":"Fonctionnement","path":"#service_section","offset":"0"},{"label":"Prix","path":"#trial_section","offset":"75px"}]}}}

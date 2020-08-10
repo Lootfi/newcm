@@ -25,7 +25,7 @@ const TrialSection = ({
   const { handleLightbox } = React.useContext(LightboxContext);
 
   return (
-    <SectionWrapper className="trial-section">
+    <SectionWrapper id="trial_section">
       <Container>
         <Box {...row}>
           <Box {...imageArea}>

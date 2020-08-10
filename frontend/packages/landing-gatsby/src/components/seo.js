@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import { StaticQuery, graphql } from 'gatsby';
+import { StaticQuery, graphql, useStaticQuery } from 'gatsby';
+
+import msIcon from '../../../common/src/assets/image/ms-icon-144x144.png';
 
 function SEO({ description, lang, meta, keywords, title }) {
   return (
@@ -61,90 +63,16 @@ function SEO({ description, lang, meta, keywords, title }) {
               )
               .concat(meta)}
           >
-            <link
-              rel="icon"
-              href="../../../common/src/assets/image/favicon.ico"
-            />
-
-            <link
-              rel="apple-touch-icon"
-              sizes="57x57"
-              href="../../../common/src/assets/image/apple-icon-57x57.png"
-            />
-            <link
-              rel="apple-touch-icon"
-              sizes="60x60"
-              href="../../../common/src/assets/image/apple-icon-60x60.png"
-            />
-            <link
-              rel="apple-touch-icon"
-              sizes="72x72"
-              href="../../../common/src/assets/image/apple-icon-72x72.png"
-            />
-            <link
-              rel="apple-touch-icon"
-              sizes="76x76"
-              href="../../../common/src/assets/image/apple-icon-76x76.png"
-            />
-            <link
-              rel="apple-touch-icon"
-              sizes="114x114"
-              href="../../../common/src/assets/image/apple-icon-114x114.png"
-            />
-            <link
-              rel="apple-touch-icon"
-              sizes="120x120"
-              href="../../../common/src/assets/image/apple-icon-120x120.png"
-            />
-            <link
-              rel="apple-touch-icon"
-              sizes="144x144"
-              href="../../../common/src/assets/image/apple-icon-144x144.png"
-            />
-            <link
-              rel="apple-touch-icon"
-              sizes="152x152"
-              href="../../../common/src/assets/image/apple-icon-152x152.png"
-            />
-            <link
-              rel="apple-touch-icon"
-              sizes="180x180"
-              href="../../../common/src/assets/image/apple-icon-180x180.png"
-            />
-            <link
-              rel="icon"
-              type="image/png"
-              sizes="192x192"
-              href="../../../common/src/assets/image/android-icon-192x192.png"
-            />
-            <link
-              rel="icon"
-              type="image/png"
-              sizes="32x32"
-              href="../../../common/src/assets/image/favicon-32x32.png"
-            />
-            <link
-              rel="icon"
-              type="image/png"
-              sizes="96x96"
-              href="../../../common/src/assets/image/favicon-96x96.png"
-            />
-            <link
-              rel="icon"
-              type="image/png"
-              sizes="16x16"
-              href="../../../common/src/assets/image/favicon-16x16.png"
-            />
-            <link
-              rel="manifest"
-              href="../../../common/src/assets/image/manifest.json"
-            />
-
+            {data.saasClassicJson.METAS.map((item, index) => (
+              <link
+                rel={item.rel}
+                type={item.type}
+                href={`${item.href}`}
+                sizes={item.sizes}
+              />
+            ))}
             <meta name="msapplication-TileColor" content="#ffffff" />
-            <meta
-              name="msapplication-TileImage"
-              content="/ms-icon-144x144.png"
-            />
+            <meta name="msapplication-TileImage" content={msIcon} />
             <meta name="theme-color" content="#ffffff"></meta>
             <script src="https://www.paypal.com/sdk/js?client-id=AW7puiqSy4C6HSH6_PXmNLgjSLEY8YmHOKKqSXFduSkQ4b9MpRxLuh86duBi185BVEICAdE56v-jcRc_&currency=EUR"></script>
             <script defer>
@@ -225,6 +153,14 @@ const detailsQuery = graphql`
         title
         description
         author
+      }
+    }
+    saasClassicJson {
+      METAS {
+        rel
+        type
+        sizes
+        href
       }
     }
   }
