@@ -16,6 +16,7 @@ import 'rc-tabs/assets/index.css';
 import LogoImage from '../../../../common/src/assets/image/1.png';
 import LoginImage from '../../../../common/src/assets/image/1.png';
 import GoogleLogo from '../../../../common/src/assets/image/1.png';
+
 /*
  * MY IMPORTS
  */
@@ -105,6 +106,9 @@ const Lightbox = ({
       .then((res) => {
         console.log(res.data);
         if (res.data.status === 'valid') {
+          window.fbq('trackCustom', 'Captif', {
+            content: 'Email_donne_sur_ContactMajor'
+          });
           trackCustomEvent({
             category: 'funnel',
             action: 'step4_payment',

@@ -63,14 +63,14 @@ function SEO({ description, lang, meta, keywords, title }) {
               )
               .concat(meta)}
           >
-            {data.saasClassicJson.METAS.map((item, index) => (
+            {/* {data.saasClassicJson.METAS.map((item, index) => (
               <link
                 rel={item.rel}
                 type={item.type}
-                href={`${item.href}`}
+                href={item.placement}
                 sizes={item.sizes}
               />
-            ))}
+            ))} */}
             <meta name="msapplication-TileColor" content="#ffffff" />
             <meta name="msapplication-TileImage" content={msIcon} />
             <meta name="theme-color" content="#ffffff"></meta>
@@ -94,7 +94,7 @@ function SEO({ description, lang, meta, keywords, title }) {
                     : t.addEventListener('DOMContentLoaded', e());
                 })();`}
             </script>
-            <script
+            {/* <script
               async
               src="https://www.googletagmanager.com/gtag/js?id=UA-244272-46"
             ></script>
@@ -103,7 +103,7 @@ function SEO({ description, lang, meta, keywords, title }) {
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'UA-244272-46');`}
-            </script>
+            </script> */}
             <script defer>
               {`(function(h,o,t,j,a,r){
         h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
@@ -152,14 +152,6 @@ const detailsQuery = graphql`
         title
         description
         author
-      }
-    }
-    saasClassicJson {
-      METAS {
-        rel
-        type
-        sizes
-        href
       }
     }
   }

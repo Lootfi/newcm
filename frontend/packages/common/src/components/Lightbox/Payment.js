@@ -20,6 +20,13 @@ const stripePromise = loadStripe(
 export default function Payment({ ccNumber, setPageNum }) {
   const [openTab, setOpenTab] = React.useState(1);
   const [loading, setLoading] = React.useState(true);
+  let price = null;
+
+  React.useEffect(() => {
+    axios.get('price').then((res) => {
+      price = res.data;
+    });
+  }, []);
 
   function pay() {
     setPageNum(4);
@@ -36,7 +43,7 @@ export default function Payment({ ccNumber, setPageNum }) {
               purchase_units: [
                 {
                   amount: {
-                    value: '180',
+                    value: price.toFixed(),
                     currency_code: 'EUR'
                   }
                 }
@@ -57,11 +64,15 @@ export default function Payment({ ccNumber, setPageNum }) {
                     email: localStorage.getItem('email')
                   })
                   .then((res) => {
+                    window.fbq('track', 'Purchase', {
+                      currency: 'USD',
+                      value: price.toFixed(2)
+                    });
                     trackCustomEvent({
                       category: 'funnel',
                       action: 'step5_thankyou',
                       label: 'Funnel - Etape 5 - Thank you',
-                      value: 180
+                      value: price
                     });
                     setPageNum(4);
                   })

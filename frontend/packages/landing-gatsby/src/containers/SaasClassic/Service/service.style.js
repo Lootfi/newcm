@@ -13,7 +13,7 @@ const slideShow = keyframes`
 export const ImageSlider = styled.div`
   max-width: 524px;
   width: 100%;
-  height: 30px;
+  height: 70px;
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
