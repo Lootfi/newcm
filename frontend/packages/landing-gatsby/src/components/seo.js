@@ -4,8 +4,44 @@ import { Helmet } from 'react-helmet';
 import { StaticQuery, graphql, useStaticQuery } from 'gatsby';
 
 import msIcon from '../../../common/src/assets/image/ms-icon-144x144.png';
+import apple57 from '../../../common/src/assets/image/apple-icon-57x57.png';
+import apple60 from '../../../common/src/assets/image/apple-icon-60x60.png';
+import apple72 from '../../../common/src/assets/image/apple-icon-72x72.png';
+
+import apple76 from '../../../common/src/assets/image/apple-icon-76x76.png';
+import apple114 from '../../../common/src/assets/image/apple-icon-114x114.png';
+import apple120 from '../../../common/src/assets/image/apple-icon-120x120.png';
+import apple144 from '../../../common/src/assets/image/apple-icon-144x144.png';
+import apple152 from '../../../common/src/assets/image/apple-icon-152x152.png';
+import apple180 from '../../../common/src/assets/image/apple-icon-180x180.png';
+
+import favicon from '../../../common/src/assets/image/favicon.ico';
+import android192 from '../../../common/src/assets/image/android-icon-192x192.png';
+import favicon32 from '../../../common/src/assets/image/favicon-32x32.png';
+import favicon96 from '../../../common/src/assets/image/favicon-96x96.png';
+import favicon16 from '../../../common/src/assets/image/favicon-16x16.png';
+
+import manif from '../../../common/src/assets/image/manifest.json';
 
 function SEO({ description, lang, meta, keywords, title }) {
+  const appleIcons = [
+    { href: apple57, rel: 'apple-touch-icon', sizes: '57x57' },
+    { href: apple60, rel: 'apple-touch-icon', sizes: '60x60' },
+    { href: apple72, rel: 'apple-touch-icon', sizes: '72x72' },
+    { href: apple76, rel: 'apple-touch-icon', sizes: '76x76' },
+    { href: apple114, rel: 'apple-touch-icon', sizes: '114x114' },
+    { href: apple120, rel: 'apple-touch-icon', sizes: '120x120' },
+    { href: apple144, rel: 'apple-touch-icon', sizes: '144x144' },
+    { href: apple152, rel: 'apple-touch-icon', sizes: '152x152' },
+    { href: apple180, rel: 'apple-touch-icon', sizes: '180x180' }
+  ];
+  const otherIcons = [
+    { href: favicon, rel: 'icon', type: 'image/png', sizes: '' },
+    { href: android192, rel: 'icon', type: 'image/png', sizes: '192x192' },
+    { href: favicon32, rel: 'icon', type: 'image/png', sizes: '32x32' },
+    { href: favicon96, rel: 'icon', type: 'image/png', sizes: '96x96' },
+    { href: favicon16, rel: 'icon', type: 'image/png', sizes: '16x16' }
+  ];
   return (
     <StaticQuery
       query={detailsQuery}
@@ -63,14 +99,18 @@ function SEO({ description, lang, meta, keywords, title }) {
               )
               .concat(meta)}
           >
-            {/* {data.saasClassicJson.METAS.map((item, index) => (
+            {appleIcons.map((item, index) => (
+              <link rel={item.rel} href={`${item.href}`} sizes={item.sizes} />
+            ))}
+            {otherIcons.map((item, index) => (
               <link
                 rel={item.rel}
                 type={item.type}
-                href={item.placement}
+                href={`${item.href}`}
                 sizes={item.sizes}
               />
-            ))} */}
+            ))}
+            <link rel="manifest" href={`${manif}`} />
             <meta name="msapplication-TileColor" content="#ffffff" />
             <meta name="msapplication-TileImage" content={msIcon} />
             <meta name="theme-color" content="#ffffff"></meta>
