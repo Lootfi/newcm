@@ -31,6 +31,8 @@ import SocialButtons from './SocialButtons';
 import { LightboxContext } from '../../contexts/LightboxContext';
 import Connexion from './Connexion';
 
+import { trackCustomEvent } from 'gatsby-plugin-google-analytics';
+
 const Lightbox = ({
   row,
   col,
@@ -103,11 +105,10 @@ const Lightbox = ({
       .then((res) => {
         console.log(res.data);
         if (res.data.status === 'valid') {
-          window.ga('send', {
-            hitType: 'event',
-            eventCategory: 'funnel',
-            eventAction: 'step4_payment',
-            eventLabel: 'Funnel - Etape 4 - Payment page'
+          trackCustomEvent({
+            category: 'funnel',
+            action: 'step4_payment',
+            label: 'Funnel - Etape 4 - Payment page'
           });
           setState({ ...state, emailValid: true });
           localStorage.setItem('email', res.data.email);
@@ -154,21 +155,19 @@ const Lightbox = ({
     let page = pageNum;
     e.preventDefault();
     if (page === 0) {
-      window.ga('send', {
-        hitType: 'event',
-        eventCategory: 'funnel',
-        eventAction: 'step2_message2',
-        eventLabel: 'Funnel - Etape 2 - Message 2'
+      trackCustomEvent({
+        category: 'funnel',
+        action: 'step2_message2',
+        label: 'Funnel - Etape 2 - Message 2'
       });
       // document.querySelector('.slide').style.marginLeft = '-14.28%';
       setPageNum(1);
     }
     if (page === 1) {
-      window.ga('send', {
-        hitType: 'event',
-        eventCategory: 'funnel',
-        eventAction: 'step3_email',
-        eventLabel: 'Funnel - Etape 3 - Email page'
+      trackCustomEvent({
+        category: 'funnel',
+        action: 'step3_email',
+        label: 'Funnel - Etape 3 - Email page'
       });
       // document.querySelector('.slide').style.marginLeft = '-28.56%';
       setPageNum(2);

@@ -3,6 +3,7 @@ import Button from '../../../common/src/components/Button';
 import '@redq/reuse-modal/es/index.css';
 import { openModal, closeModal } from '@redq/reuse-modal';
 import Lightbox from '../../../common/src/components/Lightbox';
+import { trackCustomEvent } from 'gatsby-plugin-google-analytics';
 
 export const LightboxContext = React.createContext({});
 
@@ -23,11 +24,10 @@ export const LightboxProvider = ({ children }) => {
         login,
         handleLightbox: (existantArg = 'signup') => {
           setLogin(existantArg);
-          window.ga('send', {
-            hitType: 'event',
-            eventCategory: 'funnel',
-            eventAction: 'step1_message1',
-            eventLabel: 'Funnel - Etape 1 - Message'
+          trackCustomEvent({
+            category: 'funnel',
+            action: 'step1_message1',
+            label: 'Funnel - Etape 1 - Message'
           });
           openModal({
             config: {
