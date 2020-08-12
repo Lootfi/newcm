@@ -4,10 +4,10 @@ import { themeGet } from '@styled-system/theme-get';
 const LoginModalWrapper = styled.div`
   height: 100%;
   width: 80%;
-  margin: 71px auto;
+  // margin: 71px auto;
   border-radius: 5px;
   //overflow: hidden auto;
-  background-color: ${themeGet('colors.white', '#ffffff')};
+  // background-color: ${themeGet('colors.white', '#ffffff')};
   width: 400px;
   // @media only screen and (min-width: 1001px) {
   //   max-width: 1170px;

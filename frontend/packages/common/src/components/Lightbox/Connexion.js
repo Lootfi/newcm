@@ -5,12 +5,14 @@ import Button from '../Button';
 import Image from '../Image';
 import Input from '../Input';
 import classNames from 'classnames';
+import { LightboxContext } from '../../contexts/LightboxContext';
 export default function Connexion({
   btnStyle,
   titleStyle,
   outlineBtnStyle,
   descriptionStyle
 }) {
+  const { handleLightbox } = React.useContext(LightboxContext);
   const [login, setLogin] = React.useState({
     email: '',
     password: ''
@@ -19,37 +21,71 @@ export default function Connexion({
     setLogin({ ...login, [e.target.name]: e.target.value });
   };
   return (
-    <div className="existing" id="existing">
-      <div className={classNames('page', 'form-container')}>
-        <Heading content="Bienvenue!" {...titleStyle} />
-        <Text
-          content="Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
-          {...descriptionStyle}
+    <div
+      className={classNames('page', 'form-container')}
+      style={{
+        height: '100%',
+        textAlign: 'center',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-around',
+        alignItems: 'center'
+      }}
+    >
+      <Heading content="Log In" {...titleStyle} />
+
+      <div
+        className="inputs"
+        style={{
+          width: '80%',
+          textAlign: 'left'
+        }}
+      >
+        <label>Email</label>
+        <input
+          name="email"
+          type="email"
+          value={login.email}
+          onChange={handleLoginChange}
         />
+        <label>Mot de passe</label>
 
-        <div className="inputs">
-          <label>Email</label>
-          <input
-            type="email"
-            value={login.email}
-            onChange={handleLoginChange}
-          />
-          <label>Mot de passe</label>
-
-          <input
-            type="password"
-            value={login.password}
-            onChange={handleLoginChange}
-          />
-        </div>
-        <div className="buttons">
-          <Button className="default" title="LOGIN" {...btnStyle} />
+        <input
+          type="password"
+          name="password"
+          value={login.password}
+          onChange={handleLoginChange}
+        />
+      </div>
+      <div
+        className="buttons"
+        style={{
+          width: '80%'
+        }}
+      >
+        <div>
           <Button
-            title="Forget Password"
-            variant="textButton"
-            {...outlineBtnStyle}
+            className="default"
+            title="LOGIN"
+            {...btnStyle}
+            style={{ backgroundColor: '#e63e3f' }}
           />
         </div>
+        <br />
+        <h4>
+          Need an account?{' '}
+          <u
+            style={{ cursor: 'pointer' }}
+            onClick={() => handleLightbox('signup')}
+          >
+            Sign up
+          </u>
+        </h4>
+        <Button
+          title="Forgot your password?"
+          variant="textButton"
+          {...outlineBtnStyle}
+        />
       </div>
     </div>
   );
@@ -78,13 +114,14 @@ Connexion.defaultProps = {
   btnStyle: {
     minWidth: '156px',
     fontSize: '14px',
-    fontWeight: '500'
+    fontWeight: '500',
+    width: '100%'
   },
   // Outline button outline style
   outlineBtnStyle: {
     minWidth: '156px',
     fontSize: '14px',
     fontWeight: '500',
-    color: '#10ac84'
+    color: 'gray'
   }
 };

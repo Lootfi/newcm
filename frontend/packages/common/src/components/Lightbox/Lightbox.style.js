@@ -434,7 +434,7 @@ form .btn {
     //transform: translate(-50%, -50%);
     background-color: #ffffff;
     width: 400px;
-    height: 570px;
+    // height: 570px;
     border-radius: 5px;
     overflow: hidden;
   }
@@ -463,7 +463,7 @@ form .btn {
 
   .form-outer form .page {
     // display: none;
-    height: 570px;
+    height: 585px;
     width: 400px;
     transition: 0.3s;
     position: relative;
@@ -792,6 +792,13 @@ form .btn {
     form .facebook {
       width: 75%;
     }
+  }
+
+  .inputs input {
+    border: 1px solid #b0b0b0;
+    width: 100%;
+    height: 45px;
+    border-radius: 5px;
   }
 
 `;
