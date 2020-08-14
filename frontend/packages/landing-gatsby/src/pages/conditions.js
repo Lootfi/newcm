@@ -17,11 +17,11 @@ export default function Conditions() {
           <p>&nbsp;</p>
           <ol>
             <li>
-              <strong> Bienvenue &agrave; ContactMajor</strong>
+              <h2> Bienvenue &agrave; ContactMajor</h2>
             </li>
           </ol>
           <p>
-            <strong>1.1 Introduction:</strong>
+            <h2>1.1 Introduction:</h2>
             <span style={{ fontWeight: '400' }}>
               {' '}
               APPHOTEL LTD (&laquo;ContactMajor&raquo;, &laquo;nous&raquo;,
@@ -40,7 +40,7 @@ export default function Conditions() {
           </p>
           <p>&nbsp;</p>
           <p>
-            <strong>1.2 Modifications des conditions d'utilisation:</strong>
+            <h2>1.2 Modifications des conditions d'utilisation:</h2>
             <span style={{ fontWeight: '400' }}>
               {' '}
               Nous nous r&eacute;servons le droit, &agrave; notre seule
@@ -66,7 +66,7 @@ export default function Conditions() {
           </p>
           <p>&nbsp;</p>
           <p>
-            <strong>1.3 Confidentialit&eacute;:</strong>
+            <h2>1.3 Confidentialit&eacute;:</h2>
             <span style={{ fontWeight: '400' }}>
               {' '}
               Chez ContactMajor, nous respectons la confidentialit&eacute; de
@@ -80,11 +80,11 @@ export default function Conditions() {
           <p>&nbsp;</p>
           <ol start="2">
             <li>
-              <strong> Acc&egrave;s et utilisation du service</strong>
+              <h2> Acc&egrave;s et utilisation du service</h2>
             </li>
           </ol>
           <p>
-            <strong>2.1 Description de l'utilisation:</strong>
+            <h2>2.1 Description de l'utilisation:</h2>
             <span style={{ fontWeight: '400' }}>
               {' '}
               Le service ContactMajor et tout contenu visualis&eacute; via notre
@@ -109,7 +109,7 @@ export default function Conditions() {
           </p>
           <p>&nbsp;</p>
           <p>
-            <strong>2.2 Vos obligations d'inscription:</strong>
+            <h2>2.2 Vos obligations d'inscription:</h2>
             <span style={{ fontWeight: '400' }}>
               {' '}
               Il se peut que vous deviez vous inscrire &agrave; ContactMajor
@@ -129,9 +129,9 @@ export default function Conditions() {
           </p>
           <p>&nbsp;</p>
           <p>
-            <strong>
+            <h2>
               2.3 Compte de membre, mot de passe et s&eacute;curit&eacute;:
-            </strong>
+            </h2>
             <span style={{ fontWeight: '400' }}>
               {' '}
               Vous ne pouvez jamais utiliser le compte d'autrui et vous ne
@@ -153,7 +153,7 @@ export default function Conditions() {
           </p>
           <p>&nbsp;</p>
           <p>
-            <strong>2.4 Modifications du Service:</strong>
+            <h2>2.4 Modifications du Service:</h2>
             <span style={{ fontWeight: '400' }}>
               {' '}
               ContactMajor se r&eacute;serve le droit de modifier ou
@@ -169,10 +169,10 @@ export default function Conditions() {
           </p>
           <p>&nbsp;</p>
           <p>
-            <strong>
+            <h2>
               2.5 Pratiques g&eacute;n&eacute;rales concernant l'utilisation et
               le stockage:
-            </strong>
+            </h2>
             <span style={{ fontWeight: '400' }}>
               {' '}
               Vous reconnaissez que ContactMajor peut &eacute;tablir des
@@ -193,7 +193,7 @@ export default function Conditions() {
           </p>
           <p>&nbsp;</p>
           <p>
-            <strong>2.6 Services mobiles:</strong>
+            <h2>2.6 Services mobiles:</h2>
             <span style={{ fontWeight: '400' }}>
               {' '}
               Le Service peut inclure certains services disponibles via un
@@ -240,7 +240,7 @@ export default function Conditions() {
           </p>
           <p>&nbsp;</p>
           <p>
-            <strong>2.7 Garantie de remboursement:</strong>
+            <h2>2.7 Garantie de remboursement:</h2>
             <span style={{ fontWeight: '400' }}>
               {' '}
               Sauf indication contraire lors de votre achat du Service que vous
@@ -268,11 +268,11 @@ export default function Conditions() {
           <p>&nbsp;</p>
           <ol start="3">
             <li>
-              <strong> Conditions d'utilisation</strong>
+              <h2> Conditions d'utilisation</h2>
             </li>
           </ol>
           <p>
-            <strong>3.1 Conduite de l'utilisateur:</strong>
+            <h2>3.1 Conduite de l'utilisateur:</h2>
             <span style={{ fontWeight: '400' }}>
               {' '}
               Vous &ecirc;tes seul responsable de tous les codes, vid&eacute;os,
@@ -409,7 +409,7 @@ export default function Conditions() {
           </ul>
           <p>&nbsp;</p>
           <p>
-            <strong>3.2 Frais:</strong>
+            <h2>3.2 Frais:</h2>
             <span style={{ fontWeight: '400' }}>
               {' '}
               Dans la mesure o&ugrave; le service ou une partie de celui-ci est
@@ -471,10 +471,10 @@ export default function Conditions() {
           </p>
           <p>&nbsp;</p>
           <p>
-            <strong>
+            <h2>
               3.3 Avis sp&eacute;cial pour une utilisation internationale;
               Contr&ocirc;les &agrave; l'exportation:
-            </strong>
+            </h2>
             <span style={{ fontWeight: '400' }}>
               {' '}
               le logiciel (d&eacute;fini ci-dessous) disponible en relation avec
@@ -493,7 +493,7 @@ export default function Conditions() {
           </p>
           <p>&nbsp;</p>
           <p>
-            <strong>3.5 Utilisation commerciale:</strong>
+            <h2>3.5 Utilisation commerciale:</h2>
             <span style={{ fontWeight: '400' }}>
               {' '}
               Sauf autorisation expresse contraire des pr&eacute;sentes ou par
@@ -509,11 +509,11 @@ export default function Conditions() {
           <p>&nbsp;</p>
           <ol start="4">
             <li>
-              <strong> Droits de propri&eacute;t&eacute; intellectuelle</strong>
+              <h2> Droits de propri&eacute;t&eacute; intellectuelle</h2>
             </li>
           </ol>
           <p>
-            <strong>4.1 Contenu du Service, Logiciel et Marques:</strong>
+            <h2>4.1 Contenu du Service, Logiciel et Marques:</h2>
             <span style={{ fontWeight: '400' }}>
               {' '}
               Vous reconnaissez et acceptez que le Service peut contenir du
@@ -575,7 +575,7 @@ export default function Conditions() {
           </p>
           <p>&nbsp;</p>
           <p>
-            <strong>4.2 Mat&eacute;riel tiers:</strong>
+            <h2>4.2 Mat&eacute;riel tiers:</h2>
             <span style={{ fontWeight: '400' }}>
               {' '}
               ContactMajor ne sera en aucun cas responsable de quelque
@@ -602,7 +602,7 @@ export default function Conditions() {
           </p>
           <p>&nbsp;</p>
           <p>
-            <strong>4.3 Contenu utilisateur transmis:</strong>
+            <h2>4.3 Contenu utilisateur transmis:</h2>
             <span style={{ fontWeight: '400' }}>
               {' '}
               via le service: en ce qui concerne le contenu ou d'autres
@@ -669,7 +669,7 @@ export default function Conditions() {
           </p>
           <p>&nbsp;</p>
           <p>
-            <strong>4.4 R&eacute;clamations de droits d'auteur:</strong>
+            <h2>4.4 R&eacute;clamations de droits d'auteur:</h2>
             <span style={{ fontWeight: '400' }}>
               {' '}
               ContactMajor respecte la propri&eacute;t&eacute; intellectuelle
@@ -744,7 +744,7 @@ export default function Conditions() {
           </p>
           <p>&nbsp;</p>
           <p>
-            <strong>4.5 Contre-avis:</strong>
+            <h2>4.5 Contre-avis:</h2>
             <span style={{ fontWeight: '400' }}>
               {' '}
               Si vous pensez que votre Contenu utilisateur qui a
@@ -790,9 +790,9 @@ export default function Conditions() {
           </p>
           <p>&nbsp;</p>
           <p>
-            <strong>
+            <h2>
               4.6 Politique de contrefa&ccedil;on r&eacute;p&eacute;t&eacute;e:
-            </strong>
+            </h2>
             <span style={{ fontWeight: '400' }}>
               {' '}
               Conform&eacute;ment au DMCA et aux autres lois applicables,
@@ -810,7 +810,7 @@ export default function Conditions() {
           <p>&nbsp;</p>
           <ol start="5">
             <li>
-              <strong> Sites Web tiers</strong>
+              <h2> Sites Web tiers</h2>
             </li>
           </ol>
           <p>
@@ -835,7 +835,7 @@ export default function Conditions() {
           <p>&nbsp;</p>
           <ol start="6">
             <li>
-              <strong> Services de r&eacute;seautage social</strong>
+              <h2> Services de r&eacute;seautage social</h2>
             </li>
           </ol>
           <p>
@@ -902,7 +902,7 @@ export default function Conditions() {
           </p>
           <ol start="7">
             <li>
-              <strong> Exclusion de garanties</strong>
+              <h2> Exclusion de garanties</h2>
             </li>
           </ol>
           <p>
@@ -934,7 +934,7 @@ export default function Conditions() {
           <p>&nbsp;</p>
           <ol start="9">
             <li>
-              <strong> Limitation de responsabilit&eacute;</strong>
+              <h2> Limitation de responsabilit&eacute;</h2>
             </li>
           </ol>
           <p>
@@ -978,10 +978,10 @@ export default function Conditions() {
           <p>&nbsp;</p>
           <ol start="10">
             <li>
-              <strong>
+              <h2>
                 {' '}
                 Arbitrage ex&eacute;cutoire; Renonciation au recours collectif
-              </strong>
+              </h2>
             </li>
           </ol>
           <p>
@@ -1083,7 +1083,7 @@ export default function Conditions() {
           <p>&nbsp;</p>
           <ol start="11">
             <li>
-              <strong> R&eacute;siliation</strong>
+              <h2> R&eacute;siliation</h2>
             </li>
           </ol>
           <p>
@@ -1118,7 +1118,7 @@ export default function Conditions() {
           <p>&nbsp;</p>
           <ol start="12">
             <li>
-              <strong> Litiges entre utilisateurs</strong>
+              <h2> Litiges entre utilisateurs</h2>
             </li>
           </ol>
           <p>
@@ -1135,7 +1135,7 @@ export default function Conditions() {
           <p>&nbsp;</p>
           <ol start="13">
             <li>
-              <strong> G&eacute;n&eacute;ral</strong>
+              <h2> G&eacute;n&eacute;ral</h2>
             </li>
           </ol>
           <p>
@@ -1201,10 +1201,7 @@ export default function Conditions() {
           <p>&nbsp;</p>
           <ol start="14">
             <li>
-              <strong>
-                {' '}
-                Des questions? Des inqui&eacute;tudes? Suggestions?
-              </strong>
+              <h2> Des questions? Des inqui&eacute;tudes? Suggestions?</h2>
             </li>
           </ol>
           <p>

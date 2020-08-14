@@ -1,11 +1,13 @@
 import React from 'react';
 import axios from '../axios';
+import { navigate } from 'gatsby';
 export const AuthContext = React.createContext();
 
 export default class AuthContextProvider extends React.Component {
   constructor(props) {
     super(props);
     this.logOut = this.logOut.bind(this);
+    this.isLoggedIn = this.isLoggedIn.bind(this);
     this.state = {
       isLoggedIn: undefined,
       token:
@@ -16,26 +18,45 @@ export default class AuthContextProvider extends React.Component {
     };
   }
 
-  componentDidMount() {
-    if (this.state.token) {
-      axios
-        .get('user')
-        .then((res) => {
-          this.setState((prevState, prps) => ({
-            authUser: res.data,
-            isLoggedIn: true
-          }));
-        })
-        .catch((err) => {
-          localStorage.removeItem('token');
-          localStorage.removeItem('user');
-          this.setState((prevState, prps) => ({
-            user: {},
-            isLoggedIn: false,
-            token: null
-          }));
-        });
-    }
+  // componentDidMount() {
+  //   if (this.state.token) {
+  //     axios
+  //       .get('user')
+  //       .then((res) => {
+  //         this.setState((prevState, prps) => ({
+  //           authUser: res.data,
+  //           isLoggedIn: true
+  //         }));
+  //       })
+  //       .catch((err) => {
+  //         localStorage.removeItem('token');
+  //         localStorage.removeItem('user');
+  //         this.setState((prevState, prps) => ({
+  //           user: {},
+  //           isLoggedIn: false,
+  //           token: null
+  //         }));
+  //       });
+  //   } else {
+  //     this.setState((prevState, prps) => ({
+  //       user: {},
+  //       isLoggedIn: false,
+  //       token: null
+  //     }));
+  //   }
+  // }
+
+  async isLoggedIn() {
+    let loggedIn;
+    await axios
+      .get('auth/check')
+      .then((res) => {
+        loggedIn = true;
+      })
+      .catch((err) => {
+        loggedIn = false;
+      });
+    return loggedIn;
   }
   logOut() {
     axios
@@ -59,6 +80,11 @@ export default class AuthContextProvider extends React.Component {
     return (
       <AuthContext.Provider
         value={{
+          checkAuth: () => {
+            const loggedIn = this.isLoggedIn();
+            console.log('auth check result:', loggedIn);
+            return loggedIn;
+          },
           user: this.state.user,
           token: this.state.token,
           isLoggedIn: this.state.isLoggedIn,
@@ -74,10 +100,12 @@ export default class AuthContextProvider extends React.Component {
           },
           loginUser: (user, access_token) => {
             localStorage.setItem('token', access_token);
+            localStorage.setItem('user', JSON.stringify(user));
             this.setState((prevState, prps) => ({
               user: user,
               token: access_token
             }));
+            navigate('/app');
           },
           handleLogOut: () => {
             this.logOut();

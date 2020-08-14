@@ -36,7 +36,7 @@ export default function Conditions() {
           </p>
           <p>&nbsp;</p>
           <p>
-            <strong>Introduction</strong>
+            <h2>Introduction</h2>
           </p>
           <p>
             <span style={{ fontWeight: '400' }}>
@@ -47,7 +47,7 @@ export default function Conditions() {
           </p>
           <p>&nbsp;</p>
           <p>
-            <strong>L'offre</strong>
+            <h2>L'offre</h2>
           </p>
           <p>
             <span style={{ fontWeight: '400' }}>
@@ -70,7 +70,7 @@ export default function Conditions() {
           </p>
           <p>&nbsp;</p>
           <p>
-            <strong>Abonnement et annulation automatiques</strong>
+            <h2>Abonnement et annulation automatiques</h2>
           </p>
           <p>
             <span style={{ fontWeight: '400' }}>
@@ -95,7 +95,7 @@ export default function Conditions() {
           </p>
           <p>&nbsp;</p>
           <p>
-            <strong>Disponibilit&eacute;</strong>
+            <h2>Disponibilit&eacute;</h2>
           </p>
           <p>
             <span style={{ fontWeight: '400' }}>
@@ -115,7 +115,7 @@ export default function Conditions() {
           </p>
           <p>&nbsp;</p>
           <p>
-            <strong>Admissibilit&eacute;</strong>
+            <h2>Admissibilit&eacute;</h2>
           </p>
           <p>
             <span style={{ fontWeight: '400' }}>

@@ -20,16 +20,32 @@
 //   //   }
 // };
 
-exports.createPages = async ({ actions: { createPage } }) => {
-  // `getPokemonData` is a function that fetches our data
-  //   const allPokemon = await getPokemonData(['pikachu', 'charizard', 'squirtle']);
+exports.onCreatePage = async ({ page, actions }) => {
+  const { createPage } = actions;
+  // Only update the `/app` page.
+  if (page.path.match(/^\/app/)) {
+    // page.matchPath is a special key that's used for matching pages
+    // with corresponding routes only on the client.
+    page.matchPath = '/app/*';
+    // Update the page.
+    createPage(page);
+  }
+};
 
-  // Create a page that lists all Pokémon.
+exports.createPages = async ({ page, actions: { createPage } }) => {
   createPage({
     path: `/`,
     component: require.resolve('./src/pages/index.js')
   });
+  // createPage({
+  //   path: `/comment`,
+  //   component: require.resolve('./src/pages/CommentCaMarche.js')
+  // });
 
+  // createPage({
+  //   path: `/faq`,
+  //   component: require.resolve('./src/pages/FAQ.js')
+  // });
   createPage({
     path: `/confidentiality`,
     component: require.resolve('./src/pages/confidentiality.js')
@@ -43,19 +59,10 @@ exports.createPages = async ({ actions: { createPage } }) => {
     path: `/essai`,
     component: require.resolve('./src/pages/essai.js')
   });
-  // createPage({
-  //   path: `/comment`,
-  //   component: require.resolve('./src/pages/CommentCaMarche.js')
-  // });
   createPage({
     path: `/contactus`,
     component: require.resolve('./src/pages/contactus.js')
   });
-
-  // createPage({
-  //   path: `/faq`,
-  //   component: require.resolve('./src/pages/FAQ.js')
-  // });
   createPage({
     path: `/suggest`,
     component: require.resolve('./src/pages/suggest.js')

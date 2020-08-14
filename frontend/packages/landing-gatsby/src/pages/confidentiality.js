@@ -19,7 +19,7 @@ export default function Confidentiality() {
             <br />
           </p>
           <p>
-            <strong>Notre politique :</strong>
+            <h2>Notre politique :</h2>
           </p>
           <p>&nbsp;</p>
           <p>
@@ -71,7 +71,7 @@ export default function Confidentiality() {
           </p>
           <ol>
             <li>
-              <strong> Informations que vous nous fournissez</strong>
+              <h2> Informations que vous nous fournissez</h2>
             </li>
           </ol>
           <p>&nbsp;</p>
@@ -194,11 +194,11 @@ export default function Confidentiality() {
           </p>
           <ol start="2">
             <li>
-              <strong>
+              <h2>
                 {' '}
                 Informations que nous recueillons par des moyens
                 automatis&eacute;s
-              </strong>
+              </h2>
             </li>
           </ol>
           <p>&nbsp;</p>
@@ -215,7 +215,7 @@ export default function Confidentiality() {
           </p>
           <p>&nbsp;</p>
           <p>
-            <strong>Sites Internet :</strong>
+            <h2>Sites Internet :</h2>
             <span style={{ fontWeight: '400' }}>&nbsp;</span>
           </p>
           <p>
@@ -234,7 +234,7 @@ export default function Confidentiality() {
           </p>
           <p>&nbsp;</p>
           <p>
-            <strong>Information de Lieu :</strong>
+            <h2>Information de Lieu :</h2>
             <span style={{ fontWeight: '400' }}>&nbsp;</span>
           </p>
           <p>
@@ -253,11 +253,11 @@ export default function Confidentiality() {
           </p>
           <ol start="3">
             <li>
-              <strong>
+              <h2>
                 {' '}
                 Informations que nous collectons sur les r&eacute;seaux sociaux
                 et autres plateformes de contenu
-              </strong>
+              </h2>
             </li>
           </ol>
           <p>&nbsp;</p>
@@ -286,11 +286,11 @@ export default function Confidentiality() {
           </p>
           <ol start="4">
             <li>
-              <strong>
+              <h2>
                 {' '}
                 Informations que nous recueillons aupr&egrave;s d'autres
                 personnes
-              </strong>
+              </h2>
             </li>
           </ol>
           <p>&nbsp;</p>
@@ -396,10 +396,10 @@ export default function Confidentiality() {
             </li>
           </ul>
           <p>
-            <strong>
+            <h2>
               <br />
-            </strong>
-            <strong>Informations combin&eacute;es : </strong>
+            </h2>
+            <h2>Informations combin&eacute;es : </h2>
             <span style={{ fontWeight: '400' }}>&nbsp;</span>
             <span style={{ fontWeight: '400' }}>
               <br />
@@ -416,7 +416,7 @@ export default function Confidentiality() {
           </p>
           <p>&nbsp;</p>
           <p>
-            <strong>Donn&eacute;es agr&eacute;g&eacute;es / anonymes :</strong>{' '}
+            <h2>Donn&eacute;es agr&eacute;g&eacute;es / anonymes :</h2>{' '}
             <span style={{ fontWeight: '400' }}>
               <br />
             </span>
@@ -495,10 +495,10 @@ export default function Confidentiality() {
           </p>
           <ol>
             <li>
-              <strong>
+              <h2>
                 <br />
-              </strong>
-              <strong> Analyse</strong>
+              </h2>
+              <h2> Analyse</h2>
             </li>
           </ol>
           <p>&nbsp;</p>
@@ -534,7 +534,7 @@ export default function Confidentiality() {
           </p>
           <ol start="2">
             <li>
-              <strong> Publicit&eacute; en ligne</strong>
+              <h2> Publicit&eacute; en ligne</h2>
             </li>
           </ol>
           <p>&nbsp;</p>
@@ -616,7 +616,7 @@ export default function Confidentiality() {
           <p>&nbsp;</p>
           <ol start="3">
             <li>
-              <strong> Avis concernant DNT</strong>
+              <h2> Avis concernant DNT</h2>
             </li>
           </ol>
           <p>&nbsp;</p>
@@ -649,7 +649,7 @@ export default function Confidentiality() {
           </p>
           <p>&nbsp;</p>
           <p>
-            <strong>Les fournisseurs de services :</strong>
+            <h2>Les fournisseurs de services :</h2>
             <span style={{ fontWeight: '400' }}>
               &nbsp; Nous fournissons l'acc&egrave;s &agrave; vos informations
               ou les partageons avec des tiers s&eacute;lectionn&eacute;s qui
@@ -666,7 +666,7 @@ export default function Confidentiality() {
           </p>
           <p>&nbsp;</p>
           <p>
-            <strong>Protection de ContactMajor et autres :</strong>{' '}
+            <h2>Protection de ContactMajor et autres :</h2>{' '}
             <span style={{ fontWeight: '400' }}>
               <br />
             </span>
@@ -695,7 +695,7 @@ export default function Confidentiality() {
           </p>
           <p>&nbsp;</p>
           <p>
-            <strong>Forums publics :</strong>
+            <h2>Forums publics :</h2>
             <span style={{ fontWeight: '400' }}>&nbsp;</span>
           </p>
           <p>
@@ -714,7 +714,7 @@ export default function Confidentiality() {
           </p>
           <p>&nbsp;</p>
           <p>
-            <strong>Informations agr&eacute;g&eacute;es / anonymes :</strong>{' '}
+            <h2>Informations agr&eacute;g&eacute;es / anonymes :</h2>{' '}
             <span style={{ fontWeight: '400' }}>
               <br />
             </span>
@@ -825,7 +825,7 @@ export default function Confidentiality() {
           <p>&nbsp;</p>
           <ol>
             <li>
-              <strong> Vos droits l&eacute;gaux</strong>
+              <h2> Vos droits l&eacute;gaux</h2>
             </li>
           </ol>
           <p>&nbsp;</p>
@@ -903,7 +903,7 @@ export default function Confidentiality() {
           <p>&nbsp;</p>
           <ol start="2">
             <li>
-              <strong> Communications et partage marketing</strong>
+              <h2> Communications et partage marketing</h2>
             </li>
           </ol>
           <p>&nbsp;</p>

@@ -6,19 +6,41 @@ import Image from '../Image';
 import Input from '../Input';
 import classNames from 'classnames';
 import { LightboxContext } from '../../contexts/LightboxContext';
+import { AuthContext } from '../../contexts/AuthContext';
+import axios from '../../axios';
 export default function Connexion({
   btnStyle,
   titleStyle,
   outlineBtnStyle,
   descriptionStyle
 }) {
-  const { handleLightbox } = React.useContext(LightboxContext);
   const [login, setLogin] = React.useState({
     email: '',
     password: ''
   });
+
+  const errorsRef = React.useRef('');
+  const { handleLightbox } = React.useContext(LightboxContext);
+  const { loginUser } = React.useContext(AuthContext);
+
   let handleLoginChange = (e) => {
     setLogin({ ...login, [e.target.name]: e.target.value });
+  };
+
+  let handleLogin = (e) => {
+    e.preventDefault();
+    if (!login.email || !login.password) {
+      errorsRef.current.style.color = 'red';
+      errorsRef.current.innerHTML = 'All fields are required';
+    } else {
+      axios
+        .post('login', { email: login.email, password: login.password })
+        .then((res) => {
+          if (res.data.error) errorsRef.current.innerHTML = res.data.error;
+          else loginUser(res.data.user, res.data.access_token);
+        })
+        .catch((err) => {});
+    }
   };
   return (
     <div
@@ -65,11 +87,14 @@ export default function Connexion({
       >
         <div>
           <Button
+            type="submit"
+            onClick={handleLogin}
             className="default"
             title="LOGIN"
             {...btnStyle}
             style={{ backgroundColor: '#e63e3f' }}
           />
+          <p ref={errorsRef}></p>
         </div>
         <br />
         <h4>

@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
-import {
-  Elements,
-  CardElement,
-  CardNumberElement
-} from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
+// import {
+//   Elements,
+//   CardElement,
+//   CardNumberElement
+// } from '@stripe/react-stripe-js';
+// import { loadStripe } from '@stripe/stripe-js';
 import CCLogos from '../../assets/image/cc-logos.png';
 import PLogo from '../../assets/image/p-logo.png';
 import classNames from 'classnames';
@@ -79,7 +79,10 @@ const Payment = React.memo(
                         value: price
                       });
                       localStorage.setItem('token', res.data.access_token);
-                      localStorage.setItem('user', res.data.user);
+                      localStorage.setItem(
+                        'user',
+                        JSON.stringify(res.data.user)
+                      );
                       setPageNum(4);
                     })
                     .catch((err) => {

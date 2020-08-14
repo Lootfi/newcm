@@ -46,7 +46,7 @@ const LightboxWrapper = styled.div`
 @media (max-width: 400px){
   .intro .field {
     height: calc(100% - 300px);
-    width: calc(100vw - 40px)
+    width: 100vw;
   }
   .end .field {
     height: calc(100% - 70px);
@@ -66,7 +66,7 @@ const LightboxWrapper = styled.div`
 @media (max-width: 400px){
   .emailEntry .field {
     height: calc(100% - 300px);
-    width: calc(100vw - 40px)
+    width: 100vw;
   }
   .emailEntry .field .emailPs {
     display: flex;
@@ -290,6 +290,10 @@ form .btn {
 @media (max-width: 400px){
   .payment2 .form-container {
     height: 250px;
+  }
+
+  .page.form-container {
+    width: 100vw;
   }
 }
 
