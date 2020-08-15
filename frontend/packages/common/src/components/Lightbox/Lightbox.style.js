@@ -5,6 +5,17 @@ import { themeGet } from '@styled-system/theme-get';
 
 const LightboxWrapper = styled.div`
 
+
+
+
+// background: transparent;
+// padding: 15px 0 40px 0;
+// color: #000;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  height: 100%;
+
 .existing .page {
   display: flex;
   flex-direction: column;
@@ -304,14 +315,6 @@ form .btn {
   transform: translate(-50%);
 }
 
-
-
-  // background: transparent;
-  // padding: 15px 0 40px 0;
-  // color: #000;
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
   .container * {
     margin: 0px;
     // padding: 0px;
@@ -433,14 +436,14 @@ form .btn {
 
   .container {
     position: absolute;
-    //top: 50%;
-    //left: 50%;
-    //transform: translate(-50%, -50%);
     background-color: #ffffff;
     width: 400px;
-    // height: 570px;
     border-radius: 5px;
     overflow: hidden;
+    height: 100%;
+    background: transparent;
+    display: flex;
+    align-items: center;
   }
 
   // .existing {
@@ -458,11 +461,11 @@ form .btn {
 
   .container .form-outer {
     width: 100%;
+    background: white;
   }
 
   .form-outer form {
     display: flex;
-    width: 700%;
   }
 
   .form-outer form .page {
