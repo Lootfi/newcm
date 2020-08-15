@@ -1,9 +1,6 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Heading from '../Heading';
-import Text from '../Text';
 import Button from '../Button';
-import Image from '../Image';
-import Input from '../Input';
 import classNames from 'classnames';
 import { LightboxContext } from '../../contexts/LightboxContext';
 import { AuthContext } from '../../contexts/AuthContext';
@@ -44,7 +41,7 @@ export default function Connexion({
   };
   return (
     <div
-      className={classNames('page', 'form-container')}
+      className={classNames('page', 'form-container', 'loginModal')}
       style={{
         height: '100%',
         textAlign: 'center',

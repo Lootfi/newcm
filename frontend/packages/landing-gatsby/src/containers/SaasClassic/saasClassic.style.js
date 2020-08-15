@@ -1,5 +1,4 @@
 import styled, { createGlobalStyle } from 'styled-components';
-
 export const GlobalStyle = createGlobalStyle`
 
 .reuseModalHolder .innerRndComponent{
@@ -10,9 +9,17 @@ export const GlobalStyle = createGlobalStyle`
 
   body{
     font-family: 'Roboto', sans-serif;
+    // position: ${(props) => props.inApp && 'absolute'};
+    // width: ${(props) => props.inApp && '100%'};
   }
 #___gatsby{
   background-color: #000;
+  position: ${(props) => props.inApp && 'absolute'};
+  width: ${(props) => props.inApp && '100%'};
+}
+#gatsby-focus-wrapper {
+  position: ${(props) => props.inApp && 'relative'};
+  top: ${(props) => props.inApp && '-30px'};
 }
   h1,
   h2,
@@ -177,7 +184,7 @@ export const ContentWrapper = styled.div`
   }
 
   .saas_navbar {
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;

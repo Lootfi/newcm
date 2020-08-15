@@ -14,9 +14,6 @@ import i4 from '../../../../../common/src/assets/image/4.png';
 import i5 from '../../../../../common/src/assets/image/5.png';
 import i6 from '../../../../../common/src/assets/image/6.png';
 
-import Image from 'gatsby-image';
-import GlideCarousel from '../../../../../common/src/components/GlideCarousel';
-import GlideSlide from '../../../../../common/src/components/GlideCarousel/glideSlide';
 import Logo from '../../../../../common/src/components/UIElements/Logo';
 
 const ServiceSection = ({
@@ -36,44 +33,6 @@ const ServiceSection = ({
   featureDescription
 }) => {
   const images = [i1, i2, i3, i4, i5, i6];
-
-  const maisonsCarouselOptions = {
-    type: 'slider',
-    perView: 6,
-    gap: 30,
-    bound: true,
-    breakpoints: {
-      1199: {
-        perView: 6,
-        peek: {
-          before: 100,
-          after: 100
-        }
-      },
-      990: {
-        perView: 5,
-        peek: {
-          before: 160,
-          after: 160
-        }
-      },
-      767: {
-        perView: 5,
-        peek: {
-          before: 80,
-          after: 80
-        }
-      },
-      575: {
-        perView: 4,
-        gap: 15,
-        peek: {
-          before: 20,
-          after: 20
-        }
-      }
-    }
-  };
 
   const Data = useStaticQuery(graphql`
     query {
@@ -146,34 +105,6 @@ const ServiceSection = ({
             </ImageSlide>
           </ImageSlider>
         </div>
-        {/* <div style={{ padding: '30px 0', backgroundColor: 'black' }}>
-          <GlideCarousel
-            carouselSelector="maisons-carousel"
-            options={maisonsCarouselOptions}
-            controls={true}
-            bullets={true}
-            prevButton={'<'}
-            nextButton={'>'}
-            nextWrapper={{
-              color: 'white',
-              padding: '10px'
-            }}
-            prevWrapper={{ color: 'white', padding: '10px' }}
-            buttonWrapperStyle={{ display: 'flex', justifyContent: 'center' }}
-          >
-            <>
-              {Data.saasClassicJson.MAISONS.map((item, index) => (
-                <GlideSlide key={`maison-${index}`}>
-                  <Image
-                    key={index}
-                    fluid={item.picture.childImageSharp.fluid}
-                    alt={`reviewer-image-${index}`}
-                  />
-                </GlideSlide>
-              ))}
-            </>
-          </GlideCarousel>
-        </div> */}
 
         <Box {...row}>
           {Data.saasClassicJson.FEATURES.map((item, index) => (
@@ -192,23 +123,6 @@ const ServiceSection = ({
             </Box>
           ))}
         </Box>
-
-        {/* <Box {...Row}>
-          {Data.saasClassicJson.SERVICE_ITEMS.map((item, index) => (
-            <Box
-              {...Col}
-              key={`service-item-${index}`}
-              className="service_item_col"
-            >
-              <Box className="service_item">
-                <Box className="service_icon">
-                  <i className={item.icon} />
-                </Box>
-                <Heading as="h3" content={item.title} {...serviceTitleStyle} />
-              </Box>
-            </Box>
-          ))}
-        </Box> */}
       </Container>
     </SectionWrapper>
   );

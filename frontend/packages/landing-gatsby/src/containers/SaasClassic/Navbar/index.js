@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useStaticQuery, graphql, Link } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import NavbarWrapper from '../../../../../common/src/components/Navbar';
 import Drawer from '../../../../../common/src/components/Drawer';
@@ -12,7 +12,6 @@ import { DrawerContext } from '../../../../../common/src/contexts/DrawerContext'
 import ScrollSpyMenu from '../../../../../common/src/components/ScrollSpyMenu';
 
 import LogoImage from '../../../../../common/src/assets/image/saasClassic/logo-white.png';
-import LogoImageAlt from '../../../../../common/src/assets/image/saasClassic/logo.png';
 import { LightboxContext } from '../../../../../common/src/contexts/LightboxContext';
 
 const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {

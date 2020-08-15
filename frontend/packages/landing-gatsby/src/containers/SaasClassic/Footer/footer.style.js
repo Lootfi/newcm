@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import FooterImage from '../../../../../common/src/assets/image/saasClassic/banner-image.jpg';
 
 const FooterWrapper = styled.footer`
   position: relative;

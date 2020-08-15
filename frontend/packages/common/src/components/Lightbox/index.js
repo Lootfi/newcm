@@ -1,21 +1,9 @@
-import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
-import Tabs, { TabPane } from 'rc-tabs';
-import TabContent from 'rc-tabs/lib/TabContent';
-import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
-import Box from '../Box';
+import React from 'react';
 import Text from '../Text';
 import Heading from '../Heading';
-import Input from '../Input';
-import CheckBox from '../Checkbox/index';
 import Button from '../Button';
-import Image from '../Image';
 import LoginModalWrapper from './loginModal.style';
 import LightboxWrapper from './Lightbox.style';
-import 'rc-tabs/assets/index.css';
-import LogoImage from '../../../../common/src/assets/image/1.png';
-import LoginImage from '../../../../common/src/assets/image/1.png';
-import GoogleLogo from '../../../../common/src/assets/image/1.png';
 
 /*
  * MY IMPORTS
@@ -25,8 +13,6 @@ import Loader from '../Loader';
 import classNames from 'classnames';
 import axios from '../../axios';
 
-import GLogo from '../../assets/image/g-logo.png';
-import FLogo from '../../assets/image/f-logo.png';
 import Payment from './Payment';
 import SocialButtons from './SocialButtons';
 import { LightboxContext } from '../../contexts/LightboxContext';
@@ -247,7 +233,7 @@ const Lightbox = React.memo(() => {
           // maxWidth: '960px',
           width: '400px',
           height: '100%',
-          margin: '32px auto',
+          margin: '0 auto',
           padding: 0,
           border: 0,
           backgroundColor: 'transparent'
@@ -503,12 +489,15 @@ const Lightbox = React.memo(() => {
           {existant === 'connexion' && (
             <div
               style={{
-                height: '400px'
+                height: '100%',
+                background: 'transparent'
               }}
-              className="container"
+              className={classNames('container', 'loginContainer')}
               id="container"
             >
-              <Connexion />
+              <div style={{ height: '400px' }}>
+                <Connexion />
+              </div>
             </div>
           )}
 

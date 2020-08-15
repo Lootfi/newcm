@@ -1,10 +1,7 @@
 import styled from 'styled-components';
-import BgImage from '../../../../../common/src/assets/image/saasClassic/map.png';
 
 const PartnerSectionWrapper = styled.section`
   padding: 120px 0;
-  background-repeat: no-repeat;
-  background-position: 25% center;
 
   @media (max-width: 990px) {
     padding: 100px 0;

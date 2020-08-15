@@ -22,32 +22,34 @@ const PartnerSection = ({
 }) => {
   const { handleLightbox } = React.useContext(LightboxContext);
   return (
-    <Container>
-      <Box {...row}>
-        <Box {...col} {...imageArea}>
-          <Image src={Partner} alt="Domain Image" />
-        </Box>
-        <Box {...col} {...textArea}>
-          <Heading
-            {...title}
-            content="Contacter les médias premium pour mettre en avant votre musique"
-          />
-          <Text
-            {...description}
-            content="Entrez en contact avec les rédacteurs en chef, journalistes, personnes les plus influentes en France pour donner une nouvelle dimension à votre musique."
-          />
-          <Box>
-            <a href="#1">
-              <Button
-                {...button}
-                title="FAIRE AVANCER VOTRE CARRIERS"
-                onClick={() => handleLightbox('signup')}
-              />
-            </a>
+    <PartnerSectionWrapper>
+      <Container>
+        <Box {...row}>
+          <Box {...col} {...imageArea}>
+            <Image src={Partner} alt="Domain Image" />
+          </Box>
+          <Box {...col} {...textArea}>
+            <Heading
+              {...title}
+              content="Contacter les médias premium pour mettre en avant votre musique"
+            />
+            <Text
+              {...description}
+              content="Entrez en contact avec les rédacteurs en chef, journalistes, personnes les plus influentes en France pour donner une nouvelle dimension à votre musique."
+            />
+            <Box>
+              <a href="#1">
+                <Button
+                  {...button}
+                  title="FAIRE AVANCER VOTRE CARRIERS"
+                  onClick={() => handleLightbox('signup')}
+                />
+              </a>
+            </Box>
           </Box>
         </Box>
-      </Box>
-    </Container>
+      </Container>
+    </PartnerSectionWrapper>
   );
 };
 

@@ -1,11 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 // import {
 //   Elements,
 //   CardElement,
 //   CardNumberElement
 // } from '@stripe/react-stripe-js';
 // import { loadStripe } from '@stripe/stripe-js';
-import CCLogos from '../../assets/image/cc-logos.png';
 import PLogo from '../../assets/image/p-logo.png';
 import classNames from 'classnames';
 import Lock from '../../assets/image/lock.png';
@@ -24,10 +23,10 @@ function usePrevious(value) {
 const Payment = React.memo(
   ({ ccNumber, setPageNum }) => {
     const [openTab, setOpenTab] = React.useState(1);
-    const [loading, setLoading] = React.useState(true);
+    const [loading, setLoading] = React.useState(false);
     const prevOpenTab = usePrevious(openTab);
     let price = null;
-    let stripePromise;
+    // let stripePromise;
 
     React.useEffect(() => {
       // stripePromise = loadStripe(
@@ -57,6 +56,7 @@ const Payment = React.memo(
               return actions.order
                 .capture()
                 .then(function (details) {
+                  setLoading(true);
                   axios
                     .post('paypal-payment-complete', {
                       name:
@@ -84,6 +84,7 @@ const Payment = React.memo(
                         JSON.stringify(res.data.user)
                       );
                       setPageNum(4);
+                      setLoading(false);
                     })
                     .catch((err) => {
                       console.log(
@@ -102,7 +103,6 @@ const Payment = React.memo(
             }
           })
           .render('#paypal-button');
-        setLoading(false);
       }
     }, []);
 
@@ -214,12 +214,16 @@ const Payment = React.memo(
               style={{
                 width: '100%',
                 display: 'flex',
+                flexDirection: 'column',
                 justifyContent: 'center',
+                alignItems: 'center',
                 paddingTop: '10px'
               }}
             >
               {loading && (
-                <Loader width="100px" height="100px" loaderColor="blue" />
+                <div style={{ pading: '3px' }}>
+                  <Loader width="100px" height="100px" loaderColor="blue" />
+                </div>
               )}
               <div style={{ width: '80%' }} id="paypal-button"></div>
             </div>

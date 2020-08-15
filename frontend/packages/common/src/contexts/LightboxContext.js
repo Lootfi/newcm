@@ -1,8 +1,4 @@
 import React from 'react';
-import Button from '../../../common/src/components/Button';
-import '@redq/reuse-modal/es/index.css';
-// import { openModal, closeModal } from '@redq/reuse-modal';
-import Lightbox from '../../../common/src/components/Lightbox';
 import { trackCustomEvent } from 'gatsby-plugin-google-analytics';
 
 export const LightboxContext = React.createContext({});

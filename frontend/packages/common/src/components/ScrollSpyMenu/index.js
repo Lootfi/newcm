@@ -64,7 +64,7 @@ const ScrollSpyMenu = ({ className, menuItems, drawerClose, ...props }) => {
       ))}
       <li>
         <a
-          href="#"
+          href="#1"
           onClick={() => {
             handleLightbox('connexion');
             drawerClose && toggleDrawer();

@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import FirstImage from '../../assets/image/first-page.jpg';
 
-import { themeGet } from '@styled-system/theme-get';
-
 const LightboxWrapper = styled.div`
 
 
@@ -48,6 +46,12 @@ const LightboxWrapper = styled.div`
   height: calc(100% - 250px);
     width: 100%;
   justify-content: space-around;
+}
+
+@media (max-width: 400px) {
+  .end {
+    padding: 30px 0;
+  }
 }
 
 .end .field {
@@ -253,7 +257,9 @@ form .btn {
 
 
 
-
+.loginModal {
+  background: white;
+}
 
 
 
@@ -744,12 +750,13 @@ form .btn {
   }
 
   .slider.open {
-    width: 25px;
+    width: 7px;
     height: 7px;
     border-radius: 50px;
     background-color: #000000;
     opacity: 1;
     display: inline-block;
+    margin: 0 7px;
   }
 
   .help-number p {
@@ -806,6 +813,12 @@ form .btn {
     width: 100%;
     height: 45px;
     border-radius: 5px;
+  }
+
+  @media (max-width: 500px){
+    .payment3  {
+      height:100vh !important;
+    }
   }
 
 `;

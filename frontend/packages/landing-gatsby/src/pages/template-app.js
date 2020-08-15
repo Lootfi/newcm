@@ -24,7 +24,11 @@ export default function Template({ children }) {
         <LightboxProvider>
           <Fragment>
             <ResetCSS />
-            <GlobalStyle />
+            <GlobalStyle
+              inApp={/^\/app/.test(
+                typeof window !== 'undefined' && window.location.pathname
+              )}
+            />
 
             <ContentWrapper>
               <Sticky top={0} innerZ={9999} activeClass="sticky-nav-active">

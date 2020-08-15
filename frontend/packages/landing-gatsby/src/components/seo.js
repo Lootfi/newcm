@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import { StaticQuery, graphql, useStaticQuery } from 'gatsby';
+import { StaticQuery, graphql } from 'gatsby';
 
 import msIcon from '../../../common/src/assets/image/ms-icon-144x144.png';
 import apple57 from '../../../common/src/assets/image/apple-icon-57x57.png';
