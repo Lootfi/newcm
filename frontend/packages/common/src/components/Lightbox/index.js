@@ -495,7 +495,7 @@ const Lightbox = React.memo(() => {
               className={classNames('container', 'loginContainer')}
               id="container"
             >
-              <div style={{ height: '400px' }}>
+              <div style={{ height: '400px', width: '100%' }}>
                 <Connexion />
               </div>
             </div>
