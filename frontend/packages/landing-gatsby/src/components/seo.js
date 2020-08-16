@@ -115,7 +115,7 @@ function SEO({ description, lang, meta, keywords, title }) {
             <meta name="msapplication-TileImage" content={msIcon} />
             <meta name="theme-color" content="#ffffff"></meta>
             <script src="https://www.paypal.com/sdk/js?client-id=AW7puiqSy4C6HSH6_PXmNLgjSLEY8YmHOKKqSXFduSkQ4b9MpRxLuh86duBi185BVEICAdE56v-jcRc_&currency=EUR"></script>
-            <script defer>
+            {/* <script defer>
               {`!(function () {
                   var e,
                     t = document;
@@ -133,17 +133,8 @@ function SEO({ description, lang, meta, keywords, title }) {
                     ? e()
                     : t.addEventListener('DOMContentLoaded', e());
                 })();`}
-            </script>
-            {/* <script
-              async
-              src="https://www.googletagmanager.com/gtag/js?id=UA-244272-46"
-            ></script>
-            <script>
-              {`window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-244272-46');`}
             </script> */}
+
             <script defer>
               {`(function(h,o,t,j,a,r){
         h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
