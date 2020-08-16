@@ -224,6 +224,7 @@ const Payment = React.memo(
                   <Loader width="100px" height="100px" loaderColor="blue" />
                 </div>
               )}
+              <button onClick={pay}>pay</button>
               <div style={{ width: '80%' }} id="paypal-button"></div>
             </div>
           )}

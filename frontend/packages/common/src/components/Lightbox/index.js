@@ -19,10 +19,10 @@ import { LightboxContext } from '../../contexts/LightboxContext';
 import Connexion from './Connexion';
 
 import { trackCustomEvent } from 'gatsby-plugin-google-analytics';
-
-// import Modal from 'react-bootstrap/Modal';
+import Fade from 'react-reveal/Fade';
 
 import Modal from 'react-modal';
+import SetupProfile from './SetupProfile';
 
 Modal.setAppElement('#___gatsby');
 
@@ -126,22 +126,6 @@ const Lightbox = React.memo(() => {
         setLoading(false);
 
         setState({ ...state, emailValid: false });
-      });
-  }
-
-  function setUpProfile() {
-    axios
-      .post('setup-profile', {
-        name: state.name,
-        password: state.password,
-        email: localStorage.getItem('email')
-      })
-      .then((res) => {
-        localStorage.removeItem('email');
-      })
-      .catch((err) => {
-        console.log(err);
-        localStorage.removeItem('email');
       });
   }
 
@@ -305,25 +289,27 @@ const Lightbox = React.memo(() => {
                       <div className="header-form"></div>
 
                       <div className="field">
-                        <h3>Amener votre carrière à un autre niveau ?</h3>
-                        <p>
-                          Parce que votre carrière dure dans le temps, votre
-                          accès durera à vie. Vous aurez toujours accès a tous
-                          les contacts musicaux et contacts médias sans aucune
-                          limite dans le temps.
-                        </p>
-                        <div className="slider-dots">
-                          <div className="slider"></div>
-                          <div className={classNames('slider', 'open')}></div>
-                        </div>
-                        <button
-                          type="button"
-                          onClick={nextPage}
-                          className="btn"
-                          id="secondNext"
-                        >
-                          Suivant
-                        </button>
+                        <Fade right>
+                          <h3>Amener votre carrière à un autre niveau ?</h3>
+                          <p>
+                            Parce que votre carrière dure dans le temps, votre
+                            accès durera à vie. Vous aurez toujours accès a tous
+                            les contacts musicaux et contacts médias sans aucune
+                            limite dans le temps.
+                          </p>
+                          <div className="slider-dots">
+                            <div className="slider"></div>
+                            <div className={classNames('slider', 'open')}></div>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={nextPage}
+                            className="btn"
+                            id="secondNext"
+                          >
+                            Suivant
+                          </button>
+                        </Fade>
                       </div>
                     </div>
                   )}
@@ -337,40 +323,44 @@ const Lightbox = React.memo(() => {
                       <div className="header-form"></div>
 
                       <div className="field">
-                        <h3>Votre accès vous attend !</h3>
-                        <div className="emailPs">
-                          <p>Créez un compte pour commencer. </p>
-                          <p>Vous n'êtes qu'à une étape d'avoir accès.</p>
+                        <Fade right>
+                          <h3>Votre accès vous attend !</h3>
+                          <div className="emailPs">
+                            <p>Créez un compte pour commencer. </p>
+                            <p>Vous n'êtes qu'à une étape d'avoir accès.</p>
+                          </div>
+                          {/* <div className="sign-up-social">
+                        <SocialButtons />
                         </div>
-                        {/* <div className="sign-up-social">
-                    <SocialButtons />
-                  </div>
-                  <hr className="hr-text" data-content="OR" /> */}
-                        <div className="form-container">
-                          <label htmlFor="email">Votre adresse e-mail :</label>
-                          <input
-                            id="email"
-                            type="text"
-                            name="email"
-                            placeholder="Votre adresse e-mail"
-                            autoComplete="off"
-                            value={state.email}
-                            onChange={changeValue}
-                          />
-                          <span className="error-message" id="email-span">
-                            Error message
-                          </span>
-                        </div>
+                        <hr className="hr-text" data-content="OR" /> */}
+                          <div className="form-container">
+                            <label htmlFor="email">
+                              Votre adresse e-mail :
+                            </label>
+                            <input
+                              id="email"
+                              type="text"
+                              name="email"
+                              placeholder="Votre adresse e-mail"
+                              autoComplete="off"
+                              value={state.email}
+                              onChange={changeValue}
+                            />
+                            <span className="error-message" id="email-span">
+                              Error message
+                            </span>
+                          </div>
 
-                        <button
-                          type="button"
-                          disabled={loading}
-                          onClick={(e) => validateEmail(e)}
-                          className="btn-red3"
-                          id="thirdNext"
-                        >
-                          {loading ? <Loader /> : 'Continuer'}
-                        </button>
+                          <button
+                            type="button"
+                            disabled={loading}
+                            onClick={(e) => validateEmail(e)}
+                            className="btn-red3"
+                            id="thirdNext"
+                          >
+                            {loading ? <Loader /> : 'Continuer'}
+                          </button>
+                        </Fade>
                       </div>
                     </div>
                   )}
@@ -391,95 +381,7 @@ const Lightbox = React.memo(() => {
                   {/*  */}
 
                   {pageNum == 4 && (
-                    <div className={classNames('page', 'end')}>
-                      <div className="field">
-                        <div className="payment-heading">
-                          <svg
-                            style={{ height: '50px' }}
-                            version="1.1"
-                            id="Capa_1"
-                            xmlns="http://www.w3.org/2000/svg"
-                            xmlnsXlink="http://www.w3.org/1999/xlink"
-                            x="0px"
-                            y="0px"
-                            viewBox="0 0 367.805 367.805"
-                            // style="enable-background:new 0 0 367.805 367.805;"
-                            xmlSpace="preserve"
-                          >
-                            <g>
-                              <path
-                                style={{ fill: '#3BB54A' }}
-                                d="M183.903,0.001c101.566,0,183.902,82.336,183.902,183.902s-82.336,183.902-183.902,183.902S0.001,285.469,0.001,183.903l0,0C-0.288,82.625,81.579,0.29,182.856,0.001C183.205,0,183.554,0,183.903,0.001z"
-                              />
-                              <polygon
-                                style={{ fill: '#D4E1F4' }}
-                                points="285.78,133.225 155.168,263.837 82.025,191.217 111.805,161.96 155.168,204.801 256.001,103.968 "
-                              />
-                            </g>
-                            <g></g>
-                            <g></g>
-                            <g></g>
-                            <g></g>
-                            <g></g>
-                            <g></g>
-                            <g></g>
-                            <g></g>
-                            <g></g>
-                            <g></g>
-                            <g></g>
-                            <g></g>
-                            <g></g>
-                            <g></g>
-                            <g></g>
-                          </svg>
-                          <h3>Your free trial has started</h3>
-                          <h4>
-                            <strong>Total billed today: $0</strong>
-                          </h4>
-                          <h4>Billed on Jun 30: $0</h4>
-                          <hr className="hr-text" />
-                        </div>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Vivamus et eros ligula.
-                        </p>
-                        <div className="form-container">
-                          <label htmlFor="name">Your name:</label>
-                          <input
-                            id="name"
-                            type="text"
-                            name="name"
-                            placeholder="Your name"
-                            autoComplete="off"
-                            value={state.name}
-                            onChange={changeValue}
-                          />
-                          <span className="error-message" id="name-span">
-                            Error message
-                          </span>
-                          <label htmlFor="password">Your password:</label>
-                          <input
-                            id="password"
-                            type="password"
-                            name="password"
-                            placeholder="Your password"
-                            autoComplete="off"
-                            value={state.password}
-                            onChange={changeValue}
-                          />
-                          <span className="error-message" id="password-span">
-                            Error message
-                          </span>
-                        </div>
-                        <div
-                          onClick={setUpProfile}
-                          className="btn-red3"
-                          id="fifthNext"
-                        >
-                          Continue
-                        </div>
-                      </div>
-                    </div>
+                    <SetupProfile state={state} changeValue={changeValue} />
                   )}
 
                   {/*  */}

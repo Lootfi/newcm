@@ -4,6 +4,15 @@ import FirstImage from '../../assets/image/first-page.jpg';
 const LightboxWrapper = styled.div`
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap");
 
+
+.page.intro {
+  height: 530px !important;
+}
+.page.intro .field {
+  padding-top: 20px;
+}
+
+
 .container .payment4 {
   background-color: #31333b !important;
   color: #ffffff;
@@ -20,6 +29,7 @@ const LightboxWrapper = styled.div`
   justify-content: space-around;
   padding: 20px 0;
   background: white;
+  border-radius: 8px;
 }
 
 #fifthNext {
@@ -172,6 +182,7 @@ const LightboxWrapper = styled.div`
     width: 100%;
   justify-content: space-around;
   background: white;
+  border-radius: 0 0 8px 8px;
 }
 
 @media (max-width: 400px){
@@ -179,6 +190,10 @@ const LightboxWrapper = styled.div`
     height: calc(100% - 300px);
     width: 100vw;
   }
+}
+
+.emailEntry {
+  height: 530px !important;
 }
 
 .emailEntry .field {
@@ -190,6 +205,7 @@ const LightboxWrapper = styled.div`
   width: 100%;
   justify-content: space-around;
   background: white;
+  border-radius: 0 0 8px 8px;
 }
 
 @media (max-width: 400px){
@@ -498,6 +514,7 @@ form .btn {
     height: 200px;
     background: url(${FirstImage}) center no-repeat;
     background-size: cover;
+    border-radius: 8px 8px 0 0;
   }
 
  

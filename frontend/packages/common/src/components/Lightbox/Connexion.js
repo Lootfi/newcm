@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { LightboxContext } from '../../contexts/LightboxContext';
 import { AuthContext } from '../../contexts/AuthContext';
 import axios from '../../axios';
+import Loader from '../Loader';
 export default function Connexion({
   btnStyle,
   titleStyle,
@@ -19,6 +20,7 @@ export default function Connexion({
   const errorsRef = React.useRef('');
   const { handleLightbox } = React.useContext(LightboxContext);
   const { loginUser } = React.useContext(AuthContext);
+  const [loading, setLoading] = React.useState(false);
 
   let handleLoginChange = (e) => {
     setLogin({ ...login, [e.target.name]: e.target.value });
@@ -26,17 +28,23 @@ export default function Connexion({
 
   let handleLogin = (e) => {
     e.preventDefault();
+    setLoading(true);
     if (!login.email || !login.password) {
       errorsRef.current.style.color = 'red';
-      errorsRef.current.innerHTML = 'All fields are required';
+      errorsRef.current.innerHTML =
+        'Les champs E-mail et Mot de passe sont requis';
+      setLoading(false);
     } else {
       axios
         .post('login', { email: login.email, password: login.password })
         .then((res) => {
+          setLoading(false);
           if (res.data.error) errorsRef.current.innerHTML = res.data.error;
           else loginUser(res.data.user, res.data.access_token);
         })
-        .catch((err) => {});
+        .catch((err) => {
+          setLoading(false);
+        });
     }
   };
   return (
@@ -51,7 +59,7 @@ export default function Connexion({
         alignItems: 'center'
       }}
     >
-      <Heading content="Log In" {...titleStyle} />
+      <Heading content="Connexion" {...titleStyle} />
 
       <div
         className="inputs"
@@ -60,21 +68,25 @@ export default function Connexion({
           textAlign: 'left'
         }}
       >
-        <label>Email</label>
-        <input
-          name="email"
-          type="email"
-          value={login.email}
-          onChange={handleLoginChange}
-        />
-        <label>Mot de passe</label>
+        <div>
+          <label htmlFor="email">E-mail :</label>
+          <input
+            name="email"
+            type="email"
+            value={login.email}
+            onChange={handleLoginChange}
+          />
+        </div>
 
-        <input
-          type="password"
-          name="password"
-          value={login.password}
-          onChange={handleLoginChange}
-        />
+        <div style={{ paddingTop: '15px' }}>
+          <label htmlFor="password">Mot de passe :</label>
+          <input
+            type="password"
+            name="password"
+            value={login.password}
+            onChange={handleLoginChange}
+          />
+        </div>
       </div>
       <div
         className="buttons"
@@ -87,7 +99,7 @@ export default function Connexion({
             type="submit"
             onClick={handleLogin}
             className="default"
-            title="LOGIN"
+            title={loading ? <Loader /> : 'CONNEXION'}
             {...btnStyle}
             style={{ backgroundColor: '#e63e3f' }}
           />
@@ -95,16 +107,16 @@ export default function Connexion({
         </div>
         <br />
         <h4>
-          Need an account?{' '}
+          Pas encore inscrit ?{' '}
           <u
             style={{ cursor: 'pointer' }}
             onClick={() => handleLightbox('signup')}
           >
-            Sign up
+            Cliquez ici
           </u>
         </h4>
         <Button
-          title="Forgot your password?"
+          title="Oubliez Votre Mot De Passe ?"
           variant="textButton"
           {...outlineBtnStyle}
         />

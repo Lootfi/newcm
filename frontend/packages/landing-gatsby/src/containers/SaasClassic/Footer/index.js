@@ -60,7 +60,9 @@ const Footer = ({
                           href="#"
                           onClick={() =>
                             handleLightbox(
-                              item.text === 'Connexion' ? 'connexion' : 'signup'
+                              item.text === 'Inscription'
+                                ? 'signup'
+                                : 'connexion'
                             )
                           }
                           className="ListItem"

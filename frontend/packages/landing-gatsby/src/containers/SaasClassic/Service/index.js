@@ -72,7 +72,7 @@ const ServiceSection = ({
 
         <div
           style={{
-            marginBottom: '30px',
+            marginBottom: '70px',
             backgroundColor: 'black',
             display: 'flex',
             justifyContent: 'center'
@@ -82,7 +82,7 @@ const ServiceSection = ({
             <ImageSlide>
               {Data.saasClassicJson.MAISONS.map((item, index) => (
                 <Logo
-                  logoStyle={{ height: '45px' }}
+                  logoStyle={{ height: '45px', width: '70px' }}
                   href="#"
                   key={index}
                   logoSrc={item.picture.publicURL}
@@ -185,7 +185,7 @@ ServiceSection.defaultProps = {
     mb: 0
   },
   secTitleWrapper: {
-    mb: ['30px', '80px']
+    mb: ['30px', '50px']
   },
   secText: {
     as: 'span',
