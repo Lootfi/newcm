@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from 'react-icons-kit';
 import Fade from 'react-reveal/Fade';
-import { openModal, closeModal, Modal } from '@redq/reuse-modal';
+import { openModal, closeModal } from '@redq/reuse-modal';
 import Box from '../../../../../common/src/components/Box';
 import Text from '../../../../../common/src/components/Text';
 import Heading from '../../../../../common/src/components/Heading';

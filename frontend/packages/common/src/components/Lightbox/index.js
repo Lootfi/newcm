@@ -391,10 +391,11 @@ const Lightbox = React.memo(() => {
                   {/*  */}
 
                   {pageNum == 4 && (
-                    <div className={classNames('page', 'intro', 'end')}>
+                    <div className={classNames('page', 'end')}>
                       <div className="field">
                         <div className="payment-heading">
                           <svg
+                            style={{ height: '50px' }}
                             version="1.1"
                             id="Capa_1"
                             xmlns="http://www.w3.org/2000/svg"

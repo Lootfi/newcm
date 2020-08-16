@@ -2,11 +2,34 @@ import styled from 'styled-components';
 import FirstImage from '../../assets/image/first-page.jpg';
 
 const LightboxWrapper = styled.div`
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap");
 
 .container .payment4 {
-  background-color: #31333b;
+  background-color: #31333b !important;
   color: #ffffff;
   height: 500px !important;
+}
+
+
+.end .field {
+  text-align: center;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+  padding: 20px 0;
+  background: white;
+}
+
+#fifthNext {
+  margin: 15px 0;
+}
+
+@media (max-width: 400px){
+  .end .field {
+    width: 100vw;
+  }
 }
 
 .payment4 .payment-top {
@@ -22,16 +45,26 @@ const LightboxWrapper = styled.div`
 .payment4 .payment-info {
   width: 300px;
 }
+.payment4 .payment-info table {
+  width: 100%;
+}
 
 .payment4 hr {
   margin-top: 10px;
   margin-bottom: 10px;
   background-color: #818078;
-  opacity: 0.3;
+  opacity: 0.5;
+  width: 80%;
+}
+
+.payment4 tr td:nth-child(2) {
+  text-align: right;
+  padding-left: 20px;
 }
 
 .payment4 td {
   padding-left: 5px;
+  font-size: 13px;
 }
 
 .payment4 .form-container {
@@ -61,20 +94,24 @@ const LightboxWrapper = styled.div`
 
 
 .payment4 .security-cc {
+  font-family: "Poppins", sans-serif;
+
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding-top: 25px;
 
   &> * {
     text-align: center;
-    width: 50%;
   }
 
   .security-1 {
     flex: 1;
+  width: 45%;
   }
 
   .security-2 {
+    width: 55%;
     display:flex;
     flex-direction: column;
     align-items:center;
@@ -88,6 +125,9 @@ const LightboxWrapper = styled.div`
     width: 100vw;
     .help-number {
       width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
   }
 }
@@ -131,25 +171,13 @@ const LightboxWrapper = styled.div`
   height: calc(100% - 250px);
     width: 100%;
   justify-content: space-around;
-}
-
-@media (max-width: 400px) {
-  .end {
-    padding: 30px 0;
-  }
-}
-
-.end .field {
-  height: 100%;
+  background: white;
 }
 
 @media (max-width: 400px){
   .intro .field {
     height: calc(100% - 300px);
     width: 100vw;
-  }
-  .end .field {
-    height: calc(100% - 70px);
   }
 }
 
@@ -161,6 +189,7 @@ const LightboxWrapper = styled.div`
   height: calc(100% - 260px);
   width: 100%;
   justify-content: space-around;
+  background: white;
 }
 
 @media (max-width: 400px){
@@ -172,6 +201,7 @@ const LightboxWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
   }
 }
 
@@ -450,7 +480,6 @@ form .btn {
 
   .container .form-outer {
     width: 100%;
-    background: white;
   }
 
   .form-outer form {

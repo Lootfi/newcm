@@ -98,7 +98,6 @@ const Payment = React.memo(
                 });
             },
             style: {
-              color: 'blue',
               layout: 'horizontal'
             }
           })

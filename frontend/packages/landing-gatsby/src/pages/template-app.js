@@ -16,6 +16,7 @@ import '@redq/reuse-modal/lib/index.css';
 import { LightboxProvider } from '../../../common/src/contexts/LightboxContext';
 import AuthContextProvider from '../../../common/src/contexts/AuthContext';
 import Lightbox from '../../../common/src/components/Lightbox';
+import { Modal } from '@redq/reuse-modal';
 
 export default function Template({ children }) {
   return (
@@ -23,6 +24,7 @@ export default function Template({ children }) {
       <ThemeProvider theme={saasClassicTheme}>
         <LightboxProvider>
           <Fragment>
+            <Modal />
             <ResetCSS />
             <GlobalStyle
               inApp={/^\/app/.test(
