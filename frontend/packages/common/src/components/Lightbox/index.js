@@ -219,6 +219,7 @@ const Lightbox = React.memo(() => {
    */
   return (
     <Modal
+      className="Modal"
       style={{
         overlay: {
           backgroundColor: 'rgba(0, 0, 0, 0.58)',
@@ -236,7 +237,9 @@ const Lightbox = React.memo(() => {
           margin: '0 auto',
           padding: 0,
           border: 0,
-          backgroundColor: 'transparent'
+          backgroundColor: 'transparent',
+          display: 'flex',
+          justifyContent: 'center'
         }
       }}
       isOpen={open}

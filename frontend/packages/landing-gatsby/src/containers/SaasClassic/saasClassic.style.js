@@ -1,6 +1,18 @@
 import styled, { createGlobalStyle } from 'styled-components';
 export const GlobalStyle = createGlobalStyle`
 
+
+@media (max-width:430px) {
+  .Modal {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+  }
+}
+
+
 .reuseModalHolder .innerRndComponent{
   padding-right: 30px !important;
   margin-right: -30px;

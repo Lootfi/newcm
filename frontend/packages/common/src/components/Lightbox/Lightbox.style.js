@@ -3,12 +3,97 @@ import FirstImage from '../../assets/image/first-page.jpg';
 
 const LightboxWrapper = styled.div`
 
+.container .payment4 {
+  background-color: #31333b;
+  color: #ffffff;
+  height: 500px !important;
+}
+
+.payment4 .payment-top {
+  padding: 20px 0 20px 20px;
+}
+
+.payment .payment-heading {
+  text-align: left;
+  line-height: 22px;
+  width: 300px;
+}
+
+.payment4 .payment-info {
+  width: 300px;
+}
+
+.payment4 hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #818078;
+  opacity: 0.3;
+}
+
+.payment4 td {
+  padding-left: 5px;
+}
+
+.payment4 .form-container {
+  display: flex;
+  background-color: #ffffff;
+  color: #000000;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: relative;
+  height: 35%;
+}
+
+@media (max-width: 400px) {
+.payment4 .form-container {
+    width: 100vw !important;
+}
+
+}
 
 
 
-// background: transparent;
-// padding: 15px 0 40px 0;
-// color: #000;
+
+
+
+// PAYMENT FOOTER
+
+
+.payment4 .security-cc {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  &> * {
+    text-align: center;
+    width: 50%;
+  }
+
+  .security-1 {
+    flex: 1;
+  }
+
+  .security-2 {
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+
+  }
+
+}
+
+@media (max-width: 400px) {
+  .payment4 .security-cc {
+    width: 100vw;
+    .help-number {
+      width: 100%;
+    }
+  }
+}
+
+
+
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
@@ -90,40 +175,15 @@ const LightboxWrapper = styled.div`
   }
 }
 
-// .field {
-//   text-align: center;
-//   // padding: 20px;
-//   display:flex;
-//   flex-direction: column;
-//   align-items: center;
-//   height: calc(100% - 250px);
-//   justify-content: space-around;
-// }
 
 
 
-// .field h3 {
-//   flex: 1;
-//   display: grid;
-//   align-content: center;
-//   overflow-wrap: break-word;
-
-// }
-// .field p {
-//   flex: 2;
-// }
-// .field .slider-dots {
-//   flex: 1;
-// }
 
 form .btn {
   border: 1px solid #b0b0b0;
   padding: 10px;
   width: 320px;
-  // position: absolute;
   bottom: 40px;
-  // left: 50%;
-  // transform: translate(-50%);
   font-family: 'Poppins', sans-serif;
   border-radius: 3px;
   background-color: transparent;
@@ -171,13 +231,6 @@ form .btn {
 .payment3 .tabs-payment ul {
   display: flex;
   justify-content: space-around;
-}
-
-@media (max-width: 400px){
-  .payment3 .tabs-payment ul {
-    //justify-content: flex-start;
-
-  }
 }
 
 .payment3 .tabs-payment ul li {
@@ -245,7 +298,6 @@ form .btn {
 
 @media (max-width:400px){
     .payment3 .form-container{
-      // align-items: flex-start;
       width: 90vw;
     }
 
@@ -264,66 +316,15 @@ form .btn {
 
 
 
-
-
-
-
-.container .payment2 {
-  background-color: #31333b;
-  color: #ffffff;
-}
-
-.payment2 .payment-heading {
-  text-align: left;
-  line-height: 22px;
-  width: 300px;
-}
-
-.payment2 .payment-info {
-  width: 300px;
-}
-
-.payment2 hr {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  background-color: #818078;
-  opacity: 0.3;
-}
-
-.padding-payment {
-  padding: 20px 20px 0px 20px;
-}
-
-.payment2 .form-container {
-  background-color: #ffffff;
-  color: #000000;
-  width: 100%;
-  height: 290px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  position: relative;
-}
-
 @media (max-width: 400px){
-  .payment2 .form-container {
-    height: 250px;
-  }
 
   .page.form-container {
     width: 100vw;
   }
 }
 
-.payment2 .form-container .btn-red {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translate(-50%);
-}
-
   .container * {
     margin: 0px;
-    // padding: 0px;
     box-sizing: border-box;
   }
 
@@ -362,11 +363,6 @@ form .btn {
 
   .check-container label {
     display: inline-block;
-  }
-
-  .payment-info h5 {
-    color: #32a852;
-    font-weight: 100;
   }
 
   p {
@@ -452,19 +448,6 @@ form .btn {
     align-items: center;
   }
 
-  // .existing {
-  //   display: none;
-  //   position: absolute;
-  //   //top: 50%;
-  //   //left: 50%;
-  //   //transform: translate(-50%, -50%);
-  //   background-color: #ffffff;
-  //   width: 400px;
-  //   height: 287px;
-  //   border-radius: 5px;
-  //   overflow: hidden;
-  // }
-
   .container .form-outer {
     width: 100%;
     background: white;
@@ -475,7 +458,6 @@ form .btn {
   }
 
   .form-outer form .page {
-    // display: none;
     height: 585px;
     width: 400px;
     transition: 0.3s;
@@ -492,8 +474,6 @@ form .btn {
  
 
   .form-container {
-    // position: relative;
-    // margin-bottom: 10px;
     width: 100%;
   }
 
@@ -579,161 +559,6 @@ form .btn {
     margin-right: 10px;
   }
 
-  .payment-heading svg {
-    width: 60px;
-  }
-
-  
-.payment2 .security-cc {
-  position: absolute;
-  // bottom: 8px;
-  width: 320px;
-  left: 50%;
-  transform: translate(-50%);
-}
-
-.security-cc p {
-  width: 100%;
-}
-
-.payment2 .securty-1 {
-  font-weight: 600;
-  float: left;
-  // position: absolute;
-  // bottom: 0px;
-}
-
-.payment2 .securty-1 .gua {
-  font-size: 30px;
-  // line-height: 0px;
-}
-
-.payment2 .securty-2 {
-  float: right;
-}
-
-.container .payment {
-    background-color: #31333b;
-    color: #ffffff;
-  }
-  
-  
-
-  .payment .field {
-    padding: 0px
-  }
-  @media (max-width: 400px){
-    .payment .field {
-        padding: 20px;
-        margin-bottom: 20px;
-    }
-  }
-
-  .payment .payment-heading {
-    text-align: left;
-    line-height: 22px;
-    width: 300px;
-  }
-
-  .payment .payment-info {
-    width: 300px;
-  }
-
-  .payment hr {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    background-color: #818078;
-    opacity: 0.3;
-  }
-
-  .payment2 .padding-payment {
-    padding: 20px 20px 0px 20px;
-  }
-
-  .payment .form-container {
-    background-color: #ffffff;
-    color: #000000;
-    width: 100%;
-    height: 290px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    position: relative;
-  }
-
-  .payment .form-container .btn-red {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translate(-50%);
-  }
-
-  .payment2 .tabs-payment {
-    width: 400px;
-    overflow: hidden;
-    margin: 0px auto;
-  }
-
-  .payment2 .tabs-payment ul {
-    height: 57px;
-    list-style: none;
-    border-bottom: 1px solid #abaaa1;
-  }
-
-  .payment2 .tabs-payment img {
-    width: 100px;
-    height: 28px;
-  }
-
-  .payment2 #defaultOpen img {
-    width: 120px;
-    height: 28px;
-  }
-
-  .payment2 .tablinks {
-    padding: 10px;
-    width: 160px;
-    font-family: 'Poppins', sans-serif;
-    background-color: transparent;
-    font-size: 15px;
-    float: left;
-    margin-right: 10px;
-    margin-left: 10px;
-    transition: 0.3s;
-    border: 1px solid #abaaa1;
-    border-bottom: none;
-  }
-
-  .payment2 .tablinks:hover {
-    border-top: 3px solid #c83233;
-    cursor: pointer;
-  }
-
-  .payment2 .tablinks.active {
-    border-top: 3px solid #c83233;
-    background-color: #ffffff;
-  }
-
-  .payment2 .tabcontent {
-    margin-top: 10px;
-    display: none;
-  }
-
-  .payment2 #payment-pp div {
-    background-color: #ffc439;
-    padding: 10px;
-    width: 320px;
-    height: 45px;
-    border-radius: 5px;
-    margin: 0px auto;
-  }
-
-  .payment2 #payment-pp div:hover {
-    cursor: pointer;
-  }
-
-  .payment2 #payment-pp img {
-    width: 90px;
-  }
 
   .slider-dots {
     margin: 0px auto;
@@ -781,19 +606,6 @@ form .btn {
   }
 
   @media (max-width: 400px) {
-
-    .payment2 .security-cc {
-      position: relative;
-      display: flex;
-      justify-content: space-around;
-      bottom: 6px;
-    }
-
-    .payment2 .field p {
-      position: relative;
-      margin: 10px 0 10px auto;
-      transform: translate(-20%);
-    }
     form .btn,
     form .btn-red {
       width: 60%;

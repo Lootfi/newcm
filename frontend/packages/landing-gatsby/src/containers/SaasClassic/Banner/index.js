@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from 'react-icons-kit';
 import Fade from 'react-reveal/Fade';
-import { openModal, closeModal } from '@redq/reuse-modal';
+import { openModal, closeModal, Modal } from '@redq/reuse-modal';
 import Box from '../../../../../common/src/components/Box';
 import Text from '../../../../../common/src/components/Text';
 import Heading from '../../../../../common/src/components/Heading';
@@ -19,7 +19,6 @@ import {
   VideoWrapper
 } from './banner.style';
 import BannerImage from '../../../../../common/src/assets/image/saasClassic/banner-image.jpg';
-import { ic_play_circle_filled } from 'react-icons-kit/md/ic_play_circle_filled';
 import { play } from 'react-icons-kit/entypo/play';
 import { LightboxContext } from '../../../../../common/src/contexts/LightboxContext';
 
@@ -106,14 +105,6 @@ const BannerSection = ({
                   onClick={() => handleLightbox('signup')}
                 />
               </a>
-              {/* <a href="#1">
-                <Button
-                  {...button}
-                  title="WATCH VIDEO"
-                  icon={<Icon icon={ic_play_circle_filled} size={30} />}
-                  iconPosition="left"
-                />
-              </a> */}
             </Box>
           </Box>
           <Box {...imageWrapper}>

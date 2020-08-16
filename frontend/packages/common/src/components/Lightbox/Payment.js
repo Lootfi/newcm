@@ -124,7 +124,7 @@ const Payment = React.memo(
     }
 
     return (
-      <div className={classNames('page', 'payment3')}>
+      <div className={classNames('page', 'payment4')}>
         <div className="payment-top">
           <div className="payment-heading">
             <h3>Pay 0$ now.</h3>
@@ -132,7 +132,7 @@ const Payment = React.memo(
             <hr />
           </div>
           <div className="payment-info">
-            <table style={{ width: 'calc(100% - 50px)' }}>
+            <table>
               <tbody>
                 <tr>
                   <td>Annual Subscription (due Jul 30)</td>
@@ -231,11 +231,11 @@ const Payment = React.memo(
         </div>
         {/* FORM END */}
         <div className="security-cc">
-          <div className="securty-1">
-            <h2 className="gua">100%</h2>
-            <h2>GUARANTEED</h2>
+          <div className="security-1">
+            <h3>100%</h3>
+            <h4>GUARANTEED</h4>
           </div>
-          <div className="securty-2">
+          <div className="security-2">
             <div className="ssl">
               <img src={Lock} alt="Lock" />
               Secured with SSL
