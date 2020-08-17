@@ -42,10 +42,10 @@ exports.createPages = async ({ page, actions: { createPage } }) => {
   //   component: require.resolve('./src/pages/CommentCaMarche.js')
   // });
 
-  // createPage({
-  //   path: `/faq`,
-  //   component: require.resolve('./src/pages/FAQ.js')
-  // });
+  createPage({
+    path: `/faq`,
+    component: require.resolve('./src/pages/faq.js')
+  });
   createPage({
     path: `/confidentiality`,
     component: require.resolve('./src/pages/confidentiality.js')

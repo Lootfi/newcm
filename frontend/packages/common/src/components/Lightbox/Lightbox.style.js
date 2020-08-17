@@ -9,7 +9,11 @@ const LightboxWrapper = styled.div`
   height: 530px !important;
 }
 .page.intro .field {
-  padding-top: 20px;
+  padding: 20px 0;
+}
+
+.page.emailEntry .field {
+  padding: 20px 0;
 }
 
 

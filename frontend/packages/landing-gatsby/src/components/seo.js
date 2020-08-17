@@ -16,12 +16,15 @@ import apple152 from '../../../common/src/assets/image/apple-icon-152x152.png';
 import apple180 from '../../../common/src/assets/image/apple-icon-180x180.png';
 
 import favicon from '../../../common/src/assets/image/favicon.ico';
+import android36 from '../../../common/src/assets/image/android-icon-36x36.png';
+import android48 from '../../../common/src/assets/image/android-icon-48x48.png';
+import android72 from '../../../common/src/assets/image/android-icon-72x72.png';
+import android96 from '../../../common/src/assets/image/android-icon-96x96.png';
+import android144 from '../../../common/src/assets/image/android-icon-144x144.png';
 import android192 from '../../../common/src/assets/image/android-icon-192x192.png';
 import favicon32 from '../../../common/src/assets/image/favicon-32x32.png';
 import favicon96 from '../../../common/src/assets/image/favicon-96x96.png';
 import favicon16 from '../../../common/src/assets/image/favicon-16x16.png';
-
-import manif from '../../../common/src/assets/image/manifest.json';
 
 function SEO({ description, lang, meta, keywords, title }) {
   const appleIcons = [
@@ -35,9 +38,16 @@ function SEO({ description, lang, meta, keywords, title }) {
     { href: apple152, rel: 'apple-touch-icon', sizes: '152x152' },
     { href: apple180, rel: 'apple-touch-icon', sizes: '180x180' }
   ];
+  const androidIcons = [
+    { href: android36, rel: 'icon', type: 'image/png', sizes: '36x36' },
+    { href: android48, rel: 'icon', type: 'image/png', sizes: '48x48' },
+    { href: android72, rel: 'icon', type: 'image/png', sizes: '72x72' },
+    { href: android96, rel: 'icon', type: 'image/png', sizes: '96x96' },
+    { href: android144, rel: 'icon', type: 'image/png', sizes: '144x144' },
+    { href: android192, rel: 'icon', type: 'image/png', sizes: '192x192' }
+  ];
   const otherIcons = [
     { href: favicon, rel: 'icon', type: 'image/png', sizes: '' },
-    { href: android192, rel: 'icon', type: 'image/png', sizes: '192x192' },
     { href: favicon32, rel: 'icon', type: 'image/png', sizes: '32x32' },
     { href: favicon96, rel: 'icon', type: 'image/png', sizes: '96x96' },
     { href: favicon16, rel: 'icon', type: 'image/png', sizes: '16x16' }
@@ -102,6 +112,14 @@ function SEO({ description, lang, meta, keywords, title }) {
             {appleIcons.map((item, index) => (
               <link rel={item.rel} href={`${item.href}`} sizes={item.sizes} />
             ))}
+            {androidIcons.map((item, index) => (
+              <link
+                type={item.type}
+                rel={item.rel}
+                href={`${item.href}`}
+                sizes={item.sizes}
+              />
+            ))}
             {otherIcons.map((item, index) => (
               <link
                 rel={item.rel}
@@ -110,12 +128,11 @@ function SEO({ description, lang, meta, keywords, title }) {
                 sizes={item.sizes}
               />
             ))}
-            <link rel="manifest" href={`${manif}`} />
             <meta name="msapplication-TileColor" content="#ffffff" />
             <meta name="msapplication-TileImage" content={msIcon} />
             <meta name="theme-color" content="#ffffff"></meta>
             <script src="https://www.paypal.com/sdk/js?client-id=AW7puiqSy4C6HSH6_PXmNLgjSLEY8YmHOKKqSXFduSkQ4b9MpRxLuh86duBi185BVEICAdE56v-jcRc_&currency=EUR"></script>
-            {/* <script defer>
+            <script defer>
               {`!(function () {
                   var e,
                     t = document;
@@ -133,7 +150,7 @@ function SEO({ description, lang, meta, keywords, title }) {
                     ? e()
                     : t.addEventListener('DOMContentLoaded', e());
                 })();`}
-            </script> */}
+            </script>
 
             <script defer>
               {`(function(h,o,t,j,a,r){

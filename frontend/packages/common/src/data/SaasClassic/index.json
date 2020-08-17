@@ -190,22 +190,22 @@
       ]
     }
   ],
-  "FAQ_DATA": [{
+  "Faq": [{
       "expend": true,
-      "title": "How to contact with Customer Service?",
-      "description": "Our Customer Experience Team is available 7 days a week and we offer 2 ways to get in contact.Email and Chat . We try to reply quickly, so you need not to wait too long for a response!. "
+      "title": "Comment fonctionne l'essai gratuit ?",
+      "description": ["Essayez ContactMajor gratuitement avec notre essai gratuit de 24 heures. Vous aurez accès à toutes les fonctionnalités de ContactMajor pendant la période d'essai, y compris à tous les contacts répétoriés sur notre plateforme. Si vous profitez de l'essai gratuit, vous serez automatiquement abonné à l'abonnement annuel à la fin de la période d'essai gratuite.", "Annulez à tout moment dans les paramètres avant la fin de votre essai gratuit et vous ne serez pas facturé."]
     },
     {
-      "title": "App installation failed, how to update system information?",
-      "description": "Please read the documentation carefully . We also have some online  video tutorials regarding this issue . If the problem remains, Please Open a ticket in the support forum . "
+      "title": "Qu'est-ce qui est inclus dans un abonnement ContactMajor ?",
+      "description": ["L'adhésion comprend l'accès à un catalogue incroyable de plus de 85 cours dispensés par les meilleurs au monde sur la cuisine, le leadership, la photographie, l'écriture et plus encore.", "Chaque classe comprend environ 20 leçons vidéo d'une durée moyenne de 10 minutes, accompagnées d'un classeur détaillé. Vous avez également accès à nos applications pour smartphone et TV, à des cours hors ligne, à notre seule newsletter réservée aux membres et à notre communauté dynamique de membres dans le monde entier."]
     },
     {
-      "title": "Website reponse taking time, how to improve?",
-      "description": "At first, Please check your internet connection . We also have some online  video tutorials regarding this issue . If the problem remains, Please Open a ticket in the support forum ."
+      "title": "Combien coûte ContactMajor ?",
+      "description": ["L'abonnement annuel est de 180 $ et offre un accès illimité à toutes les classes et aux nouvelles classes dès leur lancement. Tous les abonnements ContactMajor incluent l'accès à nos applications mobiles et TV, à des vidéos haute définition et à des classeurs de classe téléchargeables."]
     },
     {
-      "title": "New update fixed all bug and issues?",
-      "description": "We are giving the update of this theme continuously . You will receive an email Notification when we push an update. Always try to be updated with us ."
+      "title": "Qui peut utiliser ContactMajor ?",
+      "description": ["Tout le monde peut utiliser et bénéficier de l'utilisation de ContactMajor pour se connecter à l'industrie du divertissement. Les exemples courants de personnes qui nous utilisent incluent, mais sans s'y limiter: les acteurs, les artistes / musiciens / groupes, les auteurs-compositeurs, les acteurs en herbe, les mannequins, les gestionnaires, les labels, les producteurs / éditeurs de musique et les recruteurs de talents."]
     }
   ],
   "FOOTER_WIDGET": [{
@@ -281,7 +281,7 @@
     {
       "icon": "../../../../../common/src/assets/image/2.png",
       "title": "Médias / Radios",
-      "description": "Get your proof tests delivered home collect a sample from the news get design."
+      "description": "La base de données de journalistes musicaux la plus puissante d'internet"
     },
     {
       "icon": "../../../../../common/src/assets/image/3.png",
@@ -290,8 +290,8 @@
     },
     {
       "icon": "../../../../../common/src/assets/image/4.png",
-      "title": "Tourneurs",
-      "description": "Get your proof tests delivered home collect a sample from the news get design."
+      "title": "Tourneurs / Festivals",
+      "description": "Pour vos tournées, showcases, festivals. Tout les contacts importants dans l'evenementiel."
     },
     {
       "icon": "../../../../../common/src/assets/image/5.png",

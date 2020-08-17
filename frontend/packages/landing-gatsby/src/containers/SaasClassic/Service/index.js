@@ -75,14 +75,15 @@ const ServiceSection = ({
             marginBottom: '70px',
             backgroundColor: 'black',
             display: 'flex',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            alignItems: 'center'
           }}
         >
           <ImageSlider>
             <ImageSlide>
               {Data.saasClassicJson.MAISONS.map((item, index) => (
                 <Logo
-                  logoStyle={{ height: '45px', width: '70px' }}
+                  logoStyle={{ height: '70px' }}
                   href="#"
                   key={index}
                   logoSrc={item.picture.publicURL}
@@ -94,7 +95,7 @@ const ServiceSection = ({
             <ImageSlide>
               {Data.saasClassicJson.MAISONS.map((item, index) => (
                 <Logo
-                  logoStyle={{ height: '26px' }}
+                  logoStyle={{ height: '70px' }}
                   href="#"
                   key={index}
                   logoSrc={item.picture.publicURL}

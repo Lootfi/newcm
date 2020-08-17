@@ -161,6 +161,15 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const ContentWrapper = styled.div`
+  .main_menu {
+    li {
+      color: yellow;
+
+      a {
+        color: yellow;
+      }
+    }
+  }
   .sticky-nav-active {
     .saas_navbar {
       background: #000;
@@ -174,15 +183,16 @@ export const ContentWrapper = styled.div`
       }
       .main_menu {
         li {
+          color: yellow;
           a {
-            color: #fff;
+            color: yellow;
             &:hover {
               color: #ff4361;
             }
           }
           &.is-current {
             a {
-              color: #ff4361;
+              color: yellow;
             }
           }
         }
@@ -226,7 +236,7 @@ export const ContentWrapper = styled.div`
           padding: 5px;
           font-size: 16px;
           font-weight: 400;
-          color: #fff;
+          color: yellow;
           transition: 0.15s ease-in-out;
           &:hover {
             color: #edcd37;

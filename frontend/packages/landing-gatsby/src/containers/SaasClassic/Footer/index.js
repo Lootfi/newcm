@@ -7,7 +7,7 @@ import Heading from '../../../../../common/src/components/Heading';
 import Logo from '../../../../../common/src/components/UIElements/Logo';
 import Container from '../../../../../common/src/components/UI/Container';
 import FooterWrapper, { List, ListItem } from './footer.style';
-import LogoImage from '../../../../../common/src/assets/image/saasClassic/logo.png';
+import LogoImage from '../../../../../common/src/assets/image/saasClassic/logo-white.png';
 import { LightboxContext } from '../../../../../common/src/contexts/LightboxContext';
 
 const Footer = ({
@@ -45,7 +45,10 @@ const Footer = ({
               title="Hosting"
               logoStyle={logoStyle}
             />
+            <br />
+            <br />
             <Text content="support@contactmajor.com" {...textStyle} />
+            <Text content="+33 183 620 250" {...textStyle} />
           </Box>
           {/* End of footer logo column */}
           <Box {...colTwo}>

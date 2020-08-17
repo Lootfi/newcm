@@ -6,6 +6,7 @@ import ServiceSection from '../containers/SaasClassic/Service';
 import PartnerSection from '../containers/SaasClassic/Partner';
 import TrialSection from '../containers/SaasClassic/Trial';
 import TestimonialSection from '../containers/SaasClassic/Testimonial';
+import FaqSection from '../containers/SaasClassic/FAQ';
 import Newsletter from '../containers/SaasClassic/Newsletter';
 import Footer from '../containers/SaasClassic/Footer';
 import Template from './template-app';
@@ -21,6 +22,7 @@ export default function Welcome() {
         <PartnerSection />
         <TestimonialSection />
         <TrialSection />
+        <FaqSection />
         <Newsletter />
         <Footer />
       </ContentWrapper>

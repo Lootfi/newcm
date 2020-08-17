@@ -15,10 +15,10 @@ const TestimonialSection = ({
     <Box {...sectionWrapper} as="section" id="testimonial_section">
       <Container>
         <Box {...secTitleWrapper}>
-          <Text {...secText} content="TESTIMONIAL" />
+          <Text {...secText} content="TÉMOIGNAGES" />
           <Heading
             {...secHeading}
-            content="Meet Client Satisfaction by using product"
+            content="Ils ont utilisé ContactMajor pour avoir les bons contacts"
           />
         </Box>
         <div id="ndrsl-5f21d83c3c39c210ca8b9281" className="ndrsl-widget"></div>

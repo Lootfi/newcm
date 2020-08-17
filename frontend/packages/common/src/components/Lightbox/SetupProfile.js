@@ -74,18 +74,20 @@ export default function SetupProfile({ state, changeValue }) {
             <g></g>
             <g></g>
           </svg>
-          <h3>Your free trial has started</h3>
+          <h3>Votre abonnement a commencé</h3>
           <h4>
-            <strong>Total billed today: $0</strong>
+            <strong>Total facturé aujourd'hui: 0€</strong>
           </h4>
-          <h4>Billed on Jun 30: $0</h4>
+          <h4>Facturé le 25 Jan: 85€</h4>
           <hr className="hr-text" />
         </div>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et
-          eros ligula.
+          Entrez votre nom et choisissez un mot de passe pour entrer sur votre
+          compte
         </p>
+
         <div className="form-container">
+          <br />
           <label htmlFor="name">Votre nom:</label>
           <input
             id="name"
@@ -96,9 +98,8 @@ export default function SetupProfile({ state, changeValue }) {
             value={state.name}
             onChange={changeValue}
           />
-          <span className="error-message" id="name-span">
-            Error message
-          </span>
+          <br />
+          <br />
           <label htmlFor="password">Votre Mot de passe:</label>
           <input
             id="password"

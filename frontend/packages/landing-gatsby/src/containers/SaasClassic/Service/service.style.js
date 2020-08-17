@@ -50,9 +50,9 @@ export const ImageSlider = styled.div`
 `;
 
 export const ImageSlide = styled.div`
-  height: 30px;
+  height: 70px;
   flex-shrink: 0;
-  animation: ${slideShow} 30s linear infinite;
+  animation: ${slideShow} 50s linear infinite;
 
   a {
     margin: 0 22px;
@@ -61,10 +61,10 @@ export const ImageSlide = styled.div`
 
     img {
       @media only screen and (max-width: 1360px) {
-        max-width: 90%;
+        max-height: 90%;
       }
       @media only screen and (max-width: 991px) {
-        max-width: 80%;
+        max-height: 80%;
       }
     }
 

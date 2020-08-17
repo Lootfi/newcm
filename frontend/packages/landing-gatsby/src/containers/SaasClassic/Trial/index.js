@@ -8,7 +8,7 @@ import Image from '../../../../../common/src/components/Image';
 import Container from '../../../../../common/src/components/UI/Container';
 
 import SectionWrapper from './trial.style';
-import VendorLogos from '../../../../../common/src/assets/image/saasClassic/vendor-logos.png';
+import VendorLogos from '../../../../../common/src/assets/image/saasClassic/try-it.png';
 import { LightboxContext } from '../../../../../common/src/contexts/LightboxContext';
 
 const TrialSection = ({
@@ -34,11 +34,15 @@ const TrialSection = ({
           <Box {...textArea}>
             <Heading
               {...title}
-              content="Commencer votre essai de 24h gratuit aujourd'hui! "
+              content="Avoir les bons contacts n'a jamais été aussi simple !"
             />
             <Text
               {...description}
-              content="Lorem ipsum dolor sit amet consectetur adipisicing elit sed eiusmod tempor incididunt labore dolore."
+              content="Nous mettons continuellement à jour notre liste de contacts musicaux avec les contacts les plus actifs, les plus récents et les plus fiables."
+            />
+            <Text
+              {...description}
+              content="Nous nous engageons à 100% en vous offrant les contacts les plus actuels et étendus de l'industrie de la musique !"
             />
             <Box {...buttonWrapper}>
               <Button
@@ -72,7 +76,8 @@ TrialSection.defaultProps = {
     alignItems: 'center'
   },
   textArea: {
-    width: ['100%', '100%', '80%', '43%']
+    width: ['100%', '100%', '80%', '43%'],
+    mb: ['35px', '35px', '40px', '60px']
   },
   imageArea: {
     width: ['100%', '100%', '43%'],
@@ -94,8 +99,7 @@ TrialSection.defaultProps = {
     fontSize: ['15px', '15px', '16px', '16px', '16px'],
     color: '#5c636c',
     lineHeight: '2.1',
-    textAlign: 'center',
-    mb: ['35px', '35px', '40px', '60px']
+    textAlign: 'center'
   },
   ImageOne: {
     ml: 'auto',
