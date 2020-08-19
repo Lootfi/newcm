@@ -40,7 +40,7 @@ const FaqSectionWrapper = styled.section`
   }
 
   .faqButton:hover {
-    background: rgb(235, 77, 75);
+    background: rgb(237, 205, 55);
     color: black;
   }
 `;

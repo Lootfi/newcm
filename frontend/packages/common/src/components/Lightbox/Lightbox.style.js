@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import FirstImage from '../../assets/image/first-page.jpg';
+import FirstImage from '../../assets/image/steps/Step_1.jpg';
+import SecondImage from '../../assets/image/steps/Step_2.jpg';
+import ThirdImage from '../../assets/image/steps/Step_3.jpg';
 
 const LightboxWrapper = styled.div`
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap");
@@ -108,12 +110,14 @@ const LightboxWrapper = styled.div`
 
 
 .payment4 .security-cc {
+  padding: 10px 0 10px 10px;
+  background: #31333b !important;
+
   font-family: "Poppins", sans-serif;
 
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding-top: 25px;
 
   &> * {
     text-align: center;
@@ -191,7 +195,6 @@ const LightboxWrapper = styled.div`
 
 @media (max-width: 400px){
   .intro .field {
-    height: calc(100% - 300px);
     width: 100vw;
   }
 }
@@ -214,7 +217,6 @@ const LightboxWrapper = styled.div`
 
 @media (max-width: 400px){
   .emailEntry .field {
-    height: calc(100% - 300px);
     width: 100vw;
   }
   .emailEntry .field .emailPs {
@@ -516,9 +518,24 @@ form .btn {
   .header-form {
     width: 100%;
     height: 200px;
-    background: url(${FirstImage}) center no-repeat;
     background-size: cover;
     border-radius: 8px 8px 0 0;
+  }
+
+  #step-1-header {
+    background: url(${FirstImage}) center no-repeat;
+  }
+  #step-2-header {
+    background: url(${SecondImage}) center no-repeat;
+  }
+  #step-3-header {
+    background: url(${ThirdImage}) center no-repeat;
+  }
+
+  @media (max-width: 400px) {
+    .header-form  {
+      width: 100vw;
+    }
   }
 
  

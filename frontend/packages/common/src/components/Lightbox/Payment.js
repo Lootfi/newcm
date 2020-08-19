@@ -25,8 +25,32 @@ const Payment = React.memo(
     const [openTab, setOpenTab] = React.useState(1);
     const [loading, setLoading] = React.useState(false);
     const prevOpenTab = usePrevious(openTab);
+    const [date, setDate] = React.useState('');
+    const months = [
+      'Janvier',
+      'Février',
+      'Mars',
+      'Avril',
+      'Mai',
+      'Juin',
+      'Juillet',
+      'Août',
+      'Septembre',
+      'Octobre',
+      'Novembre',
+      'Décembre'
+    ];
     let price = null;
     // let stripePromise;
+
+    React.useEffect(() => {
+      let date = new Date();
+      date.setDate(date.getDate() + 1);
+      date = date.toISOString().split('T')[0].split('-');
+      let day = date[2];
+      let month = months[parseInt(date[1]) - 1];
+      setDate(`${day} ${month}`);
+    }, []);
 
     React.useEffect(() => {
       // stripePromise = loadStripe(
@@ -126,24 +150,24 @@ const Payment = React.memo(
       <div className={classNames('page', 'payment4')}>
         <div className="payment-top">
           <div className="payment-heading">
-            <h3>Pay 0$ now.</h3>
-            <h3>Set up payment for later.</h3>
+            <h3>Payez 0€ maintenant.</h3>
+            <h3>Configurez le paiement pour plus tard</h3>
             <hr />
           </div>
           <div className="payment-info">
             <table>
               <tbody>
                 <tr>
-                  <td>Annual Subscription (due Jul 30)</td>
-                  <td>$180</td>
+                  <td>Accès illimité (dû le {date})</td>
+                  <td>85 €</td>
                 </tr>
                 <tr>
-                  <td style={{ color: '#3BB54A' }}>24-hour Free Trail</td>
-                  <td style={{ color: '#3BB54A' }}>-$180</td>
+                  <td style={{ color: '#3BB54A' }}>24h Essai Gratuit</td>
+                  <td style={{ color: '#3BB54A' }}>-85 €</td>
                 </tr>
                 <tr>
-                  <td>Due Now</td>
-                  <td>$0</td>
+                  <td>A régler aujourd'hui</td>
+                  <td>0 €</td>
                 </tr>
               </tbody>
             </table>
@@ -224,7 +248,6 @@ const Payment = React.memo(
                   <Loader width="100px" height="100px" loaderColor="blue" />
                 </div>
               )}
-              <button onClick={pay}>pay</button>
               <div style={{ width: '80%' }} id="paypal-button"></div>
             </div>
           )}
@@ -232,17 +255,21 @@ const Payment = React.memo(
         {/* FORM END */}
         <div className="security-cc">
           <div className="security-1">
-            <h3>100%</h3>
-            <h4>GUARANTEED</h4>
+            <h1>100%</h1>
+            <h2>GARANTI</h2>
+            <p style={{ display: 'inline', fontSize: '10px' }}>
+              Nous offrons 24h avec une garantie de remboursement si vous
+              n'aimez pas ContactMajor
+            </p>
           </div>
           <div className="security-2">
             <div className="ssl">
               <img src={Lock} alt="Lock" />
-              Secured with SSL
+              Sécurisé avec SSL
             </div>
             <div className="help-number">
-              <p>Have a question?</p>
-              <p>763-343-1581</p>
+              <p>Des Questions?</p>
+              <p>+33 183 620 250</p>
             </div>
           </div>
         </div>

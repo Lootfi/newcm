@@ -19,6 +19,25 @@ const FooterWrapper = styled.footer`
       padding-bottom: 0px;
     }
   }
+
+  .bottomRow > * {
+    & > *:nth-child(1) {
+      padding: 0 10px;
+      opacity: 0.6;
+    }
+    & > *:nth-child(2) {
+      padding: 0 10px;
+      opacity: 0.6;
+    }
+  }
+
+  @media (max-width: 750px) {
+    .bottomRow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
 `;
 
 const List = styled.ul``;

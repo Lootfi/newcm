@@ -163,10 +163,10 @@ export const GlobalStyle = createGlobalStyle`
 export const ContentWrapper = styled.div`
   .main_menu {
     li {
-      color: yellow;
+      color: white;
 
       a {
-        color: yellow;
+        color: white;
       }
     }
   }
@@ -183,16 +183,16 @@ export const ContentWrapper = styled.div`
       }
       .main_menu {
         li {
-          color: yellow;
+          color: white;
           a {
-            color: yellow;
+            color: white;
             &:hover {
               color: #ff4361;
             }
           }
           &.is-current {
             a {
-              color: yellow;
+              color: white;
             }
           }
         }
@@ -236,7 +236,7 @@ export const ContentWrapper = styled.div`
           padding: 5px;
           font-size: 16px;
           font-weight: 400;
-          color: yellow;
+          color: white;
           transition: 0.15s ease-in-out;
           &:hover {
             color: #edcd37;

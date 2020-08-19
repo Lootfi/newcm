@@ -23,6 +23,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
           label
           path
           offset
+          staticLink
         }
       }
     }
@@ -68,7 +69,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
             <a href="#1" className="navbar_button">
               <Button
                 {...button}
-                title="ACCEDEZ MAINTENANT"
+                title="ACCÉDEZ MAINTENANT"
                 onClick={() => handleLightbox('signup')}
               />
             </a>
@@ -90,7 +91,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
               <a href="#1" className="navbar_drawer_button">
                 <Button
                   {...button}
-                  title="ACCEDEZ MAINTENANT"
+                  title="ACCÉDEZ MAINTENANT"
                   onClick={() => {
                     handleLightbox('signup');
                     toggleHandler();

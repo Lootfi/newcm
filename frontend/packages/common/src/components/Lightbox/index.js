@@ -23,6 +23,7 @@ import Fade from 'react-reveal/Fade';
 
 import Modal from 'react-modal';
 import SetupProfile from './SetupProfile';
+import EmailEntry from './Steps/EmailEntry';
 
 Modal.setAppElement('#___gatsby');
 
@@ -62,21 +63,6 @@ const Lightbox = React.memo(() => {
     if (localStorage.getItem('email')) setPageNum(3);
   }, []);
 
-  // React.useEffect(() => {
-  //   if (state.email === '' && state.emailValid === false) {
-  //     if (spanEmail) {
-  //       spanEmail.className = 'error-message show';
-  //       spanEmail.innerText = 'Enter a valid email address';
-  //     }
-  //   } else if (state.emailValid === false) {
-  //     console.log('error');
-  //     spanEmail.className = 'error-message show';
-  //     spanEmail.innerText = 'Please, enter a valid email address';
-  //   } else if (state.emailValid === true) {
-  //     // document.querySelector('.slide').style.marginLeft = '-42.84%';
-  //   }
-  // }, [state.emailValid]);
-
   let changeValue = (e) => {
     setState({ ...state, [e.target.name]: e.target.value });
   };
@@ -84,50 +70,6 @@ const Lightbox = React.memo(() => {
   // function checkEmail(email) {
   //    dispatch({ type: 'VALIDATE_EMAIL', payload: email });
   // }
-
-  function validateEmail(e) {
-    let page = pageNum;
-    e.preventDefault();
-    setLoading(true);
-    axios
-      .post('validate-email', {
-        email: state.email
-      })
-      .then((res) => {
-        console.log(res.data);
-        if (res.data.status === 'valid') {
-          if (window.location.port === '')
-            window.fbq('trackCustom', 'Captif', {
-              content: 'Email_donne_sur_ContactMajor'
-            });
-          trackCustomEvent({
-            category: 'funnel',
-            action: 'step4_payment',
-            label: 'Funnel - Etape 4 - Payment page'
-          });
-          setState({ ...state, emailValid: true });
-          localStorage.setItem('email', res.data.email);
-          setPageNum(3);
-          // document.querySelector('.slide').style.marginLeft = '-42.84%';
-        } else {
-          setState({ ...state, emailValid: false });
-          if (res.data.errors) {
-            document.getElementById('email-span').style.display = 'block';
-            document.getElementById('email-span').className =
-              'error-message show';
-            document.getElementById('email-span').innerText =
-              res.data.errors.email[0];
-          }
-        }
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log('ERROR', err);
-        setLoading(false);
-
-        setState({ ...state, emailValid: false });
-      });
-  }
 
   function nextPage(e) {
     let page = pageNum;
@@ -256,7 +198,7 @@ const Lightbox = React.memo(() => {
 
                   {pageNum === 0 && (
                     <div className={classNames('page', 'slide', 'intro')}>
-                      <div className="header-form"></div>
+                      <div className="header-form" id="step-1-header"></div>
 
                       <div className="field">
                         <Heading
@@ -286,7 +228,7 @@ const Lightbox = React.memo(() => {
 
                   {pageNum == 1 && (
                     <div className={classNames('page', 'intro')}>
-                      <div className="header-form"></div>
+                      <div className="header-form" id="step-2-header"></div>
 
                       <div className="field">
                         <Fade right>
@@ -319,50 +261,15 @@ const Lightbox = React.memo(() => {
                   {/*  */}
 
                   {pageNum == 2 && (
-                    <div className={classNames('page', 'emailEntry')}>
-                      <div className="header-form"></div>
-
-                      <div className="field">
-                        <Fade right>
-                          <h3>Votre accès vous attend !</h3>
-                          <div className="emailPs">
-                            <p>Créez un compte pour commencer. </p>
-                            <p>Vous n'êtes qu'à une étape d'avoir accès.</p>
-                          </div>
-                          {/* <div className="sign-up-social">
-                        <SocialButtons />
-                        </div>
-                        <hr className="hr-text" data-content="OR" /> */}
-                          <div className="form-container">
-                            <label htmlFor="email">
-                              Votre adresse e-mail :
-                            </label>
-                            <input
-                              id="email"
-                              type="text"
-                              name="email"
-                              placeholder="Votre adresse e-mail"
-                              autoComplete="off"
-                              value={state.email}
-                              onChange={changeValue}
-                            />
-                            <span className="error-message" id="email-span">
-                              Error message
-                            </span>
-                          </div>
-
-                          <button
-                            type="button"
-                            disabled={loading}
-                            onClick={(e) => validateEmail(e)}
-                            className="btn-red3"
-                            id="thirdNext"
-                          >
-                            {loading ? <Loader /> : 'Continuer'}
-                          </button>
-                        </Fade>
-                      </div>
-                    </div>
+                    <EmailEntry
+                      state={state}
+                      changeValue={changeValue}
+                      loading={loading}
+                      pageNum={pageNum}
+                      setPageNum={setPageNum}
+                      setLoading={setLoading}
+                      setState={setState}
+                    />
                   )}
 
                   {/*  */}

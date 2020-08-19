@@ -5,6 +5,7 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 import { DrawerContext } from '../../contexts/DrawerContext';
 import { LightboxContext } from '../../contexts/LightboxContext';
+import { Link } from 'gatsby';
 
 const ScrollSpyMenu = ({ className, menuItems, drawerClose, ...props }) => {
   const { dispatch } = useContext(DrawerContext);
@@ -41,8 +42,10 @@ const ScrollSpyMenu = ({ className, menuItems, drawerClose, ...props }) => {
     >
       {menuItems.map((menu, index) => (
         <li key={`menu-item-${index}`}>
-          {menu.staticLink ? (
-            <a href={menu.path}>{menu.label}</a>
+          {menu.staticLink == '1' ? (
+            <Link activeStyle={{ color: 'yellow' }} to={menu.path}>
+              {menu.label}
+            </Link>
           ) : (
             <>
               {drawerClose ? (

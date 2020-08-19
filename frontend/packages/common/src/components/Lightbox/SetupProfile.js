@@ -2,6 +2,8 @@ import React from 'react';
 import Loader from '../Loader';
 import classNames from 'classnames';
 import axios from '../../axios';
+import { navigate } from 'gatsby';
+
 export default function SetupProfile({ state, changeValue }) {
   const [loading, setLoading] = React.useState(false);
   const errorsRef = React.useRef('');
@@ -16,14 +18,23 @@ export default function SetupProfile({ state, changeValue }) {
       setLoading(false);
     } else {
       axios
-        .post('setup-profile', {
-          name: state.name,
-          password: state.password,
-          email: localStorage.getItem('email')
-        })
+        .post(
+          'setup-profile',
+          {
+            name: state.name,
+            password: state.password,
+            email: localStorage.getItem('email')
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+          }
+        )
         .then((res) => {
           localStorage.removeItem('email');
           setLoading(false);
+          navigate('/app');
         })
         .catch((err) => {
           console.log(err);

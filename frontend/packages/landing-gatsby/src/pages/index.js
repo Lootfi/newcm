@@ -23,7 +23,7 @@ export default function Welcome() {
         <TestimonialSection />
         <TrialSection />
         <FaqSection />
-        <Newsletter />
+        {/* <Newsletter /> */}
         <Footer />
       </ContentWrapper>
     </Template>

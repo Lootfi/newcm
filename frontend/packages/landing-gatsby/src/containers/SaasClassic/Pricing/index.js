@@ -28,7 +28,9 @@ const PricingSection = ({
   priceStyle,
   priceLabelStyle,
   buttonFillStyle,
-  listContentStyle
+  listContentStyle,
+  wrapper,
+  rightSide
 }) => {
   const Data = useStaticQuery(graphql`
     query {
@@ -38,10 +40,10 @@ const PricingSection = ({
           description
           price
           priceLabel
-          trialURL
-          trialButtonLabel
           buttonLabel
           url
+          trialButtonLabel
+          trialURL
           listItems {
             content
           }
@@ -143,62 +145,59 @@ const PricingSection = ({
           </PricingButtonWrapper>
         </Box>
         <PricingTableWrapper>
-          <GlideCarousel
-            carouselSelector="pricing-carousel"
-            options={pricingCarouselOptions}
-            controls={true}
-          >
-            <>
-              {data.map((pricingTable, index) => (
-                <GlideSlide key={`pricing-table-${index}`}>
-                  <PricingTable
-                    freePlan={pricingTable.freePlan}
-                    className="pricing_table"
-                  >
-                    <PricingHead>
-                      <Heading content={pricingTable.name} {...nameStyle} />
-                      <Text
-                        content={pricingTable.description}
-                        {...descriptionStyle}
+          <>
+            {data.map((pricingTable, index) => (
+              <Box {...wrapper}>
+                <PricingTable
+                  freePlan={pricingTable.freePlan}
+                  className="pricing_table"
+                >
+                  <PricingHead>
+                    <Heading content={pricingTable.name} {...nameStyle} />
+                    <Text
+                      content={pricingTable.description}
+                      {...descriptionStyle}
+                    />
+                  </PricingHead>
+                  <PricingPrice>
+                    <Text content={pricingTable.price} {...priceStyle} />
+                    <Text
+                      content={pricingTable.priceLabel}
+                      {...priceLabelStyle}
+                    />
+                  </PricingPrice>
+                  <PricingList>
+                    {pricingTable.listItems.map((item, index) => (
+                      <ListItem key={`pricing-table-list-${index}`}>
+                        <Text content={item.content} {...listContentStyle} />
+                      </ListItem>
+                    ))}
+                  </PricingList>
+                  <PricingButton>
+                    <a href={pricingTable.url}>
+                      <Button
+                        title={pricingTable.buttonLabel}
+                        {...buttonFillStyle}
                       />
-                    </PricingHead>
-                    <PricingPrice>
-                      <Text content={pricingTable.price} {...priceStyle} />
-                      <Text
-                        content={pricingTable.priceLabel}
-                        {...priceLabelStyle}
-                      />
-                    </PricingPrice>
-                    <PricingList>
-                      {pricingTable.listItems.map((item, index) => (
-                        <ListItem key={`pricing-table-list-${index}`}>
-                          <Text content={item.content} {...listContentStyle} />
-                        </ListItem>
-                      ))}
-                    </PricingList>
-                    <PricingButton>
-                      <a href={pricingTable.url}>
-                        <Button
-                          title={pricingTable.buttonLabel}
-                          {...buttonFillStyle}
-                        />
+                    </a>
+                    {pricingTable.trialButtonLabel ? (
+                      <a
+                        className="trial_button"
+                        href={pricingTable.trialURL || '#1'}
+                      >
+                        {pricingTable.trialButtonLabel}
                       </a>
-                      {pricingTable.trialButtonLabel ? (
-                        <a
-                          className="trial_button"
-                          href={pricingTable.trialURL || '#1'}
-                        >
-                          {pricingTable.trialButtonLabel}
-                        </a>
-                      ) : (
-                        ''
-                      )}
-                    </PricingButton>
-                  </PricingTable>
-                </GlideSlide>
-              ))}
-            </>
-          </GlideCarousel>
+                    ) : (
+                      ''
+                    )}
+                  </PricingButton>
+                </PricingTable>
+                <Box {...rightSide}>
+                  <h1>hey</h1>
+                </Box>
+              </Box>
+            ))}
+          </>
         </PricingTableWrapper>
       </Container>
     </Box>
@@ -215,10 +214,18 @@ PricingSection.propTypes = {
   descriptionStyle: PropTypes.object,
   priceStyle: PropTypes.object,
   priceLabelStyle: PropTypes.object,
-  listContentStyle: PropTypes.object
+  listContentStyle: PropTypes.object,
+  wrapper: PropTypes.object,
+  rightSide: PropTypes.object
 };
 
 PricingSection.defaultProps = {
+  wrapper: {
+    display: 'flex'
+  },
+  rightSide: {
+    color: 'white'
+  },
   sectionWrapper: {
     as: 'section',
     pt: ['60px', '80px', '80px', '80px', '100px'],

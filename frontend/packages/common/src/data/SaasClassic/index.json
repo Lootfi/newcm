@@ -1,18 +1,21 @@
 {
   "MENU_ITEMS": [{
       "label": "Accueil",
-      "path": "#banner_section",
-      "offset": "0"
+      "path": "/",
+      "offset": "0",
+      "staticLink": "1"
     },
     {
       "label": "Fonctionnement",
-      "path": "#service_section",
-      "offset": "0"
+      "path": "/fonctionnement",
+      "offset": "0",
+      "staticLink": "1"
     },
     {
       "label": "Prix",
-      "path": "#trial_section",
-      "offset": "75px"
+      "path": "/prix",
+      "offset": "75px",
+      "staticLink": "1"
     }
   ],
   "SERVICE_ITEMS": [{
@@ -37,82 +40,31 @@
     }
   ],
   "MONTHLY_PRICING_TABLE": [{
-      "name": "Basic Account",
-      "description": "For Small teams or group who need to build website ",
-      "price": "$0",
-      "priceLabel": "Only for first month",
-      "buttonLabel": "Start for free",
-      "url": "#",
-      "listItems": [{
-          "content": "Drag & Drop Builder"
-        },
-        {
-          "content": "1,000s of Templates Ready"
-        },
-        {
-          "content": "Blog Tools"
-        },
-        {
-          "content": "eCommerce Store "
-        },
-        {
-          "content": "30+ Webmaster Tools"
-        }
-      ]
-    },
-    {
-      "name": "Business Account",
-      "description": "For Mediums teams or group who need to build website ",
-      "price": "$9.87",
-      "priceLabel": "Per month & subscription yearly",
-      "buttonLabel": "Register Now",
-      "url": "#",
-      "trialButtonLabel": "Or Start 14 Days trail",
-      "trialURL": "#",
-      "listItems": [{
-          "content": "Drag & Drop Builder"
-        },
-        {
-          "content": "1,000s of Templates Ready"
-        },
-        {
-          "content": "Blog Tools"
-        },
-        {
-          "content": "eCommerce Store "
-        },
-        {
-          "content": "30+ Webmaster Tools"
-        }
-      ]
-    },
-    {
-      "name": "Premium Account",
-      "description": "For Large teams or group who need to build website ",
-      "price": "$12.98",
-      "priceLabel": "Per month & subscription yearly",
-      "buttonLabel": "Register Now",
-      "url": "#",
-      "trialButtonLabel": "Or Start 14 Days trail",
-      "trialURL": "#",
-      "listItems": [{
-          "content": "Drag & Drop Builder"
-        },
-        {
-          "content": "1,000s of Templates Ready"
-        },
-        {
-          "content": "Blog Tools"
-        },
-        {
-          "content": "eCommerce Store "
-        },
-        {
-          "content": "30+ Webmaster Tools"
-        }
-      ]
-    }
-  ],
+    "name": "Business Account",
+    "description": "For Mediums teams or group who need to build website ",
+    "price": "$9.87",
+    "priceLabel": "Per month & subscription yearly",
+    "buttonLabel": "Register Now",
+    "url": "#",
+    "trialButtonLabel": "Or Start 14 Days trail",
+    "trialURL": "#",
+    "listItems": [{
+        "content": "Drag & Drop Builder"
+      },
+      {
+        "content": "1,000s of Templates Ready"
+      },
+      {
+        "content": "Blog Tools"
+      },
+      {
+        "content": "eCommerce Store "
+      },
+      {
+        "content": "30+ Webmaster Tools"
+      }
+    ]
+  }],
   "YEARLY_PRICING_TABLE": [{
       "name": "Basic Account",
       "description": "For a single client or team who need to build website ",
@@ -291,7 +243,7 @@
     {
       "icon": "../../../../../common/src/assets/image/4.png",
       "title": "Tourneurs / Festivals",
-      "description": "Pour vos tournées, showcases, festivals. Tout les contacts importants dans l'evenementiel."
+      "description": "Pour vos tournées, showcases, festivals. Tous les contacts importants dans l'événementiel."
     },
     {
       "icon": "../../../../../common/src/assets/image/5.png",
@@ -301,7 +253,7 @@
     {
       "icon": "../../../../../common/src/assets/image/6.png",
       "title": "Dénicheurs de talents",
-      "description": "Get your proof tests delivered home collect a sample from the news get design."
+      "description": "Ils travaillent pour des productions souvent et sillonnent la France pour trouver les talents."
     }
   ],
   "TESTIMONIALS": [{

@@ -91,17 +91,17 @@ const BannerSection = ({
             </DiscountWrapper>
             <Heading
               {...title}
-              content="Accés Illimité aux contacts de l'industrie musicale"
+              content="Accès Illimité aux contacts de l'industrie musicale"
             />
             <Text
               {...description}
-              content="Accés aux contacts de l'industrie musicale et les médias musique pour avoir les bonnes connexions pour booster votre carriére."
+              content="Accès aux contacts de l'industrie musicale et les médias musique pour avoir les bonnes connexions pour booster votre carrière."
             />
             <Box {...buttonWrapper}>
               <a href="#1">
                 <Button
                   {...fillButton}
-                  title="ACCEDEZ MAINTENANT"
+                  title="ACCÉDEZ MAINTENANT"
                   onClick={() => handleLightbox('signup')}
                 />
               </a>

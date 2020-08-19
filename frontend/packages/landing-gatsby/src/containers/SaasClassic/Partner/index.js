@@ -41,7 +41,7 @@ const PartnerSection = ({
               <a href="#1">
                 <Button
                   {...button}
-                  title="FAIRE AVANCER VOTRE CARRIERS"
+                  title="FAIRE AVANCER VOTRE CARRIÈRE"
                   onClick={() => handleLightbox('signup')}
                 />
               </a>

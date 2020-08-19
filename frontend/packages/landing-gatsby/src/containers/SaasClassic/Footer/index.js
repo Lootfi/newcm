@@ -9,7 +9,7 @@ import Container from '../../../../../common/src/components/UI/Container';
 import FooterWrapper, { List, ListItem } from './footer.style';
 import LogoImage from '../../../../../common/src/assets/image/saasClassic/logo-white.png';
 import { LightboxContext } from '../../../../../common/src/contexts/LightboxContext';
-
+import Lock from 'common/src/assets/image/lock.png';
 const Footer = ({
   row,
   col,
@@ -17,7 +17,8 @@ const Footer = ({
   colTwo,
   titleStyle,
   logoStyle,
-  textStyle
+  textStyle,
+  bottomRow
 }) => {
   const { handleLightbox } = React.useContext(LightboxContext);
   const Data = useStaticQuery(graphql`
@@ -86,6 +87,23 @@ const Footer = ({
           {/* End of footer List column */}
         </Box>
       </Container>
+      <Container>
+        <Box {...bottomRow} className="bottomRow">
+          <img href="#" src={LogoImage} style={logoStyle} />
+          <Box {...bottomRow}>
+            <p>© 2020 ContactMajor</p>
+            <div style={{ display: 'flex', alignItems: 'baseline' }}>
+              <img
+                width="20px"
+                style={{ marginRight: '3px' }}
+                src={Lock}
+                alt="Lock"
+              />
+              <p>Secured with SSL</p>
+            </div>
+          </Box>
+        </Box>
+      </Container>
     </FooterWrapper>
   );
 };
@@ -98,7 +116,8 @@ Footer.propTypes = {
   colTwo: PropTypes.object,
   titleStyle: PropTypes.object,
   textStyle: PropTypes.object,
-  logoStyle: PropTypes.object
+  logoStyle: PropTypes.object,
+  bottomRow: PropTypes.object
 };
 
 // Footer default style
@@ -129,7 +148,7 @@ Footer.defaultProps = {
   },
   // Footer col default style
   col: {
-    width: ['100%', '50%', '50%', '25%'],
+    width: ['50%', '50%', '50%', '25%'],
     pl: '15px',
     pr: '15px',
     mb: '30px'
@@ -143,7 +162,7 @@ Footer.defaultProps = {
   },
   // Default logo size
   logoStyle: {
-    width: '130px',
+    width: ['180px', '150px'],
     mb: '15px'
   },
   // widget text default style
@@ -151,6 +170,10 @@ Footer.defaultProps = {
     color: '#eee',
     fontSize: '16px',
     mb: '10px'
+  },
+  bottomRow: {
+    display: 'inline-flex',
+    alignItems: 'center'
   }
 };
 

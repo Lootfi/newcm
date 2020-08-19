@@ -46,7 +46,7 @@ const TrialSection = ({
             />
             <Box {...buttonWrapper}>
               <Button
-                title="ACCEDEZ MAINTENANT"
+                title="ACCÉDEZ MAINTENANT"
                 variant="textButton"
                 onClick={() => handleLightbox('signup')}
                 {...btnStyle}
