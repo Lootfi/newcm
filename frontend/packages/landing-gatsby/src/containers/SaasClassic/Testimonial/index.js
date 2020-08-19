@@ -33,8 +33,7 @@ TestimonialSection.propTypes = {
 
 TestimonialSection.defaultProps = {
   sectionWrapper: {
-    pt: ['60px', '80px', '90px', '100px', '100px'],
-    pb: ['60px', '80px', '90px', '100px', '100px']
+    pt: ['80px', '100px']
   },
   secTitleWrapper: {
     mb: ['40px', '60px']

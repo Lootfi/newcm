@@ -58,13 +58,11 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
             className="logo-alt"
           />
           <Box {...menuWrapper}>
-            {url === '/' && (
-              <ScrollSpyMenu
-                className="main_menu"
-                menuItems={Data.saasClassicJson.MENU_ITEMS}
-                offset={-70}
-              />
-            )}
+            <ScrollSpyMenu
+              className="main_menu"
+              menuItems={Data.saasClassicJson.MENU_ITEMS}
+              offset={-70}
+            />
 
             <a href="#1" className="navbar_button">
               <Button
@@ -80,14 +78,12 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
               open={state.isOpen}
               toggleHandler={toggleHandler}
             >
-              {url === '/' && (
-                <ScrollSpyMenu
-                  className="mobile_menu"
-                  menuItems={Data.saasClassicJson.MENU_ITEMS}
-                  drawerClose={true}
-                  offset={-100}
-                />
-              )}
+              <ScrollSpyMenu
+                className="mobile_menu"
+                menuItems={Data.saasClassicJson.MENU_ITEMS}
+                drawerClose={true}
+                offset={-100}
+              />
               <a href="#1" className="navbar_drawer_button">
                 <Button
                   {...button}

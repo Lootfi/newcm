@@ -89,17 +89,17 @@ const Footer = ({
       </Container>
       <Container>
         <Box {...bottomRow} className="bottomRow">
-          <img href="#" src={LogoImage} style={logoStyle} />
+          {/* <img href="#" src={LogoImage} style={logoStyle} /> */}
           <Box {...bottomRow}>
             <p>© 2020 ContactMajor</p>
             <div style={{ display: 'flex', alignItems: 'baseline' }}>
               <img
                 width="20px"
-                style={{ marginRight: '3px' }}
+                style={{ marginRight: '1px' }}
                 src={Lock}
                 alt="Lock"
               />
-              <p>Secured with SSL</p>
+              <p>Sécurisé avec SSL</p>
             </div>
           </Box>
         </Box>

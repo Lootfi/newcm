@@ -2,10 +2,40 @@ import styled from 'styled-components';
 import { themeGet } from '@styled-system/theme-get';
 
 export const PricingTableWrapper = styled.div`
-  .glide__slides {
-    align-items: stretch;
-    .glide__slide {
-      height: auto;
+  .wrapper {
+    justify-content: space-around;
+    align-items: center;
+  }
+  .rightSide {
+    padding-right: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    li {
+      line-height: 40px;
+      font-size: 16px;
+    }
+  }
+  .check {
+    color: #a0e0a0;
+    margin-right: 10px;
+  }
+  .button {
+    color: black;
+    background-color: #edcd37;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 4px;
+    pading-left: 15px;
+    padding-right: 15px;
+    min-height: auto;
+    height: 40px;
+  }
+
+  @media (max-width: 700px) {
+    .wrapper {
+      flex-direction: column;
     }
   }
 `;
@@ -13,14 +43,16 @@ export const PricingTableWrapper = styled.div`
 const PricingTable = styled.div`
   width: 400px;
   border: 1px solid #f9fafb;
-  border-radius: 5px;
   padding: 45px 45px 50px 45px;
-  border-radius: 15px;
+  border-radius: 15px 0 0 15px;
   background-color: #f9fafb;
   height: 100%;
   transition: 0.25s ease-in-out;
   @media (max-width: 767px) {
     padding: 45px 35px;
+  }
+  @media (max-width: 700px) {
+    border-radius: 15px 15px 0 0;
   }
   &:hover {
     background-color: #fff;

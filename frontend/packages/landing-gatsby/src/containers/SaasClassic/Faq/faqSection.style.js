@@ -1,11 +1,7 @@
 import styled from 'styled-components';
 
 const FaqSectionWrapper = styled.section`
-  padding-bottom: 65px;
   overflow: hidden;
-  @media (max-width: 768px) {
-    padding: 60px 0 15px;
-  }
   .sectionHeader {
     display: flex;
     flex-direction: column;

@@ -41,29 +41,25 @@ const ScrollSpyMenu = ({ className, menuItems, drawerClose, ...props }) => {
       {...props}
     >
       {menuItems.map((menu, index) => (
-        <li key={`menu-item-${index}`}>
-          {menu.staticLink == '1' ? (
-            <Link activeStyle={{ color: 'yellow' }} to={menu.path}>
-              {menu.label}
-            </Link>
+        <>
+          {drawerClose ? (
+            <li key={`menu-item-`}>
+              <Link
+                activeStyle={{ color: '#ff4362' }}
+                to={menu.path}
+                onClick={toggleDrawer}
+              >
+                {menu.label}
+              </Link>
+            </li>
           ) : (
-            <>
-              {drawerClose ? (
-                <AnchorLink
-                  href={menu.path}
-                  offset={menu.offset}
-                  onClick={toggleDrawer}
-                >
-                  {menu.label}
-                </AnchorLink>
-              ) : (
-                <AnchorLink href={menu.path} offset={menu.offset}>
-                  {menu.label}
-                </AnchorLink>
-              )}
-            </>
+            <li key={`menu-item-`}>
+              <Link activeStyle={{ color: 'yellow' }} to={menu.path}>
+                {menu.label}
+              </Link>
+            </li>
           )}
-        </li>
+        </>
       ))}
       <li>
         <a

@@ -4,13 +4,16 @@ const FooterWrapper = styled.footer`
   position: relative;
   background: #000;
   overflow: hidden;
-  padding: 15px 0 40px 0;
+  padding: 20px 0 10px 0;
   color: #fff;
+  @media (max-width: 400px) {
+    padding-top: 0;
+  }
 
   .footer_container {
     background-color: rgb(0, 0, 0);
     padding-top: 80px;
-    padding-bottom: 80px;
+    padding-bottom: 20px;
     position: relative;
     @media (max-width: 990px) {
       padding-bottom: 40px;
@@ -22,11 +25,10 @@ const FooterWrapper = styled.footer`
 
   .bottomRow > * {
     & > *:nth-child(1) {
-      padding: 0 10px;
+      padding-right: 5px;
       opacity: 0.6;
     }
     & > *:nth-child(2) {
-      padding: 0 10px;
       opacity: 0.6;
     }
   }
@@ -36,6 +38,15 @@ const FooterWrapper = styled.footer`
       display: flex;
       flex-direction: column;
       align-items: center;
+      font-size: 15px;
+    }
+  }
+  @media (max-width: 400px) {
+    .bottomRow > * {
+      & > *:nth-child(1) {
+        padding-right: 0px;
+        opacity: 0.6;
+      }
     }
   }
 `;

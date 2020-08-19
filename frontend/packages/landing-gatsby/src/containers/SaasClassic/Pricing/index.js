@@ -6,8 +6,6 @@ import Text from '../../../../../common/src/components/Text';
 import Heading from '../../../../../common/src/components/Heading';
 import Button from '../../../../../common/src/components/Button';
 import Container from '../../../../../common/src/components/UI/Container';
-import GlideCarousel from '../../../../../common/src/components/GlideCarousel';
-import GlideSlide from '../../../../../common/src/components/GlideCarousel/glideSlide';
 import PricingTable, {
   PricingHead,
   PricingPrice,
@@ -17,6 +15,9 @@ import PricingTable, {
   PricingButtonWrapper,
   PricingTableWrapper
 } from './pricing.style';
+import { Icon } from 'react-icons-kit';
+import { check } from 'react-icons-kit/fa/check';
+import { LightboxContext } from 'common/src/contexts/LightboxContext';
 
 const PricingSection = ({
   sectionWrapper,
@@ -70,6 +71,8 @@ const PricingSection = ({
     active: true
   });
 
+  const { handleLightbox } = React.useContext(LightboxContext);
+
   const data = state.data;
   const activeStatus = state.active;
 
@@ -113,7 +116,7 @@ const PricingSection = ({
 
   return (
     <Box {...sectionWrapper} id="pricing_section">
-      <Container>
+      <Container fullWidth>
         <Box {...secTitleWrapper}>
           <Text {...secText} content="PRICING PLAN" />
           <Heading
@@ -147,7 +150,7 @@ const PricingSection = ({
         <PricingTableWrapper>
           <>
             {data.map((pricingTable, index) => (
-              <Box {...wrapper}>
+              <Box className="wrapper" {...wrapper}>
                 <PricingTable
                   freePlan={pricingTable.freePlan}
                   className="pricing_table"
@@ -166,18 +169,11 @@ const PricingSection = ({
                       {...priceLabelStyle}
                     />
                   </PricingPrice>
-                  <PricingList>
-                    {pricingTable.listItems.map((item, index) => (
-                      <ListItem key={`pricing-table-list-${index}`}>
-                        <Text content={item.content} {...listContentStyle} />
-                      </ListItem>
-                    ))}
-                  </PricingList>
                   <PricingButton>
                     <a href={pricingTable.url}>
                       <Button
                         title={pricingTable.buttonLabel}
-                        {...buttonFillStyle}
+                        className="button"
                       />
                     </a>
                     {pricingTable.trialButtonLabel ? (
@@ -192,8 +188,42 @@ const PricingSection = ({
                     )}
                   </PricingButton>
                 </PricingTable>
-                <Box {...rightSide}>
-                  <h1>hey</h1>
+                <Box className="rightSide" {...rightSide}>
+                  <ul>
+                    <li>
+                      <Icon key={`check-key`} icon={check} className="check" />
+                      No Credit Card information required (for FREE Trial)
+                    </li>
+                    <li>
+                      <Icon key={`check-key`} icon={check} className="check" />
+                      14-Day FREE Trial
+                    </li>
+                    <li>
+                      <Icon key={`check-key`} icon={check} className="check" />
+                      50 Free Credits for FREE Trial
+                    </li>
+                    <li>
+                      <Icon key={`check-key`} icon={check} className="check" />
+                      Free incoming Text Messages
+                    </li>
+                    <li>
+                      <Icon key={`check-key`} icon={check} className="check" />
+                      Unlimited Contacts
+                    </li>
+                    <li>
+                      <Icon key={`check-key`} icon={check} className="check" />
+                      24x7 Support{' '}
+                    </li>
+                    <li>
+                      <Icon key={`check-key`} icon={check} className="check" />
+                      Phone Number provided (only for Paid Subscribers)
+                    </li>
+                  </ul>
+                  <Button
+                    onClick={() => handleLightbox('signup')}
+                    title="ACCÉDEZ MAINTENANT"
+                    className="button"
+                  />
                 </Box>
               </Box>
             ))}

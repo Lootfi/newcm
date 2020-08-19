@@ -45,7 +45,7 @@ const FaqSection = ({
           <Text content="QUESTIONS FRÉQUENTES" {...sectionSubTitle} />
           <Heading content="Envie d'en savoir plus ?" {...sectionTitle} />
         </Box>
-        <Box className="row" style={{ marginBottom: '115px' }}>
+        <Box className="row">
           <Accordion>
             <Fragment>
               {Data.saasClassicJson.Faq.map((faqItem, index) => (
