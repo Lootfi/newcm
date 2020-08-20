@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import axios from '../../axios';
 import { navigate } from 'gatsby';
 
-export default function SetupProfile({ state, changeValue }) {
+export default function SetupProfile({ state, changeValue, price }) {
   const [loading, setLoading] = React.useState(false);
   const errorsRef = React.useRef('');
 
@@ -89,7 +89,7 @@ export default function SetupProfile({ state, changeValue }) {
           <h4>
             <strong>Total facturé aujourd'hui: 0€</strong>
           </h4>
-          <h4>Facturé le 25 Jan: 85€</h4>
+          <h4>Facturé le 25 Jan: {price} €</h4>
           <hr className="hr-text" />
         </div>
         <p>

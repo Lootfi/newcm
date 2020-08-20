@@ -7,13 +7,13 @@
     },
     {
       "label": "Fonctionnement",
-      "path": "/fonctionnement",
+      "path": "/fonctionnement/",
       "offset": "0",
       "staticLink": "1"
     },
     {
       "label": "Prix",
-      "path": "/prix",
+      "path": "/prix/",
       "offset": "75px",
       "staticLink": "1"
     }
@@ -147,15 +147,15 @@
   "FOOTER_WIDGET": [{
       "title": "A propos de nous",
       "menuItems": [{
-          "url": "/comment",
+          "url": "/comment/",
           "text": "Comment ça marche ?"
         },
         {
-          "url": "/prix",
+          "url": "/prix/",
           "text": "Prix"
         },
         {
-          "url": "/contactus",
+          "url": "/contactus/",
           "text": "Nous Contacter"
         }
       ]
@@ -171,7 +171,7 @@
           "text": "Connexion"
         },
         {
-          "url": "/faq",
+          "url": "/faq/",
           "text": "FAQ"
         }
       ]
@@ -183,11 +183,11 @@
           "text": "Accéder à la base"
         },
         {
-          "url": "/suggest",
+          "url": "/suggest/",
           "text": "Suggérer un contact"
         },
         {
-          "url": "/supprimer",
+          "url": "/supprimer/",
           "text": "Supprimer un contact"
         }
       ]
@@ -195,15 +195,15 @@
     {
       "title": "Règles d'utilisation",
       "menuItems": [{
-          "url": "/conditions",
+          "url": "/conditions/",
           "text": "Termes et Conditions"
         },
         {
-          "url": "/confidentiality",
+          "url": "/confidentiality/",
           "text": "Politique de Confidentialité"
         },
         {
-          "url": "/essai",
+          "url": "/essai/",
           "text": "CGU Offre essai 24h"
         }
       ]

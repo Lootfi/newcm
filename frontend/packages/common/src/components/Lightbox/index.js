@@ -49,6 +49,7 @@ const Lightbox = React.memo(() => {
     password: '',
     emailValid: null
   });
+  const [price, setPrice] = React.useState(0);
 
   const [loading, setLoading] = React.useState(false);
   var spanEmail, spanCc, spanName, spanPassword;
@@ -60,6 +61,9 @@ const Lightbox = React.memo(() => {
   }
 
   React.useEffect(() => {
+    axios.get('price').then((res) => {
+      setPrice(res.data);
+    });
     if (localStorage.getItem('email')) setPageNum(3);
   }, []);
 
@@ -280,6 +284,8 @@ const Lightbox = React.memo(() => {
                     <Payment
                       ccNumber={state.ccNumber}
                       setPageNum={setPageNum}
+                      price={price}
+                      setPrice={setPrice}
                     />
                   )}
 
@@ -288,7 +294,11 @@ const Lightbox = React.memo(() => {
                   {/*  */}
 
                   {pageNum == 4 && (
-                    <SetupProfile state={state} changeValue={changeValue} />
+                    <SetupProfile
+                      state={state}
+                      changeValue={changeValue}
+                      price={price}
+                    />
                   )}
 
                   {/*  */}

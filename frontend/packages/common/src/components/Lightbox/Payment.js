@@ -21,7 +21,7 @@ function usePrevious(value) {
 }
 
 const Payment = React.memo(
-  ({ ccNumber, setPageNum }) => {
+  ({ ccNumber, setPageNum, price, setPrice }) => {
     const [openTab, setOpenTab] = React.useState(1);
     const [loading, setLoading] = React.useState(false);
     const prevOpenTab = usePrevious(openTab);
@@ -40,7 +40,6 @@ const Payment = React.memo(
       'Novembre',
       'Décembre'
     ];
-    let price = null;
     // let stripePromise;
 
     React.useEffect(() => {
@@ -57,9 +56,6 @@ const Payment = React.memo(
       //   'pk_test_51H3r6tGvxHsd96JzVpg8XK1ITL6WSuFdhTWt6PxcF7ekw9LR9Zidq2IVSbkE3ZwcO8zgk4w9wjFDXZpc7tvi0mOs00uCCEXVpL'
       // );
       if (prevOpenTab !== openTab) {
-        axios.get('price').then((res) => {
-          price = res.data;
-        });
         window.paypal
           .Buttons({
             env: 'sandbox',
@@ -159,11 +155,11 @@ const Payment = React.memo(
               <tbody>
                 <tr>
                   <td>Accès illimité (dû le {date})</td>
-                  <td>85 €</td>
+                  <td>{price} €</td>
                 </tr>
                 <tr>
                   <td style={{ color: '#3BB54A' }}>24h Essai Gratuit</td>
-                  <td style={{ color: '#3BB54A' }}>-85 €</td>
+                  <td style={{ color: '#3BB54A' }}>-{price} €</td>
                 </tr>
                 <tr>
                   <td>A régler aujourd'hui</td>
@@ -256,8 +252,8 @@ const Payment = React.memo(
         <div className="security-cc">
           <div className="security-1">
             <h1>100%</h1>
-            <h2>GARANTI</h2>
-            <p style={{ display: 'inline', fontSize: '10px' }}>
+            <h1>GARANTI</h1>
+            <p style={{ display: 'block', fontSize: '11px', width: '100%' }}>
               Nous offrons 24h avec une garantie de remboursement si vous
               n'aimez pas ContactMajor
             </p>
@@ -265,7 +261,7 @@ const Payment = React.memo(
           <div className="security-2">
             <div className="ssl">
               <img src={Lock} alt="Lock" />
-              Sécurisé avec SSL
+              <span>Sécurisé avec SSL</span>
             </div>
             <div className="help-number">
               <p>Des Questions?</p>

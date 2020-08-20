@@ -3,8 +3,12 @@ import { themeGet } from '@styled-system/theme-get';
 
 export const PricingTableWrapper = styled.div`
   .wrapper {
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    & > * {
+      margin-left: 15px;
+      margin-right: 15px;
+    }
   }
   .rightSide {
     padding-right: 5px;

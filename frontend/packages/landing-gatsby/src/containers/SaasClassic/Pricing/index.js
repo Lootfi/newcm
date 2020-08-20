@@ -18,6 +18,7 @@ import PricingTable, {
 import { Icon } from 'react-icons-kit';
 import { check } from 'react-icons-kit/fa/check';
 import { LightboxContext } from 'common/src/contexts/LightboxContext';
+import axios from 'common/src/axios';
 
 const PricingSection = ({
   sectionWrapper,
@@ -45,22 +46,6 @@ const PricingSection = ({
           url
           trialButtonLabel
           trialURL
-          listItems {
-            content
-          }
-        }
-        YEARLY_PRICING_TABLE {
-          name
-          description
-          price
-          priceLabel
-          trialURL
-          trialButtonLabel
-          buttonLabel
-          url
-          listItems {
-            content
-          }
         }
       }
     }
@@ -70,8 +55,18 @@ const PricingSection = ({
     data: Data.saasClassicJson.MONTHLY_PRICING_TABLE,
     active: true
   });
+  const [price, setPrice] = useState(0);
 
   const { handleLightbox } = React.useContext(LightboxContext);
+
+  React.useEffect(() => {
+    axios
+      .get('price')
+      .then((res) => {
+        setPrice(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   const data = state.data;
   const activeStatus = state.active;
@@ -123,29 +118,6 @@ const PricingSection = ({
             {...secHeading}
             content="Choose your pricing policy which affordable"
           />
-          <PricingButtonWrapper>
-            <Button
-              title="Monthly Pricing"
-              className={activeStatus ? 'active-item' : ''}
-              onClick={() =>
-                setState({
-                  data: Data.saasClassicJson.MONTHLY_PRICING_TABLE,
-                  active: true
-                })
-              }
-            />
-            <Button
-              title="Annual Pricing"
-              className={activeStatus === false ? 'active-item' : ''}
-              onClick={() =>
-                setState({
-                  data: Data.saasClassicJson.YEARLY_PRICING_TABLE,
-                  active: false
-                })
-              }
-            />
-            <a href="#1">+ Custom Plan</a>
-          </PricingButtonWrapper>
         </Box>
         <PricingTableWrapper>
           <>
@@ -163,7 +135,7 @@ const PricingSection = ({
                     />
                   </PricingHead>
                   <PricingPrice>
-                    <Text content={pricingTable.price} {...priceStyle} />
+                    <Text content={`${price} €`} {...priceStyle} />
                     <Text
                       content={pricingTable.priceLabel}
                       {...priceLabelStyle}

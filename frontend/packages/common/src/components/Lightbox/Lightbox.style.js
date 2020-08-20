@@ -125,17 +125,38 @@ const LightboxWrapper = styled.div`
 
   .security-1 {
     flex: 1;
-  width: 45%;
+  width: 52%;
+  p {
+    color: #949494;
+  }
   }
 
   .security-2 {
-    width: 55%;
+    width: 50%;
     display:flex;
     flex-direction: column;
     align-items:center;
 
+    .ssl span {
+      font-size: 12px;
+    }
   }
 
+}
+
+.payment4 .security-cc {
+  .help-number {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p{
+      color: #949494;
+    }
+    p:nth-child(2){
+      font-size: 18px;
+    }
+  }
 }
 
 @media (max-width: 400px) {
@@ -146,6 +167,7 @@ const LightboxWrapper = styled.div`
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: space-between;
     }
   }
 }
@@ -665,7 +687,7 @@ form .btn {
   }
 
   .ssl img {
-    width: 25px;
+    width: 23px;
     vertical-align: middle;
     margin-right: 5px;
     padding-right: 5px;

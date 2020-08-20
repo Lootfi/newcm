@@ -75,6 +75,10 @@ exports.createPages = async ({ page, actions: { createPage } }) => {
     path: `/supprimer`,
     component: require.resolve('./src/pages/Supprimer.js')
   });
+  createPage({
+    path: `/404`,
+    component: require.resolve('./src/pages/404.js')
+  });
 
   // Create a page for each Pokémon.
   //   allPokemon.forEach((pokemon) => {

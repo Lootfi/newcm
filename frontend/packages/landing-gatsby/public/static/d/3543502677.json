@@ -1,1 +1,1 @@
-{"data":{"saasClassicJson":{"MENU_ITEMS":[{"label":"Accueil","path":"/","offset":"0","staticLink":"1"},{"label":"Fonctionnement","path":"/fonctionnement","offset":"0","staticLink":"1"},{"label":"Prix","path":"/prix","offset":"75px","staticLink":"1"}]}}}
+{"data":{"saasClassicJson":{"MENU_ITEMS":[{"label":"Accueil","path":"/","offset":"0","staticLink":"1"},{"label":"Fonctionnement","path":"/fonctionnement/","offset":"0","staticLink":"1"},{"label":"Prix","path":"/prix/","offset":"75px","staticLink":"1"}]}}}
