@@ -47,15 +47,22 @@ export default class AuthContextProvider extends React.Component {
   // }
 
   async isLoggedIn() {
-    let loggedIn;
-    await axios
-      .get('auth/check')
-      .then((res) => {
-        loggedIn = true;
-      })
-      .catch((err) => {
-        loggedIn = false;
-      });
+    let promise = new Promise((resolve, reject) => {
+      axios
+        .get('auth/check', {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+          }
+        })
+        .then((res) => {
+          resolve(true);
+        })
+        .catch((err) => {
+          resolve(false);
+        });
+    });
+
+    let loggedIn = await promise;
     return loggedIn;
   }
   logOut() {
@@ -80,10 +87,13 @@ export default class AuthContextProvider extends React.Component {
     return (
       <AuthContext.Provider
         value={{
-          checkAuth: () => {
-            const loggedIn = this.isLoggedIn();
-            console.log('auth check result:', loggedIn);
-            return loggedIn;
+          checkAuth: async () => {
+            let promise = new Promise((resolve, reject) => {
+              resolve(this.isLoggedIn());
+            });
+            let result = await promise;
+
+            return result;
           },
           user: this.state.user,
           token: this.state.token,

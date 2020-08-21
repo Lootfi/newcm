@@ -19,7 +19,7 @@ export const NotFoundWrapper = styled.div`
     font-size: 15rem;
     margin: 0;
     background: url(${ErrorImage}) repeat-y;
-    background-clip: text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: aitf 80s linear infinite;
     transform: translate3d(0, 0, 0);

@@ -11,7 +11,7 @@ export default function SetupProfile({ state, changeValue, price }) {
   function setUpProfile(e) {
     e.preventDefault();
     setLoading(true);
-    if (state.email == '' || state.password == '') {
+    if (state.name == '' || state.password == '') {
       errorsRef.current.style.color = 'red';
       errorsRef.current.innerHTML =
         'Les champs Nom et Mot de passe sont requis';

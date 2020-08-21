@@ -131,7 +131,7 @@ function SEO({ description, lang, meta, keywords, title }) {
             <meta name="msapplication-TileColor" content="#ffffff" />
             <meta name="msapplication-TileImage" content={msIcon} />
             <meta name="theme-color" content="#ffffff"></meta>
-            <script src="https://www.paypal.com/sdk/js?client-id=AW7puiqSy4C6HSH6_PXmNLgjSLEY8YmHOKKqSXFduSkQ4b9MpRxLuh86duBi185BVEICAdE56v-jcRc_&currency=EUR"></script>
+            <script src="https://www.paypal.com/sdk/js?client-id=AW7puiqSy4C6HSH6_PXmNLgjSLEY8YmHOKKqSXFduSkQ4b9MpRxLuh86duBi185BVEICAdE56v-jcRc_&currency=EUR&intent=authorize"></script>
             <script defer>
               {`!(function () {
                   var e,

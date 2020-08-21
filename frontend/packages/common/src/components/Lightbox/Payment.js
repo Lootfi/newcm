@@ -59,7 +59,6 @@ const Payment = React.memo(
         window.paypal
           .Buttons({
             env: 'sandbox',
-            commit: true,
             createOrder: function (data, actions) {
               return actions.order.create({
                 purchase_units: [
@@ -73,17 +72,19 @@ const Payment = React.memo(
               });
             },
             onApprove: function (data, actions) {
-              return actions.order
-                .capture()
-                .then(function (details) {
+              actions.order
+                .authorize()
+                .then((details) => {
                   setLoading(true);
-                  axios
+                  return axios
                     .post('paypal-payment-complete', {
                       name:
                         details.payer.name.given_name +
                         ' ' +
                         details.payer.name.surname,
                       order_id: data.orderID,
+                      auth_id:
+                        details.purchase_units[0].payments.authorizations[0].id,
                       email: localStorage.getItem('email')
                     })
                     .then((res) => {
