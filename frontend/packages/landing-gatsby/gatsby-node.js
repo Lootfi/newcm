@@ -76,6 +76,10 @@ exports.createPages = async ({ page, actions: { createPage } }) => {
     component: require.resolve('./src/pages/Supprimer.js')
   });
   createPage({
+    path: `/fonctionnement`,
+    component: require.resolve('./src/pages/fonctionnement.js')
+  });
+  createPage({
     path: `/404`,
     component: require.resolve('./src/pages/404.js')
   });
