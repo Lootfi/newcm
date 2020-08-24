@@ -75,7 +75,17 @@ export const ImageSlide = styled.div`
 `;
 
 const SectionWrapper = styled.section`
-  padding: 75px 0 0 0;
+  padding: 90px 0 0 0;
+
+  @media (max-width: 990px) {
+    padding: 90px 0 0 0;
+  }
+  @media (max-width: 767px) {
+    padding: 70px 0 0 0;
+  }
+  @media (max-width: 575px) {
+    padding: 70px 0 0 0;
+  }
 
   .service_item {
     position: relative;

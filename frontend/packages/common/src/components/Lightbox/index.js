@@ -27,7 +27,7 @@ import EmailEntry from './Steps/EmailEntry';
 
 Modal.setAppElement('#___gatsby');
 
-const Lightbox = React.memo(() => {
+const Lightbox = () => {
   /*
    *
    *   MY CODE
@@ -61,9 +61,16 @@ const Lightbox = React.memo(() => {
   }
 
   React.useEffect(() => {
-    axios.get('price').then((res) => {
-      setPrice(res.data);
-    });
+    async function getPrice() {
+      let price = await axios
+        .get('price')
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => console.log(err));
+      setPrice(price);
+    }
+    getPrice();
     if (localStorage.getItem('email')) setPageNum(3);
   }, []);
 
@@ -333,6 +340,6 @@ const Lightbox = React.memo(() => {
       </LoginModalWrapper>
     </Modal>
   );
-});
+};
 
 export default Lightbox;

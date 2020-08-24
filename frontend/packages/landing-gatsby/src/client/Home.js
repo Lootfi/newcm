@@ -6,15 +6,7 @@ export default function Home() {
     <h1>
       <SEO title="Home" />
       <ConfidWrapper>
-        <h1>Home</h1>
-        Home
-        <h1>Home</h1>
-        <h1>Home</h1>
-        <h1>Home</h1>
-        <h1>Home</h1>
-        <h1>Home</h1>
-        <h1>Home</h1>
-        <h1>Home</h1>
+        <h1>Client Home</h1>
       </ConfidWrapper>
     </h1>
   );

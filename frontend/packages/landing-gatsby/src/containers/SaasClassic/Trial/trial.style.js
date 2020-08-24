@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 
 const SectionWrapper = styled.section`
-  background: #000;
-  padding: 0 0 100px 0;
+  padding: 100px 0 0 0;
 
-  @media (max-width: 400px) {
-    padding: 0 0 80px 0;
+  @media (max-width: 990px) {
+    padding: 50px 0 0 0;
+  }
+  @media (max-width: 767px) {
+    padding: 40px 0 0 0;
+  }
+  @media (max-width: 575px) {
+    padding: 40px 0 0 0;
   }
 `;
 

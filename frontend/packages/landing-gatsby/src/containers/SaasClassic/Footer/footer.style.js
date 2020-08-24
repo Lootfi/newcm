@@ -1,10 +1,21 @@
 import styled from 'styled-components';
 
 const FooterWrapper = styled.footer`
+  padding: 100px 0 0 0;
+
+  @media (max-width: 990px) {
+    padding: 80px 0 0 0;
+  }
+  @media (max-width: 767px) {
+    padding: 80px 0 0 0;
+  }
+  @media (max-width: 575px) {
+    padding: 70px 0 0 0;
+  }
+
   position: relative;
   background: #000;
   overflow: hidden;
-  padding: 20px 0 10px 0;
   color: #fff;
   @media (max-width: 400px) {
     padding-top: 0;
@@ -12,7 +23,6 @@ const FooterWrapper = styled.footer`
 
   .footer_container {
     background-color: rgb(0, 0, 0);
-    padding-top: 80px;
     padding-bottom: 20px;
     position: relative;
     @media (max-width: 990px) {
