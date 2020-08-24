@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ConfidWrapper = styled.div`
-  padding-top: 150px;
+  padding-top: 80px;
   background-color: black;
   color: white;
   ul {

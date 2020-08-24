@@ -116,7 +116,7 @@ export default function Connexion({
           </u>
         </h4>
         <Button
-          title="Oubliez Votre Mot De Passe ?"
+          title="Mot de passe oublié ?"
           variant="textButton"
           {...outlineBtnStyle}
         />

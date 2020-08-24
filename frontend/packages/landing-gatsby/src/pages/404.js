@@ -15,7 +15,7 @@ const NotFoundPage = () => {
   const smtWrong = React.useRef();
   React.useEffect(() => {
     var i = 0;
-    var txt = 'Something Went Wrong';
+    var txt = "Une erreur s'es produite";
     var speed = 100;
 
     function typeWriter() {
@@ -53,9 +53,9 @@ const NotFoundPage = () => {
             <Link to="/" style={{ color: 'white' }}>
               <Icon icon={home} size={20} /> Acceuil
             </Link>
-            <span>
-              <Icon icon={checkSquareO} size={20} /> Report Us
-            </span>
+            <Link to="/contactus/" style={{ color: 'white' }}>
+              <Icon icon={checkSquareO} size={20} /> Nous signaler
+            </Link>
           </div>
         </Container>
       </NotFoundWrapper>

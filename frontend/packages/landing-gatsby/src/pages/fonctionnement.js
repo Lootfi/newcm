@@ -12,9 +12,9 @@ export default function Fonctionnement() {
   return (
     <Template>
       <SEO title={'Fonctionnement - ContactMajor'} />
-
-      <BannerSection />
-      <FoncSection />
+      <ConfidWrapper>
+        <FoncSection />
+      </ConfidWrapper>
       <Footer />
     </Template>
   );

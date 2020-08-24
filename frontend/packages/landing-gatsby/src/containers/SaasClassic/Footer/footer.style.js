@@ -40,16 +40,15 @@ const FooterWrapper = styled.footer`
     }
     & > *:nth-child(2) {
       opacity: 0.6;
+      padding-left: 5px;
     }
   }
 
-  @media (max-width: 750px) {
-    .bottomRow {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-size: 15px;
-    }
+  .bottomRow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 15px;
   }
   @media (max-width: 400px) {
     .bottomRow > * {
