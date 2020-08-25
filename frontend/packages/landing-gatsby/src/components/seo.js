@@ -67,36 +67,17 @@ function SEO({ description, lang, meta, keywords, title }) {
             titleTemplate={`%s | ${data.site.siteMetadata.title}`}
             meta={[
               {
-                name: `description`,
-                content: metaDescription
-              },
-              {
                 property: `og:title`,
                 content: title
               },
               {
                 property: `og:description`,
-                content: metaDescription
+                content:
+                  'Trouvez les contacts des maisons de disques, labels, médias, radios, managers, directeurs artistiques, tourneurs, studios, clipeurs, dénicheurs de talents..'
               },
               {
                 property: `og:type`,
                 content: `website`
-              },
-              {
-                name: `twitter:card`,
-                content: `summary`
-              },
-              {
-                name: `twitter:creator`,
-                content: data.site.siteMetadata.author
-              },
-              {
-                name: `twitter:title`,
-                content: title
-              },
-              {
-                name: `twitter:description`,
-                content: metaDescription
               }
             ]
               .concat(
@@ -128,6 +109,20 @@ function SEO({ description, lang, meta, keywords, title }) {
                 sizes={item.sizes}
               />
             ))}
+            <meta
+              name="description"
+              content="Trouvez les contacts des maisons de disques, labels, médias, radios, managers, directeurs artistiques, tourneurs, studios, clipeurs, dénicheurs de talents.."
+            />
+            <meta name="twitter:card" content="summary" />
+            <meta
+              name="twitter:creator"
+              content={data.site.siteMetadata.author}
+            />
+            <meta name="twitter:title" content={title} />
+            <meta
+              name="twitter:description"
+              content="Trouvez les contacts des maisons de disques, labels, médias, radios, managers, directeurs artistiques, tourneurs, studios, clipeurs, dénicheurs de talents.."
+            />
             <meta name="msapplication-TileColor" content="#ffffff" />
             <meta name="msapplication-TileImage" content={msIcon} />
             <meta name="theme-color" content="#ffffff"></meta>

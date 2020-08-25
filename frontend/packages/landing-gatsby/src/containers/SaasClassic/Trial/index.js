@@ -76,8 +76,7 @@ TrialSection.defaultProps = {
     alignItems: 'center'
   },
   textArea: {
-    width: ['100%', '100%', '80%', '43%'],
-    mb: ['35px', '35px', '40px', '60px']
+    width: ['100%', '100%', '80%', '43%']
   },
   imageArea: {
     width: ['100%', '100%', '43%'],

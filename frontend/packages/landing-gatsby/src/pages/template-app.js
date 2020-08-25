@@ -11,7 +11,7 @@ import {
 import Navbar from '../containers/SaasClassic/Navbar';
 // import '@redq/reuse-modal/es/index.css';
 import '@redq/reuse-modal/lib/index.css';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { LightboxProvider } from '../../../common/src/contexts/LightboxContext';
 import AuthContextProvider from '../../../common/src/contexts/AuthContext';
