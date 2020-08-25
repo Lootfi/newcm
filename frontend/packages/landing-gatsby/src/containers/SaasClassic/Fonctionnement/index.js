@@ -7,12 +7,19 @@ import Container from '../../../../../common/src/components/UI/Container';
 import SectionWrapper from './fonc.style';
 import foncImage from 'common/src/assets/image/steps/Step_1.jpg';
 
-const FoncSection = ({ secTitleWrapper, secText, secHeading, secDes }) => {
+const FoncSection = ({
+  secTitleWrapper,
+  secText,
+  secHeading,
+  secDes,
+  topHeading
+}) => {
   return (
     <SectionWrapper>
       <Container>
         <Box className="sectionBox" {...secTitleWrapper}>
           <Text {...secText} content="LA BASE DE CONTACTS MUSIQUE ULTIME" />
+          <Heading {...topHeading} content="Contact Major" />
           <img className="image" src={foncImage} alt="fonctionnementImage" />
           <Text
             {...secDes}
@@ -76,6 +83,7 @@ FoncSection.propTypes = {
   secTitleWrapper: PropTypes.object,
   secText: PropTypes.object,
   secHeading: PropTypes.object,
+  topHeading: PropTypes.object,
   secDes: PropTypes.object
 };
 
@@ -92,6 +100,19 @@ FoncSection.defaultProps = {
     fontWeight: '700',
     color: '#ff4362',
     mb: '12px'
+  },
+  topHeading: {
+    textAlign: 'center',
+    fontSize: ['20px', '24px', '36px', '36px'],
+    fontWeight: '700',
+    color: '#fff',
+    letterSpacing: '-0.025em',
+    mb: '0',
+    ml: 'auto',
+    mr: 'auto',
+    lineHeight: '1.12',
+    width: '500px',
+    maxWidth: '100%'
   },
   secHeading: {
     textAlign: 'center',

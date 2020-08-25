@@ -78,22 +78,21 @@ const FaqSection = ({
               ))}
             </Fragment>
           </Accordion>
-
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              paddingTop: '20px'
-            }}
-          >
-            <Button
-              className="faqButton"
-              title="VOUS AVEZ ENCORE DES QUESTIONS ?"
-              {...btnStyle}
-              onClick={() => navigate('/faq')}
-            />
-          </div>
         </Box>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            paddingTop: '20px'
+          }}
+        >
+          <Button
+            className="faqButton"
+            title="VOUS AVEZ ENCORE DES QUESTIONS ?"
+            {...btnStyle}
+            onClick={() => navigate('/faq')}
+          />
+        </div>
       </Container>
     </FaqSectionWrapper>
   );

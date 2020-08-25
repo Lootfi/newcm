@@ -22,7 +22,8 @@ import Footer from '../containers/SaasClassic/Footer';
 import Template from './template-app';
 import SEO from '../components/seo';
 import { ConfidWrapper, FaqWrapper } from '../styles/confidentiality.style';
-
+import axios from 'common/src/axios';
+import Loader from 'common/src/components/Loader';
 const Faq = ({
   sectionHeader,
   sectionTitle,
@@ -31,17 +32,13 @@ const Faq = ({
   descriptionStyle,
   btnStyle
 }) => {
-  const Data = useStaticQuery(graphql`
-    query {
-      saasClassicJson {
-        Faq {
-          description
-          expend
-          title
-        }
-      }
-    }
-  `);
+  const [faqs, setFaqs] = React.useState([]);
+  React.useEffect(() => {
+    axios
+      .get('faqs')
+      .then((res) => setFaqs(res.data))
+      .catch((err) => console.log(err));
+  }, []);
   return (
     <Template>
       <SEO title="FAQ - ContactMajor" />
@@ -53,38 +50,59 @@ const Faq = ({
               <Heading content="Envie d'en savoir plus ?" {...sectionTitle} />
             </Box>
             <Box className="row" style={{ marginBottom: '50px' }}>
-              <Accordion>
-                <Fragment>
-                  {Data.saasClassicJson.Faq.map((faqItem, index) => (
-                    <AccordionItem key={`accordion_key-`}>
-                      <Fragment>
-                        <AccordionTitle>
+              {faqs.length !== 0 ? (
+                <Accordion>
+                  <Fragment>
+                    <>
+                      {faqs.map((faqItem, index) => (
+                        <AccordionItem key={`accordion_key-`}>
                           <Fragment>
-                            <Heading content={faqItem.title} {...titleStyle} />
-                            <IconWrapper>
-                              <OpenIcon>
-                                <Icon icon={thinRight} size={18} />
-                              </OpenIcon>
-                              <CloseIcon>
-                                <Icon icon={thinDown} size={18} />
-                              </CloseIcon>
-                            </IconWrapper>
+                            <AccordionTitle>
+                              <Fragment>
+                                <Heading
+                                  content={faqItem.question}
+                                  {...titleStyle}
+                                />
+                                <IconWrapper>
+                                  <OpenIcon>
+                                    <Icon icon={thinRight} size={18} />
+                                  </OpenIcon>
+                                  <CloseIcon>
+                                    <Icon icon={thinDown} size={18} />
+                                  </CloseIcon>
+                                </IconWrapper>
+                              </Fragment>
+                            </AccordionTitle>
+                            <AccordionBody>
+                              <p
+                                style={{
+                                  whiteSpace: 'pre-line',
+                                  fontSize: '15px',
+                                  color: '#496b96',
+                                  marginBottom: '0',
+                                  marginTop: '0',
+                                  lineHeight: '1.75'
+                                }}
+                              >
+                                {faqItem.answer}
+                              </p>
+                            </AccordionBody>
                           </Fragment>
-                        </AccordionTitle>
-                        <AccordionBody>
-                          {faqItem.description.map((text, index) => (
-                            <Text
-                              key={index}
-                              content={text}
-                              {...descriptionStyle}
-                            />
-                          ))}
-                        </AccordionBody>
-                      </Fragment>
-                    </AccordionItem>
-                  ))}
-                </Fragment>
-              </Accordion>
+                        </AccordionItem>
+                      ))}
+                    </>
+                  </Fragment>
+                </Accordion>
+              ) : (
+                <Box style={{ textAlign: 'center', width: '100%' }}>
+                  <Loader
+                    className="loader"
+                    width="150px"
+                    height="150px"
+                    loaderColor="white"
+                  />
+                </Box>
+              )}
             </Box>
           </Container>
         </FaqWrapper>

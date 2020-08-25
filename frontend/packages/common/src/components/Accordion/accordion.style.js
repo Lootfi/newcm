@@ -4,7 +4,7 @@ import {
   AccordionItemButton,
   Accordion,
   AccordionItem,
-  AccordionItemPanel,
+  AccordionItemPanel
 } from 'react-accessible-accordion';
 
 const fadeIn = keyframes`
@@ -16,7 +16,9 @@ const fadeIn = keyframes`
   }
 `;
 
-export const AccordionWrapper = styled(Accordion)``;
+export const AccordionWrapper = styled(Accordion)`
+  width: 620px !important;
+`;
 
 export const AccordionItemWrapper = styled(AccordionItem)``;
 

@@ -83,7 +83,7 @@ export default function Contactus() {
                     <p className="text-muted">
                       Start working with Landrick that can provide everything
                     </p>
-                    <a href="tel:+33183620250" className="text-primary">
+                    <a href="tel:+33183620250" className="linkText">
                       +33 183 620 250
                     </a>
                   </div>
@@ -103,10 +103,10 @@ export default function Contactus() {
                       Start working with Landrick that can provide everything
                     </p>
                     <a
-                      href="mailto:contact@contactmajor.com"
-                      className="text-primary"
+                      href="mailto:support@contactmajor.com"
+                      className="linkText"
                     >
-                      contact@contactmajor.com
+                      support@contactmajor.com
                     </a>
                   </div>
                 </div>
@@ -126,7 +126,7 @@ export default function Contactus() {
                       Tsim Sha Tsui, Kowloon, Hong Kong
                     </p>
                     <a
-                      className="video-play-icon h6 text-primary"
+                      className="video-play-icon h6 linkText"
                       href="#"
                       onClick={handleMapModal}
                     >

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ConfidWrapper = styled.div`
-  padding-top: 80px;
+  padding-top: 160px;
   background-color: black;
   color: white;
   ul {
@@ -10,6 +10,12 @@ export const ConfidWrapper = styled.div`
       padding: 7px;
     }
   }
+`;
+
+export const FoncWrapper = styled.div`
+  padding-top: 80px;
+  background-color: black;
+  color: white;
 `;
 
 export const FaqWrapper = styled.section`
@@ -54,5 +60,9 @@ export const FaqWrapper = styled.section`
   .faqButton:hover {
     background: rgb(235, 77, 75);
     color: black;
+  }
+
+  .loader {
+    text-align: center;
   }
 `;
