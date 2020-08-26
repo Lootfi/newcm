@@ -80,7 +80,7 @@ const BannerSection = ({
       <Container>
         <Box {...row}>
           <Box {...contentWrapper}>
-            <DiscountWrapper>
+            {/* <DiscountWrapper>
               <DiscountLabel>
                 <Text {...discountAmount} content="25% Save" />
                 <Text
@@ -88,7 +88,7 @@ const BannerSection = ({
                   content="for first month trail version"
                 />
               </DiscountLabel>
-            </DiscountWrapper>
+            </DiscountWrapper> */}
             <Heading
               {...title}
               content="Accès Illimité aux contacts de l'industrie musicale"

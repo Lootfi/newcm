@@ -79,9 +79,9 @@ export default function Contactus() {
                     <Icon icon={phone} size={50} />
                   </div>
                   <div className="content mt-3">
-                    <h4 className="title font-weight-bold">Phone</h4>
-                    <p className="text-muted">
-                      Start working with Landrick that can provide everything
+                    <h4 className="title font-weight-bold">Téléphone</h4>
+                    <p className="text-muted mx-5">
+                      Contactez notre support pour toutes questions :
                     </p>
                     <a href="tel:+33183620250" className="linkText">
                       +33 183 620 250
@@ -98,9 +98,9 @@ export default function Contactus() {
                     <Icon icon={mail} size={50} />
                   </div>
                   <div className="content mt-3">
-                    <h4 className="title font-weight-bold">Email</h4>
-                    <p className="text-muted">
-                      Start working with Landrick that can provide everything
+                    <h4 className="title font-weight-bold">E-mail</h4>
+                    <p className="text-muted mx-5">
+                      Vous puvez nous écrire directement sur cet e-mail :
                     </p>
                     <a
                       href="mailto:support@contactmajor.com"
@@ -120,7 +120,7 @@ export default function Contactus() {
                     <Icon icon={ic_location_on} size={50} />
                   </div>
                   <div className="content mt-3">
-                    <h4 className="title font-weight-bold">Location</h4>
+                    <h4 className="title font-weight-bold">Adresse</h4>
                     <p className="text-muted">
                       APPHOTEL LTD - 33 Canton Road <br />
                       Tsim Sha Tsui, Kowloon, Hong Kong
@@ -130,7 +130,7 @@ export default function Contactus() {
                       href="#"
                       onClick={handleMapModal}
                     >
-                      View on Google map
+                      Voir sur Google map
                     </a>
                   </div>
                 </div>
