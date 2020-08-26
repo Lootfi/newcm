@@ -10,16 +10,13 @@ const FooterWrapper = styled.footer`
     padding: 80px 0 0 0;
   }
   @media (max-width: 575px) {
-    padding: 70px 0 0 0;
+    padding: 80px 0 0 0;
   }
 
   position: relative;
   background: #000;
   overflow: hidden;
   color: #fff;
-  @media (max-width: 400px) {
-    padding-top: 0;
-  }
 
   .footer_container {
     background-color: rgb(0, 0, 0);

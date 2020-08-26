@@ -263,55 +263,55 @@
     }
   ],
   "MAISONS": [{
-    "picture": "../../assets/image/maisons/1-universal.png"
+    "picture": "../../assets/image/1-universal.png"
   }, {
-    "picture": "../../assets/image/maisons/2-warner.png"
+    "picture": "../../assets/image/2-warner.png"
   }, {
-    "picture": "../../assets/image/maisons/3-defjam.png"
+    "picture": "../../assets/image/3-defjam.png"
   }, {
-    "picture": "../../assets/image/maisons/4-sony.png"
+    "picture": "../../assets/image/4-sony.png"
   }, {
-    "picture": "../../assets/image/maisons/5-because.png"
+    "picture": "../../assets/image/5-because.png"
   }, {
-    "picture": "../../assets/image/maisons/6-believe.png"
+    "picture": "../../assets/image/6-believe.png"
   }, {
-    "picture": "../../assets/image/maisons/7-wagram.png"
+    "picture": "../../assets/image/7-wagram.png"
   }, {
-    "picture": "../../assets/image/maisons/8-capitol.png"
+    "picture": "../../assets/image/8-capitol.png"
   }, {
-    "picture": "../../assets/image/maisons/9-columbia.png"
+    "picture": "../../assets/image/9-columbia.png"
   }, {
-    "picture": "../../assets/image/maisons/10-musicast.png"
+    "picture": "../../assets/image/10-musicast.png"
   }, {
-    "picture": "../../assets/image/maisons/11-playtwo.png"
+    "picture": "../../assets/image/11-playtwo.png"
   }, {
-    "picture": "../../assets/image/maisons/12-tallac.png"
+    "picture": "../../assets/image/12-tallac.png"
   }, {
-    "picture": "../../assets/image/maisons/13-boumaye.png"
+    "picture": "../../assets/image/13-boumaye.png"
   }, {
-    "picture": "../../assets/image/maisons/14-dinrecords.png"
+    "picture": "../../assets/image/14-dinrecords.png"
   }, {
-    "picture": "../../assets/image/maisons/15-affranchis.png"
+    "picture": "../../assets/image/15-affranchis.png"
   }, {
-    "picture": "../../assets/image/maisons/16-watib.png"
+    "picture": "../../assets/image/16-watib.png"
   }, {
-    "picture": "../../assets/image/maisons/17-qlf.png"
+    "picture": "../../assets/image/17-qlf.png"
   }, {
-    "picture": "../../assets/image/maisons/18-pias.png"
+    "picture": "../../assets/image/18-pias.png"
   }, {
-    "picture": "../../assets/image/maisons/19-elektra.png"
+    "picture": "../../assets/image/19-elektra.png"
   }, {
-    "picture": "../../assets/image/maisons/20-initial.png"
+    "picture": "../../assets/image/20-initial.png"
   }, {
-    "picture": "../../assets/image/maisons/21-infine.png"
+    "picture": "../../assets/image/21-infine.png"
   }, {
-    "picture": "../../assets/image/maisons/22-donda-records.png"
+    "picture": "../../assets/image/22-donda-records.png"
   }, {
-    "picture": "../../assets/image/maisons/23-animal63.png"
+    "picture": "../../assets/image/23-animal63.png"
   }, {
-    "picture": "../../assets/image/maisons/24-cracki.png"
+    "picture": "../../assets/image/24-cracki.png"
   }, {
-    "picture": "../../assets/image/maisons/25-roc.png"
+    "picture": "../../assets/image/25-roc.png"
   }],
   "METAS": [{
     "rel": "manifest",

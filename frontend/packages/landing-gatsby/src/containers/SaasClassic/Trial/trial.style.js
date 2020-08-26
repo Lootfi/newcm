@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const SectionWrapper = styled.section`
-  padding: 100px 0 0 0;
+  padding: 60px 0 0 0;
 
   @media (max-width: 990px) {
     padding: 50px 0 0 0;
@@ -10,7 +10,7 @@ const SectionWrapper = styled.section`
     padding: 40px 0 0 0;
   }
   @media (max-width: 575px) {
-    padding: 40px 0 0 0;
+    padding: 20px 0 0 0;
   }
 `;
 
