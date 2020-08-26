@@ -11,7 +11,7 @@ import { mail } from 'react-icons-kit/feather/mail';
 import { ic_location_on } from 'react-icons-kit/md/ic_location_on';
 import Button from 'common/src/components/Button';
 import { openModal, closeModal } from '@redq/reuse-modal';
-
+import Heading from 'common/src/components/Heading';
 // close button for modal
 const CloseModalButton = () => (
   <Button
@@ -70,7 +70,21 @@ export default function Contactus() {
     <Template>
       <SEO title="Contactez nous - ContactMajor" />
       <ContactWrapper>
+        <Heading
+          textAlign="center"
+          fontSize={['24px', '24px', '36px', '36px']}
+          fontWeight={'700'}
+          color={'#fff'}
+          letterSpacing={'.025em'}
+          mb={'50px'}
+          ml={'auto'}
+          mr={'auto'}
+          width={'540px'}
+          maxWidth={'100%'}
+          content="Nous Contacter"
+        />
         <div className="container mt-100 mt-60 infoContainer">
+          <div className="row"></div>
           <div className="row">
             <div className="col-md-4">
               <div className="card contact-detail text-center border-0">
