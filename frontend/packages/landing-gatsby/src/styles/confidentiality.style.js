@@ -1,5 +1,50 @@
 import styled from 'styled-components';
 
+export const PasswordResetWrapper = styled.div`
+  padding-top: 160px;
+  background-color: black;
+  color: white;
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    height: 35%;
+  }
+
+  .btn-red3 {
+    border: 1px solid #c83233;
+    padding: 10px;
+    width: 180px;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 3px;
+    transition: 0.3s;
+    font-size: 15px;
+    background-color: #c83233;
+    text-transform: uppercase;
+    color: #ffffff;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .form-container input {
+    border: 1px solid #b0b0b0;
+    padding: 10px;
+    width: 300px;
+    height: 45px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+  }
+
+  .form-container input:focus {
+    border: 1px solid #000000;
+  }
+`;
+
 export const ConfidWrapper = styled.div`
   padding-top: 160px;
   background-color: black;

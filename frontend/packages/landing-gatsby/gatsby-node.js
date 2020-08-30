@@ -80,6 +80,10 @@ exports.createPages = async ({ page, actions: { createPage } }) => {
     component: require.resolve('./src/pages/fonctionnement.js')
   });
   createPage({
+    path: `/password/reset`,
+    component: require.resolve('./src/pages/front/passwordReset.js')
+  });
+  createPage({
     path: `/404`,
     component: require.resolve('./src/pages/404.js')
   });

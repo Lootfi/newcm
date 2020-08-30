@@ -104,7 +104,7 @@ export default function SetupProfile({ state, changeValue, price }) {
             id="name"
             type="text"
             name="name"
-            placeholder="Your name"
+            placeholder="Nom"
             autoComplete="off"
             value={state.name}
             onChange={changeValue}
@@ -116,7 +116,7 @@ export default function SetupProfile({ state, changeValue, price }) {
             id="password"
             type="password"
             name="password"
-            placeholder="Your password"
+            placeholder="Mot de passe"
             autoComplete="off"
             value={state.password}
             onChange={changeValue}
