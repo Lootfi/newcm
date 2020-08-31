@@ -40,11 +40,11 @@
     }
   ],
   "MONTHLY_PRICING_TABLE": [{
-    "name": "Business Account",
-    "description": "For Mediums teams or group who need to build website ",
+    "name": "Accès Illimité",
+    "description": "Commencez a avoir des contacts dès aujourd'hui",
     "price": "$9.87",
-    "priceLabel": "Per month & subscription yearly",
-    "buttonLabel": "Register Now",
+    "priceLabel": "Sans aucun paiement récurrent par la suite",
+    "buttonLabel": "Créer Votre Compte",
     "url": "#",
     "trialButtonLabel": "Or Start 14 Days trail",
     "trialURL": "#",

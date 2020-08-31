@@ -75,129 +75,113 @@ const PricingSection = ({
     <Box {...sectionWrapper} id="pricing_section">
       <Container fullWidth>
         <Box {...secTitleWrapper}>
-          <Text {...secText} content="PRICING PLAN" />
+          <Text {...secText} content="PRIX UNIQUE" />
           <Heading
             {...secHeading}
-            content="Choose your pricing policy which affordable"
+            content="Offrez à votre musique l'attention qu'elle mérite."
           />
         </Box>
         <>
-          {price === 0 ? (
-            <div style={{ width: '100%', textAlign: 'center' }}>
-              <Loader width="100px" height="100px" loaderColor="white" />
-            </div>
-          ) : (
-            <PricingTableWrapper>
-              <>
-                {data.map((pricingTable, index) => (
-                  <Box className="wrapper" {...wrapper}>
-                    <PricingTable
-                      freePlan={pricingTable.freePlan}
-                      className="pricing_table"
-                    >
-                      <PricingHead>
-                        <Heading content={pricingTable.name} {...nameStyle} />
-                        <Text
-                          content={pricingTable.description}
-                          {...descriptionStyle}
-                        />
-                      </PricingHead>
-                      <PricingPrice>
-                        <Text content={`${price} €`} {...priceStyle} />
-                        <Text
-                          content={pricingTable.priceLabel}
-                          {...priceLabelStyle}
-                        />
-                      </PricingPrice>
-                      <PricingButton>
-                        <a href={pricingTable.url}>
-                          <Button
-                            title={pricingTable.buttonLabel}
-                            className="button"
-                          />
-                        </a>
-                        {pricingTable.trialButtonLabel ? (
-                          <a
-                            className="trial_button"
-                            href={pricingTable.trialURL || '#1'}
-                          >
-                            {pricingTable.trialButtonLabel}
-                          </a>
-                        ) : (
-                          ''
-                        )}
-                      </PricingButton>
-                    </PricingTable>
-                    <Box className="rightSide" {...rightSide}>
-                      <ul>
-                        <li>
-                          <Icon
-                            key={`check-key`}
-                            icon={check}
-                            className="check"
-                          />
-                          No Credit Card information required (for FREE Trial)
-                        </li>
-                        <li>
-                          <Icon
-                            key={`check-key`}
-                            icon={check}
-                            className="check"
-                          />
-                          14-Day FREE Trial
-                        </li>
-                        <li>
-                          <Icon
-                            key={`check-key`}
-                            icon={check}
-                            className="check"
-                          />
-                          50 Free Credits for FREE Trial
-                        </li>
-                        <li>
-                          <Icon
-                            key={`check-key`}
-                            icon={check}
-                            className="check"
-                          />
-                          Free incoming Text Messages
-                        </li>
-                        <li>
-                          <Icon
-                            key={`check-key`}
-                            icon={check}
-                            className="check"
-                          />
-                          Unlimited Contacts
-                        </li>
-                        <li>
-                          <Icon
-                            key={`check-key`}
-                            icon={check}
-                            className="check"
-                          />
-                          24x7 Support{' '}
-                        </li>
-                        <li>
-                          <Icon
-                            key={`check-key`}
-                            icon={check}
-                            className="check"
-                          />
-                          Phone Number provided (only for Paid Subscribers)
-                        </li>
-                      </ul>
-                      <Button
-                        onClick={() => handleLightbox('signup')}
-                        title="ACCÉDEZ MAINTENANT"
-                        className="button"
+          <PricingTableWrapper>
+            <>
+              {data.map((pricingTable, index) => (
+                <Box className="wrapper" {...wrapper}>
+                  <PricingTable
+                    freePlan={pricingTable.freePlan}
+                    className="pricing_table"
+                  >
+                    <PricingHead>
+                      <Heading content={pricingTable.name} {...nameStyle} />
+                      <Text
+                        content={pricingTable.description}
+                        {...descriptionStyle}
                       />
-                    </Box>
+                    </PricingHead>
+                    <PricingPrice>
+                      <Text content={`${price} €`} {...priceStyle} />
+                      <Text
+                        content={pricingTable.priceLabel}
+                        {...priceLabelStyle}
+                      />
+                    </PricingPrice>
+                    <PricingButton>
+                      <a href={pricingTable.url}>
+                        <Button
+                          title={pricingTable.buttonLabel}
+                          className="button"
+                        />
+                      </a>
+                    </PricingButton>
+                  </PricingTable>
+                  <Box className="rightSide" {...rightSide}>
+                    <ul>
+                      <li>
+                        <Icon
+                          key={`check-key`}
+                          icon={check}
+                          className="check"
+                        />
+                        Accès Complet et Illimité
+                      </li>
+                      <li>
+                        <Icon
+                          key={`check-key`}
+                          icon={check}
+                          className="check"
+                        />
+                        Coordonnées directs téléphones et e-mails
+                      </li>
+                      <li>
+                        <Icon
+                          key={`check-key`}
+                          icon={check}
+                          className="check"
+                        />
+                        Plus de 3.200 contacts répertoriés
+                      </li>
+                      <li>
+                        <Icon
+                          key={`check-key`}
+                          icon={check}
+                          className="check"
+                        />
+                        Plus de 250 médias premium en base
+                      </li>
+                      <li>
+                        <Icon
+                          key={`check-key`}
+                          icon={check}
+                          className="check"
+                        />
+                        Plus de 120 contacts de Labels triés
+                      </li>
+                      <li>
+                        <Icon
+                          key={`check-key`}
+                          icon={check}
+                          className="check"
+                        />
+                        Export de Contacts
+                      </li>
+                      <li>
+                        <Icon
+                          key={`check-key`}
+                          icon={check}
+                          className="check"
+                        />
+                        24x7 Support
+                      </li>
+                    </ul>
+                    <Button
+                      onClick={() => handleLightbox('signup')}
+                      title="ACCÉDEZ MAINTENANT"
+                      className="button"
+                    />
                   </Box>
-                ))}
-              </>
-            </PricingTableWrapper>
-          )}
+                </Box>
+              ))}
+            </>
+          </PricingTableWrapper>
         </>
       </Container>
     </Box>

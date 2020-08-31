@@ -57,7 +57,6 @@ const Payment = ({ ccNumber, setPageNum, price, setPrice }) => {
     if (prevOpenTab !== openTab) {
       window.paypal
         .Buttons({
-          env: 'sandbox',
           createOrder: function (data, actions) {
             return actions.order.create({
               purchase_units: [

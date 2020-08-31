@@ -19,6 +19,9 @@ import { thinDown } from 'react-icons-kit/entypo/thinDown';
 import { thinRight } from 'react-icons-kit/entypo/thinRight';
 import FaqSectionWrapper from './faqSection.style';
 import Button from 'common/src/components/Button';
+import Loader from 'common/src/components/Loader';
+import axios from 'common/src/axios';
+
 const FaqSection = ({
   sectionHeader,
   sectionTitle,
@@ -27,17 +30,15 @@ const FaqSection = ({
   descriptionStyle,
   btnStyle
 }) => {
-  const Data = useStaticQuery(graphql`
-    query {
-      saasClassicJson {
-        Faq {
-          description
-          expend
-          title
-        }
-      }
-    }
-  `);
+  const [faqs, setFaqs] = React.useState([]);
+  React.useEffect(() => {
+    axios
+      .get('front-faqs')
+      .then((res) => {
+        setFaqs(Object.values(res.data));
+      })
+      .catch((err) => console.log(err));
+  }, []);
   return (
     <FaqSectionWrapper id="faqSection">
       <Container>
@@ -46,38 +47,59 @@ const FaqSection = ({
           <Heading content="Envie d'en savoir plus ?" {...sectionTitle} />
         </Box>
         <Box className="row">
-          <Accordion>
-            <Fragment>
-              {Data.saasClassicJson.Faq.map((faqItem, index) => (
-                <AccordionItem key={`accordion_key-${index}`}>
-                  <Fragment>
-                    <AccordionTitle>
+          {faqs.length !== 0 ? (
+            <Accordion>
+              <Fragment>
+                <>
+                  {faqs.map((faqItem, index) => (
+                    <AccordionItem key={`accordion_key-`}>
                       <Fragment>
-                        <Heading content={faqItem.title} {...titleStyle} />
-                        <IconWrapper>
-                          <OpenIcon>
-                            <Icon icon={thinRight} size={18} />
-                          </OpenIcon>
-                          <CloseIcon>
-                            <Icon icon={thinDown} size={18} />
-                          </CloseIcon>
-                        </IconWrapper>
+                        <AccordionTitle>
+                          <Fragment>
+                            <Heading
+                              content={faqItem.question}
+                              {...titleStyle}
+                            />
+                            <IconWrapper>
+                              <OpenIcon>
+                                <Icon icon={thinRight} size={18} />
+                              </OpenIcon>
+                              <CloseIcon>
+                                <Icon icon={thinDown} size={18} />
+                              </CloseIcon>
+                            </IconWrapper>
+                          </Fragment>
+                        </AccordionTitle>
+                        <AccordionBody>
+                          <p
+                            style={{
+                              whiteSpace: 'pre-line',
+                              fontSize: '15px',
+                              color: '#496b96',
+                              marginBottom: '0',
+                              marginTop: '0',
+                              lineHeight: '1.75'
+                            }}
+                          >
+                            {faqItem.answer}
+                          </p>
+                        </AccordionBody>
                       </Fragment>
-                    </AccordionTitle>
-                    <AccordionBody>
-                      {faqItem.description.map((text, index) => (
-                        <Text
-                          key={index}
-                          content={text}
-                          {...descriptionStyle}
-                        />
-                      ))}
-                    </AccordionBody>
-                  </Fragment>
-                </AccordionItem>
-              ))}
-            </Fragment>
-          </Accordion>
+                    </AccordionItem>
+                  ))}
+                </>
+              </Fragment>
+            </Accordion>
+          ) : (
+            <Box style={{ textAlign: 'center', width: '100%' }}>
+              <Loader
+                className="loader"
+                width="150px"
+                height="150px"
+                loaderColor="white"
+              />
+            </Box>
+          )}
         </Box>
         <div
           style={{
