@@ -206,7 +206,7 @@ PricingSection.propTypes = {
 PricingSection.defaultProps = {
   wrapper: {
     display: 'flex',
-    height: '340px'
+    height: '380px'
   },
   rightSide: {
     color: 'black',

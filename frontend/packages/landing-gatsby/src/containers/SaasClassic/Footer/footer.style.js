@@ -30,6 +30,15 @@ const FooterWrapper = styled.footer`
     }
   }
 
+  @media (max-width: 768px) {
+    .footer_container > * {
+      flex-direction: column;
+    }
+    .footer_container > * > * {
+      width: 100%;
+    }
+  }
+
   .bottomRow > * {
     & > *:nth-child(1) {
       padding-right: 5px;

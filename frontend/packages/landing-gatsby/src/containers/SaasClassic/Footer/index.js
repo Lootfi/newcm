@@ -52,9 +52,13 @@ const Footer = ({
             <Text content="+33 183 620 250" {...textStyle} />
           </Box>
           {/* End of footer logo column */}
-          <Box {...colTwo}>
+          <Box {...colTwo} className="row">
             {Data.saasClassicJson.FOOTER_WIDGET.map((widget, index) => (
-              <Box className="col" {...col} key={`footer-widget-${index}`}>
+              <Box
+                className="col-md-3 col-sm-6 col-6"
+                {...col}
+                key={`footer-widget-${index}`}
+              >
                 <Heading content={widget.title} {...titleStyle} />
                 <List>
                   {widget.menuItems.map((item, index) => (
@@ -91,15 +95,15 @@ const Footer = ({
         <Box {...bottomRow} className="bottomRow">
           {/* <img href="#" src={LogoImage} style={logoStyle} /> */}
           <Box {...bottomRow}>
-            <p>© 2020 ContactMajor</p>
+            <p style={{ marginTop: 'auto' }}>© 2020 ContactMajor</p>
             <div style={{ display: 'flex', alignItems: 'baseline' }}>
               <img
-                width="20px"
+                width="15px"
                 style={{ marginRight: '1px' }}
                 src={Lock}
                 alt="Lock"
-              />
-              <p>Sécurisé avec SSL</p>
+              />{' '}
+              <p> Sécurisé avec SSL</p>
             </div>
           </Box>
         </Box>

@@ -11,6 +11,9 @@ export const PricingTableWrapper = styled.div`
     // }
     & > * {
       height: 100%;
+      display flex;
+      flex-direction: column;
+      justify-content: center;
     }
   }
   .rightSide {
