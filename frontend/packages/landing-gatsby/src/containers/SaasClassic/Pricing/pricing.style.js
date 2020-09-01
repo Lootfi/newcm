@@ -5,13 +5,18 @@ export const PricingTableWrapper = styled.div`
   .wrapper {
     justify-content: center;
     align-items: center;
+    // & > * {
+    //   margin-left: 15px;
+    //   margin-right: 15px;
+    // }
     & > * {
-      margin-left: 15px;
-      margin-right: 15px;
+      height: 100%;
     }
   }
   .rightSide {
-    padding-right: 5px;
+    border-radius: 0 15px 15px 0;
+    padding: 15px;
+    border-left: 1px solid grey;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,7 +52,8 @@ export const PricingTableWrapper = styled.div`
 const PricingTable = styled.div`
   width: 400px;
   border: 1px solid #f9fafb;
-  padding: 45px 45px 50px 45px;
+  //padding: 45px 45px 50px 45px;
+  padding-top: 20px;
   border-radius: 15px 0 0 15px;
   background-color: #f9fafb;
   height: 100%;
