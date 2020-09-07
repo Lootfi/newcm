@@ -42,11 +42,21 @@ export default function Connexion({
         .post('login', { email: login.email, password: login.password })
         .then((res) => {
           setLoading(false);
-          if (res.data.error) errorsRef.current.innerHTML = res.data.error;
-          else loginUser(res.data.user, res.data.access_token);
+          if (res.data.error) {
+            errorsRef.current.style.color = 'red';
+            errorsRef.current.innerHTML = res.data.error;
+          } else loginUser(res.data.user, res.data.access_token);
         })
         .catch((err) => {
           setLoading(false);
+          if (
+            err.response.status === 401 &&
+            err.response.data.error === 'suspended'
+          ) {
+            errorsRef.current.style.color = 'red';
+            errorsRef.current.innerHTML =
+              'Votre compte a été suspendu, veuillez nous contacter à support@contactmajor.com';
+          }
         });
     }
   };

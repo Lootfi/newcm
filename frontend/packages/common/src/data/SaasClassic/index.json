@@ -155,7 +155,7 @@
       "title": "A propos de nous",
       "menuItems": [{
           "url": "/comment/",
-          "text": "Comment ça marche ?"
+          "text": "Comment ça marche?"
         },
         {
           "url": "/prix/",
