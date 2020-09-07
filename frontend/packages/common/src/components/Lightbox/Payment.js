@@ -248,7 +248,7 @@ const Payment = ({ ccNumber, setPageNum, price, setPrice }) => {
       <div className="security-cc">
         <div className="security-1">
           <h1>100%</h1>
-          <h3>GARANTI</h3>
+          <h3 style={{ margin: '-8px 0 5px 0' }}>GARANTI</h3>
           <p style={{ display: 'block', fontSize: '11px', width: '100%' }}>
             Nous offrons 24h avec une garantie de remboursement si vous n'aimez
             pas ContactMajor
@@ -261,7 +261,7 @@ const Payment = ({ ccNumber, setPageNum, price, setPrice }) => {
           </div>
           <div className="help-number">
             <p>Des Questions?</p>
-            <p>+33 183 620 250</p>
+            <p style={{ whiteSpace: 'nowrap' }}>+33 183 620 250</p>
           </div>
         </div>
       </div>

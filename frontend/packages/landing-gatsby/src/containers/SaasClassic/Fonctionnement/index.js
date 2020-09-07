@@ -6,10 +6,10 @@ import Heading from '../../../../../common/src/components/Heading';
 import Container from '../../../../../common/src/components/UI/Container';
 import SectionWrapper from './fonc.style';
 import foncImage from 'common/src/assets/image/steps/Step_1.jpg';
-import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-Image';
 import first from 'common/src/assets/image/fonctionnement/1.jpg';
 import second from 'common/src/assets/image/fonctionnement/2.jpg';
+import third from 'common/src/assets/image/fonctionnement/3.jpg';
+import fourth from 'common/src/assets/image/fonctionnement/4.jpg';
 const FoncSection = ({
   secTitleWrapper,
   secText,
@@ -17,57 +17,13 @@ const FoncSection = ({
   secDes,
   topHeading
 }) => {
-  const Data = useStaticQuery(graphql`
-    query {
-      saasClassicJson {
-        IMAGES_FONCTIONNEMENT {
-          first {
-            childImageSharp {
-              fluid {
-                src
-              }
-            }
-          }
-          second {
-            childImageSharp {
-              fluid {
-                src
-              }
-            }
-          }
-          third {
-            childImageSharp {
-              fluid {
-                src
-              }
-            }
-          }
-          fourth {
-            childImageSharp {
-              fluid {
-                src
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
-
   return (
     <SectionWrapper>
       <Container>
         <Box className="sectionBox" {...secTitleWrapper}>
           <Text {...secText} content="LA BASE DE CONTACTS MUSIQUE ULTIME" />
           <div className="imagetext">
-            <img
-              className="image"
-              src={
-                Data.saasClassicJson.IMAGES_FONCTIONNEMENT.first.childImageSharp
-                  .fluid.src
-              }
-              alt="fonctionnementImage"
-            />
+            <img className="image" src={first} alt="fonctionnementImage" />
             <div className="text">
               <Heading {...secHeading} content="Contact Major" />
               <Text
@@ -82,14 +38,7 @@ const FoncSection = ({
           </div>
 
           <div className="textimage">
-            <img
-              className="image"
-              src={
-                Data.saasClassicJson.IMAGES_FONCTIONNEMENT.second
-                  .childImageSharp.fluid.src
-              }
-              alt="fonctionnementImage"
-            />
+            <img className="image" src={second} alt="fonctionnementImage" />
             <div className="text">
               <Heading
                 {...secHeading}
@@ -112,14 +61,7 @@ const FoncSection = ({
           </div>
 
           <div className="imagetext">
-            <img
-              className="image"
-              src={
-                Data.saasClassicJson.IMAGES_FONCTIONNEMENT.third.childImageSharp
-                  .fluid.src
-              }
-              alt="fonctionnementImage"
-            />
+            <img className="image" src={third} alt="fonctionnementImage" />
             <div className="text">
               <Heading
                 {...secHeading}
@@ -137,14 +79,7 @@ const FoncSection = ({
           </div>
 
           <div className="textimage">
-            <img
-              className="image"
-              src={
-                Data.saasClassicJson.IMAGES_FONCTIONNEMENT.fourth
-                  .childImageSharp.fluid.src
-              }
-              alt="fonctionnementImage"
-            />
+            <img className="image" src={fourth} alt="fonctionnementImage" />
             <div className="text">
               <Heading
                 {...secHeading}

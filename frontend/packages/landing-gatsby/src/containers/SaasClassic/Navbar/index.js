@@ -46,14 +46,14 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
           <Logo
             href="/"
             logoSrc={LogoImage}
-            title="Portfolio"
+            title="ContactMajor"
             logoStyle={logoStyle}
             className="main-logo"
           />
           <Logo
             href="/"
             logoSrc={LogoImage}
-            title="Portfolio"
+            title="ContactMajor"
             logoStyle={logoStyle}
             className="logo-alt"
           />
@@ -122,7 +122,7 @@ Navbar.defaultProps = {
     width: '100%'
   },
   logoStyle: {
-    maxWidth: ['120px', '230px']
+    maxWidth: ['160px', '230px']
   },
   button: {
     type: 'button',
