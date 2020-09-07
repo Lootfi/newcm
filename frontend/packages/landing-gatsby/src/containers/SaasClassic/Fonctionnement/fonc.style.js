@@ -54,6 +54,15 @@ const SectionWrapper = styled.section`
       }
     }
   }
+
+  @media (max-width: 410px) {
+    .imagetext,
+    .textimage {
+      .image {
+        width: 100vw;
+      }
+    }
+  }
 `;
 
 export default SectionWrapper;
