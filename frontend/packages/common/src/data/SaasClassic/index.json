@@ -1,4 +1,11 @@
 {
+  "IMAGES_FONCTIONNEMENT": {
+    "first": "../../assets/image/fonctionnement/1.jpg",
+    "second": "../../assets/image/fonctionnement/2.jpg",
+    "third": "../../assets/image/fonctionnement/3.jpg",
+    "fourth": "../../assets/image/fonctionnement/4.jpg"
+
+  },
   "MENU_ITEMS": [{
       "label": "Accueil",
       "path": "/",

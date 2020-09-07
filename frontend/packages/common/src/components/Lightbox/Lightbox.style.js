@@ -94,12 +94,7 @@ const LightboxWrapper = styled.div`
   height: 35%;
 }
 
-@media (max-width: 400px) {
-.payment4 .form-container {
-    width: 100vw !important;
-}
 
-}
 
 
 
@@ -720,6 +715,25 @@ form .btn {
     .payment3  {
       height:100vh !important;
     }
+  }
+
+
+  @media (max-width: 400px) {
+    .container {
+      width: 100vw;
+    }
+
+    .form-outer form .page,
+    .page .header-form,
+    .page .field
+    {
+      width: 100%;
+    }
+    .payment4 .form-container,
+    .payment4 .security-cc {
+        width: 100%;
+    }
+    
   }
 
 `;
