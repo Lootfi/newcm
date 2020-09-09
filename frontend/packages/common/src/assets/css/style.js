@@ -117,4 +117,10 @@ export const ResetCSS = createGlobalStyle`
       }
     }
   }
+
+  #testimonial_section {
+    .ndrsl-live-user-name {
+      color: #000 !important;
+    }
+  }
 `;
