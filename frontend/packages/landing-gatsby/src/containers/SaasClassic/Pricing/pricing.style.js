@@ -48,6 +48,17 @@ export const PricingTableWrapper = styled.div`
   @media (max-width: 700px) {
     .wrapper {
       flex-direction: column;
+      height: max-content;
+    }
+    .rightSide {
+      border-radius: 0 0 15px 15px;
+      padding: 45px 35px;
+      border-left: 1px solid grey;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 400px;
+      white-space: nowrap;
     }
   }
 `;

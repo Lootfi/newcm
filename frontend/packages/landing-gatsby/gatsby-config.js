@@ -6,16 +6,6 @@ module.exports = {
     author: `contactmajor`
   },
   plugins: [
-    // {
-    //   resolve: `gatsby-plugin-create-client-paths`,
-    //   options: { prefixes: [`*`] }
-    // },
-    // {
-    //   resolve: `gatsby-plugin-page-creator`,
-    //   options: {
-    //     path: `${__dirname}/src/pages`,
-    //   },
-    // },
     {
       resolve: `gatsby-plugin-facebook-pixel`,
       options: {

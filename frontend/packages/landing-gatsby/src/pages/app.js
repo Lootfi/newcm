@@ -4,12 +4,12 @@ import PrivateRoute from '../components/PrivateRoute';
 
 import Template from './template-app';
 import Home from '../client/Home';
-import NotFound from './404'
+import NotFound from './front/404';
 const App = () => {
   return (
     <Template>
       <Router basepath="/app">
-      <NotFound default />
+        <NotFound default />
         <PrivateRoute path="/" component={Home} />
         {/* <Login path="/login" /> */}
       </Router>

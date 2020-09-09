@@ -35,7 +35,7 @@ exports.onCreatePage = async ({ page, actions }) => {
 exports.createPages = async ({ page, actions: { createPage } }) => {
   createPage({
     path: `/`,
-    component: require.resolve('./src/pages/index.js')
+    component: require.resolve('./src/pages/front/index.js')
   });
   // createPage({
   //   path: `/comment`,
@@ -44,40 +44,40 @@ exports.createPages = async ({ page, actions: { createPage } }) => {
 
   createPage({
     path: `/faq`,
-    component: require.resolve('./src/pages/faq.js')
+    component: require.resolve('./src/pages/front/faq.js')
   });
   createPage({
     path: `/confidentiality`,
-    component: require.resolve('./src/pages/confidentiality.js')
+    component: require.resolve('./src/pages/front/confidentiality.js')
   });
 
   createPage({
     path: `/conditions`,
-    component: require.resolve('./src/pages/conditions.js')
+    component: require.resolve('./src/pages/front/conditions.js')
   });
   createPage({
     path: `/prix`,
-    component: require.resolve('./src/pages/prix.js')
+    component: require.resolve('./src/pages/front/prix.js')
   });
   createPage({
     path: `/essai`,
-    component: require.resolve('./src/pages/essai.js')
+    component: require.resolve('./src/pages/front/essai.js')
   });
   createPage({
     path: `/contactus`,
-    component: require.resolve('./src/pages/contactus.js')
+    component: require.resolve('./src/pages/front/contactus.js')
   });
   createPage({
     path: `/suggest`,
-    component: require.resolve('./src/pages/suggest.js')
+    component: require.resolve('./src/pages/front/suggest.js')
   });
   createPage({
     path: `/supprimer`,
-    component: require.resolve('./src/pages/Supprimer.js')
+    component: require.resolve('./src/pages/front/Supprimer.js')
   });
   createPage({
     path: `/fonctionnement`,
-    component: require.resolve('./src/pages/fonctionnement.js')
+    component: require.resolve('./src/pages/front/fonctionnement.js')
   });
   createPage({
     path: `/password/reset`,
@@ -85,7 +85,7 @@ exports.createPages = async ({ page, actions: { createPage } }) => {
   });
   createPage({
     path: `/404`,
-    component: require.resolve('./src/pages/404.js')
+    component: require.resolve('./src/pages/front/404.js')
   });
 
   // Create a page for each Pokémon.

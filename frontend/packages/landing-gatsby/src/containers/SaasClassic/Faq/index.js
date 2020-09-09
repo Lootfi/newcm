@@ -110,7 +110,7 @@ const FaqSection = ({
         >
           <Button
             className="faqButton"
-            title="VOUS AVEZ ENCORE DES QUESTIONS ?"
+            title="VOUS AVEZ ENCORE DES QUESTIONS?"
             {...btnStyle}
             onClick={() => navigate('/faq')}
           />
