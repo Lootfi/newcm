@@ -46,33 +46,6 @@ export const LightboxProvider = ({ children }) => {
         handleCloseModal: closeModal,
         afterOpenModal: afterOpenModal,
         open: open
-        // handleLightbox: (existantArg = 'signup') => {
-        //   setLogin(existantArg);
-        //   trackCustomEvent({
-        //     category: 'funnel',
-        //     action: 'step1_message1',
-        //     label: 'Funnel - Etape 1 - Message'
-        //   });
-        //   openModal({
-        //     config: {
-        //       className: 'lightbox',
-        //       disableDragging: false,
-        //       width: '100%',
-        //       height: '100%'
-        //       // animationFrom: { transform: 'translateY(100px)' },
-        //       // animationTo: { transform: 'translateY(0)' }, //
-        //       // transition: {
-        //       //   mass: 1,
-        //       //   tension: 180,
-        //       //   friction: 26
-        //       // }
-        //     },
-        //     component: Lightbox,
-        //     componentProps: {},
-        //     closeComponent: CloseModalButton,
-        //     closeOnClickOutside: false
-        //   });
-        // }
       }}
     >
       {children}

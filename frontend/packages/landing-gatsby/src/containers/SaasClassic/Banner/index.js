@@ -74,6 +74,11 @@ const BannerSection = ({
 
   const { handleLightbox } = React.useContext(LightboxContext);
 
+  React.useEffect(() => {
+    if (window.location.hash.match('#access')) handleLightbox('signup');
+    else if (window.location.hash.match('#video')) handleVideoModal();
+  }, []);
+
   return (
     <BannerWrapper id="banner_section">
       <TiltShape className="banner-shape" />
