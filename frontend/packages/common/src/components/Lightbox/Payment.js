@@ -1,11 +1,12 @@
 import React from 'react';
-// import {
-//   Elements,
-//   CardElement,
-//   CardNumberElement
-// } from '@stripe/react-stripe-js';
-// import { loadStripe } from '@stripe/stripe-js';
+import {
+  CardElement,
+  CardNumberElement,
+  useElements,
+  useStripe
+} from '@stripe/react-stripe-js';
 import PLogo from '../../assets/image/p-logo.png';
+import SLogo from '../../assets/image/stripe.png';
 import classNames from 'classnames';
 import Lock from '../../assets/image/lock.png';
 import axios from '../../axios';
@@ -21,8 +22,11 @@ function usePrevious(value) {
 }
 
 const Payment = ({ ccNumber, setPageNum, price, setPrice }) => {
+  const stripe = useStripe();
+  const elements = useElements();
   const [openTab, setOpenTab] = React.useState(1);
   const [loading, setLoading] = React.useState(false);
+  const [clientSecret, setClientSecret] = React.useState(null);
   const prevOpenTab = usePrevious(openTab);
   const [date, setDate] = React.useState('');
   const months = [
@@ -39,22 +43,26 @@ const Payment = ({ ccNumber, setPageNum, price, setPrice }) => {
     'Novembre',
     'Décembre'
   ];
-  // let stripePromise;
 
   React.useEffect(() => {
+    // date logic
     let date = new Date();
     date.setDate(date.getDate() + 1);
     date = date.toISOString().split('T')[0].split('-');
     let day = date[2];
     let month = months[parseInt(date[1]) - 1];
     setDate(`${day} ${month}`);
+
+    //stripe customer logic
+
+    axios
+      .post('create-customer', { email: localStorage.getItem('email') })
+      .then((res) => setClientSecret(res.data))
+      .catch((err) => console.log(err));
   }, []);
 
   React.useEffect(() => {
-    // stripePromise = loadStripe(
-    //   'pk_test_51H3r6tGvxHsd96JzVpg8XK1ITL6WSuFdhTWt6PxcF7ekw9LR9Zidq2IVSbkE3ZwcO8zgk4w9wjFDXZpc7tvi0mOs00uCCEXVpL'
-    // );
-    if (prevOpenTab !== openTab) {
+    if (prevOpenTab !== openTab && openTab == 1) {
       window.paypal
         .Buttons({
           createOrder: function (data, actions) {
@@ -119,11 +127,7 @@ const Payment = ({ ccNumber, setPageNum, price, setPrice }) => {
         })
         .render('#paypal-button');
     }
-  }, []);
-
-  function pay() {
-    setPageNum(4);
-  }
+  }, [openTab]);
 
   // React.useEffect(() => {
   //   if (openTab === 1) {
@@ -133,6 +137,60 @@ const Payment = ({ ccNumber, setPageNum, price, setPrice }) => {
   //     document.getElementById('paypal-button').innerHTML = '';
   //   };
   // }, [openTab]);
+
+  const handleStripePay = async (event) => {
+    // We don't want to let default form submission happen here,
+    // which would refresh the page.
+    event.preventDefault();
+
+    if (!stripe || !elements) {
+      // Stripe.js has not yet loaded.
+      // Make sure to disable form submission until Stripe.js has loaded.
+      return;
+    }
+
+    const result = await stripe.confirmCardSetup(clientSecret, {
+      payment_method: {
+        card: elements.getElement(CardElement)
+      }
+    });
+
+    if (result.error) {
+      // Display result.error.message in your UI.
+      console.log(result);
+    } else {
+      // The setup has succeeded. Display a success message and send
+      // result.setupIntent.payment_method to your server to save the
+      // card to a Customer
+      axios
+        .post('stripe-payment-complete', {
+          client_secret: result.setupIntent.client_secret,
+          seti_id: result.setupIntent.id,
+          payment_method: result.setupIntent.payment_method,
+          email: localStorage.getItem('email')
+        })
+        .then((res) => {
+          if (window.location.port === '')
+            window.fbq('track', 'Purchase', {
+              currency: 'USD',
+              value: price.toFixed(2)
+            });
+          trackCustomEvent({
+            category: 'funnel',
+            action: 'step5_thankyou',
+            label: 'Funnel - Etape 5 - Thank you',
+            value: price
+          });
+          localStorage.setItem('token', res.data.access_token);
+          localStorage.setItem('user', JSON.stringify(res.data.user));
+          setPageNum(4);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err.data);
+        });
+    }
+  };
 
   function openPaymentTab(tab) {
     setOpenTab(tab);
@@ -168,39 +226,41 @@ const Payment = ({ ccNumber, setPageNum, price, setPrice }) => {
 
       {/* FORM START */}
       <div className="form-container">
-        <div style={{ display: 'none' }} className="tabs-payment">
+        <div className="tabs-payment">
           <ul>
+            <li
+              className={classNames('tablinks', openTab == 0 && 'active')}
+              id="defaultOpen"
+              onClick={() => openPaymentTab(0)}
+            >
+              <img src={SLogo} alt="CC logos" />
+            </li>
             <li
               className={classNames('tablinks', openTab == 1 && 'active')}
               onClick={() => openPaymentTab(1)}
             >
               <img src={PLogo} alt="PayPal logo" />
             </li>
-            {/* <li
-              className={classNames('tablinks', openTab == 0 && 'active')}
-              id="defaultOpen"
-              onClick={() => openPaymentTab(0)}
-            >
-              <img src={CCLogos} alt="CC logos" />
-            </li> */}
           </ul>
-        </div>
-        {/* {openTab == 0 && (
-          <Fragment>
-            <div
-              id="payment-cc"
-              className="tabcontent"
-              style={{
-                width: '80%',
-                display: 'block',
-                justifyContent: 'center',
-                alignItems: 'center',
-                textAlign: 'center',
-                position: 'relative',
-                left: '20px'
-              }}
+          {openTab == 0 && (
+            <form
+              onSubmit={handleStripePay}
+              data-secret={clientSecret}
+              className="stripe-payment"
             >
-              <Elements stripe={stripePromise}>
+              <div
+                id="payment-cc"
+                className="tabcontent"
+                style={{
+                  width: '80%',
+                  display: 'block',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  textAlign: 'center',
+                  position: 'relative',
+                  left: '20px'
+                }}
+              >
                 <CardElement
                   options={{
                     style: {
@@ -217,32 +277,37 @@ const Payment = ({ ccNumber, setPageNum, price, setPrice }) => {
                     }
                   }}
                 />
-              </Elements>
-            </div>
-            <div onClick={pay} className="btn-red3" id="fourthNext">
-              Start free trail
-            </div>
-          </Fragment>
-        )} */}
-        {openTab == 1 && (
-          <div
-            style={{
-              width: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              paddingTop: '10px'
-            }}
-          >
-            {loading && (
-              <div style={{ pading: '3px' }}>
-                <Loader width="100px" height="100px" loaderColor="blue" />
               </div>
-            )}
-            <div style={{ width: '80%' }} id="paypal-button"></div>
-          </div>
-        )}
+              <button
+                disabled={!stripe}
+                type="submit"
+                className="btn-red3"
+                id="fourthNext"
+              >
+                Start free trail
+              </button>
+            </form>
+          )}
+          {openTab == 1 && (
+            <div
+              style={{
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                paddingTop: '10px'
+              }}
+            >
+              {loading && (
+                <div style={{ pading: '3px' }}>
+                  <Loader width="100px" height="100px" loaderColor="blue" />
+                </div>
+              )}
+              <div style={{ width: '80%' }} id="paypal-button"></div>
+            </div>
+          )}
+        </div>
       </div>
       {/* FORM END */}
       <div className="security-cc">

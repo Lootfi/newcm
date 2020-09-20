@@ -32,26 +32,29 @@ export default function EmailEntry({
         email: state.email
       })
       .then((res) => {
-        console.log(res.data);
         if (res.data.status === 'valid') {
-          if (window.location.port === '')
+          if (window.location.port === '') {
             window.fbq('trackCustom', 'Captif', {
               content: 'Email_donne_sur_ContactMajor'
             });
+          }
           trackCustomEvent({
             category: 'funnel',
             action: 'step4_payment',
             label: 'Funnel - Etape 4 - Payment page'
           });
+
           setState({ ...state, emailValid: true });
           localStorage.setItem('email', res.data.email);
           setPageNum(3);
           // document.querySelector('.slide').style.marginLeft = '-42.84%';
         } else {
           setState({ ...state, emailValid: false });
+          errorsRef.current.style.color = 'red';
           if (res.data.errors) {
-            errorsRef.current.style.color = 'red';
             errorsRef.current.innerHTML = res.data.errors.email[0];
+          } else {
+            errorsRef.current.innerHTML = "L'email est invalid";
           }
         }
         setLoading(false);

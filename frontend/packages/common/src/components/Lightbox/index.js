@@ -12,6 +12,8 @@ import LightboxWrapper from './Lightbox.style';
 import Loader from '../Loader';
 import classNames from 'classnames';
 import axios from '../../axios';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 
 import Payment from './Payment';
 import SocialButtons from './SocialButtons';
@@ -288,12 +290,18 @@ const Lightbox = () => {
                   {/*  */}
 
                   {pageNum == 3 && (
-                    <Payment
-                      ccNumber={state.ccNumber}
-                      setPageNum={setPageNum}
-                      price={price}
-                      setPrice={setPrice}
-                    />
+                    <Elements
+                      stripe={loadStripe(
+                        'pk_test_51H3r6tGvxHsd96JzVpg8XK1ITL6WSuFdhTWt6PxcF7ekw9LR9Zidq2IVSbkE3ZwcO8zgk4w9wjFDXZpc7tvi0mOs00uCCEXVpL'
+                      )}
+                    >
+                      <Payment
+                        ccNumber={state.ccNumber}
+                        setPageNum={setPageNum}
+                        price={price}
+                        setPrice={setPrice}
+                      />
+                    </Elements>
                   )}
 
                   {/*  */}

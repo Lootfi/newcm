@@ -1,5 +1,13 @@
 import styled from 'styled-components';
 
+export const ClientHomeWrapper = styled.div`
+  padding-top: 160px;
+  background-color: black;
+  color: white;
+  height: 100vh;
+  text-align: center;
+`;
+
 export const PasswordResetWrapper = styled.div`
   padding-top: 160px;
   background-color: black;

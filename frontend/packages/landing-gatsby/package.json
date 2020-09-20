@@ -54,6 +54,7 @@
     "react-scrollspy": "^3.4.2",
     "react-social-login": "^3.4.9",
     "react-stickynode": "2.1.1",
+    "stripe": "^8.96.0",
     "styled-components": "^5.1.1",
     "styled-system": "5.1.5",
     "use-reducer-async": "^2.0.1"

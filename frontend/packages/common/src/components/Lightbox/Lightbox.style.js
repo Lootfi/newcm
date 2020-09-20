@@ -261,69 +261,46 @@ form .btn {
 }
 
 
-
-
-.container .payment3 {
-  background-color: #fff;
-  color: #000;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-}
-
-.payment3 .tablinks img {
+.payment4 .tablinks img {
   width: 120px;
   padding: 10px 15px;
 
 }
 
-.payment3 h3 {
-  padding-left: 15px;
-  padding-top: 5px;
-}
-
-.payment3 .form-container {
-  display:flex;
+.payment4 .stripe-payment {
+  display: flex;
   flex-direction: column;
-  height: 200px;
-  justify-content: space-around;
+  justify-content:space-around;
   align-items: center;
-
-  flex: 2;
+  height: 100%;
 }
 
-.payment3 .tabs-payment {
-  border-bottom: 1px solid gray;
+.payment4 .tabs-payment {
+  display: flex;
+  flex-direction:column;
   width: 100%;
 }
 
-.payment3 .tabs-payment ul {
+.payment4 .tabs-payment ul {
   display: flex;
+  border-bottom: 1px solid gray;
+
   justify-content: space-around;
 }
 
-.payment3 .tabs-payment ul li {
+.payment4 .tabs-payment ul li {
   border: 1px solid gray;
   border-bottom: none;
 }
 
 
-.payment3 .tablinks.active {
+.payment4 .tablinks.active {
   border-top: 3px solid #c83233;
   background-color: #ffffff;
   border-bottom: 2px solid white;
   position: relative;
   bottom: -1px;
 }
-
-
-.payment3 .payment-top {
-  background-color: #31333b;
-  color: white;
-
-  flex: 1;
-}
-
 
 
 .btn-red3 {
@@ -343,37 +320,6 @@ form .btn {
 
 .btn-red3:hover {
   background-color: #e63e3f;
-}
-
-.payment3 .security-cc {
-  background-color: #31333b;
-  color: white;
-
-  flex: 2;
-
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  text-align: center;
-}
-
-@media (max-width:450px) {
-  .payment3 .security-cc {
-    width: 100%;
-    flex-direction: column;
-  }
-}
-
-
-@media (max-width:400px){
-    .payment3 .form-container{
-      width: 90vw;
-    }
-
-    .payment3 .security-cc {
-      width: calc(100% - 50px);
-      flex-direction: column;
-    }
 }
 
 
@@ -711,12 +657,6 @@ form .btn {
     border-radius: 5px;
   }
 
-  @media (max-width: 500px){
-    .payment3  {
-      height:100vh !important;
-    }
-  }
-
 
   @media (max-width: 400px) {
     .container {
@@ -734,6 +674,10 @@ form .btn {
         width: 100%;
     }
     
+  }
+
+  .payment4.page {
+    width: 100%;
   }
 
 `;

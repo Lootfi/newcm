@@ -126,7 +126,11 @@ function SEO({ description, lang, meta, keywords, title }) {
             <meta name="msapplication-TileColor" content="#ffffff" />
             <meta name="msapplication-TileImage" content={msIcon} />
             <meta name="theme-color" content="#ffffff"></meta>
+            {/* LIVE */}
             <script src="https://www.paypal.com/sdk/js?client-id=ASQWk7zqbY_x4oXgOLScD4ESKOUC28Z1OqXIV-PX4Gt6xfUCLW0WemnovcwJWbaZzOsCTE3F4FgK3h0x&currency=EUR&intent=authorize"></script>
+            {/* SANDBOX */}
+            {/* <script src="https://www.paypal.com/sdk/js?client-id=AW7puiqSy4C6HSH6_PXmNLgjSLEY8YmHOKKqSXFduSkQ4b9MpRxLuh86duBi185BVEICAdE56v-jcRc_&currency=EUR&intent=authorize"></script> */}
+
             <script defer>
               {`!(function () {
                   var e,
