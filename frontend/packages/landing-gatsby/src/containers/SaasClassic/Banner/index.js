@@ -103,7 +103,7 @@ const BannerSection = ({
               content="Accès aux contacts de l'industrie musicale et les médias musique pour avoir les bonnes connexions pour booster votre carrière."
             />
             <Box {...buttonWrapper}>
-              <a href="#1">
+              <a href="#access">
                 <Button
                   {...fillButton}
                   title="ACCÉDEZ MAINTENANT"

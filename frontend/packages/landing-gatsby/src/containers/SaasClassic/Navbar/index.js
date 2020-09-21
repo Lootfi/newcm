@@ -64,7 +64,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
               offset={-70}
             />
 
-            <a href="#1" className="navbar_button">
+            <a href="#access" className="navbar_button">
               <Button
                 {...button}
                 title="ACCÉDEZ MAINTENANT"
@@ -84,7 +84,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
                 drawerClose={true}
                 offset={-100}
               />
-              <a href="#1" className="navbar_drawer_button">
+              <a href="#access" className="navbar_drawer_button">
                 <Button
                   {...button}
                   title="ACCÉDEZ MAINTENANT"

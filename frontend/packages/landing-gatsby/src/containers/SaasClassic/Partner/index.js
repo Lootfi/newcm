@@ -38,7 +38,7 @@ const PartnerSection = ({
               content="Entrez en contact avec les rédacteurs en chef, journalistes, personnes les plus influentes en France pour donner une nouvelle dimension à votre musique."
             />
             <Box>
-              <a href="#1">
+              <a href="#access">
                 <Button
                   {...button}
                   title="FAIRE AVANCER VOTRE CARRIÈRE"

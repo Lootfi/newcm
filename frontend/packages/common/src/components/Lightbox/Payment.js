@@ -24,6 +24,8 @@ function usePrevious(value) {
 const Payment = ({ ccNumber, setPageNum, price, setPrice }) => {
   const stripe = useStripe();
   const elements = useElements();
+  const stripeErrorsRef = React.useRef('');
+
   const [openTab, setOpenTab] = React.useState(1);
   const [loading, setLoading] = React.useState(false);
   const [clientSecret, setClientSecret] = React.useState(null);
@@ -143,12 +145,14 @@ const Payment = ({ ccNumber, setPageNum, price, setPrice }) => {
     // which would refresh the page.
     event.preventDefault();
 
+    stripeErrorsRef.current.innerHTML = '';
+
     if (!stripe || !elements) {
       // Stripe.js has not yet loaded.
       // Make sure to disable form submission until Stripe.js has loaded.
       return;
     }
-
+    setLoading(true);
     const result = await stripe.confirmCardSetup(clientSecret, {
       payment_method: {
         card: elements.getElement(CardElement)
@@ -158,6 +162,8 @@ const Payment = ({ ccNumber, setPageNum, price, setPrice }) => {
     if (result.error) {
       // Display result.error.message in your UI.
       console.log(result);
+      stripeErrorsRef.current.innerHTML = result.error.message;
+      setLoading(false);
     } else {
       // The setup has succeeded. Display a success message and send
       // result.setupIntent.payment_method to your server to save the
@@ -187,7 +193,8 @@ const Payment = ({ ccNumber, setPageNum, price, setPrice }) => {
           setLoading(false);
         })
         .catch((err) => {
-          console.log(err.data);
+          stripeErrorsRef.current.innerHTML = err.response.data;
+          setLoading(false);
         });
     }
   };
@@ -278,13 +285,17 @@ const Payment = ({ ccNumber, setPageNum, price, setPrice }) => {
                   }}
                 />
               </div>
+              <p
+                style={{ color: 'red', margin: '5px 0' }}
+                ref={stripeErrorsRef}
+              ></p>
               <button
                 disabled={!stripe}
                 type="submit"
                 className="btn-red3"
                 id="fourthNext"
               >
-                Start free trail
+                {loading ? <Loader /> : 'Start free trail'}
               </button>
             </form>
           )}
