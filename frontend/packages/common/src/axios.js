@@ -1,7 +1,7 @@
 import axios from 'axios';
 const port = typeof window !== 'undefined' ? window.location.port : '';
 
-const instance = axios.create({
+const axiosinstance = axios.create({
   baseURL: `${
     !port ? 'https://dashboard.contactmajor.com' : 'http://127.0.0.1:8001'
   }/api/front/`,
@@ -12,4 +12,4 @@ const instance = axios.create({
   }
 });
 
-export default instance;
+export default axiosinstance;

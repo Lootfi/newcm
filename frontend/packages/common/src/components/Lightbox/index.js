@@ -5,10 +5,6 @@ import Button from '../Button';
 import LoginModalWrapper from './loginModal.style';
 import LightboxWrapper from './Lightbox.style';
 
-/*
- * MY IMPORTS
- */
-
 import Loader from '../Loader';
 import classNames from 'classnames';
 import axios from '../../axios';
@@ -30,12 +26,6 @@ import EmailEntry from './Steps/EmailEntry';
 Modal.setAppElement('#___gatsby');
 
 const Lightbox = () => {
-  /*
-   *
-   *   MY CODE
-   *
-   *
-   */
   const {
     login: existant,
     handleOpenModal,
@@ -286,10 +276,6 @@ const Lightbox = () => {
                     />
                   )}
 
-                  {/*  */}
-                  {/* PAYMENT SLIDE */}
-                  {/*  */}
-
                   {pageNum == 3 && (
                     <Elements
                       stripe={loadStripe(
@@ -306,10 +292,6 @@ const Lightbox = () => {
                       />
                     </Elements>
                   )}
-
-                  {/*  */}
-                  {/* PAYMENT DONE SLIDE */}
-                  {/*  */}
 
                   {pageNum == 4 && (
                     <SetupProfile
