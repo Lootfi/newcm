@@ -61,6 +61,7 @@ const Lightbox = () => {
     spanName = document.getElementById('name-span');
     spanPassword = document.getElementById('password-span');
   }
+  const port = typeof window !== 'undefined' ? window.location.port : '';
 
   React.useEffect(() => {
     async function getPrice() {
@@ -292,7 +293,9 @@ const Lightbox = () => {
                   {pageNum == 3 && (
                     <Elements
                       stripe={loadStripe(
-                        'pk_test_51H3r6tGvxHsd96JzVpg8XK1ITL6WSuFdhTWt6PxcF7ekw9LR9Zidq2IVSbkE3ZwcO8zgk4w9wjFDXZpc7tvi0mOs00uCCEXVpL'
+                        port
+                          ? 'pk_test_51H3r6tGvxHsd96JzVpg8XK1ITL6WSuFdhTWt6PxcF7ekw9LR9Zidq2IVSbkE3ZwcO8zgk4w9wjFDXZpc7tvi0mOs00uCCEXVpL'
+                          : 'pk_live_51H3r6tGvxHsd96JzabSozUUEGZQYWIfrrE4o91ZLMDz1rMYlDMJR28TaUWInQZ5KUTNih2f1XNbAjH4Q4Fglpucy00sLqwRdZ5'
                       )}
                     >
                       <Payment
