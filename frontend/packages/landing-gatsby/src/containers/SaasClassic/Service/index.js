@@ -62,7 +62,7 @@ const ServiceSection = ({
           <Text {...secText} content="LA BASE DE CONTACTS MUSIQUE ULTIME" />
           <Heading
             {...secHeading}
-            content="+ 3.200 contacts dont vous avez besoin pour booster votre carrière"
+            content="+3.200 contacts dont vous avez besoin pour booster votre carrière"
           />
           <Text
             {...secDes}

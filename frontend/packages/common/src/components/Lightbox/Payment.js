@@ -60,7 +60,9 @@ const Payment = ({ ccNumber, setPageNum, price, setPrice }) => {
     axios
       .post('create-customer', { email: localStorage.getItem('email') })
       .then((res) => setClientSecret(res.data))
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        // console.log(err);
+      });
   }, []);
 
   React.useEffect(() => {
@@ -113,14 +115,11 @@ const Payment = ({ ccNumber, setPageNum, price, setPrice }) => {
                     setLoading(false);
                   })
                   .catch((err) => {
-                    console.log(
-                      'PAYPAL PAYMENT COMPLETE ERROR',
-                      err.response.data
-                    );
+                    // console.log(err.response.data);
                   });
               })
               .catch((err) => {
-                console.log(err);
+                // console.log(err);
               });
           },
           style: {
@@ -131,18 +130,7 @@ const Payment = ({ ccNumber, setPageNum, price, setPrice }) => {
     }
   }, [openTab]);
 
-  // React.useEffect(() => {
-  //   if (openTab === 1) {
-  //     setLoading(false);
-  //   }
-  //   return () => {
-  //     document.getElementById('paypal-button').innerHTML = '';
-  //   };
-  // }, [openTab]);
-
   const handleStripePay = async (event) => {
-    // We don't want to let default form submission happen here,
-    // which would refresh the page.
     event.preventDefault();
 
     stripeErrorsRef.current.innerHTML = '';
@@ -161,7 +149,6 @@ const Payment = ({ ccNumber, setPageNum, price, setPrice }) => {
 
     if (result.error) {
       // Display result.error.message in your UI.
-      console.log(result);
       stripeErrorsRef.current.innerHTML = result.error.message;
       setLoading(false);
     } else {
