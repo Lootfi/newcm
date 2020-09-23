@@ -89,7 +89,7 @@ export default function SetupProfile({ state, changeValue, price }) {
           <h4>
             <strong>Total facturé aujourd'hui: 0€</strong>
           </h4>
-          <h4>Facturé le 25 Jan: {price} €</h4>
+          <h4>Facturé aprés 24h: {price} €</h4>
           <hr className="hr-text" />
         </div>
         <p>

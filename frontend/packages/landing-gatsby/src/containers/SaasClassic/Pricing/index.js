@@ -56,18 +56,8 @@ const PricingSection = ({
     data: Data.saasClassicJson.MONTHLY_PRICING_TABLE,
     active: true
   });
-  const [price, setPrice] = useState(0);
 
   const { handleLightbox } = React.useContext(LightboxContext);
-
-  React.useEffect(() => {
-    axios
-      .get('price')
-      .then((res) => {
-        setPrice(res.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
 
   const data = state.data;
 
@@ -98,7 +88,7 @@ const PricingSection = ({
                       />
                     </PricingHead>
                     <PricingPrice>
-                      <Text content={`${price} €`} {...priceStyle} />
+                      <Text content={`85 €`} {...priceStyle} />
                       <Text
                         content={pricingTable.priceLabel}
                         {...priceLabelStyle}
