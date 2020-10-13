@@ -22,7 +22,8 @@ const LightboxWrapper = styled.div`
 .container .payment4 {
   background-color: #31333b !important;
   color: #ffffff;
-  height: 500px !important;
+  height: 570px !important;
+  width: 100% !important;
 }
 
 
@@ -49,7 +50,7 @@ const LightboxWrapper = styled.div`
 }
 
 .payment4 .payment-top {
-  padding: 20px 0 20px 20px;
+  padding: 15px 0 10px 20px;
 }
 
 .payment .payment-heading {
@@ -91,7 +92,7 @@ const LightboxWrapper = styled.div`
   padding-top: 10px;
   padding-bottom: 10px;
   position: relative;
-  height: 35%;
+  height: 45%;
 }
 
 
@@ -275,6 +276,32 @@ form .btn {
   height: 100%;
 }
 
+.payment4 .stripe_inputs_wrapper {
+  display:flex;
+}
+
+.payment4 .stripe_input {
+  background-color: transparent;
+border: none;
+display: block;
+font-family: sans-serif;
+margin: 10px 0;
+padding: 5px 5px;
+width: 100%;
+font-size: 1em;
+line-height: 1.2em;
+height: 1.5em;
+}
+
+.payment4 .stripe_input:focus {
+  border: none;
+}
+
+.payment4 .stripe_input::placeholder {
+  color:#aab7d3;
+  opacity: 1;
+}
+
 .payment4 .tabs-payment {
   display: flex;
   flex-direction:column;
@@ -291,6 +318,21 @@ form .btn {
 .payment4 .tabs-payment ul li {
   border: 1px solid gray;
   border-bottom: none;
+
+
+
+  padding: 10px;
+  width: 45%;
+  font-family: "Poppins", sans-serif;
+  background-color: transparent;
+  font-size: 15px;
+  float: left;
+  margin-right: 10px;
+  margin-left: 10px;
+  transition: 0.3s;
+  text-align: center;
+
+
 }
 
 

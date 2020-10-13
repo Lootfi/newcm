@@ -6,7 +6,7 @@ import {
   useStripe
 } from '@stripe/react-stripe-js';
 import PLogo from '../../assets/image/p-logo.png';
-import SLogo from '../../assets/image/stripe.png';
+import CCLogos from '../../assets/image/cc-logos.png';
 import classNames from 'classnames';
 import Lock from '../../assets/image/lock.png';
 import axios from '../../axios';
@@ -27,6 +27,10 @@ const Payment = ({ ccNumber, setPageNum, price, setPrice }) => {
   const stripeErrorsRef = React.useRef('');
 
   const [openTab, setOpenTab] = React.useState(1);
+  const [billingDetails, setBillingDetails] = React.useState({
+    name: '',
+    surname: ''
+  });
   const [loading, setLoading] = React.useState(false);
   const [clientSecret, setClientSecret] = React.useState(null);
   const prevOpenTab = usePrevious(openTab);
@@ -143,7 +147,10 @@ const Payment = ({ ccNumber, setPageNum, price, setPrice }) => {
     setLoading(true);
     const result = await stripe.confirmCardSetup(clientSecret, {
       payment_method: {
-        card: elements.getElement(CardElement)
+        card: elements.getElement(CardElement),
+        billing_details: {
+          name: `${billingDetails.surname.trim()} ${billingDetails.name.trim()}`
+        }
       }
     });
 
@@ -186,6 +193,12 @@ const Payment = ({ ccNumber, setPageNum, price, setPrice }) => {
     }
   };
 
+  function handleBillingChange(e) {
+    e.preventDefault();
+
+    setBillingDetails({ ...billingDetails, [e.target.name]: e.target.value });
+  }
+
   function openPaymentTab(tab) {
     setOpenTab(tab);
   }
@@ -227,7 +240,7 @@ const Payment = ({ ccNumber, setPageNum, price, setPrice }) => {
               id="defaultOpen"
               onClick={() => openPaymentTab(0)}
             >
-              <img src={SLogo} alt="CC logos" />
+              <img src={CCLogos} alt="CC logos" />
             </li>
             <li
               className={classNames('tablinks', openTab == 1 && 'active')}
@@ -246,13 +259,14 @@ const Payment = ({ ccNumber, setPageNum, price, setPrice }) => {
                 id="payment-cc"
                 className="tabcontent"
                 style={{
-                  width: '80%',
+                  width: '95%',
                   display: 'block',
                   justifyContent: 'center',
                   alignItems: 'center',
                   textAlign: 'center',
-                  position: 'relative',
-                  left: '20px'
+                  marginTop: '20px'
+                  // position: 'relative',
+                  // left: '20px'
                 }}
               >
                 <CardElement
@@ -271,6 +285,26 @@ const Payment = ({ ccNumber, setPageNum, price, setPrice }) => {
                     }
                   }}
                 />
+                <div className="stripe_inputs_wrapper">
+                  <input
+                    type="text"
+                    name="name"
+                    className="stripe_input"
+                    placeholder="Nom"
+                    required
+                    value={billingDetails.name}
+                    onChange={handleBillingChange}
+                  />
+                  <input
+                    type="text"
+                    className="stripe_input"
+                    name="surname"
+                    placeholder="Surnom"
+                    required
+                    value={billingDetails.surname}
+                    onChange={handleBillingChange}
+                  />
+                </div>
               </div>
               <p
                 style={{ color: 'red', margin: '5px 0' }}
@@ -290,6 +324,7 @@ const Payment = ({ ccNumber, setPageNum, price, setPrice }) => {
             <div
               style={{
                 width: '100%',
+                height: '100%',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
